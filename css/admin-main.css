@@ -1,0 +1,29 @@
+.search {
+    margin: 20px;
+}
+
+.chosen-select {
+    width: 120px;
+    outline: none;
+}
+
+.chosen-container{
+    margin: 0 5px !important;
+}
+.chosen-container a {
+    color: #888888 !important;
+    border: 1px solid #CCCCCC !important;
+    padding-top: 5px !important;
+    height: 35px !important;
+    border-radius: 3px !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+}
+
+.chosen-container a:hover {
+    border: 1px solid #BBBBBB !important;
+}
+
+.chosen-container li:hover, .chosen-container .highlighted {
+    background: #4A8BEE !important;
+}

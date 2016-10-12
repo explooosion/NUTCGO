@@ -8,12 +8,14 @@ $(window).ready(function () {
     }, function () {
         $('.navbar .line').css('background', '#B1B3B6');
     }).click(function () {
+
+        let conWidth = $('.container').width() + 220;
+
         $('.container').animate({
-            left: 0
+            left: 0,
+            width: conWidth
         }, 100);
-        $('.container .head').animate({
-            'padding-right': 0
-        });
+
         $('.navbar').animate({
             left: '-220px'
         }, 100, function () {
@@ -24,7 +26,13 @@ $(window).ready(function () {
 
 
     $('.container .control').click(function () {
-        $('.container').animate({ left: 220 }, 100);
+
+        let conWidth = $('.container').width() - 220;
+
+        $('.container').animate({
+            left: 220,
+            width: conWidth
+        }, 100);
         $('.navbar').animate({ left: '0px' }, 100, function () {
             $('.navbar').show();
             $('.container .control').hide();
@@ -34,6 +42,13 @@ $(window).ready(function () {
     // nav item color
     $('.nav-item').click(function () {
         $('.nav-item').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+
+    // build nav item color
+    $('.slide a').click(function () {
+        $('.slide a').removeClass('selected');
         $(this).addClass('selected');
     });
 

@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-
 * {
     font-family: 'Noto Sans TC', sans-serif;
 }
@@ -15,29 +14,30 @@ body {
     padding: 0;
 }
 
+
 /* navbar */
-.navbar{
+
+.navbar {
     width: 220px;
     position: absolute;
     background: #3D454D;
 }
 
-.navbar .title{
+.navbar .title {
     height: 50px;
 }
 
-.navbar .title .control{
+.navbar .title .control {
     position: absolute;
     top: 16px;
     left: 22px;
 }
 
-.navbar .title .control:hover{
+.navbar .title .control:hover {
     cursor: pointer;
 }
 
-
-.navbar .title .control .line{
+.navbar .title .control .line {
     height: 3px;
     background: #B1B3B6;
     width: 16px;
@@ -46,56 +46,59 @@ body {
     -webkit-transition: background .2s;
 }
 
-.navbar .nav{
+.navbar .nav {
     margin: 0;
     padding: 0;
 }
 
-.navbar .nav .nav-item{
+.navbar .nav .nav-item {
     height: 30px;
-    padding:8px 24px;
+    padding: 8px 24px;
     color: #B1B3B6;
     font-size: 14px;
     text-decoration: none;
     display: block;
 }
 
-.navbar .nav .nav-item:hover{
+.navbar .nav .nav-item:hover {
     background: #383F45;
 }
-.navbar .nav .selected{
+
+.navbar .nav .selected {
     background: #383F45;
     color: #FFF;
 }
 
 
 /* container */
-.container{
+
+.container {
     position: absolute;
     left: 220px;
-    width: 100%;
+    width: calc(100% - 220px);
+    height: 100%;
 }
 
-.container .head{
+.container .head {
     height: 50px;
-
     background: #FAFAFA;
     border-bottom: 1.5px solid #DADADA;
 }
 
-.container .control{
-    margin: 5px 0 0 5px;
+.container .head .control {
+    position: absolute;
+    margin: 2px 0 0 5px;
     padding: 10px;
     float: left;
     display: none;
 }
 
-.container .control:hover{
+.container .head .control:hover {
     cursor: pointer;
     background: #EEEEEE;
 }
 
-.container .control .line{
+.container .head .control .line {
     height: 3px;
     background: #666666;
     width: 16px;
@@ -104,33 +107,123 @@ body {
     -webkit-transition: background .2s;
 }
 
-.container .head .title{
-    margin: 10px 0 0 20px;
+.container .head .title {
+    position: absolute;
+    left: 30px;
+    margin: 6px 0 0 20px;
     padding: 0;
     float: left;
     color: #666666;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-
-.slide{
-    width: 100%;
-    border-bottom: 1px solid #DDDDDD;
-}
-.slide .slide-nav{
-    margin: 0;
-    padding: 0;
-    list-style-type: none; 
+.container .head .logo {
+    margin: 8px auto;
+    width: 40px;
 }
 
-.slide .slide-nav li{
+.container .head .logo img {
     float: left;
 }
 
-.slide .slide-nav li a{
-    display: inline-block;
-    padding: 4px 8px;
-    height: 30px;
+.container .head .info {
+    padding: 0 20px;
+    float: right;
 }
 
+.container .head .info .info-item {
+    margin: 5px;
+}
+
+.slide {
+    margin: 20px;
+}
+
+.slide .slide-nav {
+    height: 30px;
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.slide .slide-nav li {
+    float: left;
+}
+
+.slide .slide-nav li a {
+    display: block;
+    padding: 4px 8px;
+    margin: 0;
+    height: 30px;
+    text-decoration: none;
+    color: #AAAAAA;
+}
+
+.slide .slide-nav .selected {
+    color: #666666;
+    border-bottom: 2px solid #4A8BEE;
+}
+
+.slide .slide-nav li a:hover {
+    color: #666666;
+}
+
+.row {
+    margin: 10px 20px;
+}
+
+.btn {
+    outline: none;
+    cursor: pointer;
+    color: #FFF;
+    border-radius: 3px;
+    border: 0;
+    box-shadow: none;
+}
+
+.btn-sm {
+    height: 33px;
+    width: 60px;
+}
+
+.btn-lg {
+    height: 33px;
+    width: 100px;
+}
+
+.btn-green {
+    background: #38AE67;
+}
+
+.btn-green:hover {
+    background: #2FAA60;
+}
+
+.btn-green:active {
+    background: #2CA05B;
+    box-shadow: 0 0 10px #289354 inset;
+}
+
+.text {
+    height: 20px;
+    padding: 6px 10px;
+    margin: 4px 10px;
+    color: #666666;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    outline: none;
+}
+
+.text:focus {
+    box-shadow: 0px 0px 10px 5px #CCCCCC;
+    border: 1px solid #BBBBBB;
+}
+
+.text-lg {
+    width: 200px;
+}
+
+.text-sm {
+    width: 120px;
+}
