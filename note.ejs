@@ -1,0 +1,62 @@
+<nav class="navbar">
+	<div class="title">
+		<div class="control">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+	</div>
+
+
+	<ul class="nav">
+		
+       <% 
+       let navItem = ({
+            building : ({
+                name: '建物資訊',
+                url: '/building'
+            }),
+            art : ({
+                name: '藝術雕像',
+                url: '/art'
+            }),
+            admin : ({
+                name: '行政單位',
+                url: '/admin'
+            }),
+            traffic : ({
+                name: '交通規劃',
+                url: '/traffic'
+            }),
+            sport : ({
+                name: '運動休憩',
+                url: '/sport'
+            }),
+            map : ({
+                name: '地圖定位',
+                url: '/map'
+            }),
+            room : ({
+                name: '校園入口',
+                url: '/room'
+            })
+        })
+       
+       for(let i in navItem){ 
+            let cls='nav-item';
+            if(key == navItem[i].url.replace('/','')){
+                cls = 'nav-item selected';
+            } %>
+			<li><a class="<%= cls %>" href="<%= navItem[i].url %>"><%= navItem[i].name %></a></li>
+		<% } %>
+	</ul>
+</nav>
+
+<!--
+    <li><a class="nav-item" href="/building">建物資訊</a></li>
+        <li><a class="nav-item" href="/art">藝術雕像</a></li>
+        <li><a class="nav-item" href="/admin">行政單位</a></li>
+        <li><a class="nav-item" href="/traffic">交通規劃</a></li>
+        <li><a class="nav-item" href="/sport">運動休憩</a></li>
+        <li><a class="nav-item" href="/map">地圖定位</a></li>
+        <li><a class="nav-item" href="/room">校園入口</a></li>-->

@@ -1,0 +1,44 @@
+{
+    "building": [
+        {
+            "name": "建物資訊",
+            "url": "/building"
+        }
+    ],
+    "art": [
+        {
+            "name": "藝術雕像",
+            "url": "/art"
+        }
+    ],
+    "admin": [
+        {
+            "name": "行政單位",
+            "url": "/admin"
+        }
+    ],
+    "traffic": [
+        {
+            "name": "交通規劃",
+            "url": "/traffic"
+        }
+    ],
+    "sport": [
+        {
+            "name": "運動休憩",
+            "url": "/sport"
+        }
+    ],
+    "map": [
+        {
+            "name": "地圖定位",
+            "url": "/map"
+        }
+    ],
+    "room": [
+        {
+            "name": "校園入口",
+            "url": "/room"
+        }
+    ]
+}
