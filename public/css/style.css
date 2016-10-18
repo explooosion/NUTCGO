@@ -6,7 +6,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .wrapper {
@@ -19,7 +19,7 @@ body {
 
 .navbar {
     width: 220px;
-    position: absolute;
+    position: fixed;
     background: #3D454D;
 }
 
@@ -136,6 +136,20 @@ body {
     margin: 5px;
 }
 
+.content {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: #888888;
+}
+
 .slide {
     margin: 20px;
 }
@@ -226,4 +240,11 @@ body {
 
 .text-sm {
     width: 120px;
+}
+
+.clear {
+    height: 1px;
+    background: #DDDDDD;
+    width: 100%;
+    margin: 5px 0;
 }

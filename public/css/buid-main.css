@@ -1,3 +1,40 @@
 .login {
     float: right;
 }
+
+.photo-slider {
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin: 30px auto;
+}
+
+.photo-slider .photo-text {
+    float: left;
+    width: 40%;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.photo-slider .photo-img {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.photo-slider .photo-img img {
+    cursor: pointer;
+    width: 90%;
+}
+
+.photo-slider .photo-text h3 {
+    color: #444444;
+}
+
+.photo-slider .photo-text p {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+}
