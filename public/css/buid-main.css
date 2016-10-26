@@ -9,6 +9,10 @@
     margin: 30px auto;
 }
 
+.photo-group {
+
+}
+
 .photo-slider .photo-text {
     float: left;
     width: 40%;
@@ -23,6 +27,7 @@
 }
 
 .photo-slider .photo-img img {
+    margin: 20px 0;
     cursor: pointer;
     width: 90%;
 }

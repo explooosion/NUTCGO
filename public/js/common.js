@@ -33,7 +33,9 @@ $(window).ready(function () {
             left: 220,
             width: conWidth
         }, 100);
-        $('.navbar').animate({ left: '0px' }, 100, function () {
+        $('.navbar').animate({
+            left: '0px'
+        }, 100, function () {
             $('.navbar').show();
             $('.container .control').hide();
         });
@@ -50,6 +52,21 @@ $(window).ready(function () {
     $('.slide a').click(function () {
         $('.slide a').removeClass('selected');
         $(this).addClass('selected');
+    });
+
+    $(window).scroll(function () {
+        var scrollVal = $(this).scrollTop();
+        if (scrollVal > 100) {
+            $('.gotop').fadeIn();
+        } else {
+            $('.gotop').fadeOut();
+        }
+    });
+
+    $('.gotop').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 'slow');
     });
 
 });

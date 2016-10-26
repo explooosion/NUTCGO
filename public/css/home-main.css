@@ -1,0 +1,16 @@
+.home-box {
+    float: left;
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+.home-box img {
+    margin: 15px;
+    cursor: pointer;
+    width: 80%;
+    opacity: .8;
+}
+
+.home-box img:hover {
+    opacity: 1;
+}

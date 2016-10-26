@@ -5,9 +5,11 @@ var navItem = require('../db/navItem.json');
  
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('index', { title: '首頁', key: 'home', navItem: navItem });
+});
 
- 
-  res.render('index', { title: '建物資訊', key: 'building', navItem: navItem });
+router.get('/home', function(req, res, next) {
+  res.render('index', { title: '首頁', key: 'home', navItem: navItem });
 });
 
 router.get('/building', function(req, res, next) {

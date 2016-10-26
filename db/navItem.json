@@ -1,4 +1,10 @@
 {
+    "home": [
+        {
+            "name": "首頁",
+            "url": "/home"
+        }
+    ],
     "building": [
         {
             "name": "建物資訊",
