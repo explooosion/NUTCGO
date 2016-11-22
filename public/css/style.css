@@ -207,15 +207,15 @@ body {
 }
 
 .btn-green {
-    background: #38AE67;
+    background: #1ABC9C;
 }
 
 .btn-green:hover {
-    background: #2FAA60;
+    background: #17A88B;
 }
 
 .btn-green:active {
-    background: #2CA05B;
+    background: #159A7F;
     box-shadow: 0 0 10px #289354 inset;
 }
 
@@ -258,4 +258,71 @@ body {
     cursor: pointer;
     display: none;
     background: url('../img/gotop.png') no-repeat;
+}
+
+.login-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(100, 100, 100, .9);
+    z-index: 1;
+    display: none;
+}
+
+.login-modal .login-form {
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    height: 300px;
+    width: 400px;
+    background: #E3E2E0;
+    z-index: 2;
+}
+
+.login-modal .login-form h2 {
+    color: #1ABC9C;
+    text-align: center;
+}
+
+.login-modal .login-form .login-row {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.login-modal .login-form input {
+    height: 28px;
+    width: 240px;
+    padding: 4px 8px;
+}
+
+.login-modal .login-form button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #1ABC9C;
+    color: #FFF;
+    border: none;
+    border-bottom: 5px solid #17A88B;
+    outline: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.login-modal .login-form button:hover {
+    background: #17A88B;
+}
+
+.login-modal .login-form .login-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all .2s;
+}
+
+.login-modal .login-form .login-close:hover {
+    -ms-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
 }

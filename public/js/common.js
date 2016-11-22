@@ -69,6 +69,7 @@ $(window).ready(function () {
         }, 'slow');
     });
 
+
 });
 
 $(window).resize(function () {
@@ -79,4 +80,13 @@ $(window).resize(function () {
 function initialize() {
     let h = $(window).height();
     $('.navbar').height(h);
+}
+
+
+function Login() {
+    $('.login-modal').fadeIn(200);
+}
+
+function LoginClose() {
+    $('.login-modal').fadeOut(200);
 }
