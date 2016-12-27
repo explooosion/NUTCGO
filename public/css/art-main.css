@@ -1,0 +1,69 @@
+#photo-art .photo-slider {
+    display: none;
+}
+
+.photo-box img {
+    width: calc( 100% / 3 - 15px);
+    float: left;
+    margin: 5px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.photo-box img:hover {
+    opacity: .8;
+}
+
+.photo-form {
+    position: fixed;
+    left: 20%;
+    top: 12%;
+    background: #383F45;
+    border: 10px solid #383F45;
+    border-radius: 3px;
+    width: 800px;
+    height: 500px;
+    display: none;
+}
+
+.photo-form .photo-title {
+    height: 40px;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.photo-form .photo-title label {
+    font-size: 22px;
+    float: left;
+    color: #FFF;
+}
+
+.photo-form .photo-title .photo-control {
+    float: right;
+    color: #EEE;
+    background: #222;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: .5s all;
+    padding-top: 2px;
+}
+
+.photo-form .photo-title .photo-control:hover {
+    color: #FFF;
+    transform: rotate(180deg);
+}
+
+.photo-form .photo-main {
+    height: 460px;
+}
+
+.photo-form .photo-main img {
+    width: 100%;
+    height: 100%;
+}

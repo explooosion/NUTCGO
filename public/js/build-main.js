@@ -1,4 +1,4 @@
-$('.slide-nav a').click(function () {
+$('#slide-build a').click(function () {
 
     let _id = '#' + $(this).attr('scroll') + ' img';
     let scroll = $(_id).offset().top;

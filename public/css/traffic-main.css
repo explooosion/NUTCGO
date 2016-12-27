@@ -1,0 +1,38 @@
+.traffic-content {
+    margin: 0 20px;
+}
+
+.traffic-content .traffic-group {
+    margin: 20px;
+    border: 1px solid #55D6BE;
+    border-radius: 5px;
+}
+
+.traffic-content .traffic-group h3 {
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+    padding-top: 5px;
+    color: #FFF;
+}
+
+.traffic-content .traffic-group .traffic-title {
+    height: 40px;
+    background: #55D6BE;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.traffic-content .traffic-group .traffic-title:hover {
+    background: #4CBFAA;
+}
+
+.traffic-content .traffic-group .traffic-container {
+    margin: 0 20px;
+    color: #888;
+    overflow: hidden;
+}
+
+.traffic-content .traffic-group .traffic-container ul {
+    list-style-type: decimal;
+}
