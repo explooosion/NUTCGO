@@ -110,7 +110,7 @@ body {
 .container .head .title {
     position: absolute;
     left: 30px;
-    margin: 6px 0 0 20px;
+    margin: 8px 0 0 20px;
     padding: 0;
     float: left;
     color: #666666;
@@ -119,12 +119,21 @@ body {
 }
 
 .container .head .logo {
-    margin: 8px auto;
+    margin: auto;
+    padding-top: 4px;
     width: 40px;
 }
 
 .container .head .logo img {
     float: left;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.container .head .logo img:hover {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 
 .container .head .info {
@@ -142,12 +151,12 @@ body {
 
 .footer {
     width: 100%;
-    margin: 40px 0 20px 0;
+    margin: 100px 0 20px 0;
     text-align: center;
 }
 
 .footer p {
-    color: #888888;
+    color: #666666;
 }
 
 .slide {

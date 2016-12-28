@@ -1,0 +1,20 @@
+#sliderFrame {
+    width: 90% !important;
+    padding-top: 50px !important;
+    margin-top: 40px !important;
+    padding-right: 0 !important;
+}
+
+#slider, #slider .sliderInner {
+    width: 700px !important;
+    height: 455px !important;
+}
+
+#sliderFrame #thumbs {
+    width: 25%;
+    margin-left: 30px;
+}
+
+.mc-caption {
+    top: -45px !important;
+}
