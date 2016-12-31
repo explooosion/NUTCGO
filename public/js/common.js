@@ -85,8 +85,15 @@ function initialize() {
 
 function Login() {
     $('.login-modal').fadeIn(200);
+    $('.login-modal .login-form input[type=text]').focus();
 }
 
+
+function LoginIn(){
+    alert('Your Login!');
+    location.href = '/';
+}
 function LoginClose() {
     $('.login-modal').fadeOut(200);
 }
+

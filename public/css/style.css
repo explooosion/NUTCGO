@@ -151,6 +151,7 @@ body {
 
 .footer {
     width: 100%;
+    display: table;
     margin: 100px 0 20px 0;
     text-align: center;
 }
@@ -281,7 +282,7 @@ body {
 .login-modal .login-form {
     position: fixed;
     top: 10%;
-    left: 35%;
+    left: 40%;
     height: 300px;
     width: 400px;
     background: #E3E2E0;
@@ -319,7 +320,8 @@ body {
     transition: all .2s;
 }
 
-.login-modal .login-form button:hover {
+.login-modal .login-form button:hover,
+.login-modal .login-form button:focus {
     background: #17A88B;
 }
 
