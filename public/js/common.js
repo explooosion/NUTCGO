@@ -1,6 +1,10 @@
 $(window).ready(function () {
 
+    // Initialize
     initialize();
+
+    // Check Login
+    CheckLogin();
 
     // nav control color - close
     $('.navbar .control').hover(function () {
@@ -82,6 +86,22 @@ function initialize() {
     $('.navbar').height(h);
 }
 
+function CheckLogin() {
+
+    $('#btnFrmLogOut').hide();
+    $('#btnFrmLogIn').hide();
+
+    let isLogin = JSON.parse(GetCookie('account'));
+    console.log(isLogin);
+    if (!isLogin) {
+        $('#btnFrmLogIn').show(); // 登入按鈕
+        $('.nav li:last-child').hide(); // 會員中心
+    } else {
+        // alreay login
+        $('#lbUserName').text('Hello, ' + isLogin["UserName"]);
+        $('#btnFrmLogOut').show();
+    }
+}
 
 function Login() {
     $('.login-modal').fadeIn(200);
@@ -89,11 +109,43 @@ function Login() {
 }
 
 
-function LoginIn(){
-    alert('Your Login!');
-    location.href = '/';
+function LoginIn() {
+
+    let id = $('#txtUserId').val();
+    let pwd = $('#txtPWD').val();
+    if (id == "" || pwd == "") {
+        alert('帳號密碼請勿留白!');
+        return;
+    }
+
+    $.ajax({
+        url: 'http://localhost:8080/CampusGuide/api/login/',
+        type: 'POST',
+        data: {
+            'UserID': id,
+            'UserPWD': pwd
+        },
+        error: function (xhr) {
+            alert('ajax error');
+            location.href = "/";
+        },
+        success: function (response) {
+            if (response["UserName"] == '') {
+                alert('帳號或密碼錯誤!');
+            } else {
+                SaveCookie(response);
+                location.href = "/";
+            }
+        }
+    });
+
 }
+
+function Logout() {
+    DelCookie('account');
+    location.href = "/";
+}
+
 function LoginClose() {
     $('.login-modal').fadeOut(200);
 }
-

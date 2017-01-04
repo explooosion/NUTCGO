@@ -46,5 +46,11 @@
             "name": "校園入口",
             "url": "/room"
         }
+    ],
+    "account": [
+        {
+            "name": "會員中心",
+            "url": "/account"
+        }
     ]
 }

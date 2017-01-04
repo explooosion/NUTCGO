@@ -124,6 +124,10 @@ body {
     width: 40px;
 }
 
+.container .head label {
+    color: #666666;
+}
+
 .container .head .logo img {
     float: left;
     cursor: pointer;
@@ -303,6 +307,7 @@ body {
     height: 28px;
     width: 240px;
     padding: 4px 8px;
+    font-size: 18px;
 }
 
 .login-modal .login-form button {
@@ -318,11 +323,17 @@ body {
     outline: none;
     cursor: pointer;
     transition: all .2s;
+    font-size: 20px;
 }
 
-.login-modal .login-form button:hover,
-.login-modal .login-form button:focus {
+.login-modal .login-form button:hover {
     background: #17A88B;
+}
+
+.login-modal .login-form button:focus,
+.login-modal .login-form button:active {
+    background: #17A88B;
+    cursor: wait;
 }
 
 .login-modal .login-form .login-close {

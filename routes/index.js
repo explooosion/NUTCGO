@@ -40,4 +40,8 @@ router.get('/room', function(req, res, next) {
   res.render('index', { title: '校園入口', key: 'room', navItem: navItem });
 });
 
+router.get('/account', function(req, res, next) {
+  res.render('index', { title: '會員中心', key: 'account', navItem: navItem });
+});
+
 module.exports = router;
