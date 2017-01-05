@@ -119,23 +119,28 @@ function LoginIn() {
     }
 
     $.ajax({
-        url: 'http://localhost:8080/CampusGuide/api/login/',
+        url: 'http://localhost/api/images/',
         type: 'POST',
         data: {
-            'UserID': id,
-            'UserPWD': pwd
+            'id': 1
         },
         error: function (xhr) {
-            alert('ajax error');
-            location.href = "/";
+            console.log('no');
+            console.log(xhr);
+
+            //console.log(xhr);
+            //location.href = "/";
         },
         success: function (response) {
-            if (response["UserName"] == '') {
+            console.log('ok');
+            console.log(response);
+
+            /*if (response["UserName"] == '') {
                 alert('帳號或密碼錯誤!');
             } else {
                 SaveCookie(response);
                 location.href = "/";
-            }
+            }*/
         }
     });
 
