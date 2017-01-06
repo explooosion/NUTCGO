@@ -5,22 +5,68 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $(function () {
 
-    dialog = $("#dialogMarker").dialog({
+    dialogMarker = $("#dialogMarker").dialog({
         autoOpen: false,
         height: 360,
         width: 350,
-        position: { my: 'center-500', at: 'top+350' },
+        position: {
+            my: 'center-500',
+            at: 'top+350'
+        },
         //modal: true, //至頂
         buttons: {
             "儲存": MarkerSave,
             "取消": function () {
-                dialog.dialog("close");
+                dialogMarker.dialog("close");
             },
         }
     });
 
+    dialogMarkerTree = $("#dialogMarkerTree").dialog({
+        autoOpen: true,
+        height: 360,
+        width: 350,
+        position: {
+            my: 'center-500',
+            at: 'top+350'
+        },
+    });
+
+    var data1 = [{
+        "id": "W",
+        "text": "World",
+        "state": {
+            "opened": true
+        },
+        "children": [{
+            "text": "Asia"
+        }, {
+            "text": "Africa"
+        }, {
+            "text": "Europe",
+            "state": {
+                "opened": false
+            },
+            "children": ["France", "Germany", "UK"]
+        }]
+    }];
+
+
+    $('#jstree_demo_div').jstree({
+        core: {
+            data: data1,
+            check_callback: false
+        },
+        checkbox: {
+            three_state: false, // to avoid that fact that checking a node also check others
+            whole_node: false, // to avoid checking the box just clicking the node 
+            tie_selection: false // for checking without selecting and selecting without checking
+        },
+        plugins: ['checkbox']
+    });
+
     $('#btnMarkerAdd').click(function () {
-        dialog.dialog("open");
+        dialogMarker.dialog("open");
     });
 
     $('#btnMarkerDraw').click(function () {
@@ -131,7 +177,7 @@ function MarkerKeySearch() {
                 lng: response.MarkerLng
             };
             addMarker(marker);
-            
+
         }
     });
 }
@@ -150,7 +196,7 @@ function initMap() {
     };
 
     map = new google.maps.Map(document.getElementById('gmap'), {
-        zoom: 18,
+        zoom: 17,
         center: defaultMarker,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
