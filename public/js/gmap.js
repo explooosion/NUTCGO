@@ -1,41 +1,146 @@
 var map;
 var markers = [];
-
+var dialog;
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function initialize() {
-    initMap();
-}
+$(function () {
 
-function findMarker() {
+    dialog = $("#dialogMarker").dialog({
+        autoOpen: false,
+        height: 360,
+        width: 350,
+        position: { my: 'center-500', at: 'top+350' },
+        //modal: true, //至頂
+        buttons: {
+            "儲存": MarkerSave,
+            "取消": function () {
+                dialog.dialog("close");
+            },
+        }
+    });
 
-    var txtMapValue = document.getElementById('txtMapValue').value;
-    var marker = null;
+    $('#btnMarkerAdd').click(function () {
+        dialog.dialog("open");
+    });
 
-    switch (txtMapValue) {
-        case ('1'):
-            marker = {
-                lat: 24.1501536,
-                lng: 120.6840641
-            };
-            break;
-        case ('2'):
-            marker = {
-                lat: 24.1502536,
-                lng: 120.6860641
-            };
-            break;
+    $('#btnMarkerDraw').click(function () {
+
+        $('#frmMarkerAdd')[0].reset();
+        deleteMarkers();
+
+        map.addListener('click', function (event) {
+
+            addMarker(event.latLng);
+            $('#txtMarkerLat').val(event.latLng.lat());
+            $('#txtMarkerLng').val(event.latLng.lng());
+
+            // remove listener
+            google.maps.event.clearListeners(map, 'click');
+        });
+    });
+
+});
+
+
+function MarkerSave() {
+
+    let name = $('#txtMarkerName').val();
+    let lat = $('#txtMarkerLat').val();
+    let lng = $('#txtMarkerLng').val();
+
+    if (name == '' || lat == '' || lng == '') {
+        alert('請確認欄位是否完整');
+        return;
     }
 
-    addMarker(marker);
+    let comfirm = confirm("確定是否保存?");
+
+    $.ajax({
+        url: 'http://localhost/api/map/' + name,
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+
+            if (response != '') {
+                alert('點位已存在');
+            } else {
+
+                if (comfirm == true) {
+                    $.ajax({
+                        url: 'http://localhost/api/mapadd/',
+                        type: 'POST',
+                        data: {
+                            'name': name,
+                            'lat': lat,
+                            'lng': lng
+                        },
+                        error: function (xhr) {
+                            console.log('ajax-error');
+                            console.log(xhr);
+                            alert('ajax發生錯誤');
+                        },
+                        success: function (response) {
+                            console.log('ajax-ok');
+                            console.log(response);
+                            alert('點位新增成功');
+                        }
+                    });
+                } // end if
+
+            } // end if
+
+        }
+    });
+
+
+
 }
 
-function doorMarker() {
-    var marker = {
-        lat: 24.1501536,
-        lng: 120.6840641
-    };
-    addMarker(marker);
+
+function MarkerKeySearch() {
+
+    let key = $('#txtMapValue').val();
+    if (key == '') {
+        alert('請確認輸入之關鍵字');
+        return;
+    }
+    $.ajax({
+        url: 'http://localhost/api/map/' + key,
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+
+            if (response == '') {
+                alert('查無此點');
+                return;
+            }
+            var marker = {
+                lat: response.MarkerLat,
+                lng: response.MarkerLng
+            };
+            addMarker(marker);
+            
+        }
+    });
+}
+
+
+
+/* google map api , do not edit */
+function initialize() {
+    initMap();
 }
 
 function initMap() {
@@ -45,21 +150,13 @@ function initMap() {
     };
 
     map = new google.maps.Map(document.getElementById('gmap'), {
-        zoom: 17,
+        zoom: 18,
         center: defaultMarker,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    // This event listener will call addMarker() when the map is clicked.
-    //map.addListener('click', function (event) {
-    //    addMarker(event.latLng);
-    //});
-
-    // Adds a marker at the center of the map.
-    addMarker(defaultMarker);
 }
 
-// Adds a marker to the map and push to the array.
 function addMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
@@ -68,25 +165,22 @@ function addMarker(location) {
     markers.push(marker);
 }
 
-// Sets the map on all markers in the array.
 function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
 }
 
-// Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
     setMapOnAll(null);
 }
 
-// Shows any markers currently in the array.
 function showMarkers() {
     setMapOnAll(map);
 }
 
-// Deletes all markers in the array by removing references to them.
 function deleteMarkers() {
     clearMarkers();
     markers = [];
 }
+/**********/

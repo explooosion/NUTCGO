@@ -111,36 +111,34 @@ function Login() {
 
 function LoginIn() {
 
-    let id = $('#txtUserId').val();
-    let pwd = $('#txtPWD').val();
-    if (id == "" || pwd == "") {
+    let userid = $('#txtUserId').val();
+    let passwd = $('#txtPWD').val();
+    if (userid == "" || passwd == "") {
         alert('帳號密碼請勿留白!');
         return;
     }
 
     $.ajax({
-        url: 'http://localhost/api/images/',
+        url: 'http://localhost/api/login/',
         type: 'POST',
         data: {
-            'id': 1
+            'userid': userid,
+            'passwd': passwd
         },
         error: function (xhr) {
-            console.log('no');
+            console.log('ajax-error');
             console.log(xhr);
-
-            //console.log(xhr);
-            //location.href = "/";
+            alert('ajax發生錯誤');
         },
         success: function (response) {
-            console.log('ok');
-            console.log(response);
-
-            /*if (response["UserName"] == '') {
+            console.log('ajax-ok');
+            if (typeof response["UserName"] == 'undefined') {
                 alert('帳號或密碼錯誤!');
             } else {
+                console.log(response);
                 SaveCookie(response);
                 location.href = "/";
-            }*/
+            }
         }
     });
 

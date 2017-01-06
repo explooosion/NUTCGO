@@ -1,10 +1,31 @@
 <div class="row">
     <input id="txtMapValue" type="text" value="" placeholder="輸入教室代號或關鍵字" class="text text-lg">
-    <button type="button" class="btn btn-lg btn-green" onclick="findMarker();">尋找</button>
+    <button type="button" class="btn btn-lg btn-green" onclick="MarkerKeySearch();">尋找</button>
     <button type="button" class="btn btn-lg btn-green" onclick="initMap();">重置</button>
     <button type="button" class="btn btn-lg btn-green" onclick="deleteMarkers();">清除</button>
-    <button type="button" class="btn btn-lg btn-green" onclick="doorMarker();">校門口</button>
+    <button id="btnMarkerAdd" type="button" class="btn btn-lg btn-green">新增</button>
 </div>
 <div class="row">
     <div id="gmap" class="map"></div>
+</div>
+<div id="dialogMarker" title="點位編輯">
+    <div class="row">
+        <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">畫點</button>
+    </div> 
+    <table class="tbMarkerAdd">
+        <tr>
+            <th>點名稱</th>
+            <td><input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號"></td>
+        </tr>
+        <form id="frmMarkerAdd">
+        <tr>
+            <th>Lat</th>
+            <td><input type="text" id="txtMarkerLat" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        <tr>
+            <th>Lng</th>
+            <td><input type="text" id="txtMarkerLng" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        </form>
+    </table>
 </div>

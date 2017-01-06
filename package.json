@@ -16,6 +16,7 @@
     "express": "~4.13.4",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "forever": "~0.15.2"
+    "forever": "~0.15.2",
+    "mssql": "~3.3.0"
   }
 }
