@@ -3,6 +3,9 @@
     height: calc(100vh - 150px);
 }
 
+#txtMapValue{
+    font-size: 16px;
+}
 
 #dialogMarker{
     padding: 5px 15px;

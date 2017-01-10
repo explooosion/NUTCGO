@@ -10,7 +10,7 @@ $(function () {
         height: 360,
         width: 350,
         position: {
-            my: 'center-500',
+            my: 'center',
             at: 'top+350'
         },
         //modal: true, //至頂
@@ -24,45 +24,75 @@ $(function () {
 
     dialogMarkerTree = $("#dialogMarkerTree").dialog({
         autoOpen: true,
-        height: 360,
-        width: 350,
+        height: 520,
+        width: 280,
         position: {
-            my: 'center-500',
-            at: 'top+350'
+            my: 'center-550',
+            at: 'top+420'
         },
     });
 
-    var data1 = [{
-        "id": "W",
-        "text": "World",
+    var markertree = [{
+        "text": "建築物",
         "state": {
             "opened": true
         },
         "children": [{
-            "text": "Asia"
+            "text": "資訊大樓"
         }, {
-            "text": "Africa"
+            "text": "中正大樓"
         }, {
-            "text": "Europe",
-            "state": {
-                "opened": false
-            },
-            "children": ["France", "Germany", "UK"]
+            "text": "昌明樓"
+        }, {
+            "text": "翰英樓"
+        }, {
+            "text": "弘業樓"
+        }, {
+            "text": "中商大樓"
+        }]
+    },
+    {
+        "text": "運動場所",
+        "state": {
+            "opened": true
+        },
+        "children": [{
+            "text": "操場"
+        }, {
+            "text": "籃球場"
+        }, {
+            "text": "網球場"
+        }, {
+            "text": "排球場"
+        }, {
+            "text": "壘球場"
+        }, {
+            "text": "活動中心"
+        }]
+    },
+    {
+        "text": "其他",
+        "children": [{
+            "text": "停車場"
+        }, {
+            "text": "警衛室"
+        }, {
+            "text": "資源回收場"
         }]
     }];
 
 
     $('#jstree_demo_div').jstree({
         core: {
-            data: data1,
+            data: markertree,
             check_callback: false
         },
         checkbox: {
-            three_state: false, // to avoid that fact that checking a node also check others
-            whole_node: false, // to avoid checking the box just clicking the node 
-            tie_selection: false // for checking without selecting and selecting without checking
+            three_state: true, // 整個樹狀自動選取
+            whole_node: true, // 點選文字即可勾選
+            tie_selection: false // 藍框?
         },
-        plugins: ['checkbox']
+        plugins: ['checkbox', 'themes']
     });
 
     $('#btnMarkerAdd').click(function () {
@@ -135,6 +165,7 @@ function MarkerSave() {
                             console.log('ajax-ok');
                             console.log(response);
                             alert('點位新增成功');
+                            dialogMarker.dialog("close");
                         }
                     });
                 } // end if
@@ -177,7 +208,7 @@ function MarkerKeySearch() {
                 lng: response.MarkerLng
             };
             addMarker(marker);
-
+            map.panTo(marker);
         }
     });
 }
