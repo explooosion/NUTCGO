@@ -5,7 +5,7 @@ var sql = require('mssql');
 var config = require('../db/config.json');
 
 
-// user login
+// 使用者登入
 router.post('/login', function (req, res) {
 
     sql.connect(config, function (err) {
@@ -22,13 +22,11 @@ router.post('/login', function (req, res) {
                     res.send(err);
                 }
                 res.send(recordset[0]);
-
             });
     });
-
 });
 
-// map add new marker
+// 新增點位
 router.post('/mapadd/', function (req, res) {
 
     sql.connect(config, function (err) {
@@ -48,10 +46,9 @@ router.post('/mapadd/', function (req, res) {
                 res.send(true);
             });
     });
-
 });
 
-// map get marker info
+// 取得定位資料
 router.get('/map/:key', function (req, res) {
 
     sql.connect(config, function (err) {
@@ -70,5 +67,47 @@ router.get('/map/:key', function (req, res) {
             });
     });
 });
+
+
+// 點位列表
+router.get('/maplist/', function (req, res) {
+
+    sql.connect(config, function (err) {
+
+        if (err) console.log(err);
+
+        var request = new sql.Request();
+        request.query("select * from MarkerList order by MarkerName", function (err, recordset) {
+
+            if (err) {
+                console.log(err)
+                res.send(err);
+            }
+            res.send(recordset);
+        });
+    });
+});
+
+
+
+// 點位刪除(by id)
+router.post('/mapdel/', function (req, res) {
+
+    sql.connect(config, function (err) {
+
+        if (err) console.log(err);
+
+        var request = new sql.Request();
+        request.input('id', sql.Int(), req.body.id)
+            .query("delete from MarkerList where id = @id", function (err, recordset) {
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(true);
+            });
+    });
+});
+
 
 module.exports = router;

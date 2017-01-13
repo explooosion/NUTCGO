@@ -1,21 +1,40 @@
 <div class="row">
+    <button id="btnMarkerTree" type="button" class="btn btn-sm btn-green">圖層</button>
     <input id="txtMapValue" type="text" value="" placeholder="輸入教室代號或關鍵字" class="text text-lg">
     <button type="button" class="btn btn-lg btn-green" onclick="MarkerKeySearch();">尋找</button>
     <button type="button" class="btn btn-lg btn-green" onclick="initMap();">重置</button>
     <button type="button" class="btn btn-lg btn-green" onclick="deleteMarkers();">清除</button>
-    <button id="btnMarkerAdd" type="button" class="btn btn-lg btn-green">標記管理</button>
+    <button id="btnMarkerList" type="button" class="btn btn-lg btn-green">點位管理</button>
+    <button id="btnMarkerAdd" type="button" class="btn btn-lg btn-green">新增點位</button>
 </div>
 <div class="row">
     <div id="gmap" class="map"></div>
 </div>
-<div id="dialogMarker" title="點位編輯">
-    <div class="row">
-        <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">畫點</button>
-    </div> 
-    <table class="tbMarkerAdd">
+
+<div id="dialogMarkerTree" title="圖層控制">
+    <div id="jstree_demo_div">
+    </div>
+</div>
+
+<div id="dialogMarkerList" title="點位管理">
+    <table id="tbMarkerList">
+        <tr>
+            <th>Name</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th colspan="2"></th>
+        </tr>
+    </table>
+</div>
+
+<div id="dialogMarkerAdd" title="新增點位">
+    <table id="tbMarkerAdd">
         <tr>
             <th>點名稱</th>
-            <td><input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號"></td>
+            <td>
+                <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
+                <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">畫點</button>
+            </td>
         </tr>
         <form id="frmMarkerAdd">
         <tr>
@@ -30,7 +49,3 @@
     </table>
 </div>
 
-<div id="dialogMarkerTree" title="圖層控制">
-    <div id="jstree_demo_div">
-    </div>
-</div>

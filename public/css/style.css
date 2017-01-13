@@ -233,6 +233,18 @@ body {
     box-shadow: 0 0 10px #289354 inset;
 }
 
+.btn-dark {
+    background: #3D454D;
+}
+
+.btn-dark:hover {
+    background: #383F45;
+}
+
+.btn-dark:active {
+    background: #32383E;
+}
+
 .text {
     height: 20px;
     width: 150px;
@@ -257,12 +269,12 @@ body {
     width: 120px;
 }
 
-.text-rdonly{
+.text-rdonly {
     cursor: not-allowed;
     background: #EEEEEE;
 }
 
-.text-rdonly:focus{
+.text-rdonly:focus {
     box-shadow: none;
     border: 1px solid #CCCCCC;
 }
@@ -341,8 +353,7 @@ body {
     background: #17A88B;
 }
 
-.login-modal .login-form button:focus,
-.login-modal .login-form button:active {
+.login-modal .login-form button:focus, .login-modal .login-form button:active {
     background: #17A88B;
     cursor: wait;
 }
@@ -351,11 +362,11 @@ body {
     position: absolute;
     right: 10px;
     top: 10px;
-    transition: all .2s;
+    transition: all .2s ease-out;
 }
 
 .login-modal .login-form .login-close:hover {
-    -ms-transform: rotate(20deg);
-    -webkit-transform: rotate(20deg);
-    transform: rotate(20deg);
+    -ms-transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    transform: rotate(130deg);
 }

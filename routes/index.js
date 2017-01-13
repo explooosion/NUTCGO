@@ -84,5 +84,12 @@ router.get('/account', function (req, res, next) {
   });
 });
 
+router.get('/signup', function (req, res, next) {
+  res.render('index', {
+    title: '註冊會員',
+    key: 'signup',
+    navItem: navItem
+  });
+});
 
 module.exports = router;

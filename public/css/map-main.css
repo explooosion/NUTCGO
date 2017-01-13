@@ -3,25 +3,61 @@
     height: calc(100vh - 150px);
 }
 
-#txtMapValue{
-    font-size: 16px;
+#txtMapValue {
+    font-size: 14px;
 }
 
-#dialogMarker{
+#dialogMarker {
     padding: 5px 15px;
 }
 
-.tbMarkerAdd{
+#tbMarkerAdd {
     width: 100%;
+    margin-top: 5px;
     border-collapse: collapse;
 }
 
-.tbMarkerAdd tr{
+#tbMarkerAdd tr {
     border-top: 1px solid #EEEEEE;
 }
 
-.tbMarkerAdd th{
+#tbMarkerAdd th {
     text-align: left;
     line-height: 25px;
     padding: 12px 0;
+}
+
+#tbMarkerList {
+    width: 100%;
+    margin-top: 5px;
+    border-collapse: collapse;
+}
+
+#tbMarkerList tr {
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+}
+
+#tbMarkerList tr:nth-child(n+2):hover {
+    background: #DDD;
+}
+
+#tbMarkerList tr td {
+    height: 32px;
+    color: #444;
+}
+
+
+/* awsome icon */
+
+.fa {
+    padding-right: 5px;
+    transition: all .2s ease-in;
+    color: #444;
+}
+
+.fa:hover {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
 }

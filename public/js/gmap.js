@@ -5,9 +5,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $(function () {
 
-    dialogMarker = $("#dialogMarker").dialog({
+    dialogMarkerAdd = $("#dialogMarkerAdd").dialog({
         autoOpen: false,
-        height: 360,
+        height: 300,
         width: 350,
         position: {
             my: 'center',
@@ -17,69 +17,91 @@ $(function () {
         buttons: {
             "儲存": MarkerSave,
             "取消": function () {
-                dialogMarker.dialog("close");
+                dialogMarkerAdd.dialog("close");
             },
         }
     });
 
+    dialogMarkerList = $("#dialogMarkerList").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 550,
+        position: {
+            my: 'center',
+            at: 'top+300'
+        }
+    });
+
     dialogMarkerTree = $("#dialogMarkerTree").dialog({
-        autoOpen: true,
+        autoOpen: false,
         height: 520,
         width: 280,
         position: {
             my: 'center-550',
             at: 'top+420'
         },
+        show: {
+            effect: "drop",
+            duration: 500
+        },
+        hide: {
+            effect: "drop",
+            duration: 500
+        }
     });
 
     var markertree = [{
-        "text": "建築物",
-        "state": {
-            "opened": true
+            "text": "建築物",
+            "state": {
+                "opened": true
+            },
+            "children": [{
+                "text": "資訊大樓"
+            }, {
+                "text": "中正大樓"
+            }, {
+                "text": "昌明樓"
+            }, {
+                "text": "翰英樓"
+            }, {
+                "text": "弘業樓"
+            }, {
+                "text": "中商大樓"
+            }]
         },
-        "children": [{
-            "text": "資訊大樓"
-        }, {
-            "text": "中正大樓"
-        }, {
-            "text": "昌明樓"
-        }, {
-            "text": "翰英樓"
-        }, {
-            "text": "弘業樓"
-        }, {
-            "text": "中商大樓"
-        }]
-    },
-    {
-        "text": "運動場所",
-        "state": {
-            "opened": true
+        {
+            "text": "運動場所",
+            "state": {
+                "opened": false
+            },
+            "children": [{
+                "text": "操場"
+            }, {
+                "text": "籃球場"
+            }, {
+                "text": "網球場"
+            }, {
+                "text": "排球場"
+            }, {
+                "text": "壘球場"
+            }, {
+                "text": "活動中心"
+            }]
         },
-        "children": [{
-            "text": "操場"
-        }, {
-            "text": "籃球場"
-        }, {
-            "text": "網球場"
-        }, {
-            "text": "排球場"
-        }, {
-            "text": "壘球場"
-        }, {
-            "text": "活動中心"
-        }]
-    },
-    {
-        "text": "其他",
-        "children": [{
-            "text": "停車場"
-        }, {
-            "text": "警衛室"
-        }, {
-            "text": "資源回收場"
-        }]
-    }];
+        {
+            "text": "其他",
+            "state": {
+                "opened": false
+            },
+            "children": [{
+                "text": "停車場"
+            }, {
+                "text": "警衛室"
+            }, {
+                "text": "資源回收場"
+            }]
+        }
+    ];
 
 
     $('#jstree_demo_div').jstree({
@@ -96,13 +118,23 @@ $(function () {
     });
 
     $('#btnMarkerAdd').click(function () {
-        dialogMarker.dialog("open");
+        dialogMarkerAdd.dialog("open");
+    });
+
+    $('#btnMarkerList').click(function () {
+        MarkerList();
+        dialogMarkerList.dialog("open");
+    });
+
+    $('#btnMarkerTree').click(function () {
+        dialogMarkerTree.dialog("open");
     });
 
     $('#btnMarkerDraw').click(function () {
 
         $('#frmMarkerAdd')[0].reset();
         deleteMarkers();
+        dialogMarkerAdd.dialog("close");
 
         map.addListener('click', function (event) {
 
@@ -110,6 +142,7 @@ $(function () {
             $('#txtMarkerLat').val(event.latLng.lat());
             $('#txtMarkerLng').val(event.latLng.lng());
 
+            dialogMarkerAdd.dialog("open");
             // remove listener
             google.maps.event.clearListeners(map, 'click');
         });
@@ -117,6 +150,37 @@ $(function () {
 
 });
 
+
+function MarkerList() {
+
+    // default table title
+    $('#tbMarkerList tr:nth-child(n+2)').remove();
+
+    $.ajax({
+        url: 'http://localhost/api/maplist/',
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+
+            for (var i in response) {
+                $('#tbMarkerList').append('<tr>' +
+                    '<td>' + response[i].MarkerName + '</td>' +
+                    '<td>' + response[i].MarkerLat + '</td>' +
+                    '<td>' + response[i].MarkerLng + '</td>' +
+                    '<td>' + '<a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a>' + '</td>' +
+                    '<td>' + '<a href="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>' + '</td>' +
+                    '</tr>');
+
+            }
+        }
+    });
+
+}
 
 function MarkerSave() {
 
@@ -165,7 +229,7 @@ function MarkerSave() {
                             console.log('ajax-ok');
                             console.log(response);
                             alert('點位新增成功');
-                            dialogMarker.dialog("close");
+                            dialogMarkerAdd.dialog("close");
                         }
                     });
                 } // end if
@@ -174,15 +238,15 @@ function MarkerSave() {
 
         }
     });
-
-
-
 }
 
 
-function MarkerKeySearch() {
+function MarkerKeySearch(value) {
+    let key = value;
+    if (typeof (key) == "undefined") {
+        key = $('#txtMapValue').val();
+    }
 
-    let key = $('#txtMapValue').val();
     if (key == '') {
         alert('請確認輸入之關鍵字');
         return;
@@ -211,6 +275,39 @@ function MarkerKeySearch() {
             map.panTo(marker);
         }
     });
+}
+
+
+function MarkerDelete(id) {
+    if (typeof (id) == "undefined") {
+        alert('查無此筆');
+        return;
+    }
+
+    let comfirm = confirm("確定是否刪除?");
+    if (!comfirm) {
+        return;
+    }
+    $.ajax({
+        url: 'http://localhost/api/mapdel/',
+        type: 'POST',
+        data: {
+            'id': id,
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            alert('點位已經刪除');
+            MarkerList();
+        }
+    });
+
+
 }
 
 

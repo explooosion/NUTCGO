@@ -90,11 +90,14 @@ function CheckLogin() {
 
     $('#btnFrmLogOut').hide();
     $('#btnFrmLogIn').hide();
+    $('#btnFrmSignUp').hide();
 
     let isLogin = JSON.parse(GetCookie('account'));
     console.log(isLogin);
     if (!isLogin) {
+        //還沒登入
         $('#btnFrmLogIn').show(); // 登入按鈕
+        $('#btnFrmSignUp').show();
         $('.nav li:last-child').hide(); // 會員中心
     } else {
         // alreay login
