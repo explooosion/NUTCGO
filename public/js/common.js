@@ -122,7 +122,7 @@ function LoginIn() {
     }
 
     $.ajax({
-        url: 'http://localhost/api/login/',
+        url: 'http://210.242.86.107/api/login/',
         type: 'POST',
         data: {
             'userid': userid,

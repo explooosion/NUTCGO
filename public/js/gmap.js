@@ -157,7 +157,7 @@ function MarkerList() {
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://localhost/api/maplist/',
+        url: 'http://210.242.86.107/api/maplist/',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -196,7 +196,7 @@ function MarkerSave() {
     let comfirm = confirm("確定是否保存?");
 
     $.ajax({
-        url: 'http://localhost/api/map/' + name,
+        url: 'http://210.242.86.107/api/map/' + name,
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -213,7 +213,7 @@ function MarkerSave() {
 
                 if (comfirm == true) {
                     $.ajax({
-                        url: 'http://localhost/api/mapadd/',
+                        url: 'http://210.242.86.107/api/mapadd/',
                         type: 'POST',
                         data: {
                             'name': name,
@@ -252,7 +252,7 @@ function MarkerKeySearch(value) {
         return;
     }
     $.ajax({
-        url: 'http://localhost/api/map/' + key,
+        url: 'http://210.242.86.107/api/map/' + key,
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -289,7 +289,7 @@ function MarkerDelete(id) {
         return;
     }
     $.ajax({
-        url: 'http://localhost/api/mapdel/',
+        url: 'http://210.242.86.107/api/mapdel/',
         type: 'POST',
         data: {
             'id': id,
