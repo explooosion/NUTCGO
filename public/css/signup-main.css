@@ -1,0 +1,23 @@
+.sign-group {
+    margin: 20px;
+}
+
+.sign-group h3 {
+    color: #555;
+}
+
+.sign-group .tablesign {
+    border-collapse: collapse;
+}
+
+.sign-group .tablesign th {
+    color: #666;
+}
+
+.sign-group .tablesign tr:last-child td {
+    text-align: center;
+}
+
+.sign-group .tablesign tr:last-child td button {
+    margin: 10px;
+}

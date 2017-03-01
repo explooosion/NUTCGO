@@ -1,17 +1,29 @@
-<div>
-    <h3>註冊會員</h3>
-    <table>
-        <tr>
-            <th>姓名</th>
-            <td><input type="text" class="text text-lg"></td>
-        </tr>
-        <tr>
-            <th>帳號</th>
-            <td><input type="text" class="text text-lg"></td>
-        </tr>
-        <tr>
-            <th>密碼</th>
-            <td><input type="password" class="text text-lg"></td>
-        </tr>
-    </table>
-</div>
+<form action="post">
+    <div class="sign-group">
+        <h3>註冊會員</h3>
+        <table class="tablesign">
+            <tr>
+                <th>帳號</th>
+                <td><input type="text" class="text text-lg"></td>
+            </tr>
+            <tr>
+                <th>密碼</th>
+                <td><input type="password" class="text text-lg"></td>
+            </tr>
+            <tr>
+                <th>姓名</th>
+                <td><input type="text" class="text text-lg"></td>
+            </tr>
+            <tr>
+                <th>信箱</th>
+                <td><input type="text" class="text text-lg"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" id="btnSignSubmit" class="btn btn-lg btn-green">確定</button>
+                    <button type="reset" id="btnSignReset" class="btn btn-lg btn-green">清除</button> 
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

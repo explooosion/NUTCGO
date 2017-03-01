@@ -4,13 +4,13 @@
 
 .traffic-content .traffic-discript{
     float: left;
-    width: 50%;
+    width: 49%;
 }
 
 
 .traffic-content .traffic-map{
-    float: left;
-    width: 49%;
+    float: right;
+    width: 50%;
 }
 
 .traffic-content .traffic-map iframe{
