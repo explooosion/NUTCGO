@@ -110,4 +110,30 @@ router.post('/mapdel/', function (req, res) {
 });
 
 
+router.post('/useradd/',function(req,res){
+
+    sql.connect(config, function (err) {
+
+        if (err) console.log(err);
+        if (err) {
+            console.log(err)
+            res.send(err);
+        }
+        res.send(req.body.userid);
+/*
+        var request = new sql.Request();
+        request.input('MarkerName', sql.NVarChar(50), req.body.name)
+            .input('MarkerLat', sql.NVarChar(50), req.body.lat)
+            .input('MarkerLng', sql.NVarChar(50), req.body.lng)
+            .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerName , @MarkerLat , @MarkerLng )", function (err, recordset) {
+
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(true);
+            });*/
+    });
+});
+
 module.exports = router;
