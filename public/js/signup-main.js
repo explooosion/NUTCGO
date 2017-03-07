@@ -36,6 +36,7 @@ $('#btnSignSubmit')
                 success: function (response) {
                     console.log('ajax-ok');
                     if (response == true) {
+                        alert('註冊成功,請重新登入');
                         Logout();
                     } else {
                         alert('註冊失敗');
