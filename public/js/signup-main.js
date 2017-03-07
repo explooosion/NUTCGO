@@ -23,7 +23,10 @@ $('#btnSignSubmit')
                 url: 'http://210.242.86.107/api/useradd/',
                 type: 'POST',
                 data: {
-                    'userid': userid
+                    'UserName': userid,
+                    'UserID': userid,
+                    'PassWord': userpwd,
+                    'Email': email
                 },
                 error: function (xhr) {
                     console.log('ajax-error');
@@ -32,6 +35,7 @@ $('#btnSignSubmit')
                 },
                 success: function (response) {
                     console.log('ajax-ok');
+                    console.log(response);
                 }
             });
 

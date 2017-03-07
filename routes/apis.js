@@ -110,7 +110,7 @@ router.post('/mapdel/', function (req, res) {
 });
 
 
-router.post('/useradd/',function(req,res){
+router.post('/useradd/', function (req, res) {
 
     sql.connect(config, function (err) {
 
@@ -119,20 +119,21 @@ router.post('/useradd/',function(req,res){
             console.log(err)
             res.send(err);
         }
-        res.send(req.body.userid);
-/*
+        //res.send(req.body.userid);
+
         var request = new sql.Request();
-        request.input('MarkerName', sql.NVarChar(50), req.body.name)
-            .input('MarkerLat', sql.NVarChar(50), req.body.lat)
-            .input('MarkerLng', sql.NVarChar(50), req.body.lng)
-            .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerName , @MarkerLat , @MarkerLng )", function (err, recordset) {
+        request.input('UserName', sql.NVarChar(50), req.body.UserName)
+            .input('UserID', sql.NVarChar(50), req.body.UserID)
+            .input('PassWord', sql.NVarChar(50), req.body.PassWord)
+            .input('Email', sql.NVarChar(50), req.body.Email)
+            .query("insert into UserList ( UserName , UserID , PassWord , Email ) values ( @UserName , @UserID , @PassWord , @Email )", function (err, recordset) {
 
                 if (err) {
                     console.log(err)
                     res.send(err);
                 }
-                res.send(true);
-            });*/
+                res.send('success');
+            });
     });
 });
 
