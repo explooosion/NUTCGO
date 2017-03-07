@@ -132,7 +132,7 @@ router.post('/useradd/', function (req, res) {
                     console.log(err)
                     res.send(err);
                 }
-                res.send('success');
+                res.send(true);
             });
     });
 });
