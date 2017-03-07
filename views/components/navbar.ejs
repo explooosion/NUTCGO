@@ -13,7 +13,7 @@
             if(key == navItem[i][0].url.replace('/','')){
                 cls = 'nav-item selected';
             } %>
-			<li><a class="<%= cls %>" href="<%= navItem[i][0].url %>"><%= navItem[i][0].name %></a></li>
+			<li><a class="<%= cls %>" href="<%= navItem[i][0].url %>"><i class="fa <%= navItem[i][0].class %>" aria-hidden="true"></i><%= navItem[i][0].name %></a></li>
 		<% } %>
     </ul>
 </nav>

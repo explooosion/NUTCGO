@@ -1,7 +1,10 @@
 var map;
 var markers = [];
 var dialog;
-google.maps.event.addDomListener(window, 'load', initialize);
+google
+    .maps
+    .event
+    .addDomListener(window, 'load', initialize);
 
 $(function () {
 
@@ -18,7 +21,7 @@ $(function () {
             "儲存": MarkerSave,
             "取消": function () {
                 dialogMarkerAdd.dialog("close");
-            },
+            }
         }
     });
 
@@ -42,67 +45,71 @@ $(function () {
         },
         show: {
             effect: "drop",
-            duration: 500
+            duration: 300
         },
         hide: {
             effect: "drop",
-            duration: 500
+            duration: 300
         }
     });
 
-    var markertree = [{
+    var markertree = [
+        {
             "text": "建築物",
             "state": {
                 "opened": true
             },
-            "children": [{
-                "text": "資訊大樓"
-            }, {
-                "text": "中正大樓"
-            }, {
-                "text": "昌明樓"
-            }, {
-                "text": "翰英樓"
-            }, {
-                "text": "弘業樓"
-            }, {
-                "text": "中商大樓"
-            }]
-        },
-        {
+            "children": [
+                {
+                    "text": "資訊大樓"
+                }, {
+                    "text": "中正大樓"
+                }, {
+                    "text": "昌明樓"
+                }, {
+                    "text": "翰英樓"
+                }, {
+                    "text": "弘業樓"
+                }, {
+                    "text": "中商大樓"
+                }
+            ]
+        }, {
             "text": "運動場所",
             "state": {
                 "opened": false
             },
-            "children": [{
-                "text": "操場"
-            }, {
-                "text": "籃球場"
-            }, {
-                "text": "網球場"
-            }, {
-                "text": "排球場"
-            }, {
-                "text": "壘球場"
-            }, {
-                "text": "活動中心"
-            }]
-        },
-        {
+            "children": [
+                {
+                    "text": "操場"
+                }, {
+                    "text": "籃球場"
+                }, {
+                    "text": "網球場"
+                }, {
+                    "text": "排球場"
+                }, {
+                    "text": "壘球場"
+                }, {
+                    "text": "活動中心"
+                }
+            ]
+        }, {
             "text": "其他",
             "state": {
                 "opened": false
             },
-            "children": [{
-                "text": "停車場"
-            }, {
-                "text": "警衛室"
-            }, {
-                "text": "資源回收場"
-            }]
+            "children": [
+                {
+                    "text": "停車場"
+                }, {
+                    "text": "警衛室"
+                }, {
+                    "text": "資源回收場"
+                }
+            ]
         }
     ];
-
 
     $('#jstree_demo_div').jstree({
         core: {
@@ -127,7 +134,12 @@ $(function () {
     });
 
     $('#btnMarkerTree').click(function () {
-        dialogMarkerTree.dialog("open");
+        let diaMkTree = dialogMarkerTree.dialog("isOpen");
+        if (diaMkTree) {
+            dialogMarkerTree.dialog("close");
+        } else {
+            dialogMarkerTree.dialog("open");
+        }
     });
 
     $('#btnMarkerDraw').click(function () {
@@ -144,12 +156,14 @@ $(function () {
 
             dialogMarkerAdd.dialog("open");
             // remove listener
-            google.maps.event.clearListeners(map, 'click');
+            google
+                .maps
+                .event
+                .clearListeners(map, 'click');
         });
     });
 
 });
-
 
 function MarkerList() {
 
@@ -168,13 +182,8 @@ function MarkerList() {
             console.log('ajax-ok');
 
             for (var i in response) {
-                $('#tbMarkerList').append('<tr>' +
-                    '<td>' + response[i].MarkerName + '</td>' +
-                    '<td>' + response[i].MarkerLat + '</td>' +
-                    '<td>' + response[i].MarkerLng + '</td>' +
-                    '<td>' + '<a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a>' + '</td>' +
-                    '<td>' + '<a href="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>' + '</td>' +
-                    '</tr>');
+                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -240,10 +249,9 @@ function MarkerSave() {
     });
 }
 
-
 function MarkerKeySearch(value) {
     let key = value;
-    if (typeof (key) == "undefined") {
+    if (typeof(key) == "undefined") {
         key = $('#txtMapValue').val();
     }
 
@@ -277,9 +285,8 @@ function MarkerKeySearch(value) {
     });
 }
 
-
 function MarkerDelete(id) {
-    if (typeof (id) == "undefined") {
+    if (typeof(id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -292,7 +299,7 @@ function MarkerDelete(id) {
         url: 'http://210.242.86.107/api/mapdel/',
         type: 'POST',
         data: {
-            'id': id,
+            'id': id
         },
         error: function (xhr) {
             console.log('ajax-error');
@@ -307,10 +314,7 @@ function MarkerDelete(id) {
         }
     });
 
-
 }
-
-
 
 /* google map api , do not edit */
 function initialize() {
@@ -323,19 +327,20 @@ function initMap() {
         lng: 120.6820641
     };
 
-    map = new google.maps.Map(document.getElementById('gmap'), {
-        zoom: 17,
-        center: defaultMarker,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    map = new google
+        .maps
+        .Map(document.getElementById('gmap'), {
+            zoom: 17,
+            center: defaultMarker,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
 
 }
 
 function addMarker(location) {
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
+    var marker = new google
+        .maps
+        .Marker({position: location, map: map});
     markers.push(marker);
 }
 

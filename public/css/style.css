@@ -69,6 +69,9 @@ body {
     color: #FFF;
 }
 
+.navbar .nav .fa{
+    margin-right: 10px;
+}
 
 /* container */
 
@@ -91,9 +94,11 @@ body {
     padding: 10px;
     float: left;
     display: none;
+    transition: all .2s;
 }
 
 .container .head .control:hover {
+    border-radius: 100%;
     cursor: pointer;
     background: #EEEEEE;
 }
