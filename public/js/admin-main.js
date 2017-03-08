@@ -2,7 +2,7 @@ $('.chosen-select').chosen();
 $(window).ready(function () {
 
     // photo default show
-    $('#photo-slider-plant').fadeIn();
+    $('#photo-slider-build1').fadeIn();
 
     // photo form open
     $('.photo-box img').click(function () {
@@ -19,8 +19,8 @@ $(window).ready(function () {
         $('.photo-form').fadeOut();
     });
 
-    $('#slide-art a').click(function () {
-        $('#photo-art .photo-slider').hide();
+    $('#slide-admin a').click(function () {
+        $('#photo-admin .photo-slider').hide();
         let data = '#' + $(this).attr('data-id');
         $(data).fadeIn();
     });

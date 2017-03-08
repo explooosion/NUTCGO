@@ -48,6 +48,7 @@
     margin: 0 20px;
     color: #888;
     overflow: hidden;
+    letter-spacing: 1px;
 }
 
 .traffic-content .traffic-group .traffic-container ul {
