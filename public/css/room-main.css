@@ -22,3 +22,14 @@
     background: #49B9A4;
     margin-left: 20px; 
 }
+
+
+.room-list .room-row{
+    display: row;
+    width: 100vh;
+}
+
+.room-list .room-row .room-item{
+    width: calc(100% / 3 - 10px);
+    background: #49B9A4;
+}
