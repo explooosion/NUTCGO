@@ -25,16 +25,21 @@
     border: 1px solid #BBBBBB !important;
 }
 
-.chosen-container li:hover, .chosen-container .highlighted {
+.chosen-container li:hover,
+.chosen-container .highlighted {
     background: #4A8BEE !important;
 }
 
 
 /********/
 
-#photo-art .photo-slider {
+#photo-admin .photo-slider {
     display: none;
     padding-left: 5px;
+}
+
+.photo-box {
+    position: relative;
 }
 
 .photo-box img {
@@ -53,6 +58,7 @@
     opacity: 1;
     border: 4px solid #1ABC9C;
 }
+
 
 .photo-form {
     position: fixed;
