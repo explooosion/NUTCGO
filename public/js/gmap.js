@@ -163,6 +163,12 @@ $(function () {
         });
     });
 
+    $('#txtMapValue').keyup(function (e) {
+        if (e.keyCode == 13) {
+            MarkerKeySearch();
+        }
+    });
+
 });
 
 function MarkerList() {
@@ -183,7 +189,7 @@ function MarkerList() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -251,7 +257,7 @@ function MarkerSave() {
 
 function MarkerKeySearch(value) {
     let key = value;
-    if (typeof(key) == "undefined") {
+    if (typeof (key) == "undefined") {
         key = $('#txtMapValue').val();
     }
 
@@ -286,7 +292,7 @@ function MarkerKeySearch(value) {
 }
 
 function MarkerDelete(id) {
-    if (typeof(id) == "undefined") {
+    if (typeof (id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -340,7 +346,7 @@ function initMap() {
 function addMarker(location) {
     var marker = new google
         .maps
-        .Marker({position: location, map: map});
+        .Marker({ position: location, map: map });
     markers.push(marker);
 }
 
