@@ -55,63 +55,55 @@ $(function () {
         }
     });
 
-    var markertree = [
-        {
-            "text": "建築物",
-            "state": {
-                "opened": true
-            },
-            "children": [
-                {
-                    "text": "資訊大樓"
-                }, {
-                    "text": "中正大樓"
-                }, {
-                    "text": "昌明樓"
-                }, {
-                    "text": "翰英樓"
-                }, {
-                    "text": "弘業樓"
-                }, {
-                    "text": "中商大樓"
-                }
-            ]
+    var markertree = [{
+        "text": "建築物",
+        "state": {
+            "opened": true
+        },
+        "children": [{
+            "text": "資訊大樓"
         }, {
-            "text": "運動場所",
-            "state": {
-                "opened": false
-            },
-            "children": [
-                {
-                    "text": "操場"
-                }, {
-                    "text": "籃球場"
-                }, {
-                    "text": "網球場"
-                }, {
-                    "text": "排球場"
-                }, {
-                    "text": "壘球場"
-                }, {
-                    "text": "活動中心"
-                }
-            ]
+            "text": "中正大樓"
         }, {
-            "text": "其他",
-            "state": {
-                "opened": false
-            },
-            "children": [
-                {
-                    "text": "停車場"
-                }, {
-                    "text": "警衛室"
-                }, {
-                    "text": "資源回收場"
-                }
-            ]
-        }
-    ];
+            "text": "昌明樓"
+        }, {
+            "text": "翰英樓"
+        }, {
+            "text": "弘業樓"
+        }, {
+            "text": "中商大樓"
+        }]
+    }, {
+        "text": "運動場所",
+        "state": {
+            "opened": false
+        },
+        "children": [{
+            "text": "操場"
+        }, {
+            "text": "籃球場"
+        }, {
+            "text": "網球場"
+        }, {
+            "text": "排球場"
+        }, {
+            "text": "壘球場"
+        }, {
+            "text": "活動中心"
+        }]
+    }, {
+        "text": "其他",
+        "state": {
+            "opened": false
+        },
+        "children": [{
+            "text": "停車場"
+        }, {
+            "text": "警衛室"
+        }, {
+            "text": "資源回收場"
+        }]
+    }];
 
     $('#jstree_demo_div').jstree({
         core: {
@@ -174,6 +166,32 @@ $(function () {
 });
 
 function MarkerList() {
+
+    // default table title
+    $('#tbMarkerList tr:nth-child(n+2)').remove();
+
+    $.ajax({
+        url: 'http://210.242.86.107/api/maplist/',
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+
+            for (var i in response) {
+                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+            }
+        }
+    });
+
+}
+
+function MarkerListSearch() {
 
     // default table title
     $('#tbMarkerList tr:nth-child(n+2)').remove();
@@ -348,7 +366,10 @@ function initMap() {
 function addMarker(location) {
     var marker = new google
         .maps
-        .Marker({ position: location, map: map });
+        .Marker({
+            position: location,
+            map: map
+        });
     markers.push(marker);
 }
 
