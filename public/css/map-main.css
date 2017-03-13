@@ -42,20 +42,25 @@
     background: #DDD;
 }
 
+#tbMarkerList tr:nth-child(n+2) td:nth-child(2),
+#tbMarkerList tr:nth-child(n+2) td:nth-child(3) {
+    text-align: left;
+}
+
 #tbMarkerList tr td {
     height: 32px;
     color: #444;
 }
 
-.MarkerSearch{
+.MarkerSearch {
     margin: 10px 0;
 }
 
-.MarkerSearch #ddlPlace{
+.MarkerSearch #ddlPlace {
     width: 100px;
 }
 
-.MarkerSearch #btnMarkerListSearch{
+.MarkerSearch #btnMarkerListSearch {
     height: 28px;
     margin-left: 5px;
     padding: 3px 0;
