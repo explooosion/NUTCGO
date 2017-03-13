@@ -105,12 +105,15 @@ router.post('/maplist/', function (req, res) {
             
             var request = new sql.Request();
             request.input('id', sql.NVarChar(50), req.body.id)
-                .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerName", function (err, recordset) {
+                .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerNa" +
+                        "me",
+                function (err, recordset) {
+                    
                     if (err) {
                         console.log(err)
                         res.send(err);
                     }
-                    res.send(true);
+                    res.send(recordset);
                 });
         });
 });
