@@ -123,7 +123,7 @@ $(function () {
     });
 
     $('#btnMarkerList').click(function () {
-        //MarkerList();
+        MarkerList();
         dialogMarkerList.dialog("open");
     });
 
