@@ -193,12 +193,21 @@ function MarkerList() {
 
 function MarkerListSearch() {
 
+    let ddlid = $('#ddlPlace').val();
+    if(ddlid==0){
+        alert('請選擇地點');
+        return;
+    }
+
     // default table title
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
         url: 'http://210.242.86.107/api/maplist/',
-        type: 'GET',
+        type: 'POST',
+        data: {
+            'id': ddlid,
+        },
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
