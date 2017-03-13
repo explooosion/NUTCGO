@@ -46,3 +46,11 @@
     height: 32px;
     color: #444;
 }
+
+.MarkerSearch{
+    margin: 10px 0;
+}
+
+.MarkerSearch #ddlPlace{
+    width: 100px;
+}
