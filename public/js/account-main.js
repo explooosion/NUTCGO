@@ -2,7 +2,7 @@ let uinfo = JSON.parse(GetCookie('account'));
 console.log(uinfo);
 $(function () {
 
-    $('#txtUserId').text(uinfo['UserID']);
+    $('#txtUserId').val(uinfo['UserID']);
     $('#txtPwd').val(uinfo['PassWord']);
     $('#txtUserName').val(uinfo['UserName']);
     $('#txtEmail').val(uinfo['Email']);
