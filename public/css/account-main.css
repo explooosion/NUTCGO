@@ -29,3 +29,9 @@
 .sign-group .tablesign tr:last-child td button {
     margin: 10px;
 }
+
+.sign-group .tablesign #txtUserId{
+    font-size: 18px;
+    color: #555;
+    margin: 0 10px;
+}
