@@ -48,10 +48,13 @@ $('#btnSignSubmit')
 
     });
 
-let uid = GetCookie('UserID'),
-    upwd = GetCookie('PassWord'),
-    uname = GetCookie('UserName'),
-    uemail = GetCookie('Email');
+
+let uinfo = JSON.parse(GetCookie('account'));
+
+let uid = uinfo['UserID'],
+    upwd = uinfo['PassWord'],
+    uname = uinfo['UserName'],
+    uemail = uinfo['Email'];
 
 $(function () {
 
