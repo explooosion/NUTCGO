@@ -1,5 +1,5 @@
 let uinfo = JSON.parse(GetCookie('account'));
-
+console.log(uinfo);
 $(function () {
 
     $('#txtUserId').text(uinfo['UserID']);
