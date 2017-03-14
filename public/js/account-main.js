@@ -2,10 +2,10 @@ let uinfo = JSON.parse(GetCookie('account'));
 console.log(uinfo);
 $(function () {
 
-    $('#txtUserId').text(uinfo['UserID']);
-    $('#txtPwd').text(uinfo['PassWord']);
-    $('#txtUserName').text(uinfo['UserName']);
-    $('#txtEmail').text(uinfo['Email']);
+    $('#txtUserId').val(uinfo['UserID']);
+    $('#txtPwd').val(uinfo['PassWord']);
+    $('#txtUserName').val(uinfo['UserName']);
+    $('#txtEmail').val(uinfo['Email']);
 });
 
 $('#btnSignSubmit').click(function () {
