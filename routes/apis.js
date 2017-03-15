@@ -140,7 +140,7 @@ router.post('/mapdel/', function (req, res) {
 });
 
 // 曲面列表 - Search by keyWord
-router.post('/polygonlist/', function (req, res) {
+router.get('/polygonlist/', function (req, res) {
 
     sql
         .connect(config, function (err) {
