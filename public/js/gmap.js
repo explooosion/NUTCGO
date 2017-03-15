@@ -230,6 +230,7 @@ function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
 
+    return;
     $.ajax({
         url: 'http://210.242.86.107/api/polygonlist/',
         type: 'GET',
@@ -241,6 +242,28 @@ function PolygonList() {
         success: function (response) {
             console.log('ajax-ok');
             console.log(response);
+
+            // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
+            // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
+            // 120.68343311548233)';
+            var p = response[0];
+            var parr = p
+                .replace('LINESTRING (', '')
+                .replace(')', '')
+                .split(',');
+            var polyList = [];
+            for (var i in parr) {
+                var objp = new Object();
+                objp.lat = parr[i]
+                    .trim()
+                    .split(' ')[0];
+                objp.lng = parr[i]
+                    .trim()
+                    .split(' ')[1];
+                polyList.push(objp);
+            }
+            console.log(polyList);
+
             /*for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                         'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
