@@ -230,7 +230,6 @@ function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
 
-    return;
     $.ajax({
         url: 'http://210.242.86.107/api/polygonlist/',
         type: 'GET',
