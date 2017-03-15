@@ -1,36 +1,36 @@
-.sign{
+.account{
     width:100%;
     height: 100%;
     margin: 10px 20px;
 }
-.sign-group{
+.account-group{
     width: 100%;
     float: left;
     text-align: left;
 }
 
-.sign-group h3 {
+.account-group h3 {
     color: #555;    
 }
 
-.sign-group .tablesign {
+.account-group .tableaccount {
     margin: 0;
     border-collapse: collapse;
 }
 
-.sign-group .tablesign th {
+.account-group .tableaccount th {
     color: #666;
 }
 
-.sign-group .tablesign tr:last-child td {
+.account-group .tableaccount tr:last-child td {
     text-align: center;
 }
 
-.sign-group .tablesign tr:last-child td button {
+.account-group .tableaccount tr:last-child td button {
     margin: 10px;
 }
 
-.sign-group .tablesign #txtUserId{
+.account-group .tableaccount #txtUserId{
     font-size: 18px;
     color: #555;
     margin: 0 10px;

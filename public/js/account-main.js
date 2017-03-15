@@ -1,17 +1,21 @@
 let uinfo = JSON.parse(GetCookie('account'));
-
-$(function () {
+if (uinfo === null) {
+    alert('請重新登入');
+    location.href = "./";
+} else {
     $('.tablesign #txtUserId').text(uinfo['UserID']);
     $('#txtPwd').val(uinfo['PassWord']);
     $('#txtUserName').val(uinfo['UserName']);
     $('#txtEmail').val(uinfo['Email']);
-});
+}
 
-$('#btnSignSubmit').click(function () {
+
+
+$('#btnAccountSubmit').click(function () {
 
     let chkVal = true;
 
-    $('.tablesign input').each(function () {
+    $('.tableaccount input').each(function () {
         if ($(this).val() == '') {
             chkVal = false;
         }
@@ -22,13 +26,13 @@ $('#btnSignSubmit').click(function () {
         return false;
     } else {
 
-        let userid = $('#txtUserId').val();
+        let userid = $('#txtUserId').text();
         let userpwd = $('#txtPwd').val();
         let username = $('#txtUserName').val();
         let email = $('#txtEmail').val();
 
         $.ajax({
-            url: 'http://210.242.86.107/api/useradd/',
+            url: 'http://210.242.86.107/api/userupdate/',
             type: 'POST',
             data: {
                 'UserName': userid,
@@ -44,10 +48,10 @@ $('#btnSignSubmit').click(function () {
             success: function (response) {
                 console.log('ajax-ok');
                 if (response == true) {
-                    alert('註冊成功,請重新登入');
+                    alert('更新成功,請重新登入');
                     Logout();
                 } else {
-                    alert('註冊失敗');
+                    alert('更新失敗');
                 }
             }
         });

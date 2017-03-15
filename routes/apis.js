@@ -167,4 +167,33 @@ router.post('/useradd/', function (req, res) {
         });
 });
 
+
+
+router.post('/userupdate/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err)
+                console.log(err);
+            if (err) {
+                console.log(err)
+                res.send(err);
+            }
+            //res.send(req.body.userid);
+
+            var request = new sql.Request();
+            request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
+                .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email WHERE UserID = @UserID",
+                    function (err, recordset) {
+
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(true);
+                    });
+        });
+});
+
 module.exports = router;
