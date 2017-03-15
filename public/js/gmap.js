@@ -238,7 +238,7 @@ function PolygonList() {
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
             // 120.68343311548233)';
             var p = response[0].PolygonPoint;
-            var parr = response[0].replace('LINESTRING (', '').replace(')', '').split(',');
+            var parr = p.replace('LINESTRING (', '').replace(')', '').split(',');
             var polyList = [];
             for (var i in parr) {
                 var objp = new Object();
