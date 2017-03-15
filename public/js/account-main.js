@@ -49,7 +49,7 @@ $('#btnAccountSubmit').click(function () {
                 console.log('ajax-ok');
                 if (response == true) {
                     alert('更新成功,請重新登入');
-                    Logout();
+                   // Logout();
                 } else {
                     alert('更新失敗');
                 }

@@ -184,7 +184,7 @@ router.post('/userupdate/', function (req, res) {
 
             var request = new sql.Request();
             request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
-                .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email WHERE UserID = @UserID",
+                .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email where UserID = @UserID",
                     function (err, recordset) {
 
                         if (err) {
