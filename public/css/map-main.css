@@ -27,42 +27,56 @@
     padding: 12px 0;
 }
 
-#tbMarkerList {
+#tbMarkerList,
+#tbPolygonList {
     width: 100%;
     margin-top: 5px;
     border-collapse: collapse;
 }
 
-#tbMarkerList tr {
+#tbMarkerList tr,
+#tbPolygonList tr {
     text-align: center;
     border-bottom: 1px solid #CCC;
 }
 
-#tbMarkerList tr:nth-child(n+2):hover {
+#tbMarkerList tr:nth-child(n+2):hover,
+#tbPolygonList tr:nth-child(n+2):hover {
     background: #DDD;
 }
 
 #tbMarkerList tr:nth-child(n+2) td:nth-child(2),
-#tbMarkerList tr:nth-child(n+2) td:nth-child(3) {
+#tbMarkerList tr:nth-child(n+2) td:nth-child(3),
+#tbPolygonList tr:nth-child(n+2) td:nth-child(2),
+#tbPolygonList tr:nth-child(n+2) td:nth-child(3) {
     text-align: left;
 }
 
-#tbMarkerList tr td {
+#tbMarkerList tr td,
+#tbPolygonList tr td {
     height: 32px;
     color: #444;
 }
 
-.MarkerSearch {
+.SearchGroup {
     margin: 10px 0;
 }
 
-.MarkerSearch #ddlPlace {
+.SearchGroup .ddl {
     width: 100px;
 }
 
-.MarkerSearch #btnMarkerListSearch {
+.SearchGroup .btn-search{
     height: 28px;
     margin-left: 5px;
     padding: 3px 0;
     font-size: 14px;
+}
+
+.SearchGroup .btn-add{
+    height: 28px;
+    margin-right: 5px;
+    padding: 3px 0;
+    font-size: 14px;
+    float: right;
 }

@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-lg btn-green" onclick="initMap();">重置</button>
     <button type="button" class="btn btn-lg btn-green" onclick="deleteMarkers();">清除</button>
     <button id="btnMarkerList" type="button" class="btn btn-lg btn-green">點位管理</button>
-    <button id="btnMarkerAdd" type="button" class="btn btn-lg btn-green">新增點位</button>
+    <button id="btnPolygonList" type="button" class="btn btn-lg btn-green">曲面管理</button>
 </div>
 <div class="row">
     <div id="gmap" class="map"></div>
@@ -17,8 +17,8 @@
 </div>
 
 <div id="dialogMarkerList" title="點位管理">
-    <div class="MarkerSearch">
-        <select id="ddlPlace" class="chosen-select" data-placeholder="地點名稱">
+    <div id="MarkerSearch" class="SearchGroup">
+        <select id="ddlMarkerPlace" class="chosen-select ddl" data-placeholder="地點名稱">
             <option value="0"></option>
             <option value="6">弘業樓</option>
             <option value="4">昌明樓</option>
@@ -29,10 +29,34 @@
             <option value="3">中正大樓</option>
             <option value="7">中商大樓</option>
         </select>
-        <button id="btnMarkerListSearch" type="button" class="btn btn-sm btn-green" onclick="MarkerListSearch();">搜尋</button>
+        <button id="btnMarkerListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerListSearch();">搜尋</button>
+        <button id="btnMarkerAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
     </div>
     <table id="tbMarkerList">
         <tr>
+            <th>Name</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th colspan="2"></th>
+        </tr>
+    </table>
+</div>
+
+
+<div id="dialogPolygonList" title="曲面管理">
+    <div id="PolygonSearch" class="SearchGroup">
+        <select id="ddlPolygonPlace" class="chosen-select ddl" data-placeholder="群組名稱">
+            <option value="0"></option>
+            <option value="1">建築物</option>
+            <option value="2">運動場所</option>
+            <option value="3">其他</option>
+        </select>
+        <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search">搜尋</button>
+        <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
+    </div>
+    <table id="tbPolygonList">
+        <tr>
+            <th>Group</th>
             <th>Name</th>
             <th>Lat</th>
             <th>Lng</th>

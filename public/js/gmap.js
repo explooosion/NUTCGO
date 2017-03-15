@@ -6,6 +6,32 @@ google
     .event
     .addDomListener(window, 'load', initialize);
 
+var po1 = new google
+    .maps
+    .LatLng(24.14991574823603, 120.68296909332275);
+var po2 = new google
+    .maps
+    .LatLng(24.14952415452015, 120.68275451660156);
+var po3 = new google
+    .maps
+    .LatLng(24.14930877746491, 120.68321585655212);
+var po4 = new google
+    .maps
+    .LatLng(24.149803165165615, 120.68343311548233);
+
+var po = [po1, po2, po3, po4];
+
+var polygon = new google
+    .maps
+    .Polygon({
+        path: po,
+        strokeColor: '#5CFF82',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#5CFF82',
+        fillOpacity: 0.4
+    });
+
 $('.chosen-select').chosen();
 
 $(function () {
@@ -37,6 +63,16 @@ $(function () {
         }
     });
 
+    dialogPolygonList = $("#dialogPolygonList").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 550,
+        position: {
+            my: 'center',
+            at: 'top+300'
+        }
+    });
+
     dialogMarkerTree = $("#dialogMarkerTree").dialog({
         autoOpen: false,
         height: 520,
@@ -55,55 +91,63 @@ $(function () {
         }
     });
 
-    var markertree = [{
-        "text": "建築物",
-        "state": {
-            "opened": true
-        },
-        "children": [{
-            "text": "資訊大樓"
+    var markertree = [
+        {
+            "text": "建築物",
+            "state": {
+                "opened": true
+            },
+            "children": [
+                {
+                    "text": "資訊大樓"
+                }, {
+                    "text": "中正大樓"
+                }, {
+                    "text": "昌明樓"
+                }, {
+                    "text": "翰英樓"
+                }, {
+                    "text": "弘業樓"
+                }, {
+                    "text": "中商大樓"
+                }
+            ]
         }, {
-            "text": "中正大樓"
+            "text": "運動場所",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "操場"
+                }, {
+                    "text": "籃球場"
+                }, {
+                    "text": "網球場"
+                }, {
+                    "text": "排球場"
+                }, {
+                    "text": "壘球場"
+                }, {
+                    "text": "活動中心"
+                }
+            ]
         }, {
-            "text": "昌明樓"
-        }, {
-            "text": "翰英樓"
-        }, {
-            "text": "弘業樓"
-        }, {
-            "text": "中商大樓"
-        }]
-    }, {
-        "text": "運動場所",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "操場"
-        }, {
-            "text": "籃球場"
-        }, {
-            "text": "網球場"
-        }, {
-            "text": "排球場"
-        }, {
-            "text": "壘球場"
-        }, {
-            "text": "活動中心"
-        }]
-    }, {
-        "text": "其他",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "停車場"
-        }, {
-            "text": "警衛室"
-        }, {
-            "text": "資源回收場"
-        }]
-    }];
+            "text": "其他",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "停車場"
+                }, {
+                    "text": "警衛室"
+                }, {
+                    "text": "資源回收場"
+                }
+            ]
+        }
+    ];
 
     $('#jstree_demo_div').jstree({
         core: {
@@ -115,11 +159,28 @@ $(function () {
             whole_node: true, // 點選文字即可勾選
             tie_selection: false // 藍框?
         },
-        plugins: ['checkbox', 'themes']
-    });
+            plugins: ['checkbox', 'themes']
+    })
+        .on("check_node.jstree uncheck_node.jstree", function (e, data) {
+
+            if (data.node.state.checked) {
+                //alert('checked');
+                console.log(data.node.id, data.node.text);
+
+                polygon.setMap(map);
+            } else {
+                polygon.setMap(null);
+            }
+
+        });
 
     $('#btnMarkerAdd').click(function () {
         dialogMarkerAdd.dialog("open");
+    });
+
+    $('#btnPolygonList').click(function () {
+        PolygonList();
+        dialogPolygonList.dialog("open");
     });
 
     $('#btnMarkerList').click(function () {
@@ -165,6 +226,30 @@ $(function () {
 
 });
 
+function PolygonList() {
+    // default table title
+    $('#tbPolygonList tr:nth-child(n+2)').remove();
+
+    $.ajax({
+        url: 'http://210.242.86.107/api/polygonlist/',
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            /*for (var i in response) {
+                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+            }*/
+        }
+    });
+}
+
 function MarkerList() {
 
     // default table title
@@ -183,7 +268,7 @@ function MarkerList() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -193,8 +278,8 @@ function MarkerList() {
 
 function MarkerListSearch() {
 
-    let ddlid = $('#ddlPlace').val();
-    if(ddlid==0){
+    let ddlid = $('#ddlMarkerPlace').val();
+    if (ddlid == 0) {
         alert('請選擇地點');
         return;
     }
@@ -206,7 +291,7 @@ function MarkerListSearch() {
         url: 'http://210.242.86.107/api/maplist/',
         type: 'POST',
         data: {
-            'id': ddlid,
+            'id': ddlid
         },
         error: function (xhr) {
             console.log('ajax-error');
@@ -218,7 +303,7 @@ function MarkerListSearch() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -286,7 +371,7 @@ function MarkerSave() {
 
 function MarkerKeySearch(value) {
     let key = value;
-    if (typeof (key) == "undefined") {
+    if (typeof(key) == "undefined") {
         key = $('#txtMapValue').val();
     }
 
@@ -321,7 +406,7 @@ function MarkerKeySearch(value) {
 }
 
 function MarkerDelete(id) {
-    if (typeof (id) == "undefined") {
+    if (typeof(id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -375,10 +460,7 @@ function initMap() {
 function addMarker(location) {
     var marker = new google
         .maps
-        .Marker({
-            position: location,
-            map: map
-        });
+        .Marker({position: location, map: map});
     markers.push(marker);
 }
 
