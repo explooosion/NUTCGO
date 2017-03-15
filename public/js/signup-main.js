@@ -23,9 +23,9 @@ $('#btnSignSubmit')
                 url: 'http://210.242.86.107/api/useradd/',
                 type: 'POST',
                 data: {
-                    'UserName': userid,
                     'UserID': userid,
                     'PassWord': userpwd,
+                    'UserName': username,
                     'Email': email
                 },
                 error: function (xhr) {
