@@ -26,7 +26,7 @@ $('#btnAccountSubmit').click(function () {
         return false;
     } else {
 
-        let userid = $('#txtUserId').text();
+        let userid = $('.tablesign #txtUserId').text();
         let userpwd = $('#txtPwd').val();
         let username = $('#txtUserName').val();
         let email = $('#txtEmail').val();
