@@ -491,7 +491,8 @@ function addPolygon(location) {
             strokeOpacity: 0.8,
             strokeWeight: 2,
             fillColor: '#5CFF82',
-            fillOpacity: 0.4
+            fillOpacity: 0.4,
+            map: map
         });
 
     polygons.push(polygon);
