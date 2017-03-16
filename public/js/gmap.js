@@ -508,6 +508,8 @@ function addMarker(location) {
 function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
+    }
+    for (var i = 0; i < polygons.length; i++) {
         polygons[i].setMap(map);
     }
 }
