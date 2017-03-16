@@ -6,32 +6,6 @@ google
     .event
     .addDomListener(window, 'load', initialize);
 
-var po1 = new google
-    .maps
-    .LatLng(24.14991574823603, 120.68296909332275);
-var po2 = new google
-    .maps
-    .LatLng(24.14952415452015, 120.68275451660156);
-var po3 = new google
-    .maps
-    .LatLng(24.14930877746491, 120.68321585655212);
-var po4 = new google
-    .maps
-    .LatLng(24.149803165165615, 120.68343311548233);
-
-var po = [po1, po2, po3, po4];
-
-var polygon = new google
-    .maps
-    .Polygon({
-        path: po,
-        strokeColor: '#5CFF82',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#5CFF82',
-        fillOpacity: 0.4
-    });
-
 $('.chosen-select').chosen();
 
 $(function () {
@@ -376,7 +350,7 @@ function PolygonKeySearch(value) {
         url: 'http://210.242.86.107/api/polygonpoint/',
         type: 'POST',
         data: {
-            'id': value,
+            'id': value
         },
         error: function (xhr) {
             console.log('ajax-error');
@@ -413,6 +387,35 @@ function PolygonKeySearch(value) {
                         'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }*/
+
+            var po1 = new google
+                .maps
+                .LatLng(24.14991574823603, 120.68296909332275);
+            var po2 = new google
+                .maps
+                .LatLng(24.14952415452015, 120.68275451660156);
+            var po3 = new google
+                .maps
+                .LatLng(24.14930877746491, 120.68321585655212);
+            var po4 = new google
+                .maps
+                .LatLng(24.149803165165615, 120.68343311548233);
+
+            var po = [po1, po2, po3, po4];
+
+            var polygon = new google
+                .maps
+                .Polygon({
+                    path: po,
+                    strokeColor: '#5CFF82',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#5CFF82',
+                    fillOpacity: 0.4
+                });
+
+            polygon.setMap(map);
+
         }
     });
 }
