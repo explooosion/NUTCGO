@@ -58,6 +58,7 @@
 
 #tbMarkerList tr td .fa:hover,
 #tbPolygonList tr td .fa:hover{
+    transition: all .2s;
     transform: scale(1.1);
 }
 
