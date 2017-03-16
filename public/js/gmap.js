@@ -34,7 +34,7 @@ var polygon = new google
 
 $('.chosen-select').chosen();
 
-$(function() {
+$(function () {
 
     dialogMarkerAdd = $("#dialogMarkerAdd").dialog({
         autoOpen: false,
@@ -47,7 +47,7 @@ $(function() {
         //modal: true, //至頂
         buttons: {
             "儲存": MarkerSave,
-            "取消": function() {
+            "取消": function () {
                 dialogMarkerAdd.dialog("close");
             }
         }
@@ -91,69 +91,77 @@ $(function() {
         }
     });
 
-    var markertree = [{
-        "text": "建築物",
-        "state": {
-            "opened": true
-        },
-        "children": [{
-            "text": "資訊大樓"
+    var markertree = [
+        {
+            "text": "建築物",
+            "state": {
+                "opened": true
+            },
+            "children": [
+                {
+                    "text": "資訊大樓"
+                }, {
+                    "text": "中正大樓"
+                }, {
+                    "text": "昌明樓"
+                }, {
+                    "text": "翰英樓"
+                }, {
+                    "text": "弘業樓"
+                }, {
+                    "text": "中商大樓"
+                }
+            ]
         }, {
-            "text": "中正大樓"
+            "text": "運動場所",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "操場"
+                }, {
+                    "text": "籃球場"
+                }, {
+                    "text": "網球場"
+                }, {
+                    "text": "排球場"
+                }, {
+                    "text": "壘球場"
+                }, {
+                    "text": "活動中心"
+                }
+            ]
         }, {
-            "text": "昌明樓"
-        }, {
-            "text": "翰英樓"
-        }, {
-            "text": "弘業樓"
-        }, {
-            "text": "中商大樓"
-        }]
-    }, {
-        "text": "運動場所",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "操場"
-        }, {
-            "text": "籃球場"
-        }, {
-            "text": "網球場"
-        }, {
-            "text": "排球場"
-        }, {
-            "text": "壘球場"
-        }, {
-            "text": "活動中心"
-        }]
-    }, {
-        "text": "其他",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "停車場"
-        }, {
-            "text": "警衛室"
-        }, {
-            "text": "資源回收場"
-        }]
-    }];
+            "text": "其他",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "停車場"
+                }, {
+                    "text": "警衛室"
+                }, {
+                    "text": "資源回收場"
+                }
+            ]
+        }
+    ];
 
     $('#jstree_demo_div').jstree({
-            core: {
-                data: markertree,
-                check_callback: false
-            },
-            checkbox: {
-                three_state: true, // 整個樹狀自動選取
-                whole_node: true, // 點選文字即可勾選
-                tie_selection: false // 藍框?
-            },
+        core: {
+            data: markertree,
+            check_callback: false
+        },
+        checkbox: {
+            three_state: true, // 整個樹狀自動選取
+            whole_node: true, // 點選文字即可勾選
+            tie_selection: false // 藍框?
+        },
             plugins: ['checkbox', 'themes']
-        })
-        .on("check_node.jstree uncheck_node.jstree", function(e, data) {
+    })
+        .on("check_node.jstree uncheck_node.jstree", function (e, data) {
 
             if (data.node.state.checked) {
                 //alert('checked');
@@ -166,21 +174,21 @@ $(function() {
 
         });
 
-    $('#btnMarkerAdd').click(function() {
+    $('#btnMarkerAdd').click(function () {
         dialogMarkerAdd.dialog("open");
     });
 
-    $('#btnPolygonList').click(function() {
+    $('#btnPolygonList').click(function () {
         PolygonList();
         dialogPolygonList.dialog("open");
     });
 
-    $('#btnMarkerList').click(function() {
+    $('#btnMarkerList').click(function () {
         MarkerList();
         dialogMarkerList.dialog("open");
     });
 
-    $('#btnMarkerTree').click(function() {
+    $('#btnMarkerTree').click(function () {
         let diaMkTree = dialogMarkerTree.dialog("isOpen");
         if (diaMkTree) {
             dialogMarkerTree.dialog("close");
@@ -189,13 +197,13 @@ $(function() {
         }
     });
 
-    $('#btnMarkerDraw').click(function() {
+    $('#btnMarkerDraw').click(function () {
 
         $('#frmMarkerAdd')[0].reset();
         deleteMarkers();
         dialogMarkerAdd.dialog("close");
 
-        map.addListener('click', function(event) {
+        map.addListener('click', function (event) {
 
             addMarker(event.latLng);
             $('#txtMarkerLat').val(event.latLng.lat());
@@ -210,7 +218,7 @@ $(function() {
         });
     });
 
-    $('#txtMapValue').keyup(function(e) {
+    $('#txtMapValue').keyup(function (e) {
         if (e.keyCode == 13) {
             MarkerKeySearch();
         }
@@ -221,16 +229,37 @@ $(function() {
 function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
-
     $.ajax({
         url: 'http://210.242.86.107/api/polygonlist/',
         type: 'GET',
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            for (var i in response) {
+                $('#tbPolygonList').append('<tr><td>' + response[i].PolygonName + '</td><td>' + response[i].PolygonGroup + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+            }
+        }
+    });
+}
+
+function PolygonGetPoint() {
+
+    $.ajax({
+        url: 'http://210.242.86.107/api/polygonpoint/',
+        type: 'GET',
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
             console.log('ajax-ok');
             console.log(response);
 
@@ -238,12 +267,19 @@ function PolygonList() {
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
             // 120.68343311548233)';
             var p = response[0].PolygonPoint;
-            var parr = p.replace('LINESTRING (', '').replace(')', '').split(',');
+            var parr = p
+                .replace('LINESTRING (', '')
+                .replace(')', '')
+                .split(',');
             var polyList = [];
             for (var i in parr) {
                 var objp = new Object();
-                objp.lat = parr[i].trim().split(' ')[0];
-                objp.lng = parr[i].trim().split(' ')[1];
+                objp.lat = parr[i]
+                    .trim()
+                    .split(' ')[0];
+                objp.lng = parr[i]
+                    .trim()
+                    .split(' ')[1];
                 polyList.push(objp);
             }
             console.log(polyList);
@@ -255,6 +291,7 @@ function PolygonList() {
             }*/
         }
     });
+
 }
 
 function MarkerList() {
@@ -265,17 +302,17 @@ function MarkerList() {
     $.ajax({
         url: 'http://210.242.86.107/api/maplist/',
         type: 'GET',
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
             console.log('ajax-ok');
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -300,17 +337,17 @@ function MarkerListSearch() {
         data: {
             'id': ddlid
         },
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
             console.log('ajax-ok');
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -334,12 +371,12 @@ function MarkerSave() {
     $.ajax({
         url: 'http://210.242.86.107/api/map/' + name,
         type: 'GET',
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
             console.log('ajax-ok');
             console.log(response);
 
@@ -356,12 +393,12 @@ function MarkerSave() {
                             'lat': lat,
                             'lng': lng
                         },
-                        error: function(xhr) {
+                        error: function (xhr) {
                             console.log('ajax-error');
                             console.log(xhr);
                             alert('ajax發生錯誤');
                         },
-                        success: function(response) {
+                        success: function (response) {
                             console.log('ajax-ok');
                             console.log(response);
                             alert('點位新增成功');
@@ -374,6 +411,14 @@ function MarkerSave() {
 
         }
     });
+}
+
+function PolygonKeySearch(value) {
+    console.log('p search');
+}
+
+function PolygonDelete(value){
+    console.log('p delete');
 }
 
 function MarkerKeySearch(value) {
@@ -389,12 +434,12 @@ function MarkerKeySearch(value) {
     $.ajax({
         url: 'http://210.242.86.107/api/map/' + key,
         type: 'GET',
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
             console.log('ajax-ok');
             console.log(response);
 
@@ -428,12 +473,12 @@ function MarkerDelete(id) {
         data: {
             'id': id
         },
-        error: function(xhr) {
+        error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             alert('ajax發生錯誤');
         },
-        success: function(response) {
+        success: function (response) {
             console.log('ajax-ok');
             console.log(response);
             alert('點位已經刪除');
@@ -467,7 +512,7 @@ function initMap() {
 function addMarker(location) {
     var marker = new google
         .maps
-        .Marker({ position: location, map: map });
+        .Marker({position: location, map: map});
     markers.push(marker);
 }
 
