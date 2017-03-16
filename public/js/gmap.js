@@ -28,6 +28,23 @@ $(function () {
         }
     });
 
+    dialogPolygonAdd = $("#dialogPolygonAdd").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 400,
+        position: {
+            my: 'center',
+            at: 'top+350'
+        },
+        //modal: true, //至頂
+        buttons: {
+            "儲存": PolygonSave,
+            "取消": function () {
+                dialogPolygonAdd.dialog("close");
+            }
+        }
+    });
+
     dialogMarkerList = $("#dialogMarkerList").dialog({
         autoOpen: false,
         height: 500,
@@ -43,7 +60,7 @@ $(function () {
         height: 500,
         width: 550,
         position: {
-            my: 'center',
+            my: 'center-300',
             at: 'top+300'
         }
     });
@@ -150,7 +167,13 @@ $(function () {
         });
 
     $('#btnMarkerAdd').click(function () {
+        $('#frmMarkerAdd')[0].reset();
         dialogMarkerAdd.dialog("open");
+    });
+
+    $('#btnPolygonAdd').click(function () {
+        $('#ulPolygon li').remove();
+        dialogPolygonAdd.dialog("open");
     });
 
     $('#btnPolygonList').click(function () {
@@ -193,6 +216,49 @@ $(function () {
         });
     });
 
+    $('#btnPolygonDraw').click(function () {
+
+        $('#ulPolygon li').remove();
+        deleteMarkers();
+        dialogPolygonAdd.dialog("close");
+
+        var tmppoly = [];
+        var tmpmk = [];
+        map.addListener('click', function (event) {
+
+            addMarker(event.latLng);
+
+            var tp = new google
+                .maps
+                .LatLng(event.latLng.lat(), event.latLng.lng());
+
+            tmppoly.push(tp);
+
+        });
+
+        map.addListener('rightclick', function (event) {
+
+            deleteMarkers(); // remove template
+            addPolygon(tmppoly);
+
+            for (let i in tmppoly) {
+                $('#ulPolygon').append('<li>Lat：' + tmppoly[i].lat() + ' Lng：' + tmppoly[i].lng() + '</li>');
+            }
+
+            dialogPolygonAdd.dialog("open");
+
+            // remove listener
+            google
+                .maps
+                .event
+                .clearListeners(map, 'click');
+            google
+                .maps
+                .event
+                .clearListeners(map, 'rightclick');
+        });
+    });
+
     $('#txtMapValue').keyup(function (e) {
         if (e.keyCode == 13) {
             MarkerKeySearch();
@@ -219,7 +285,6 @@ function PolygonList() {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                         'f="javascript:PolygonKeyEdit(' + response[i].id + ');"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td><td><a href="j' +
                         'avascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
-
             }
         }
     });
@@ -284,6 +349,10 @@ function MarkerListSearch() {
         }
     });
 
+}
+
+function PolygonSave(){
+    console.log('save');
 }
 
 function MarkerSave() {
@@ -477,7 +546,8 @@ function initMap() {
         .Map(document.getElementById('gmap'), {
             zoom: 17,
             center: defaultMarker,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDoubleClickZoom: true
         });
 
 }

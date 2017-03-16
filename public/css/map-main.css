@@ -11,17 +11,17 @@
     padding: 5px 15px;
 }
 
-#tbMarkerAdd {
+.tbAdd {
     width: 100%;
     margin-top: 5px;
     border-collapse: collapse;
 }
 
-#tbMarkerAdd tr {
+.tbAdd tr {
     border-top: 1px solid #EEEEEE;
 }
 
-#tbMarkerAdd th {
+.tbAdd th {
     text-align: left;
     line-height: 25px;
     padding: 12px 0;
@@ -98,4 +98,17 @@
     padding: 3px 0;
     font-size: 14px;
     float: right;
+}
+
+#ulPolygon {
+    margin: 4px;
+    padding: 4px 20px;
+    display: table;
+    list-style-type: decimal;
+}
+
+#ulPolygon li {
+    padding: 4px 0;
+    margin: 4px 0;
+    border-bottom: 1px solid #DDD;
 }

@@ -64,12 +64,12 @@
 </div>
 
 <div id="dialogMarkerAdd" title="新增點位">
-    <table id="tbMarkerAdd">
+    <table class="tbAdd">
         <tr>
             <th>點名稱</th>
             <td>
                 <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
-                <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">畫點</button>
+                <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">繪製</button>
             </td>
         </tr>
         <form id="frmMarkerAdd">
@@ -85,3 +85,20 @@
     </table>
 </div>
 
+<div id="dialogPolygonAdd" title="新增曲面">
+    <table class="tbAdd">
+        <tr>
+            <th>曲面名稱</th>
+            <td>
+                <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
+                <button id="btnPolygonDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">※.完成後請點擊「右鍵」</td>
+        </tr>
+    </table>
+    <form id="frmPolygonAdd">
+        <ul id="ulPolygon"></ul>
+    </form>
+</div>
