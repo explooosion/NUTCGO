@@ -161,7 +161,7 @@ router.get('/polygonlist/', function (req, res) {
 });
 
 // 曲面列表 - Search by keyWord
-router.get('/polygonpoint/', function (req, res) {
+router.post('/polygonpoint/', function (req, res) {
 
     sql
         .connect(config, function (err) {
@@ -170,17 +170,16 @@ router.get('/polygonpoint/', function (req, res) {
                 console.log(err);
             
             var request = new sql.Request();
-            request.query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList order by Polyg" +
-                    "onGroup",
+            request
+                .input('id', sql.Int, req.body.id)
+                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
 
-            function (err, recordset) {
-
-                if (err) {
-                    console.log(err)
-                    res.send(err);
-                }
-                res.send(recordset);
-            });
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
         });
 });
 

@@ -242,57 +242,12 @@ function PolygonList() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:PolygonKeyEdit(' + response[i].id + ');"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:PolygonKeyEdit(' + response[i].id + ');"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td><td><a href="j' +
+                        'avascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
     });
-}
-
-function PolygonGetPoint() {
-
-    $.ajax({
-        url: 'http://210.242.86.107/api/polygonpoint/',
-        type: 'GET',
-        error: function (xhr) {
-            console.log('ajax-error');
-            console.log(xhr);
-            alert('ajax發生錯誤');
-        },
-        success: function (response) {
-            console.log('ajax-ok');
-            console.log(response);
-
-            // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
-            // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
-            // 120.68343311548233)';
-            var p = response[0].PolygonPoint;
-            var parr = p
-                .replace('LINESTRING (', '')
-                .replace(')', '')
-                .split(',');
-            var polyList = [];
-            for (var i in parr) {
-                var objp = new Object();
-                objp.lat = parr[i]
-                    .trim()
-                    .split(' ')[0];
-                objp.lng = parr[i]
-                    .trim()
-                    .split(' ')[1];
-                polyList.push(objp);
-            }
-            console.log(polyList);
-
-            /*for (var i in response) {
-                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
-
-            }*/
-        }
-    });
-
 }
 
 function MarkerList() {
@@ -416,6 +371,50 @@ function MarkerSave() {
 
 function PolygonKeySearch(value) {
     console.log('p search');
+
+    $.ajax({
+        url: 'http://210.242.86.107/api/polygonpoint/',
+        type: 'POST',
+        data: {
+            'id': value,
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+
+            // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
+            // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
+            // 120.68343311548233)';
+            var p = response[0].PolygonPoint;
+            var parr = p
+                .replace('LINESTRING (', '')
+                .replace(')', '')
+                .split(',');
+            var polyList = [];
+            for (var i in parr) {
+                var objp = new Object();
+                objp.lat = parr[i]
+                    .trim()
+                    .split(' ')[0];
+                objp.lng = parr[i]
+                    .trim()
+                    .split(' ')[1];
+                polyList.push(objp);
+            }
+            console.log(polyList);
+
+            /*for (var i in response) {
+                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+            }*/
+        }
+    });
 }
 
 function PolygonKeyEdit(value) {

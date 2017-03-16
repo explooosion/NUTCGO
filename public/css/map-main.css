@@ -67,12 +67,14 @@
     opacity: .9;
 }
 
-#tbMarkerList tr th:nth-child(3) {
-    width: 20%;
+#tbMarkerList tr th:nth-child(4) {
+    width: 15%;
+    text-align: center;
 }
 
 #tbPolygonList tr th:nth-child(3) {
     width: 20%;
+    text-align: center;
 }
 
 .SearchGroup {
