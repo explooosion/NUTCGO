@@ -175,7 +175,7 @@ $(function () {
     $('#btnMarkerDraw').click(function () {
 
         $('#frmMarkerAdd')[0].reset();
-        cleanMaps();
+        deleteMarkers();
         dialogMarkerAdd.dialog("close");
 
         map.addListener('click', function (event) {
@@ -518,7 +518,7 @@ function showMarkers() {
     setMapOnAll(map);
 }
 
-function cleanMaps() {
+function deleteMarkers() {
     clearMarkers();
     markers = [];
     polygons = [];
