@@ -371,14 +371,11 @@ function PolygonKeySearch(value) {
                 .split(',');
             var polyList = [];
             for (var i in parr) {
-                var objp = new Object();
-                objp.lat = parr[i]
-                    .trim()
-                    .split(' ')[0];
-                objp.lng = parr[i]
-                    .trim()
-                    .split(' ')[1];
-                polyList.push(objp);
+                var po = new google
+                    .maps
+                    .LatLng(parr[i].trim().split(' ')[0], parr[i].trim().split(' ')[1]);
+
+                polyList.push(po);
             }
             console.log(polyList);
 
@@ -388,25 +385,10 @@ function PolygonKeySearch(value) {
 
             }*/
 
-            var po1 = new google
-                .maps
-                .LatLng(24.14991574823603, 120.68296909332275);
-            var po2 = new google
-                .maps
-                .LatLng(24.14952415452015, 120.68275451660156);
-            var po3 = new google
-                .maps
-                .LatLng(24.14930877746491, 120.68321585655212);
-            var po4 = new google
-                .maps
-                .LatLng(24.149803165165615, 120.68343311548233);
-
-            var po = [po1, po2, po3, po4];
-
             var polygon = new google
                 .maps
                 .Polygon({
-                    path: po,
+                    path: polyList,
                     strokeColor: '#5CFF82',
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
