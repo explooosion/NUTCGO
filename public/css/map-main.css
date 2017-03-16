@@ -56,13 +56,18 @@
     color: #444;
 }
 
-#tbMarkerList tr td .fa:hover,
-#tbPolygonList tr td .fa:hover{
-    transform: scale(1.1);
+#tbMarkerList tr td .fa,
+#tbPolygonList tr td .fa {
     margin: 0 2px;
 }
 
-#tbPolygonList tr th:nth-child(3){
+#tbMarkerList tr td .fa:hover,
+#tbPolygonList tr td .fa:hover {
+    transform: scale(1.1);
+    opacity: .9;
+}
+
+#tbPolygonList tr th:nth-child(3) {
     width: 20%;
 }
 
