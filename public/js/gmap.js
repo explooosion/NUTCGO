@@ -58,7 +58,7 @@ $(function() {
         height: 500,
         width: 550,
         position: {
-            my: 'center',
+            my: 'center-300',
             at: 'top+300'
         }
     });

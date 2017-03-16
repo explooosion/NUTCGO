@@ -139,7 +139,7 @@ router.post('/mapdel/', function (req, res) {
         });
 });
 
-// 曲面列表 - Search by keyWord
+// 曲面點資料 - Search by keyWord
 router.get('/polygonlist/', function (req, res) {
 
     sql
@@ -149,21 +149,40 @@ router.get('/polygonlist/', function (req, res) {
                 console.log(err);
             
             var request = new sql.Request();
-            request.input('id', sql.NVarChar(50), req.body.id)
-                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList order by Polyg" +
-                        "onGroup",
+            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , id", function (err, recordset) {
 
-                function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(recordset);
+            });
         });
 });
 
+// 曲面列表 - Search by keyWord
+router.get('/polygonpoint/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList order by Polyg" +
+                    "onGroup",
+
+            function (err, recordset) {
+
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(recordset);
+            });
+        });
+});
 
 router.post('/useradd/', function (req, res) {
 
