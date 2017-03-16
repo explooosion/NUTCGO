@@ -1,5 +1,6 @@
 var map;
-var markers = [];
+var markers = []; // save all marker
+var polygons = []; // save all polygon
 var dialog;
 google
     .maps
@@ -377,26 +378,9 @@ function PolygonKeySearch(value) {
 
                 polyList.push(po);
             }
-            console.log(polyList);
 
-            /*for (var i in response) {
-                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
-
-            }*/
-
-            var polygon = new google
-                .maps
-                .Polygon({
-                    path: polyList,
-                    strokeColor: '#5CFF82',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#5CFF82',
-                    fillOpacity: 0.4
-                });
-
-            polygon.setMap(map);
+            addPolygon(polyList);
+            map.panTo(polyList);
 
         }
     });
@@ -496,6 +480,21 @@ function initMap() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+}
+
+function addPolygon(location) {
+    var polygon = new google
+        .maps
+        .Polygon({
+            path: location,
+            strokeColor: '#5CFF82',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#5CFF82',
+            fillOpacity: 0.4
+        });
+
+    polygons.push(polygon);
 }
 
 function addMarker(location) {
