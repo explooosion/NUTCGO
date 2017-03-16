@@ -46,9 +46,7 @@
 }
 
 #tbMarkerList tr:nth-child(n+2) td:nth-child(2),
-#tbMarkerList tr:nth-child(n+2) td:nth-child(3),
-#tbPolygonList tr:nth-child(n+2) td:nth-child(2),
-#tbPolygonList tr:nth-child(n+2) td:nth-child(3) {
+#tbMarkerList tr:nth-child(n+2) td:nth-child(3) {
     text-align: left;
 }
 
@@ -66,14 +64,14 @@
     width: 100px;
 }
 
-.SearchGroup .btn-search{
+.SearchGroup .btn-search {
     height: 28px;
     margin-left: 5px;
     padding: 3px 0;
     font-size: 14px;
 }
 
-.SearchGroup .btn-add{
+.SearchGroup .btn-add {
     height: 28px;
     margin-right: 5px;
     padding: 3px 0;

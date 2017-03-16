@@ -242,6 +242,7 @@ function PolygonList() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonName + '</td><td>' + response[i].PolygonGroup + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:PolygonKeyEdit(' + response[i].id + ');"><i class="fa fa-pencil-square  fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                         'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
@@ -417,7 +418,11 @@ function PolygonKeySearch(value) {
     console.log('p search');
 }
 
-function PolygonDelete(value){
+function PolygonKeyEdit(value) {
+    console.log('p edit');
+}
+
+function PolygonDelete(value) {
     console.log('p delete');
 }
 
