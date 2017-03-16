@@ -58,8 +58,12 @@
 
 #tbMarkerList tr td .fa:hover,
 #tbPolygonList tr td .fa:hover{
-    transition: all .2s;
     transform: scale(1.1);
+    margin: 0 2px;
+}
+
+#tbPolygonList tr th:nth-child(3){
+    width: 20%;
 }
 
 .SearchGroup {
