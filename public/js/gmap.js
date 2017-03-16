@@ -380,7 +380,7 @@ function PolygonKeySearch(value) {
             }
 
             addPolygon(polyList);
-            map.panTo(polyList);
+            map.panTo(polyList[0]);
 
         }
     });
