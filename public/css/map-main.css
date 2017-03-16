@@ -67,6 +67,10 @@
     opacity: .9;
 }
 
+#tbMarkerList tr th:nth-child(3) {
+    width: 15%;
+}
+
 #tbPolygonList tr th:nth-child(3) {
     width: 20%;
 }
