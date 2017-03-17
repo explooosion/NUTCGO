@@ -360,7 +360,7 @@ function PolygonSave() {
     console.log('save');
 
     let name = $('#txtPolygonName').val();
-
+    console.log(polygontmparr);
     if (name == '' || polygontmparr.length == 0) {
         alert('請確認欄位是否完整');
         return;
