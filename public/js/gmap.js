@@ -360,7 +360,16 @@ function PolygonSave() {
     console.log('save');
 
     let name = $('#txtPolygonName').val();
-    console.log(polygontmparr);
+    let poly = [];
+    //console.log(polygontmparr);
+
+    for (let i in tmppoly) {
+        let obj = new Object();
+        obj.lat = tmppoly[i].lat();
+        obj.lng = tmppoly[i].lng();
+        poly.push(obj);
+    }
+
     if (name == '' || polygontmparr.length == 0) {
         alert('請確認欄位是否完整');
         return;
@@ -374,7 +383,7 @@ function PolygonSave() {
             type: 'POST',
             data: {
                 'name': name,
-                'polygon': polygontmparr
+                'polygon': poly
             },
             error: function (xhr) {
                 console.log('ajax-error');
@@ -384,8 +393,7 @@ function PolygonSave() {
             success: function (response) {
                 console.log('ajax-ok');
                 console.log(response);
-                //alert('點位新增成功');
-                //dialogMarkerAdd.dialog("close");
+                //alert('點位新增成功'); dialogMarkerAdd.dialog("close");
             }
         });
     } // end if
