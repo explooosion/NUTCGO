@@ -361,18 +361,17 @@ function PolygonSave() {
 
     let name = $('#txtPolygonName').val();
     let poly = [];
-    //console.log(polygontmparr);
-
-    for (let i in tmppoly) {
-        let obj = new Object();
-        obj.lat = tmppoly[i].lat();
-        obj.lng = tmppoly[i].lng();
-        poly.push(obj);
-    }
 
     if (name == '' || polygontmparr.length == 0) {
         alert('請確認欄位是否完整');
         return;
+    }
+
+    for (let i in polygontmparr) {
+        let obj = new Object();
+        obj.lat = polygontmparr[i].lat();
+        obj.lng = polygontmparr[i].lng();
+        poly.push(obj);
     }
 
     let comfirm = confirm("確定是否保存?");
