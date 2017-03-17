@@ -4,7 +4,7 @@ var router = express.Router();
 var sql = require('mssql');
 var config = require('../db/config.json');
 
-// 使用者登入
+// 使用者-登入(回傳基本資料)
 router.post('/login', function (req, res) {
 
     sql
@@ -26,163 +26,8 @@ router.post('/login', function (req, res) {
         });
 });
 
-// 新增點位
-router.post('/mapadd/', function (req, res) {
 
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
-                .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
-                        "me , @MarkerLat , @MarkerLng )",
-                function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
-        });
-});
-
-// 取得定位資料
-router.get('/map/:key', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('key', sql.NVarChar(50), req.params.key)
-                .query("select * from MarkerList where MarkerName = @key", function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset[0]);
-                });
-        });
-});
-
-// 點位列表
-router.get('/maplist/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.query("select * from MarkerList order by MarkerName", function (err, recordset) {
-
-                if (err) {
-                    console.log(err)
-                    res.send(err);
-                }
-                res.send(recordset);
-            });
-
-        });
-});
-
-// 點位列表 - Search by keyWord
-router.post('/maplist/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('id', sql.NVarChar(50), req.body.id)
-                .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerNa" +
-                        "me",
-                function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
-        });
-});
-
-// 點位刪除(by id)
-router.post('/mapdel/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('id', sql.Int(), req.body.id)
-                .query("delete from MarkerList where id = @id", function (err, recordset) {
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
-        });
-});
-
-// 曲面點資料 - Search by keyWord
-router.get('/polygonlist/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , id", function (err, recordset) {
-
-                if (err) {
-                    console.log(err)
-                    res.send(err);
-                }
-                res.send(recordset);
-            });
-        });
-});
-
-// 曲面列表 - Search by keyWord
-router.post('/polygonpoint/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request
-                .input('id', sql.Int, req.body.id)
-                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
-        });
-});
-
+// 使用者-新增
 router.post('/useradd/', function (req, res) {
 
     sql
@@ -211,6 +56,8 @@ router.post('/useradd/', function (req, res) {
         });
 });
 
+
+// 使用者-更新資料
 router.post('/userupdate/', function (req, res) {
 
     sql
@@ -238,5 +85,171 @@ router.post('/userupdate/', function (req, res) {
                 });
         });
 });
+
+
+// 點位-新增
+router.post('/mapadd/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
+                .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
+                        "me , @MarkerLat , @MarkerLng )",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
+                });
+        });
+});
+
+// 點位-取得資料
+router.get('/map/:key', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('key', sql.NVarChar(50), req.params.key)
+                .query("select * from MarkerList where MarkerName = @key", function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset[0]);
+                });
+        });
+});
+
+// 點位-列表
+router.get('/maplist/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.query("select * from MarkerList order by MarkerName", function (err, recordset) {
+
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(recordset);
+            });
+
+        });
+});
+
+// 點位-列表 - Search by keyWord
+router.post('/maplist/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('id', sql.NVarChar(50), req.body.id)
+                .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerNa" +
+                        "me",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
+        });
+});
+
+// 點位-刪除(by id)
+router.post('/mapdel/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('id', sql.Int(), req.body.id)
+                .query("delete from MarkerList where id = @id", function (err, recordset) {
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
+                });
+        });
+});
+
+// 曲面-資料 - Search by keyWord
+router.get('/polygonlist/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , id", function (err, recordset) {
+
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(recordset);
+            });
+        });
+});
+
+// 曲面-列表 - Search by keyWord
+router.post('/polygonpoint/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request
+                .input('id', sql.Int, req.body.id)
+                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
+        });
+});
+
+
+
+// 點位-新增
+router.post('/polygonadd/', function (req, res) {
+     res.send(req.body.polygon);
+});
+
 
 module.exports = router;

@@ -1,6 +1,7 @@
 var map;
 var markers = []; // save all marker
 var polygons = []; // save all polygon
+var polygontmparr = []; // draw polygon tmp result
 var dialog;
 google
     .maps
@@ -16,7 +17,7 @@ $(function () {
         height: 300,
         width: 350,
         position: {
-            my: 'center',
+            my: 'center-200',
             at: 'top+350'
         },
         //modal: true, //至頂
@@ -33,7 +34,7 @@ $(function () {
         height: 400,
         width: 400,
         position: {
-            my: 'center',
+            my: 'center-200',
             at: 'top+350'
         },
         //modal: true, //至頂
@@ -50,7 +51,7 @@ $(function () {
         height: 500,
         width: 550,
         position: {
-            my: 'center-300',
+            my: 'center-350',
             at: 'top+300'
         }
     });
@@ -60,7 +61,7 @@ $(function () {
         height: 500,
         width: 550,
         position: {
-            my: 'center-300',
+            my: 'center-350',
             at: 'top+300'
         }
     });
@@ -241,8 +242,10 @@ $(function () {
             deleteMarkers(); // remove template
             addPolygon(tmppoly);
 
+            polygontmparr = tmppoly; // save draw result
+
             for (let i in tmppoly) {
-                $('#ulPolygon').append('<li>Lat：' + tmppoly[i].lat() + ' Lng：' + tmppoly[i].lng() + '</li>');
+                $('#ulPolygon').append('<li>Lat：' + tmppoly[i].lat() + '<br />Lng：' + tmppoly[i].lng() + '</li>');
             }
 
             dialogPolygonAdd.dialog("open");
@@ -276,7 +279,8 @@ function PolygonList() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+            //
+            console.log('ajax error');
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -301,7 +305,8 @@ function MarkerList() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+            //
+            console.log('ajax error');
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -336,7 +341,7 @@ function MarkerListSearch() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+            //
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -351,8 +356,40 @@ function MarkerListSearch() {
 
 }
 
-function PolygonSave(){
+function PolygonSave() {
     console.log('save');
+
+    let name = $('#txtPolygonName').val();
+
+    if (name == '' || polygontmparr.length == 0) {
+        alert('請確認欄位是否完整');
+        return;
+    }
+
+    let comfirm = confirm("確定是否保存?");
+
+    if (comfirm == true) {
+        $.ajax({
+            url: 'http://210.242.86.107/api/polygonadd/',
+            type: 'POST',
+            data: {
+                'name': name,
+                'polygon': polygontmparr
+            },
+            error: function (xhr) {
+                console.log('ajax-error');
+                console.log(xhr);
+
+            },
+            success: function (response) {
+                console.log('ajax-ok');
+                console.log(response);
+                //alert('點位新增成功');
+                //dialogMarkerAdd.dialog("close");
+            }
+        });
+    } // end if
+
 }
 
 function MarkerSave() {
@@ -374,7 +411,6 @@ function MarkerSave() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -396,7 +432,7 @@ function MarkerSave() {
                         error: function (xhr) {
                             console.log('ajax-error');
                             console.log(xhr);
-                            alert('ajax發生錯誤');
+
                         },
                         success: function (response) {
                             console.log('ajax-ok');
@@ -425,7 +461,7 @@ function PolygonKeySearch(value) {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -479,7 +515,7 @@ function MarkerKeySearch(value) {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -518,7 +554,7 @@ function MarkerDelete(id) {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            alert('ajax發生錯誤');
+
         },
         success: function (response) {
             console.log('ajax-ok');
