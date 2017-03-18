@@ -313,7 +313,7 @@ function MarkerListSearch() {
 
     let ddlid = $('#ddlMarkerPlace').val();
     if (ddlid == 0) {
-        alert('請選擇地點');
+        MarkerList(); // Select All
         return;
     }
 
@@ -498,7 +498,7 @@ function PolygonListSearch() {
 
     let ddlGrp = $('#ddlPolygonPlace').val();
     if (ddlGrp == '') {
-        alert('請選擇分類');
+        PolygonList(); // Select All
         return;
     }
 
