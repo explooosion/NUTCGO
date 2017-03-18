@@ -229,7 +229,7 @@ router.post('/polygonpoint/', function (req, res) {
             
             var request = new sql.Request();
             request
-                .input('PolygonGroup', sql.Int, req.body.group)
+                .input('PolygonGroup', sql.NVarChar(50), req.body.group)
                 .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonGroup", function (err, recordset) {
 
                     if (err) {
