@@ -229,8 +229,8 @@ router.post('/polygonpoint/', function (req, res) {
             
             var request = new sql.Request();
             request
-                .input('id', sql.Int, req.body.id)
-                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
+                .input('PolygonGroup', sql.Int, req.body.group)
+                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonGroup", function (err, recordset) {
 
                     if (err) {
                         console.log(err)

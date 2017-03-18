@@ -332,19 +332,19 @@ function MarkerList() {
 
 function PolygonListSearch() {
 
-    let ddlid = $('#ddlPolygonPlace').val();
-    if (ddlid == '') {
+    let ddlGrp = $('#ddlPolygonPlace').val();
+    if (ddlGrp == '') {
         alert('請選擇分類');
         return;
     }
 
     $('#tbPolygonList tr:nth-child(n+2)').remove();
-    
+
     $.ajax({
         url: 'http://210.242.86.107/api/polygonlist/',
         type: 'POST',
         data: {
-            'id': ddlid
+            'group': ddlGrp
         },
         error: function (xhr) {
             console.log('ajax-error');
