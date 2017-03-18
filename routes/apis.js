@@ -270,10 +270,9 @@ router.post('/polygonadd/', function (req, res) {
             console.log(err);
         
         var request = new sql.Request();
-        request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonPoint', sql.NVarChar(50), polystr).input('PolygonGroup', sql.NVarChar(50), req.body.group)
+        request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonGroup', sql.NVarChar(50), req.body.group)
             .query("insert into PolygonList ( PolygonName , PolygonPoint , PolygonGroup ) values ( @" +
-                    "PolygonName , @PolygonPoint , @PolygonGroup )",
-            function (err, recordset) {
+                    "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )", function (err, recordset) {
 
                 if (err) {
                     console.log(err)
