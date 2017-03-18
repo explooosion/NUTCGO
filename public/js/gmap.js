@@ -504,7 +504,7 @@ function PolygonKeySearch(value) {
     });
 }
 
-function PolygonDelete(value) {
+function PolygonDelete(id) {
 
     if (typeof(id) == "undefined") {
         alert('查無此筆');
