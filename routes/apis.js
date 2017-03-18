@@ -84,53 +84,7 @@ router.post('/userupdate/', function (req, res) {
         });
 });
 
-// 點位-新增
-router.post('/mapadd/', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
-                .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
-                        "me , @MarkerLat , @MarkerLng )",
-                function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
-        });
-});
-
-// 點位-取得資料
-router.get('/map/:key', function (req, res) {
-
-    sql
-        .connect(config, function (err) {
-
-            if (err) 
-                console.log(err);
-            
-            var request = new sql.Request();
-            request.input('key', sql.NVarChar(50), req.params.key)
-                .query("select * from MarkerList where MarkerName = @key", function (err, recordset) {
-
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset[0]);
-                });
-        });
-});
-
-// 點位-列表
+// 點位-列表(全)
 router.get('/maplist/', function (req, res) {
 
     sql
@@ -152,7 +106,7 @@ router.get('/maplist/', function (req, res) {
         });
 });
 
-// 點位-列表 - Search by keyWord
+// 點位-列表(過濾)
 router.post('/maplist/', function (req, res) {
 
     sql
@@ -172,6 +126,52 @@ router.post('/maplist/', function (req, res) {
                         res.send(err);
                     }
                     res.send(recordset);
+                });
+        });
+});
+
+// 點位-單一定位
+router.get('/map/:key', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('MarkerName', sql.NVarChar(50), req.params.key)
+                .query("select * from MarkerList where MarkerName = @MarkerName", function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset[0]);
+                });
+        });
+});
+
+// 點位-新增
+router.post('/mapadd/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
+                .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
+                        "me , @MarkerLat , @MarkerLng )",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
                 });
         });
 });
@@ -197,7 +197,7 @@ router.post('/mapdel/', function (req, res) {
         });
 });
 
-// 曲面-資料 - Search by keyWord
+// 曲面-資料(全)
 router.get('/polygonlist/', function (req, res) {
 
     sql
@@ -218,7 +218,7 @@ router.get('/polygonlist/', function (req, res) {
         });
 });
 
-// 曲面-列表 - Search by keyWord
+// 曲面-列表(過濾)
 router.post('/polygonpoint/', function (req, res) {
 
     sql
@@ -228,9 +228,33 @@ router.post('/polygonpoint/', function (req, res) {
                 console.log(err);
             
             var request = new sql.Request();
+            request.input('PolygonGroup', sql.NVarChar(50), req.body.group)
+                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonG" +
+                        "roup",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
+        });
+});
+
+// 曲面-單一定位
+router.get('/polygonpoint/:id', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
             request
-                .input('PolygonGroup', sql.NVarChar(50), req.body.group)
-                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonGroup", function (err, recordset) {
+                .input('PolygonGroup', sql.Int, req.params.id)
+                .query("select id,PolygonName,PolygonGroup from PolygonList where id=@id", function (err, recordset) {
 
                     if (err) {
                         console.log(err)
