@@ -253,7 +253,7 @@ router.get('/polygonpoint/:id', function (req, res) {
             
             var request = new sql.Request();
             request
-                .input('PolygonGroup', sql.Int, req.params.id)
+                .input('id', sql.Int, req.params.id)
                 .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
 
                     if (err) {
