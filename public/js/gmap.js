@@ -227,6 +227,7 @@ $(function () {
         var tmpmk = [];
         map.addListener('click', function (event) {
 
+            map.setOptions({ draggableCursor: 'crosshair' });
             addMarker(event.latLng);
 
             var tp = new google
@@ -239,6 +240,7 @@ $(function () {
 
         map.addListener('rightclick', function (event) {
 
+            map.setOptions({ draggableCursor: 'default' });
             deleteMarkers(); // remove template
             addPolygon(tmppoly);
 
