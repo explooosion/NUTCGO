@@ -366,7 +366,7 @@ function PolygonSave() {
 
     let name = $('#txtPolygonName').val();
     let poly = [];
-    let polylen = 0;
+
     if (name == '' || polygontmparr.length == 0) {
         alert('請確認欄位是否完整');
         return;
@@ -378,7 +378,7 @@ function PolygonSave() {
         obj.lng = polygontmparr[i].lng();
         poly.push(obj);
     }
-    polylen = poly.length();
+
     let comfirm = confirm("確定是否保存?");
 
     if (comfirm == true) {
