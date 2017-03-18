@@ -357,7 +357,12 @@ function MarkerListSearch() {
 }
 
 function PolygonSave() {
-    console.log('save');
+
+    let ddlgroup = $('#ddlPolygonPlaceAdd').val();
+    if (ddlgroup == 0) {
+        alert('請選擇群組');
+        return;
+    }
 
     let name = $('#txtPolygonName').val();
     let poly = [];
@@ -383,7 +388,7 @@ function PolygonSave() {
             data: {
                 'name': name,
                 'polygon': poly,
-                'polygonlen': polylen
+                'group': ddlgroup
             },
             error: function (xhr) {
                 console.log('ajax-error');

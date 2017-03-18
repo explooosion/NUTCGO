@@ -88,6 +88,17 @@
 <div id="dialogPolygonAdd" title="新增曲面">
     <table class="tbAdd">
         <tr>
+            <th>群組</th>
+            <td>
+                <select id="ddlPolygonPlaceAdd" class="chosen-select ddl" data-placeholder="群組名稱">
+                    <option value="0"></option>
+                    <option value="1">建築物</option>
+                    <option value="2">運動場所</option>
+                    <option value="3">其他</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th>曲面名稱</th>
             <td>
                 <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱">

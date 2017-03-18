@@ -245,17 +245,45 @@ router.post('/polygonpoint/', function (req, res) {
 router.post('/polygonadd/', function (req, res) {
 
     let polystr = 'LINESTRING(';
-    let polygon = req.body.polygon;
-    for (let i in req.body.polygonlen) {
-        let lat = polygon[i][lat];
-        let lng = polygon[i][lng];
-
-        let str = lat + ' ' + lng + ',';
-        polygon += str;
+    let polygon = req.body;
+    let index = 0;
+    let lat,
+        lng;
+    for (let i in req.body) {
+        if (i != 'name' && i != 'group') {
+            if (index % 2 == 0) {
+                lat = polygon[i];
+            } else {
+                lng = polygon[i];
+            }
+            index++;
+            if (index % 2 == 0) {
+                polystr += lat + ' ' + lng + ',';
+            }
+        }
     }
+    polystr = polystr.substr(0, polystr.length - 1) + ')';
 
-    res.send(polygon);
+    sql.connect(config, function (err) {
 
+        if (err) 
+            console.log(err);
+        
+        var request = new sql.Request();
+        request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonPoint', sql.NVarChar(50), polystr).input('PolygonGroup', sql.NVarChar(50), req.body.group)
+            .query("insert into PolygonList ( PolygonName , PolygonPoint , PolygonGroup ) values ( @" +
+                    "PolygonName , @PolygonPoint , @PolygonGroup )",
+            function (err, recordset) {
+
+                if (err) {
+                    console.log(err)
+                    res.send(err);
+                }
+                res.send(true);
+            });
+    });
+
+    //res.send(polystr);
 
 });
 
