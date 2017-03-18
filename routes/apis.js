@@ -207,7 +207,7 @@ router.get('/polygonlist/', function (req, res) {
                 console.log(err);
             
             var request = new sql.Request();
-            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , id", function (err, recordset) {
+            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , PolygonName", function (err, recordset) {
 
                 if (err) {
                     console.log(err)
@@ -229,8 +229,7 @@ router.post('/polygonpoint/', function (req, res) {
             
             var request = new sql.Request();
             request.input('PolygonGroup', sql.NVarChar(50), req.body.group)
-                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonG" +
-                        "roup",
+                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonGroup order by PolygonGroup , PolygonName",
                 function (err, recordset) {
 
                     if (err) {
