@@ -19,7 +19,7 @@
 <div id="dialogMarkerList" title="點位管理">
     <div id="MarkerSearch" class="SearchGroup">
         <select id="ddlMarkerPlace" class="chosen-select ddl" data-placeholder="地點名稱">
-            <option value="0"></option>
+            <option value="0">全部</option>
             <option value="6">弘業樓</option>
             <option value="4">昌明樓</option>
             <option value="5">翰英樓</option>
@@ -46,10 +46,10 @@
 <div id="dialogPolygonList" title="曲面管理">
     <div id="PolygonSearch" class="SearchGroup">
         <select id="ddlPolygonPlace" class="chosen-select ddl" data-placeholder="群組名稱">
-            <option value="0"></option>
+            <option value="">全部</option>
             <option value="建築物">建築物</option>
-            <option value="建築物">運動場所</option>
-            <option value="建築物">其他</option>
+            <option value="運動場所">運動場所</option>
+            <option value="其他">其他</option>
         </select>
         <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="PolygonListSearch();">搜尋</button>
         <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
