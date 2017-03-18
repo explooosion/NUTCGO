@@ -373,7 +373,7 @@ function PolygonSave() {
         obj.lng = polygontmparr[i].lng();
         poly.push(obj);
     }
-
+ 
     let comfirm = confirm("確定是否保存?");
 
     if (comfirm == true) {
@@ -382,7 +382,8 @@ function PolygonSave() {
             type: 'POST',
             data: {
                 'name': name,
-                'polygon': poly
+                'polygon': poly,
+                'polygonlen': poly.length
             },
             error: function (xhr) {
                 console.log('ajax-error');

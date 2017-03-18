@@ -26,7 +26,6 @@ router.post('/login', function (req, res) {
         });
 });
 
-
 // 使用者-新增
 router.post('/useradd/', function (req, res) {
 
@@ -56,7 +55,6 @@ router.post('/useradd/', function (req, res) {
         });
 });
 
-
 // 使用者-更新資料
 router.post('/userupdate/', function (req, res) {
 
@@ -85,7 +83,6 @@ router.post('/userupdate/', function (req, res) {
                 });
         });
 });
-
 
 // 點位-新增
 router.post('/mapadd/', function (req, res) {
@@ -244,12 +241,30 @@ router.post('/polygonpoint/', function (req, res) {
         });
 });
 
-
-
 // 點位-新增
 router.post('/polygonadd/', function (req, res) {
-     res.send(req.body.polygon);
-});
 
+    let polystr = 'LINESTRING(';
+    let polygon = req.body.polygon;
+    for (let i in req.body.polygonlen) {
+        let lat = polygon[i][lat];
+        let lng = polygon[i][lng];
+
+        let str = lat + ' ' + lng + ',';
+        polygon += str;
+    }
+
+    res.send(polygon);
+    
+    // sql.connect(config, function (err) {     if (err)         console.log(err);
+    // var request = new sql.Request();     request.input('PolygonName',
+    // sql.NVarChar(50), req.body.name).input('PolygonPoint', sql.NVarChar(50),
+    // polystr)         .query("insert into PolygonList ( PolygonName , PolygonPoint
+    // ) values ( @PolygonName , g" + "eometry::STGeomFromText(@PolygonPoint, 0) )",
+    //         function (err, recordset) {             if (err) {
+    // console.log(err)        res.send(err);             }
+    // res.send(true);         }); });
+
+});
 
 module.exports = router;
