@@ -481,8 +481,6 @@ function PolygonList() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            //
-            console.log('ajax error');
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -515,8 +513,6 @@ function PolygonListSearch() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            //
-            console.log('ajax error');
         },
         success: function (response) {
             console.log('ajax-ok');
