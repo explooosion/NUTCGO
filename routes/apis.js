@@ -241,7 +241,7 @@ router.post('/polygonpoint/', function (req, res) {
         });
 });
 
-// 點位-新增
+// 曲面-新增 polygon add
 router.post('/polygonadd/', function (req, res) {
 
     let polystr = 'LINESTRING(';
@@ -284,6 +284,27 @@ router.post('/polygonadd/', function (req, res) {
 
     //res.send(polystr);
 
+});
+
+// 曲面-刪除(by id)
+router.post('/polygondel/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('id', sql.Int(), req.body.id)
+                .query("delete from PolygonList where id = @id", function (err, recordset) {
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
+                });
+        });
 });
 
 module.exports = router;

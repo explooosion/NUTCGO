@@ -287,8 +287,7 @@ function PolygonList() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:PolygonKeyEdit(' + response[i].id + ');"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td><td><a href="j' +
-                        'avascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });
@@ -359,7 +358,7 @@ function MarkerListSearch() {
 function PolygonSave() {
 
     let ddlgroup = $('#ddlPolygonPlaceAdd').val();
-    if (ddlgroup == 0) {
+    if (ddlgroup == '') {
         alert('請選擇群組');
         return;
     }
@@ -398,7 +397,9 @@ function PolygonSave() {
             success: function (response) {
                 console.log('ajax-ok');
                 console.log(response);
-                //alert('點位新增成功'); dialogMarkerAdd.dialog("close");
+                alert('曲面新增成功');
+                dialogPolygonAdd.dialog("close");
+                PolygonList(); // rebind data
             }
         });
     } // end if
@@ -463,7 +464,6 @@ function MarkerSave() {
 }
 
 function PolygonKeySearch(value) {
-    console.log('p search');
 
     $.ajax({
         url: 'http://210.242.86.107/api/polygonpoint/',
@@ -504,12 +504,36 @@ function PolygonKeySearch(value) {
     });
 }
 
-function PolygonKeyEdit(value) {
-    console.log('p edit');
-}
-
 function PolygonDelete(value) {
-    console.log('p delete');
+
+    if (typeof(id) == "undefined") {
+        alert('查無此筆');
+        return;
+    }
+
+    let comfirm = confirm("確定是否刪除?");
+    if (!comfirm) {
+        return;
+    }
+    $.ajax({
+        url: 'http://210.242.86.107/api/polygondel/',
+        type: 'POST',
+        data: {
+            'id': id
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            alert('點位已經刪除');
+            PolygonList();
+        }
+    });
+
 }
 
 function MarkerKeySearch(value) {
