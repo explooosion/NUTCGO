@@ -173,7 +173,9 @@ $(function () {
     });
 
     $('#btnPolygonAdd').click(function () {
+
         $('#ulPolygon li').remove();
+        $('#frmPolygonAdd')[0].reset();
         dialogPolygonAdd.dialog("open");
     });
 
@@ -208,7 +210,7 @@ $(function () {
 
             map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
             addMarker(event.latLng);
-            
+
             $('#txtMarkerLat').val(event.latLng.lat());
             $('#txtMarkerLng').val(event.latLng.lng());
 
@@ -322,6 +324,40 @@ function MarkerList() {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                         'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
+            }
+        }
+    });
+
+}
+
+function PolygonListSearch() {
+
+    let ddlid = $('#ddlPolygonPlace').val();
+    if (ddlid == '') {
+        alert('請選擇分類');
+        return;
+    }
+
+    $('#tbPolygonList tr:nth-child(n+2)').remove();
+    
+    $.ajax({
+        url: 'http://210.242.86.107/api/polygonlist/',
+        type: 'POST',
+        data: {
+            'id': ddlid
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            //
+            console.log('ajax error');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            for (var i in response) {
+                $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });

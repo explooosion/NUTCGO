@@ -86,6 +86,7 @@
 </div>
 
 <div id="dialogPolygonAdd" title="新增曲面">
+    <form id="frmPolygonAdd">
     <table class="tbAdd">
         <tr>
             <th>群組</th>
@@ -101,7 +102,7 @@
         <tr>
             <th>曲面名稱</th>
             <td>
-                <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱">
+                <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱" value="">
                 <button id="btnPolygonDraw" type="button" class="btn btn-lg btn-green">繪製</button>
             </td>
         </tr>
@@ -109,7 +110,6 @@
             <td colspan="2">※.完成後請點擊「右鍵」</td>
         </tr>
     </table>
-    <form id="frmPolygonAdd">
         <ul id="ulPolygon"></ul>
     </form>
 </div>
