@@ -219,7 +219,7 @@ router.get('/polygonlist/', function (req, res) {
 });
 
 // 曲面-列表(過濾)
-router.post('/polygonpoint/', function (req, res) {
+router.post('/polygonlist/', function (req, res) {
 
     sql
         .connect(config, function (err) {
