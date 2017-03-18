@@ -198,13 +198,17 @@ $(function () {
 
     $('#btnMarkerDraw').click(function () {
 
+        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
+
         $('#frmMarkerAdd')[0].reset();
         deleteMarkers();
         dialogMarkerAdd.dialog("close");
 
         map.addListener('click', function (event) {
 
+            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
             addMarker(event.latLng);
+            
             $('#txtMarkerLat').val(event.latLng.lat());
             $('#txtMarkerLng').val(event.latLng.lng());
 
@@ -219,15 +223,17 @@ $(function () {
 
     $('#btnPolygonDraw').click(function () {
 
+        var tmppoly = [];
+        var tmpmk = [];
+
         $('#ulPolygon li').remove();
         deleteMarkers();
         dialogPolygonAdd.dialog("close");
 
-        var tmppoly = [];
-        var tmpmk = [];
+        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
+
         map.addListener('click', function (event) {
 
-            map.setOptions({ draggableCursor: 'crosshair' });
             addMarker(event.latLng);
 
             var tp = new google
@@ -240,7 +246,7 @@ $(function () {
 
         map.addListener('rightclick', function (event) {
 
-            map.setOptions({ draggableCursor: 'default' });
+            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
             deleteMarkers(); // remove template
             addPolygon(tmppoly);
 
