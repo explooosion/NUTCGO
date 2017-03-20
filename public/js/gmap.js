@@ -159,7 +159,7 @@ $(function () {
             if (data.node.state.checked) {
                 //alert('checked');
                 console.log(data.node.id, data.node.text);
-                MarkerKeySearch(data.node.text);
+                PolygonKeySearch(data.node.text);
                 //polygon.setMap(map);
             } else {
                 //polygon.setMap(null);
@@ -527,7 +527,7 @@ function PolygonListSearch() {
 
 // 曲面-單一定位
 function PolygonKeySearch(value) {
-
+    console.log(value);
     $.ajax({
         url: 'http://210.242.86.107/api/polygonpoint/' + value,
         type: 'GET',
