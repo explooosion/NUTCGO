@@ -159,10 +159,10 @@ $(function () {
             if (data.node.state.checked) {
                 //alert('checked');
                 console.log(data.node.id, data.node.text);
-
-                polygon.setMap(map);
+                MarkerKeySearch(data.node.text);
+                //polygon.setMap(map);
             } else {
-                polygon.setMap(null);
+                //polygon.setMap(null);
             }
 
         });

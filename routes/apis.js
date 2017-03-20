@@ -207,7 +207,9 @@ router.get('/polygonlist/', function (req, res) {
                 console.log(err);
             
             var request = new sql.Request();
-            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , PolygonName", function (err, recordset) {
+            request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , Poly" +
+                    "gonName",
+            function (err, recordset) {
 
                 if (err) {
                     console.log(err)
@@ -229,7 +231,8 @@ router.post('/polygonlist/', function (req, res) {
             
             var request = new sql.Request();
             request.input('PolygonGroup', sql.NVarChar(50), req.body.group)
-                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonGroup order by PolygonGroup , PolygonName",
+                .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonG" +
+                        "roup order by PolygonGroup , PolygonName",
                 function (err, recordset) {
 
                     if (err) {
@@ -244,6 +247,11 @@ router.post('/polygonlist/', function (req, res) {
 // 曲面-單一定位
 router.get('/polygonpoint/:id', function (req, res) {
 
+    var searchKey = 'id';
+    if (!isNaN(req.params.id)) {
+        searchKey = 'PolygonName';
+    }
+
     sql
         .connect(config, function (err) {
 
@@ -253,7 +261,8 @@ router.get('/polygonpoint/:id', function (req, res) {
             var request = new sql.Request();
             request
                 .input('id', sql.Int, req.params.id)
-                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where id=@id", function (err, recordset) {
+                .input('searchkey', sql.NVarChar(50), searchKey)
+                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where @searchkey=@id", function (err, recordset) {
 
                     if (err) {
                         console.log(err)
