@@ -162,6 +162,10 @@ $(function () {
                 PolygonKeySearch(data.node.text);
                 //polygon.setMap(map);
             } else {
+                for(var i in polygons){
+                console.log(i+' - '+polygons[i]);
+
+                }
                 //polygon.setMap(null);
             }
 
