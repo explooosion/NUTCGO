@@ -246,10 +246,10 @@ router.post('/polygonlist/', function (req, res) {
 
 // 曲面-單一定位
 router.get('/polygonpoint/:id', function (req, res) {
-
+    
     var searchKey = 'id';
     var searchType = sql.Int;
-    if (!isNaN(req.params.id)) {
+    if (isNaN(req.params.id)) {
         searchKey = 'PolygonName';
         searchType = sql.NVarChar(50);
     }
@@ -263,10 +263,7 @@ router.get('/polygonpoint/:id', function (req, res) {
             var request = new sql.Request();
             request
                 .input('id', searchType, req.params.id)
-                .input('searchkey', sql.NVarChar(50), searchKey)
-                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where @searchk" +
-                        "ey=@id",
-                function (err, recordset) {
+                .query("select PolygonPoint.STAsText() AS [PolygonPoint] from PolygonList where " + searchKey + "=@id", function (err, recordset) {
 
                     if (err) {
                         console.log(err)
