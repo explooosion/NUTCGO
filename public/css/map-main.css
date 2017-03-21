@@ -112,3 +112,12 @@
     margin: 4px 0;
     border-bottom: 1px solid #DDD;
 }
+
+
+.no_checkbox > i.jstree-checkbox {
+  display:none;
+}
+
+#jstree_demo_div > ul > li > a > i:first-child{
+    display: none;
+}

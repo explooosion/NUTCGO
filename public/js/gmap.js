@@ -88,6 +88,7 @@ $(function () {
     var markertree = [
         {
             "text": "建築物",
+            "id": "01",
             "state": {
                 "opened": true
             },
@@ -108,6 +109,7 @@ $(function () {
             ]
         }, {
             "text": "運動場所",
+            "id": "02",
             "state": {
                 "opened": false
             },
@@ -128,6 +130,7 @@ $(function () {
             ]
         }, {
             "text": "其他",
+            "id": "03",
             "state": {
                 "opened": false
             },
@@ -146,10 +149,9 @@ $(function () {
     $('#jstree_demo_div').jstree({
         core: {
             data: markertree,
-            check_callback: false
+            check_callback: true
         },
         checkbox: {
-            tie_selection : false,
             three_state: false, // 整個樹狀自動選取
             whole_node: true, // 點選文字即可勾選
             tie_selection: false // 藍框?
@@ -157,6 +159,10 @@ $(function () {
         plugins: ['checkbox', 'themes']
     })
         .on("check_node.jstree uncheck_node.jstree", function (e, data) {
+
+            if (data.node.id.substring(0, 1) == 0) {
+                return false;
+            }
 
             if (data.node.state.checked) {
                 //alert('checked');
