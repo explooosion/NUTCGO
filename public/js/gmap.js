@@ -168,8 +168,7 @@ $(function () {
                 }
 
                 var i = polygons.indexOf(polyListNow);
-                console.log(i);
-                //polygon.setMap(null);
+                polygons[i].setMap(null);
             }
 
         });
