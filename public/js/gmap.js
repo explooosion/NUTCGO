@@ -702,12 +702,13 @@ function addMarker(location, name) {
         .Marker({position: location, map: map});
     markers.push(marker);
 
+    var infowindow = new google
+        .maps
+        .InfoWindow({content: name});
+        
     // info window
     if (name != undefined) {
         console.log(name);
-        var infowindow = new google
-            .maps
-            .InfoWindow({content: name});
         infowindow.open(map, marker);
     }
 
@@ -716,15 +717,14 @@ function addMarker(location, name) {
         .maps
         .event
         .addListener(marker, 'click', function () {
-            console.log('marker')
+            console.log('marker');
+            // info window
+            if (name != undefined) {
+                console.log(name);
+                infowindow.open(map, marker);
+            }
         });
-
-    google
-        .maps
-        .event
-        .addListener(infowindow, 'click', function () {
-            console.log('infowindow')
-        });
+ 
 }
 
 function setMapOnAll(map) {
