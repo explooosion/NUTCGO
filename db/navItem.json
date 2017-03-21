@@ -48,13 +48,6 @@
             "class": "fa-map-marker"
         }
     ],
-    "room": [
-        {
-            "name": "校園入口",
-            "url": "/room",
-            "class": "fa-location-arrow"
-        }
-    ],
     "account": [
         {
             "name": "會員中心",

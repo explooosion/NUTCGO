@@ -162,12 +162,33 @@ body {
 .footer {
     width: 100%;
     display: table;
-    margin: 20px 0 30px 0;
+    margin: 50px 0;
     text-align: center;
 }
 
-.footer p {
-    color: #666666;
+.footer .room-line{
+    color: #666;
+    font-size: 10px;
+}
+
+.footer .footer-title {
+    color: #888;
+    margin-top: 10px; 
+}
+ 
+.footer .room-list{
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+.footer .room-list a{
+    margin: 0 4px;
+    color: #888;
+    text-decoration: none;
+}
+
+.footer .room-list a:hover{
+    color: #666;
 }
 
 .slide {
