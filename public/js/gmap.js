@@ -706,6 +706,9 @@ function addMarker(location, name) {
     if (name == undefined) {
         name = '';
     }
+    if (isNaN(name)) {
+        name = name + '';
+    }
     var marker = new google
         .maps
         .Marker({position: location, map: map});
