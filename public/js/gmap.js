@@ -3,7 +3,7 @@ var markers = []; // save all marker
 var polygons = []; // save all polygon
 var polygontmparr = []; // draw polygon tmp result
 var dialog;
-var polyListNow;
+
 google
     .maps
     .event
@@ -166,9 +166,8 @@ $(function () {
                 for (var i in polygons) {
                     console.log(i + ' - ' + polygons.i);
                 }
-
-                var i = polygons.indexOf(polyListNow);
-                polygons[i].setMap(null);
+                // 暫時全部清除
+                clearMarkers();
             }
 
         });
@@ -688,7 +687,7 @@ function addPolygon(location) {
             fillOpacity: 0.4,
             map: map
         });
-    polyListNow = polygon;
+
     polygons.push(polygon);
 }
 
