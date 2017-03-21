@@ -12,6 +12,14 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/map', function (req, res, next) {
+  res.render('index', {
+    title: '地圖定位',
+    key: 'map',
+    navItem: navItem
+  });
+});
+
 router.get('/home', function (req, res, next) {
   res.render('index', {
     title: '首頁',
@@ -56,14 +64,6 @@ router.get('/sport', function (req, res, next) {
   res.render('index', {
     title: '運動休憩',
     key: 'sport',
-    navItem: navItem
-  });
-});
-
-router.get('/map', function (req, res, next) {
-  res.render('index', {
-    title: '地圖定位',
-    key: 'map',
     navItem: navItem
   });
 });

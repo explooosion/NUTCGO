@@ -165,14 +165,9 @@ $(function () {
             }
 
             if (data.node.state.checked) {
-                //alert('checked');
                 console.log(data.node.id, data.node.text);
                 PolygonKeySearch(data.node.text);
-                //polygon.setMap(map);
             } else {
-                for (var i in polygons) {
-                    console.log(i + ' - ' + polygons.i);
-                }
                 // 暫時全部清除
                 clearMarkers();
             }
@@ -703,6 +698,12 @@ function addMarker(location) {
         .maps
         .Marker({ position: location, map: map });
     markers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', clickMarker('click marker'));
+}
+
+function clickMarker(str){
+    console.log(str);
 }
 
 function setMapOnAll(map) {
