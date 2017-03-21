@@ -652,7 +652,15 @@ function PolygonDelete(id) {
             PolygonList();
         }
     });
+}
 
+function MarkerSaveFavorite(name) {
+
+    let isLogin = JSON.parse(GetCookie('account'));
+    if (!isLogin) {
+        alert('請先登入!');
+        Login();
+    }
 }
 
 /* google map api , do not edit */
@@ -695,8 +703,9 @@ function addPolygon(location) {
 
 function addMarker(location, name) {
 
-    name = name.toString();
-
+    if (name == undefined) {
+        name = '';
+    }
     var marker = new google
         .maps
         .Marker({position: location, map: map});
@@ -707,7 +716,7 @@ function addMarker(location, name) {
         .InfoWindow({content: name});
 
     // info window
-    if (name != undefined) {
+    if (name != '') {
         console.log(name);
         infowindow.open(map, marker);
     }
@@ -719,7 +728,7 @@ function addMarker(location, name) {
         .addListener(marker, 'click', function () {
             console.log('marker');
             // info window
-            if (name != undefined) {
+            if (name != '') {
                 console.log(name);
                 infowindow.open(map, marker);
             }
@@ -730,7 +739,8 @@ function addMarker(location, name) {
         .maps
         .event
         .addListener(marker, 'dblclick', function () {
-            alert('marker save!');
+            console.log('marker save!');
+            MarkerSaveFavorite();
         });
 }
 
