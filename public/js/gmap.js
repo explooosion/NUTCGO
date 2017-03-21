@@ -3,7 +3,7 @@ var markers = []; // save all marker
 var polygons = []; // save all polygon
 var polygontmparr = []; // draw polygon tmp result
 var dialog;
-var polygonList = [];
+var polyList = [];
 google
     .maps
     .event
@@ -167,7 +167,7 @@ $(function () {
                     console.log(i + ' - ' + polygons.i);
                 }
 
-                polygons.filter(polygonList).setMap(null);
+                polygons.filter(polyList).setMap(null);
                 //polygon.setMap(null);
             }
 
@@ -555,7 +555,7 @@ function PolygonKeySearch(value) {
                 .replace(')', '')
                 .split(',');
             //var polyList = [];
-            polygonList = [];
+            polyList = [];
             for (var i in parr) {
                 var po = new google
                     .maps
