@@ -3,6 +3,7 @@ var markers = []; // save all marker
 var polygons = []; // save all polygon
 var polygontmparr = []; // draw polygon tmp result
 var dialog;
+var polygonList = [];
 google
     .maps
     .event
@@ -152,7 +153,7 @@ $(function () {
             whole_node: true, // 點選文字即可勾選
             tie_selection: false // 藍框?
         },
-            plugins: ['checkbox', 'themes']
+        plugins: ['checkbox', 'themes']
     })
         .on("check_node.jstree uncheck_node.jstree", function (e, data) {
 
@@ -162,10 +163,11 @@ $(function () {
                 PolygonKeySearch(data.node.text);
                 //polygon.setMap(map);
             } else {
-                for(var i in polygons){
-                console.log(i+' - '+polygons.i);
-
+                for (var i in polygons) {
+                    console.log(i + ' - ' + polygons.i);
                 }
+
+                polygons.filter(polygonList).setMap(null);
                 //polygon.setMap(null);
             }
 
@@ -204,7 +206,7 @@ $(function () {
 
     $('#btnMarkerDraw').click(function () {
 
-        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
+        map.setOptions({ draggableCursor: 'crosshair', draggingCursor: 'crosshair' });
 
         $('#frmMarkerAdd')[0].reset();
         deleteMarkers();
@@ -212,7 +214,7 @@ $(function () {
 
         map.addListener('click', function (event) {
 
-            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
+            map.setOptions({ draggableCursor: 'openhand', draggingCursor: 'openhand' });
             addMarker(event.latLng);
 
             $('#txtMarkerLat').val(event.latLng.lat());
@@ -236,7 +238,7 @@ $(function () {
         deleteMarkers();
         dialogPolygonAdd.dialog("close");
 
-        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
+        map.setOptions({ draggableCursor: 'crosshair', draggingCursor: 'crosshair' });
 
         map.addListener('click', function (event) {
 
@@ -252,7 +254,7 @@ $(function () {
 
         map.addListener('rightclick', function (event) {
 
-            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
+            map.setOptions({ draggableCursor: 'openhand', draggingCursor: 'openhand' });
             deleteMarkers(); // remove template
             addPolygon(tmppoly);
 
@@ -304,7 +306,7 @@ function MarkerList() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -340,7 +342,7 @@ function MarkerListSearch() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -351,7 +353,7 @@ function MarkerListSearch() {
 // 點位-單一定位
 function MarkerKeySearch(value) {
     let key = value;
-    if (typeof(key) == "undefined") {
+    if (typeof (key) == "undefined") {
         key = $('#txtMapValue').val();
     }
 
@@ -387,7 +389,7 @@ function MarkerKeySearch(value) {
 
 // 點位-指定刪除
 function MarkerDelete(id) {
-    if (typeof(id) == "undefined") {
+    if (typeof (id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -491,7 +493,7 @@ function PolygonList() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                    'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });
@@ -523,7 +525,7 @@ function PolygonListSearch() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                    'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });
@@ -552,7 +554,8 @@ function PolygonKeySearch(value) {
                 .replace('LINESTRING (', '')
                 .replace(')', '')
                 .split(',');
-            var polyList = [];
+            //var polyList = [];
+            polygonList = [];
             for (var i in parr) {
                 var po = new google
                     .maps
@@ -622,7 +625,7 @@ function PolygonSave() {
 // 曲面-刪除指定
 function PolygonDelete(id) {
 
-    if (typeof(id) == "undefined") {
+    if (typeof (id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -693,7 +696,7 @@ function addPolygon(location) {
 function addMarker(location) {
     var marker = new google
         .maps
-        .Marker({position: location, map: map});
+        .Marker({ position: location, map: map });
     markers.push(marker);
 }
 
