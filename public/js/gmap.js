@@ -3,7 +3,7 @@ var markers = []; // save all marker
 var polygons = []; // save all polygon
 var polygontmparr = []; // draw polygon tmp result
 var dialog;
-var polyList = [];
+var polyListNow;
 google
     .maps
     .event
@@ -167,7 +167,8 @@ $(function () {
                     console.log(i + ' - ' + polygons.i);
                 }
 
-                polygons.filter(polyList).setMap(null);
+                var i = polygons.indexOf(polyListNow);
+                console.log(i);
                 //polygon.setMap(null);
             }
 
@@ -554,8 +555,7 @@ function PolygonKeySearch(value) {
                 .replace('LINESTRING (', '')
                 .replace(')', '')
                 .split(',');
-            //var polyList = [];
-            polyList = [];
+            var polyList = [];
             for (var i in parr) {
                 var po = new google
                     .maps
@@ -689,7 +689,7 @@ function addPolygon(location) {
             fillOpacity: 0.4,
             map: map
         });
-
+    polyListNow = polygon;
     polygons.push(polygon);
 }
 
