@@ -705,7 +705,7 @@ function addMarker(location, name) {
     var infowindow = new google
         .maps
         .InfoWindow({content: name});
-        
+
     // info window
     if (name != undefined) {
         console.log(name);
@@ -724,7 +724,14 @@ function addMarker(location, name) {
                 infowindow.open(map, marker);
             }
         });
- 
+
+    // dbclick event
+    google
+        .maps
+        .event
+        .addListener(marker, 'dblclick', function () {
+            alert('marker save!');
+        });
 }
 
 function setMapOnAll(map) {
