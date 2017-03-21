@@ -149,7 +149,8 @@ $(function () {
             check_callback: false
         },
         checkbox: {
-            three_state: true, // 整個樹狀自動選取
+            tie_selection : false,
+            three_state: false, // 整個樹狀自動選取
             whole_node: true, // 點選文字即可勾選
             tie_selection: false // 藍框?
         },
