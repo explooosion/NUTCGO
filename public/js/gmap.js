@@ -694,13 +694,16 @@ function addPolygon(location) {
 }
 
 function addMarker(location, name) {
+
+    name = name.toString();
+
     var marker = new google
         .maps
         .Marker({position: location, map: map});
     markers.push(marker);
 
     // info window
-    if (name.toString() != undefined) {
+    if (name != undefined) {
         console.log(name);
         var infowindow = new google
             .maps
@@ -713,7 +716,14 @@ function addMarker(location, name) {
         .maps
         .event
         .addListener(marker, 'click', function () {
-            console.log('asd')
+            console.log('marker')
+        });
+
+    google
+        .maps
+        .event
+        .addListener(infowindow, 'click', function () {
+            console.log('infowindow')
         });
 }
 
