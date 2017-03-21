@@ -700,7 +700,8 @@ function addMarker(location, name) {
     markers.push(marker);
 
     // info window
-    if (name != undefined) {
+    if (name.toString() != undefined) {
+        console.log(name);
         var infowindow = new google
             .maps
             .InfoWindow({content: name});
