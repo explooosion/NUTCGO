@@ -113,11 +113,59 @@
     border-bottom: 1px solid #DDD;
 }
 
-
-.no_checkbox > i.jstree-checkbox {
-  display:none;
+.no_checkbox>i.jstree-checkbox {
+    display: none;
 }
 
-#jstree_demo_div > ul > li > a > i:first-child{
+#jstree_demo_div>ul>li>a>i:first-child {
     display: none;
+}
+
+
+/* winpop */
+
+.winPop {
+    width: 225px;
+    height: 28px;
+    position: fixed;
+    margin: 0;
+    padding: 4px 12px;
+    left: 40%;
+    top: -40px;
+    background: #3D454D;
+    opacity: 0;
+}
+
+.winPop .winPopIcon {
+    float: left;
+    color: #DA4E42;
+}
+
+.winPop .winPopMsg {
+    float: left;
+    color: #FFF;
+    margin-left: 10px;
+}
+
+.winPop .winPopClose .winPopBtn {
+    height: 20px;
+    width: 20px;
+    float: left;
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    margin-left: 14px;
+    margin-top: 2px;
+    position: relative;
+}
+
+.winPop .winPopClose .winPopBtn i {
+    position: absolute;
+    left: 3.5px;
+    top: 2px;
+    color: #FFF;
+    transition: .15s;
+}
+
+.winPop .winPopClose .winPopBtn i:hover {
+    transform: rotate(30deg);
 }

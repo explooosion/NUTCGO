@@ -660,7 +660,14 @@ function MarkerSaveFavorite(name) {
     if (!isLogin) {
         alert('請先登入!');
         Login();
+    }else{
+
+        $('.winPop').animate({
+            'top': 0,
+            'opacity': 1
+        });
     }
+
 }
 
 /* google map api , do not edit */
@@ -706,8 +713,8 @@ function addMarker(location, name) {
     if (name == undefined) {
         name = '';
     }
-    if (isNaN(name)) {
-        name = name + '';
+    if (!isNaN(name)) {
+        name = toString(name);
     }
     var marker = new google
         .maps
