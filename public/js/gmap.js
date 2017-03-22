@@ -723,9 +723,8 @@ function addMarker(location, name) {
     if (name == undefined) {
         name = '';
     }
-    if (!isNaN(name)) {
-        name = toString(name);
-    }
+    name = name + '';
+
     var marker = new google
         .maps
         .Marker({
