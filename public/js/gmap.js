@@ -676,9 +676,9 @@ function MarkerSaveFavorite(name) {
             'top': 0,
             'opacity': 1
         });
-    }
 
-    setTimeout(WinPopClose(), 3000);
+        setTimeout(WinPopClose(), 5000);
+    }
 
 }
 
