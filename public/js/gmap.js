@@ -678,6 +678,8 @@ function MarkerSaveFavorite(name) {
         });
     }
 
+    setTimeout(WinPopClose(), 3000);
+
 }
 
 /* google map api , do not edit */
