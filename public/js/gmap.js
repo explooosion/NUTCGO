@@ -78,7 +78,7 @@ $(function () {
     });
 
     dialogMarkerTree = $("#dialogMarkerTree").dialog({
-        autoOpen: true,
+        autoOpen: false,
         height: 520,
         width: 280,
         position: {
@@ -100,7 +100,7 @@ $(function () {
             "text": "建築物",
             "id": "01",
             "state": {
-                "opened": false
+                "opened": true
             },
             "children": [
                 {
