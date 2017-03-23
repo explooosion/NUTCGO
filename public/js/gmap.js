@@ -219,6 +219,13 @@ $(function () {
     });
 
     $('#btnMarkerFavorite').click(function () {
+
+        let isLogin = JSON.parse(GetCookie('account'));
+        if (!isLogin) {
+            alert('請先登入!');
+            Login();
+            return;
+        }
         MarkerFavoriteList();
         dialogMarkerFavorite.dialog("open");
     });
@@ -684,14 +691,6 @@ function PolygonDelete(id) {
 
 // 點位-我的最愛清單列表
 function MarkerFavoriteList() {
-
-    let isLogin = JSON.parse(GetCookie('account'));
-    if (!isLogin) {
-        alert('請先登入!');
-        Login();
-        dialogMarkerFavorite.dialog("close");
-        return;
-    }
 
     let ddlid = $('#ddlMarkerFavoritePlace').val();
 
