@@ -758,7 +758,7 @@ function MarkerSaveFavorite(name) {
             type: 'POST',
             data: {
                 'UserID': isLogin["UserID"],
-                'id': ddlid
+                'MarkerName': name
             },
             error: function (xhr) {
                 console.log('ajax-error');
