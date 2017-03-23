@@ -10,9 +10,9 @@ router.post('/login', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('UserID', sql.VarChar(50), req.body.userid).input('PassWord', sql.VarChar(50), req.body.passwd)
                 .query('select * from UserList where UserID = @UserID AND PassWord = @PassWord', function (err, recordset) {
@@ -32,7 +32,7 @@ router.post('/useradd/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
             if (err) {
                 console.log(err)
@@ -43,7 +43,7 @@ router.post('/useradd/', function (req, res) {
             var request = new sql.Request();
             request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
                 .query("insert into UserList ( UserName , UserID , PassWord , Email ) values ( @UserName" +
-                        " , @UserID , @PassWord , @Email )",
+                " , @UserID , @PassWord , @Email )",
                 function (err, recordset) {
 
                     if (err) {
@@ -61,7 +61,7 @@ router.post('/userupdate/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
             if (err) {
                 console.log(err)
@@ -72,7 +72,7 @@ router.post('/userupdate/', function (req, res) {
             var request = new sql.Request();
             request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
                 .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email" +
-                        " where UserID = @UserID",
+                " where UserID = @UserID",
                 function (err, recordset) {
 
                     if (err) {
@@ -90,9 +90,9 @@ router.get('/maplist/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.query("select * from MarkerList order by MarkerName", function (err, recordset) {
 
@@ -112,13 +112,13 @@ router.post('/maplist/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('id', sql.NVarChar(50), req.body.id)
                 .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerNa" +
-                        "me",
+                "me",
                 function (err, recordset) {
 
                     if (err) {
@@ -136,9 +136,9 @@ router.get('/map/:key', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('MarkerName', sql.NVarChar(50), req.params.key)
                 .query("select * from MarkerList where MarkerName = @MarkerName", function (err, recordset) {
@@ -158,13 +158,13 @@ router.post('/mapadd/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
                 .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
-                        "me , @MarkerLat , @MarkerLng )",
+                "me , @MarkerLat , @MarkerLng )",
                 function (err, recordset) {
 
                     if (err) {
@@ -182,9 +182,9 @@ router.post('/mapdel/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('id', sql.Int(), req.body.id)
                 .query("delete from MarkerList where id = @id", function (err, recordset) {
@@ -203,20 +203,20 @@ router.get('/polygonlist/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.query("select id,PolygonName,PolygonGroup from PolygonList order by PolygonGroup , Poly" +
-                    "gonName",
-            function (err, recordset) {
+                "gonName",
+                function (err, recordset) {
 
-                if (err) {
-                    console.log(err)
-                    res.send(err);
-                }
-                res.send(recordset);
-            });
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
         });
 });
 
@@ -226,13 +226,13 @@ router.post('/polygonlist/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('PolygonGroup', sql.NVarChar(50), req.body.group)
                 .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonG" +
-                        "roup order by PolygonGroup , PolygonName",
+                "roup order by PolygonGroup , PolygonName",
                 function (err, recordset) {
 
                     if (err) {
@@ -246,7 +246,7 @@ router.post('/polygonlist/', function (req, res) {
 
 // 曲面-單一定位
 router.get('/polygonpoint/:id', function (req, res) {
-    
+
     var searchKey = 'id';
     var searchType = sql.Int;
     if (isNaN(req.params.id)) {
@@ -257,9 +257,9 @@ router.get('/polygonpoint/:id', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request
                 .input('id', searchType, req.params.id)
@@ -299,13 +299,13 @@ router.post('/polygonadd/', function (req, res) {
 
     sql.connect(config, function (err) {
 
-        if (err) 
+        if (err)
             console.log(err);
-        
+
         var request = new sql.Request();
         request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonGroup', sql.NVarChar(50), req.body.group)
             .query("insert into PolygonList ( PolygonName , PolygonPoint , PolygonGroup ) values ( @" +
-                    "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )", function (err, recordset) {
+            "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )", function (err, recordset) {
 
                 if (err) {
                     console.log(err)
@@ -325,9 +325,9 @@ router.post('/polygondel/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('id', sql.Int(), req.body.id)
                 .query("delete from PolygonList where id = @id", function (err, recordset) {
@@ -346,12 +346,11 @@ router.post('/mapfavorite/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('UserID', sql.NVarChar(50), req.body.UserID)
-            .input('')
                 .query("select A.id, A.UserID, B.MarkerName, B.MarkerLat, B.MarkerLng from UserMarkerFavorite as A left join MarkerList as B on A.MarkerName = b.MarkerName where a.UserID = @UserID order by B.MarkerName",
                 function (err, recordset) {
 
@@ -370,9 +369,9 @@ router.post('/mapfavoritedel/', function (req, res) {
     sql
         .connect(config, function (err) {
 
-            if (err) 
+            if (err)
                 console.log(err);
-            
+
             var request = new sql.Request();
             request.input('id', sql.Int(), req.body.id)
                 .query("delete from UserMarkerFavorite where id = @id", function (err, recordset) {
