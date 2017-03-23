@@ -411,17 +411,15 @@ router.post('/mapfavoriteadd/', function (req, res) {
                                         res.send(true);
                                     });
                             });
-                            
+
                     } else {
                         res.send(false);
-                    }
-                } // end if
+                    }// end if
+
 
                 });
+        });
 });
-
-});
-
 
 // 我的最愛-刪除(by id)
 router.post('/mapfavoritedel/', function (req, res) {
