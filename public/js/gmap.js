@@ -879,7 +879,7 @@ function addMarker(location, name) {
         .addListener(marker, 'dblclick', function () {
             console.log('marker save!');
             $('#winPopMarkerID').text(name);
-            MarkerSaveFavorite();
+            MarkerSaveFavorite(name);
         });
 }
 
