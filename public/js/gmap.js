@@ -577,23 +577,24 @@ function PolygonKeySearch(value) {
             // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
             // 120.68343311548233)';
-            var p = response[0].PolygonPoint;
-            var parr = p
-                .replace('LINESTRING (', '')
-                .replace(')', '')
-                .split(',');
-            var polyList = [];
-            for (var i in parr) {
-                var po = new google
-                    .maps
-                    .LatLng(parr[i].trim().split(' ')[0], parr[i].trim().split(' ')[1]);
 
-                polyList.push(po);
+            for (var i in response) {
+                var p = response[i].PolygonPoint;
+                var parr = p
+                    .replace('LINESTRING (', '')
+                    .replace(')', '')
+                    .split(',');
+                var polyList = [];
+                for (var i in parr) {
+                    var po = new google
+                        .maps
+                        .LatLng(parr[i].trim().split(' ')[0], parr[i].trim().split(' ')[1]);
+
+                    polyList.push(po);
+                }
+                addPolygon(polyList);
             }
-
-            addPolygon(polyList);
             map.panTo(polyList[0]);
-
         }
     });
 }
