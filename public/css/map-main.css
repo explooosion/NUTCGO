@@ -28,46 +28,55 @@
 }
 
 #tbMarkerList,
-#tbPolygonList {
+#tbPolygonList,
+#tbMarkerFavoriteList {
     width: 100%;
     margin-top: 5px;
     border-collapse: collapse;
 }
 
 #tbMarkerList tr,
-#tbPolygonList tr {
+#tbPolygonList tr,
+#tbMarkerFavoriteList tr {
     text-align: center;
     border-bottom: 1px solid #CCC;
 }
 
 #tbMarkerList tr:nth-child(n+2):hover,
-#tbPolygonList tr:nth-child(n+2):hover {
+#tbPolygonList tr:nth-child(n+2):hover,
+#tbMarkerFavoriteList tr:nth-child(n+2):hover {
     background: #DDD;
 }
 
 #tbMarkerList tr:nth-child(n+2) td:nth-child(2),
-#tbMarkerList tr:nth-child(n+2) td:nth-child(3) {
+#tbMarkerList tr:nth-child(n+2) td:nth-child(3),
+#tbMarkerFavoriteList tr:nth-child(n+2) td:nth-child(2),
+#tbMarkerFavoriteList tr:nth-child(n+2) td:nth-child(3) {
     text-align: left;
 }
 
 #tbMarkerList tr td,
-#tbPolygonList tr td {
+#tbPolygonList tr td,
+#tbMarkerFavoriteList tr td {
     height: 32px;
     color: #444;
 }
 
 #tbMarkerList tr td .fa,
-#tbPolygonList tr td .fa {
+#tbPolygonList tr td .fa,
+#tbMarkerFavoriteList tr td .fa {
     margin: 0 2px;
 }
 
 #tbMarkerList tr td .fa:hover,
-#tbPolygonList tr td .fa:hover {
+#tbPolygonList tr td .fa:hover,
+#tbMarkerFavoriteList tr td .fa:hover, {
     transform: scale(1.1);
     opacity: .9;
 }
 
-#tbMarkerList tr th:nth-child(4) {
+#tbMarkerList tr th:nth-child(4),
+#tbMarkerFavoriteList tr th:nth-child(4) {
     width: 15%;
     text-align: center;
 }
