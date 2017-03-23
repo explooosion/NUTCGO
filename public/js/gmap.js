@@ -67,8 +67,19 @@ $(function () {
         }
     });
 
-    dialogMarkerTree = $("#dialogMarkerTree").dialog({
+    dialogMarkerFavorite = $("#dialogMarkerFavorite").dialog({
         autoOpen: false,
+        height: 500,
+        width: 550,
+        position: {
+            my: 'center-350',
+            at: 'top+300'
+        }
+    });
+
+
+    dialogMarkerTree = $("#dialogMarkerTree").dialog({
+        autoOpen: true,
         height: 520,
         width: 280,
         position: {
@@ -139,17 +150,17 @@ $(function () {
     }];
 
     $('#jstree_demo_div').jstree({
-            core: {
-                data: markertree,
-                check_callback: true
-            },
-            checkbox: {
-                three_state: false, // 整個樹狀自動選取
-                whole_node: true, // 點選文字即可勾選
-                tie_selection: false // 藍框?
-            },
-            plugins: ['checkbox', 'themes']
-        })
+        core: {
+            data: markertree,
+            check_callback: true
+        },
+        checkbox: {
+            three_state: false, // 整個樹狀自動選取
+            whole_node: true, // 點選文字即可勾選
+            tie_selection: false // 藍框?
+        },
+        plugins: ['checkbox', 'themes']
+    })
         .on("check_node.jstree uncheck_node.jstree", function (e, data) {
 
             if (data.node.id.substring(0, 1) == 0) {
@@ -172,7 +183,6 @@ $(function () {
     });
 
     $('#btnPolygonAdd').click(function () {
-
         $('#ulPolygon li').remove();
         $('#frmPolygonAdd')[0].reset();
         dialogPolygonAdd.dialog("open");
@@ -186,6 +196,10 @@ $(function () {
     $('#btnMarkerList').click(function () {
         MarkerList();
         dialogMarkerList.dialog("open");
+    });
+
+    $('#btnMarkerFavorite').click(function () {
+        dialogMarkerFavorite.dialog("open");
     });
 
     $('#btnMarkerTree').click(function () {
@@ -658,13 +672,73 @@ function PolygonDelete(id) {
     });
 }
 
-function WinPopClose() {
-    $('.winPop').animate({
-        'top': '-40px',
-        'opacity': 0
+
+// 點位-我的最愛清單列表
+function MarkerFavoriteList() {
+
+    let isLogin = JSON.parse(GetCookie('account'));
+    if (!isLogin) {
+        alert('請先登入!');
+        Login();
+        return;
+    }
+    // default table title
+    $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
+
+    $.ajax({
+        url: 'http://210.242.86.107/api/mapmapfavoritelist/',
+        type: 'POST',
+        data: {
+            'UserID': isLogin["UserID"]
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+
+            for (var i in response) {
+                $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                    'f="javascript:MarkerFavoriteDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+            }
+        }
     });
 }
 
+// 點位-我的最愛指定刪除
+function MarkerFavoriteDelete(id) {
+    if (typeof (id) == "undefined") {
+        alert('查無此筆');
+        return;
+    }
+
+    let comfirm = confirm("確定是否刪除?");
+    if (!comfirm) {
+        return;
+    }
+    $.ajax({
+        url: 'http://210.242.86.107/api/mapfavoritedel/',
+        type: 'POST',
+        data: {
+            'id': id
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            console.log(response);
+            alert('點位已經刪除');
+            MarkerFavoriteList();
+        }
+    });
+
+}
+
+// 點位-我的最愛儲存
 function MarkerSaveFavorite(name) {
 
     let isLogin = JSON.parse(GetCookie('account'));
@@ -681,6 +755,15 @@ function MarkerSaveFavorite(name) {
     }
 
 }
+
+
+function WinPopClose() {
+    $('.winPop').animate({
+        'top': '-40px',
+        'opacity': 0
+    });
+}
+
 
 /* google map api , do not edit */
 function initialize() {

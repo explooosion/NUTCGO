@@ -6,6 +6,7 @@
     <button type="button" class="btn btn-lg btn-green" onclick="deleteMarkers();">清除</button>
     <button id="btnMarkerList" type="button" class="btn btn-lg btn-green">點位管理</button>
     <button id="btnPolygonList" type="button" class="btn btn-lg btn-green">曲面管理</button>
+    <button id="btnMarkerFavorite" type="button" class="btn btn-lg btn-green">我的最愛</button>
 </div>
 <div class="row">
     <div id="gmap" class="map"></div>
@@ -113,6 +114,32 @@
         <ul id="ulPolygon"></ul>
     </form>
 </div>
+
+<div id="dialogMarkerFavorite" title="我的最愛">
+    <div id="MarkerFavoriteSearch" class="SearchGroup">
+        <select id="ddlMarkerFavoritePlace" class="chosen-select ddl" data-placeholder="地點名稱">
+            <option value="0">全部</option>
+            <option value="6">弘業樓</option>
+            <option value="4">昌明樓</option>
+            <option value="5">翰英樓</option>
+            <option value="8">奇秀樓</option>
+            <option value="2">資訊館</option>
+            <option value="2">行政大樓</option>
+            <option value="3">中正大樓</option>
+            <option value="7">中商大樓</option>
+        </select>
+        <button id="btnMarkerFavoriteSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerListSearch();">搜尋</button>
+    </div>
+    <table id="tbMarkerFavoriteList">
+        <tr>
+            <th>Name</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th colspan="2"></th>
+        </tr>
+    </table>
+</div>
+
 
 <div class="winPop">
     <div class="winPopIcon">

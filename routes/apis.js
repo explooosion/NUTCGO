@@ -340,4 +340,50 @@ router.post('/polygondel/', function (req, res) {
         });
 });
 
+// 點位-我的最愛列表
+router.post('/mapfavorite/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('UserID', sql.NVarChar(50), req.body.UserID)
+            .input('')
+                .query("select A.id, A.UserID, B.MarkerName, B.MarkerLat, B.MarkerLng from UserMarkerFavorite as A left join MarkerList as B on A.MarkerName = b.MarkerName where a.UserID = @UserID order by B.MarkerName",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(recordset);
+                });
+        });
+});
+
+// 點位-刪除(by id)
+router.post('/mapfavoritedel/', function (req, res) {
+
+    sql
+        .connect(config, function (err) {
+
+            if (err) 
+                console.log(err);
+            
+            var request = new sql.Request();
+            request.input('id', sql.Int(), req.body.id)
+                .query("delete from UserMarkerFavorite where id = @id", function (err, recordset) {
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
+                });
+        });
+});
+
+
 module.exports = router;
