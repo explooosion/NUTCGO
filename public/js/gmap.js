@@ -77,7 +77,6 @@ $(function () {
         }
     });
 
-
     dialogMarkerTree = $("#dialogMarkerTree").dialog({
         autoOpen: true,
         height: 520,
@@ -96,58 +95,79 @@ $(function () {
         }
     });
 
-    var markertree = [{
-        "text": "建築物",
-        "id": "01",
-        "state": {
-            "opened": true
-        },
-        "children": [{
-            "text": "資訊大樓"
+    var markertree = [
+        {
+            "text": "建築物",
+            "id": "01",
+            "state": {
+                "opened": true
+            },
+            "children": [
+                {
+                    "text": "中正大樓"
+                }, {
+                    "text": "中商大樓"
+                }, {
+                    "text": "中技大樓"
+                }, {
+                    "text": "行政大樓"
+                }, {
+                    "text": "資訊大樓"
+                }, {
+                    "text": "弘業樓"
+                }, {
+                    "text": "奇秀樓"
+                }, {
+                    "text": "昌明樓"
+                }, {
+                    "text": "翰英樓"
+                }, {
+                    "text": "學生活動中心"
+                }, {
+                    "text": "體育館"
+                }, {
+                    "text": "男生宿舍"
+                }, {
+                    "text": "女生宿舍"
+                }
+            ]
+
         }, {
-            "text": "中正大樓"
+            "text": "運動場所",
+            "id": "02",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "操場"
+                }, {
+                    "text": "籃球場"
+                }, {
+                    "text": "網球場"
+                }, {
+                    "text": "排球場"
+                }, {
+                    "text": "壘球場"
+                }
+            ]
         }, {
-            "text": "昌明樓"
-        }, {
-            "text": "翰英樓"
-        }, {
-            "text": "弘業樓"
-        }, {
-            "text": "中商大樓"
-        }]
-    }, {
-        "text": "運動場所",
-        "id": "02",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "操場"
-        }, {
-            "text": "籃球場"
-        }, {
-            "text": "網球場"
-        }, {
-            "text": "排球場"
-        }, {
-            "text": "壘球場"
-        }, {
-            "text": "活動中心"
-        }]
-    }, {
-        "text": "其他",
-        "id": "03",
-        "state": {
-            "opened": false
-        },
-        "children": [{
-            "text": "停車場"
-        }, {
-            "text": "警衛室"
-        }, {
-            "text": "資源回收場"
-        }]
-    }];
+            "text": "其他",
+            "id": "03",
+            "state": {
+                "opened": false
+            },
+            "children": [
+                {
+                    "text": "停車場"
+                }, {
+                    "text": "警衛室"
+                }, {
+                    "text": "資源回收場"
+                }
+            ]
+        }
+    ];
 
     $('#jstree_demo_div').jstree({
         core: {
@@ -159,7 +179,7 @@ $(function () {
             whole_node: true, // 點選文字即可勾選
             tie_selection: false // 藍框?
         },
-        plugins: ['checkbox', 'themes']
+            plugins: ['checkbox', 'themes']
     })
         .on("check_node.jstree uncheck_node.jstree", function (e, data) {
 
@@ -214,10 +234,7 @@ $(function () {
 
     $('#btnMarkerDraw').click(function () {
 
-        map.setOptions({
-            draggableCursor: 'crosshair',
-            draggingCursor: 'crosshair'
-        });
+        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
 
         $('#frmMarkerAdd')[0].reset();
         deleteMarkers();
@@ -225,10 +242,7 @@ $(function () {
 
         map.addListener('click', function (event) {
 
-            map.setOptions({
-                draggableCursor: 'openhand',
-                draggingCursor: 'openhand'
-            });
+            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
             addMarker(event.latLng);
 
             $('#txtMarkerLat').val(event.latLng.lat());
@@ -252,10 +266,7 @@ $(function () {
         deleteMarkers();
         dialogPolygonAdd.dialog("close");
 
-        map.setOptions({
-            draggableCursor: 'crosshair',
-            draggingCursor: 'crosshair'
-        });
+        map.setOptions({draggableCursor: 'crosshair', draggingCursor: 'crosshair'});
 
         map.addListener('click', function (event) {
 
@@ -271,10 +282,7 @@ $(function () {
 
         map.addListener('rightclick', function (event) {
 
-            map.setOptions({
-                draggableCursor: 'openhand',
-                draggingCursor: 'openhand'
-            });
+            map.setOptions({draggableCursor: 'openhand', draggingCursor: 'openhand'});
             deleteMarkers(); // remove template
             addPolygon(tmppoly);
 
@@ -326,7 +334,7 @@ function MarkerList() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -362,7 +370,7 @@ function MarkerListSearch() {
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -373,7 +381,7 @@ function MarkerListSearch() {
 // 點位-單一定位
 function MarkerKeySearch(value) {
     let key = value;
-    if (typeof (key) == "undefined") {
+    if (typeof(key) == "undefined") {
         key = $('#txtMapValue').val();
     }
 
@@ -409,7 +417,7 @@ function MarkerKeySearch(value) {
 
 // 點位-指定刪除
 function MarkerDelete(id) {
-    if (typeof (id) == "undefined") {
+    if (typeof(id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -513,7 +521,7 @@ function PolygonList() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });
@@ -545,7 +553,7 @@ function PolygonListSearch() {
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
             }
         }
     });
@@ -644,7 +652,7 @@ function PolygonSave() {
 // 曲面-刪除指定
 function PolygonDelete(id) {
 
-    if (typeof (id) == "undefined") {
+    if (typeof(id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -672,7 +680,6 @@ function PolygonDelete(id) {
         }
     });
 }
-
 
 // 點位-我的最愛清單列表
 function MarkerFavoriteList() {
@@ -705,7 +712,7 @@ function MarkerFavoriteList() {
 
             for (var i in response) {
                 $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerFavoriteDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                        'f="javascript:MarkerFavoriteDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -714,7 +721,7 @@ function MarkerFavoriteList() {
 
 // 點位-我的最愛指定刪除
 function MarkerFavoriteDelete(id) {
-    if (typeof (id) == "undefined") {
+    if (typeof(id) == "undefined") {
         alert('查無此筆');
         return;
     }
@@ -752,7 +759,6 @@ function MarkerSaveFavorite(name) {
         Login();
     } else {
 
-
         $.ajax({
             url: 'http://210.242.86.107/api/mapfavoriteadd/',
             type: 'POST',
@@ -768,10 +774,7 @@ function MarkerSaveFavorite(name) {
                 console.log('ajax-ok');
                 console.log(response);
                 if (response) {
-                    $('.winPop').animate({
-                        'top': 0,
-                        'opacity': 1
-                    });
+                    $('.winPop').animate({'top': 0, 'opacity': 1});
 
                     MarkerFavoriteList();
                     setTimeout(WinPopClose, 2000);
@@ -787,12 +790,8 @@ function MarkerSaveFavorite(name) {
 }
 
 function WinPopClose() {
-    $('.winPop').animate({
-        'top': '-40px',
-        'opacity': 0
-    });
+    $('.winPop').animate({'top': '-40px', 'opacity': 0});
 }
-
 
 /* google map api , do not edit */
 function initialize() {
@@ -841,17 +840,12 @@ function addMarker(location, name) {
 
     var marker = new google
         .maps
-        .Marker({
-            position: location,
-            map: map
-        });
+        .Marker({position: location, map: map});
     markers.push(marker);
 
     var infowindow = new google
         .maps
-        .InfoWindow({
-            content: name
-        });
+        .InfoWindow({content: name});
 
     // info window
     if (name != '') {
