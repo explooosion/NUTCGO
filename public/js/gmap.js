@@ -100,7 +100,7 @@ $(function () {
             "text": "建築物",
             "id": "01",
             "state": {
-                "opened": true
+                "opened": false
             },
             "children": [
                 {
@@ -688,6 +688,7 @@ function MarkerFavoriteList() {
     let isLogin = JSON.parse(GetCookie('account'));
     if (!isLogin) {
         alert('請先登入!');
+        dialogMarkerFavorite.dialog("close");
         Login();
         return;
     }
