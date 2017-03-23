@@ -343,6 +343,11 @@ router.post('/polygondel/', function (req, res) {
 // 點位-我的最愛列表
 router.post('/mapfavorite/', function (req, res) {
 
+    let filter = '';
+    if (req.body.id != 0) {
+        filter = 'and substring(MarkerName,1,1) = @id';
+    }
+
     sql
         .connect(config, function (err) {
 
@@ -351,7 +356,8 @@ router.post('/mapfavorite/', function (req, res) {
 
             var request = new sql.Request();
             request.input('UserID', sql.NVarChar(50), req.body.UserID)
-                .query("select A.id, A.UserID, B.MarkerName, B.MarkerLat, B.MarkerLng from UserMarkerFavorite as A left join MarkerList as B on A.MarkerName = b.MarkerName where a.UserID = @UserID order by B.MarkerName",
+                .input('id', sql.NVarChar(50), req.body.id)
+                .query("select A.id, A.UserID, B.MarkerName, B.MarkerLat, B.MarkerLng from UserMarkerFavorite as A left join MarkerList as B on A.MarkerName = b.MarkerName where a.UserID = @UserID " + filter + " order by B.MarkerName",
                 function (err, recordset) {
 
                     if (err) {

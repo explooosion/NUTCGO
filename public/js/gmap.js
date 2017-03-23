@@ -683,6 +683,9 @@ function MarkerFavoriteList() {
         Login();
         return;
     }
+
+    let ddlid = $('#ddlMarkerFavoritePlace').val();
+
     // default table title
     $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
 
@@ -690,7 +693,8 @@ function MarkerFavoriteList() {
         url: 'http://210.242.86.107/api/mapfavorite/',
         type: 'POST',
         data: {
-            'UserID': isLogin["UserID"]
+            'UserID': isLogin["UserID"],
+            'id': ddlid
         },
         error: function (xhr) {
             console.log('ajax-error');
@@ -752,11 +756,11 @@ function MarkerSaveFavorite(name) {
             'opacity': 1
         });
 
-        setTimeout(WinPopClose, 3000);
+        MarkerFavoriteList();
+        setTimeout(WinPopClose, 2000);
     }
 
 }
-
 
 function WinPopClose() {
     $('.winPop').animate({
