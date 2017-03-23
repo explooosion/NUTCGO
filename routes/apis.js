@@ -340,7 +340,7 @@ router.post('/polygondel/', function (req, res) {
         });
 });
 
-// 點位-我的最愛列表
+// 我的最愛-列表
 router.post('/mapfavorite/', function (req, res) {
 
     let filter = '';
@@ -369,7 +369,61 @@ router.post('/mapfavorite/', function (req, res) {
         });
 });
 
-// 點位-刪除(by id)
+
+// 點位-新增
+router.post('/mapfavoriteadd/', function (req, res) {
+
+    // sql(check exsit) -> sql(insert)
+
+    sql
+        .connect(config, function (err) {
+
+            if (err)
+                console.log(err);
+
+            var request = new sql.Request();
+            request.input('UserID', sql.NVarChar(50), req.body.UserID)
+                .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
+                .query("select * from UserMarkerFavorite where UserID=@UserID and MarkerName=@MarkerName",
+                function (err, recordset) {
+
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    } else if (recordset.length > 0) {
+
+                        sql
+                            .connect(config, function (err) {
+
+                                if (err)
+                                    console.log(err);
+
+                                var request = new sql.Request();
+                                request.input('UserID', sql.NVarChar(50), req.body.UserID)
+                                    .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
+                                    .query("insert into UserMarkerFavorite ( UserID , MarkerName ) values ( @UserID , @MarkerName )",
+                                    function (err, recordset) {
+
+                                        if (err) {
+                                            console.log(err)
+                                            res.send(err);
+                                        }
+                                        res.send(true);
+                                    });
+                            });
+                            
+                    } else {
+                        res.send(false);
+                    }
+                } // end if
+
+                });
+});
+
+});
+
+
+// 我的最愛-刪除(by id)
 router.post('/mapfavoritedel/', function (req, res) {
 
     sql
