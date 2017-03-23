@@ -344,8 +344,8 @@ router.post('/polygondel/', function (req, res) {
 router.post('/mapfavorite/', function (req, res) {
 
     let filter = '';
-    if (req.body.id != 0) {
-        filter = 'and substring(MarkerName,1,1) = @id';
+    if (req.body.id != '0') {
+        filter = 'and substring(B.MarkerName,1,1) = @id';
     }
 
     sql
