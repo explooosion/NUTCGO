@@ -751,13 +751,35 @@ function MarkerSaveFavorite(name) {
         alert('請先登入!');
         Login();
     } else {
-        $('.winPop').animate({
-            'top': 0,
-            'opacity': 1
+
+
+        $.ajax({
+            url: 'http://210.242.86.107/api/mapfavoriteadd/',
+            type: 'POST',
+            data: {
+                'UserID': isLogin["UserID"],
+                'id': ddlid
+            },
+            error: function (xhr) {
+                console.log('ajax-error');
+                console.log(xhr);
+            },
+            success: function (response) {
+                console.log('ajax-ok');
+                console.log(response);
+                if (response) {
+                    $('.winPop').animate({
+                        'top': 0,
+                        'opacity': 1
+                    });
+
+                    MarkerFavoriteList();
+                    setTimeout(WinPopClose, 2000);
+                }
+
+            }
         });
 
-        MarkerFavoriteList();
-        setTimeout(WinPopClose, 2000);
     }
 
 }
