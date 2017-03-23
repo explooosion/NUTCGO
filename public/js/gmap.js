@@ -199,6 +199,7 @@ $(function () {
     });
 
     $('#btnMarkerFavorite').click(function () {
+        MarkerFavoriteList();
         dialogMarkerFavorite.dialog("open");
     });
 
@@ -686,7 +687,7 @@ function MarkerFavoriteList() {
     $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://210.242.86.107/api/mapmapfavoritelist/',
+        url: 'http://210.242.86.107/api/mapfavorite/',
         type: 'POST',
         data: {
             'UserID': isLogin["UserID"]
