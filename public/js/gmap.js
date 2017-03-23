@@ -220,8 +220,8 @@ $(function () {
 
     $('#btnMarkerFavorite').click(function () {
 
-        let isLogin = JSON.parse(GetCookie('account'));
-        if (!isLogin) {
+        LoginData = JSON.parse(GetCookie('account'));
+        if (!LoginData) {
             alert('請先登入!');
             Login();
             return;
@@ -701,7 +701,7 @@ function MarkerFavoriteList() {
         url: 'http://210.242.86.107/api/mapfavorite/',
         type: 'POST',
         data: {
-            'UserID': isLogin["UserID"],
+            'UserID': LoginData["UserID"],
             'id': ddlid
         },
         error: function (xhr) {
@@ -754,8 +754,8 @@ function MarkerFavoriteDelete(id) {
 // 點位-我的最愛儲存
 function MarkerSaveFavorite(name) {
 
-    let isLogin = JSON.parse(GetCookie('account'));
-    if (!isLogin) {
+    LoginData = JSON.parse(GetCookie('account'));
+    if (!LoginData) {
         alert('請先登入!');
         Login();
     } else {
@@ -764,7 +764,7 @@ function MarkerSaveFavorite(name) {
             url: 'http://210.242.86.107/api/mapfavoriteadd/',
             type: 'POST',
             data: {
-                'UserID': isLogin["UserID"],
+                'UserID': LoginData["UserID"],
                 'MarkerName': name
             },
             error: function (xhr) {

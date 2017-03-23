@@ -1,3 +1,5 @@
+let LoginData;
+
 $(window).ready(function () {
 
     // Initialize
@@ -92,16 +94,16 @@ function CheckLogin() {
     $('#btnFrmLogIn').hide();
     $('#btnFrmSignUp').hide();
 
-    let isLogin = JSON.parse(GetCookie('account'));
-    console.log(isLogin);
-    if (!isLogin) {
+    LoginData = JSON.parse(GetCookie('account'));
+    console.log(LoginData);
+    if (!LoginData) {
         //還沒登入
         $('#btnFrmLogIn').show(); // 登入按鈕
         $('#btnFrmSignUp').show();
         $('.nav li:last-child').hide(); // 會員中心
     } else {
         // alreay login
-        $('#lbUserName').text('Hello, ' + isLogin["UserName"]);
+        $('#lbUserName').text('Hello, ' + LoginData["UserName"]);
         $('#btnFrmLogOut').show();
     }
 }
