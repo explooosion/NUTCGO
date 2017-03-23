@@ -386,11 +386,12 @@ router.post('/mapfavoriteadd/', function (req, res) {
                 .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
                 .query("select * from UserMarkerFavorite where UserID=@UserID and MarkerName=@MarkerName",
                 function (err, recordset) {
+                    res.send(recordset);
 
                     if (err) {
                         console.log(err)
                         res.send(err);
-                    } else if (recordset.length > 0) {
+                    } else if (recordset.length == 0) {
 
                         sql
                             .connect(config, function (err) {

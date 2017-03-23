@@ -775,6 +775,8 @@ function MarkerSaveFavorite(name) {
 
                     MarkerFavoriteList();
                     setTimeout(WinPopClose, 2000);
+                } else {
+                    alert('我的最愛已有!');
                 }
 
             }
