@@ -239,7 +239,7 @@ function mcImgSlider(e) {
 	function F(b) {
 		var a = n.length;
 		if (a)
-			while (a--) n[a].className = a != b && n[a].on == 0 ? "thumb" : "thumb thumb-on"
+			while (a--) n[a].className = a != b && n[a].on == 0 ? "thumb thumb-on" : "thumb thumb-on"
 	}
 
 	function L(b) {
