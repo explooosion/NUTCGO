@@ -3,7 +3,7 @@ if (uinfo === null) {
     alert('請重新登入');
     location.href = "./";
 } else {
-    $('.tablesign #txtUserId').text(uinfo['UserID']);
+    $('.tableaccount #txtUserId').text(uinfo['UserID']);
     $('#txtPwd').val(uinfo['PassWord']);
     $('#txtUserName').val(uinfo['UserName']);
     $('#txtEmail').val(uinfo['Email']);
