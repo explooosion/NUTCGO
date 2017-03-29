@@ -897,6 +897,7 @@ function showMarkers() {
 
 function deleteMarkers() {
     clearMarkers();
+    $('#txtMapValue').val('');
     markers = [];
     polygons = [];
 }
