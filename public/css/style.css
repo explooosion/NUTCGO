@@ -126,7 +126,7 @@ body {
 
 .container .head .logo {
     float: left;
-    padding-top: 4px;
+    padding-top: 2px;
     margin-left: calc(100% / 4);
 }
 
@@ -137,13 +137,13 @@ body {
 .container .head .logo img {
     float: left;
     cursor: pointer;
-    transition: all .5s;
+    height: 45px;
 }
 
 .container .head .logo img:hover {
-    -ms-transform: rotate(360deg);
+    /*-ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    transform: rotate(360deg);*/
 }
 
 .container .head .info {
