@@ -17,9 +17,8 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "forever": "~0.15.2",
-    "mssql": "~3.3.0"
-  },
-  "devDependencies": {
+    "mssql": "~3.3.0",
+    "jshint": "~2.9.4",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",

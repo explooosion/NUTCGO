@@ -1,9 +1,9 @@
 ﻿var uinfo = JSON.parse(GetCookie('account'));
 var dirpath = window.location.pathname;
-if (uinfo === null && dirpath == 'account') {
+if (uinfo === null && dirpath == '/account') {
     alert('請重新登入');
     location.href = "./";
-} else if (dirpath == 'Account') {
+} else if (dirpath == '/account') {
     $('#account-group .tableaccount #txtUserId').text(uinfo['UserID']);
     $('#account-group #txtPwd').val(uinfo['PassWord']);
     $('#account-group #txtUserName').val(uinfo['UserName']);
