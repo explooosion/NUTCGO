@@ -1,7 +1,7 @@
-$('#btnSignSubmit')
+﻿$('#btnSignSubmit')
     .click(function () {
 
-        let chkVal = true;
+        var chkVal = true;
 
         $('.tablesign input').each(function () {
             if ($(this).val() == '') {
@@ -14,10 +14,10 @@ $('#btnSignSubmit')
             return false;
         } else {
 
-            let userid = $('#txtUId').val();
-            let userpwd = $('#txtPwd').val();
-            let username = $('#txtUserName').val();
-            let email = $('#txtEmail').val();
+            var userid = $('#txtUId').val();
+            var userpwd = $('#txtPwd').val();
+            var username = $('#txtUserName').val();
+            var email = $('#txtEmail').val();
 
             $.ajax({
                 url: 'http://210.242.86.107/api/useradd/',

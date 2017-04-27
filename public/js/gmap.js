@@ -231,7 +231,7 @@ $(function () {
     });
 
     $('#btnMarkerTree').click(function () {
-        let diaMkTree = dialogMarkerTree.dialog("isOpen");
+        var diaMkTree = dialogMarkerTree.dialog("isOpen");
         if (diaMkTree) {
             dialogMarkerTree.dialog("close");
         } else {
@@ -295,7 +295,7 @@ $(function () {
 
             polygontmparr = tmppoly; // save draw result
 
-            for (let i in tmppoly) {
+            for (var i in tmppoly) {
                 $('#ulPolygon').append('<li>Lat：' + tmppoly[i].lat() + '<br />Lng：' + tmppoly[i].lng() + '</li>');
             }
 
@@ -352,7 +352,7 @@ function MarkerList() {
 // 點位-清單列表(過濾)
 function MarkerListSearch() {
 
-    let ddlid = $('#ddlMarkerPlace').val();
+    var ddlid = $('#ddlMarkerPlace').val();
     if (ddlid == 0) {
         MarkerList(); // Select All
         return;
@@ -387,7 +387,7 @@ function MarkerListSearch() {
 
 // 點位-單一定位
 function MarkerKeySearch(value) {
-    let key = value;
+    var key = value;
     if (typeof(key) == "undefined") {
         key = $('#txtMapValue').val();
     }
@@ -429,7 +429,7 @@ function MarkerDelete(id) {
         return;
     }
 
-    let comfirm = confirm("確定是否刪除?");
+    var comfirm = confirm("確定是否刪除?");
     if (!comfirm) {
         return;
     }
@@ -457,16 +457,16 @@ function MarkerDelete(id) {
 // 點位-新增存檔
 function MarkerSave() {
 
-    let name = $('#txtMarkerName').val();
-    let lat = $('#txtMarkerLat').val();
-    let lng = $('#txtMarkerLng').val();
+    var name = $('#txtMarkerName').val();
+    var lat = $('#txtMarkerLat').val();
+    var lng = $('#txtMarkerLng').val();
 
     if (name == '' || lat == '' || lng == '') {
         alert('請確認欄位是否完整');
         return;
     }
 
-    let comfirm = confirm("確定是否保存?");
+    var comfirm = confirm("確定是否保存?");
 
     $.ajax({
         url: 'http://210.242.86.107/api/map/' + name,
@@ -537,7 +537,7 @@ function PolygonList() {
 // 曲面-清單列表(過濾)
 function PolygonListSearch() {
 
-    let ddlGrp = $('#ddlPolygonPlace').val();
+    var ddlGrp = $('#ddlPolygonPlace').val();
     if (ddlGrp == '') {
         PolygonList(); // Select All
         return;
@@ -609,28 +609,28 @@ function PolygonKeySearch(value) {
 // 曲面-新增存檔
 function PolygonSave() {
 
-    let ddlgroup = $('#ddlPolygonPlaceAdd').val();
+    var ddlgroup = $('#ddlPolygonPlaceAdd').val();
     if (ddlgroup == '') {
         alert('請選擇群組');
         return;
     }
 
-    let name = $('#txtPolygonName').val();
-    let poly = [];
+    var name = $('#txtPolygonName').val();
+    var poly = [];
 
     if (name == '' || polygontmparr.length == 0) {
         alert('請確認欄位是否完整');
         return;
     }
 
-    for (let i in polygontmparr) {
-        let obj = new Object();
+    for (var i in polygontmparr) {
+        var obj = new Object();
         obj.lat = polygontmparr[i].lat();
         obj.lng = polygontmparr[i].lng();
         poly.push(obj);
     }
 
-    let comfirm = confirm("確定是否保存?");
+    var comfirm = confirm("確定是否保存?");
 
     if (comfirm == true) {
         $.ajax({
@@ -665,7 +665,7 @@ function PolygonDelete(id) {
         return;
     }
 
-    let comfirm = confirm("確定是否刪除?");
+    var comfirm = confirm("確定是否刪除?");
     if (!comfirm) {
         return;
     }
@@ -692,7 +692,7 @@ function PolygonDelete(id) {
 // 點位-我的最愛清單列表
 function MarkerFavoriteList() {
 
-    let ddlid = $('#ddlMarkerFavoritePlace').val();
+    var ddlid = $('#ddlMarkerFavoritePlace').val();
 
     // default table title
     $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
@@ -727,7 +727,7 @@ function MarkerFavoriteDelete(id) {
         return;
     }
 
-    let comfirm = confirm("確定是否刪除?");
+    var comfirm = confirm("確定是否刪除?");
     if (!comfirm) {
         return;
     }

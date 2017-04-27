@@ -1,26 +1,26 @@
-$(window).ready(function () {
+﻿$(window).ready(function () {
 
     // photo default show
-    $('#photo-slider-plant').fadeIn();
+    $('#art-group #photo-slider-plant').fadeIn();
 
     // photo form open
-    $('.photo-box img').click(function () {
+    $('#art-group .photo-box img').click(function () {
 
-        let src = $(this).attr('data-img');
-        let title = $(this).attr('data-title');
-        $('.photo-main-img').attr('src', src);
-        $('.photo-main-title').text(title);
-        $('.photo-form').fadeIn();
+        var src = $(this).attr('data-img');
+        var title = $(this).attr('data-title');
+        $('#art-group .photo-main-img').attr('src', src);
+        $('#art-group .photo-main-title').text(title);
+        $('#art-group .photo-form').fadeIn();
     });
 
     // photo form close
-    $('.photo-control').click(function () {
-        $('.photo-form').fadeOut();
+    $('#art-group .photo-control').click(function () {
+        $('#art-group .photo-form').fadeOut();
     });
 
-    $('#slide-art a').click(function () {
-        $('#photo-art .photo-slider').hide();
-        let data = '#' + $(this).attr('data-id');
+    $('#art-group #slide-art a').click(function () {
+        $('#art-group #photo-art .photo-slider').hide();
+        var data = '#' + $(this).attr('data-id');
         $(data).fadeIn();
     });
 

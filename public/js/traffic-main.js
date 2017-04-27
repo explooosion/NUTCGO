@@ -1,6 +1,6 @@
-$('.traffic-title').click(function () {
-    let _tracon = $(this).next();
-    let _tracon_h = $(this).next().height();
+﻿$('.traffic-title').click(function () {
+    var _tracon = $(this).next();
+    var _tracon_h = $(this).next().height();
 
     if (_tracon_h > 0) {
         $(_tracon).animate({

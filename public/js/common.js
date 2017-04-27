@@ -1,4 +1,4 @@
-let LoginData;
+﻿var LoginData;
 
 $(window).ready(function () {
 
@@ -15,7 +15,7 @@ $(window).ready(function () {
         $('.navbar .line').css('background', '#B1B3B6');
     }).click(function () {
 
-        let conWidth = $('.container').width() + 220;
+        var conWidth = $('.container').width() + 220;
 
         $('.container').animate({
             left: 0,
@@ -33,7 +33,7 @@ $(window).ready(function () {
 
     $('.container .control').click(function () {
 
-        let conWidth = $('.container').width() - 220;
+        var conWidth = $('.container').width() - 220;
 
         $('.container').animate({
             left: 220,
@@ -84,7 +84,7 @@ $(window).resize(function () {
 
 
 function initialize() {
-    let h = $(window).height();
+    var h = $(window).height();
     $('.navbar').height(h);
 }
 
@@ -116,8 +116,8 @@ function Login() {
 
 function LoginIn() {
 
-    let userid = $('#txtUserId').val();
-    let passwd = $('#txtPWD').val();
+    var userid = $('#txtUserId').val();
+    var passwd = $('#txtPWD').val();
     if (userid == "" || passwd == "") {
         alert('帳號密碼請勿留白!');
         return;

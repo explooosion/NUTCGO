@@ -1,21 +1,22 @@
-let uinfo = JSON.parse(GetCookie('account'));
-if (uinfo === null) {
+﻿var uinfo = JSON.parse(GetCookie('account'));
+var dirpath = window.location.pathname;
+if (uinfo === null && dirpath == 'account') {
     alert('請重新登入');
     location.href = "./";
-} else {
-    $('.tableaccount #txtUserId').text(uinfo['UserID']);
-    $('#txtPwd').val(uinfo['PassWord']);
-    $('#txtUserName').val(uinfo['UserName']);
-    $('#txtEmail').val(uinfo['Email']);
+} else if (dirpath == 'Account') {
+    $('#account-group .tableaccount #txtUserId').text(uinfo['UserID']);
+    $('#account-group #txtPwd').val(uinfo['PassWord']);
+    $('#account-group #txtUserName').val(uinfo['UserName']);
+    $('#account-group #txtEmail').val(uinfo['Email']);
 }
 
 
 
-$('#btnAccountSubmit').click(function () {
+$('#account-group #btnAccountSubmit').click(function () {
 
-    let chkVal = true;
+    var chkVal = true;
 
-    $('.tableaccount input').each(function () {
+    $('#account-group .tableaccount input').each(function () {
         if ($(this).val() == '') {
             chkVal = false;
         }
@@ -26,10 +27,10 @@ $('#btnAccountSubmit').click(function () {
         return false;
     } else {
 
-        let userid = $('.tableaccount #txtUserId').text();
-        let userpwd = $('#txtPwd').val();
-        let username = $('#txtUserName').val();
-        let email = $('#txtEmail').val();
+        var userid = $('#account-group .tableaccount #txtUserId').text();
+        var userpwd = $('#account-group #txtPwd').val();
+        var username = $('#account-group #txtUserName').val();
+        var email = $('#account-group #txtEmail').val();
 
         $.ajax({
             url: 'http://210.242.86.107/api/userupdate/',

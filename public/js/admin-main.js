@@ -1,27 +1,27 @@
-$('.chosen-select').chosen();
+﻿$('.chosen-select').chosen();
 $(window).ready(function () {
 
     // photo default show
-    $('#photo-slider-build1').fadeIn();
+    $('#admin-group #photo-slider-build1').fadeIn();
 
     // photo form open
-    $('.photo-box img').click(function () {
+    $('#admin-group .photo-box img').click(function () {
 
-        let src = $(this).attr('data-img');
-        let title = $(this).attr('data-title');
-        $('.photo-main-img').attr('src', src);
-        $('.photo-main-title').text(title);
-        $('.photo-form').fadeIn();
+        var src = $(this).attr('data-img');
+        var title = $(this).attr('data-title');
+        $('#admin-group .photo-main-img').attr('src', src);
+        $('#admin-group .photo-main-title').text(title);
+        $('#admin-group .photo-form').fadeIn();
     });
 
     // photo form close
-    $('.photo-control').click(function () {
-        $('.photo-form').fadeOut();
+    $('#admin-group .photo-control').click(function () {
+        $('#admin-group .photo-form').fadeOut();
     });
 
-    $('#slide-admin a').click(function () {
-        $('#photo-admin .photo-slider').hide();
-        let data = '#' + $(this).attr('data-id');
+    $('#admin-group  #slide-admin a').click(function () {
+        $('#admin-group #photo-admin .photo-slider').hide();
+        var data = '#' + $(this).attr('data-id');
         $(data).fadeIn();
     });
 
