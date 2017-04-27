@@ -14,7 +14,7 @@ $('#btnSignSubmit')
             return false;
         } else {
 
-            let userid = $('#txtUserId').val();
+            let userid = $('#txtUId').val();
             let userpwd = $('#txtPwd').val();
             let username = $('#txtUserName').val();
             let email = $('#txtEmail').val();
