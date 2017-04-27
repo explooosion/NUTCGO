@@ -30,13 +30,15 @@
 }
 
 .photo-slider .photo-text h3 {
+    font-size: 24px;
     color: #444444;
 }
 
 .photo-slider .photo-text p {
     margin: auto;
     width: 70%;
-    text-align: center;
-    font-size: 14px;
     color: #666666;
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 1px;
 }

@@ -76,6 +76,12 @@ $(window).ready(function () {
     });
 
 
+    $('#txtPWD').keyup(function (e) {
+        if (e.keyCode == 13) {
+            LoginIn();
+        }
+    });
+
 });
 
 $(window).resize(function () {
