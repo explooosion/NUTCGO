@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload'),
     clean = require('gulp-clean'),
-    wait = require('gulp-wait');
 
 gulp.task('minify-css', function () {
     gulp.src('public/css/*.css')
