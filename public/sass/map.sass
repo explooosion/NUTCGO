@@ -1,0 +1,178 @@
+.map 
+    width: 100%
+    height: calc(100vh - 150px)
+
+#txtMapValue 
+    font-size: 14px
+
+#dialogMarker 
+    padding: 5px 15px
+
+.tbAdd 
+    width: 100%
+    margin-top: 5px
+    border-collapse: collapse
+
+    tr 
+        border-top: 1px solid #EEEEEE
+
+    th 
+        text-align: left
+        line-height: 25px
+        padding: 12px 0
+
+
+#tbMarkerList
+    width: 100%
+    margin-top: 5px
+    border-collapse: collapse
+    tr
+        text-align: center
+        border-bottom: 1px solid #CCC
+        &:nth-child(n+2):hover
+            background: #DDD
+        td
+            height: 32px
+            color: #444
+            &:nth-child(2),
+            &:nth-child(3)
+                text-align: left
+            .fa
+                margin: 0 2px
+                &:hover
+                    transform: scale(1.1)
+                    opacity: .9
+        th:nth-child(4)              
+            width: 15%
+            text-align: center
+
+
+#tbPolygonList
+    width: 100%
+    margin-top: 5px
+    border-collapse: collapse
+    tr
+        text-align: center
+        border-bottom: 1px solid #CCC
+        &:nth-child(n+2):hover
+            background: #DDD
+        td
+            height: 32px
+            color: #444
+            .fa
+                margin: 0 2px
+                &:hover
+                    transform: scale(1.1)
+                    opacity: .9
+        th
+            &:nth-child(3)
+                width: 20%
+                text-align: center
+
+#tbMarkerFavoriteList 
+    width: 100%
+    margin-top: 5px
+    border-collapse: collapse
+    tr
+        text-align: center
+        border-bottom: 1px solid #CCC
+        &:nth-child(n+2):hover
+            background: #DDD
+        &:nth-child(n+2) 
+            td
+                height: 32px
+                color: #444
+                &:nth-child(2),
+                &:nth-child(3)
+                    text-align: left
+                .fa
+                    margin: 0 2px
+                    &:hover
+                        transform: scale(1.1)
+                        opacity: .9
+            th
+                &:nth-child(4)              
+                    width: 15%
+                    text-align: center
+ 
+ 
+.SearchGroup 
+    margin: 10px 0
+
+    .ddl 
+        width: 100px
+
+    .btn-search 
+        height: 28px
+        margin-left: 5px
+        padding: 3px 0
+        font-size: 14px
+
+    .btn-add 
+        height: 28px
+        margin-right: 5px
+        padding: 3px 0
+        font-size: 14px
+        float: right
+
+#ulPolygon 
+    margin: 4px
+    padding: 4px 20px
+    display: table
+    list-style-type: decimal
+
+    li 
+        padding: 4px 0
+        margin: 4px 0
+        border-bottom: 1px solid #DDD
+
+
+.no_checkbox>i.jstree-checkbox 
+    display: none
+
+#jstree_demo_div>ul>li>a>i:first-child 
+    display: none
+
+
+
+/* winpop */
+
+.winPop 
+    width: 225px
+    height: 28px
+    position: fixed
+    margin: 0
+    padding: 4px 12px
+    left: 40%
+    top: -40px
+    background: #3D454D
+    opacity: 0
+
+    .winPopIcon 
+        float: left
+        color: #DA4E42
+
+    .winPopMsg 
+        float: left
+        color: #FFF
+        margin-left: 10px
+
+
+    .winPopClose 
+        .winPopBtn 
+            height: 20px
+            width: 20px
+            float: left
+            border: 2px solid #FFF
+            border-radius: 100%
+            margin-left: 14px
+            margin-top: 2px
+            position: relative
+            i 
+                position: absolute
+                left: 3.5px
+                top: 2px
+                color: #FFF
+                transition: .15s
+                &:hover 
+                    transform: rotate(30deg)
