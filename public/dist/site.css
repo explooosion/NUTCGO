@@ -325,7 +325,7 @@ body {
     bottom: 20px;
     cursor: pointer;
     display: none;
-    background: url('../img/gotop.png') no-repeat;
+    background: url('http://cdn.robby570.tw/img/gotop.png') no-repeat;
 }
 
 .login-modal {
