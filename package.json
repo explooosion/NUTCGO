@@ -26,6 +26,8 @@
     "gulp-clean": "^0.3.2",
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^3.1.0",
-    "gulp-watch": "^4.3.11"
+    "gulp-watch": "^4.3.11",
+    "gulp-minify-ejs": "^1.0.3",
+    "gulp-cssmin": "^0.1.7"
   }
 }

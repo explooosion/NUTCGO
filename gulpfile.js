@@ -6,14 +6,28 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload'),
     clean = require('gulp-clean'),
+    miniejs = require('gulp-minify-ejs'),
+    minicss = require('gulp-cssmin');
 
-gulp.task('minify-css', function () {
-    gulp.src('public/css/*.css')
-        .pipe(concat('bundle.css'))
-        .pipe(gulp.dest('public/dist/'))
+
+gulp.task('run', ['sass-compi', 'bundle-css', 'bundle-js', 'bundle-js-gmap', 'mini-ejs']);
+// 用法: gulp run
+
+gulp.task('clean', function () {
+    gulp.src(['public/dist/bundle.*', 'public/dist/bundle_gmap.*', 'public/css/*.css','views_ejs/**/*.ejs'])
+        .pipe(clean())
 });
 
-gulp.task('minify-js', function () {
+gulp.task('bundle-css', function () {
+    gulp.src('public/css/*.css')
+        .pipe(minicss())
+        .pipe(concat('bundle.css'))
+        .pipe(gulp.dest('public/dist/'))
+
+
+});
+
+gulp.task('bundle-js', function () {
     gulp.src(['public/js/*.js', '!public/js/gmap.js'])
         .pipe(jshint({
             esnew: true
@@ -23,7 +37,7 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('public/dist/'))
 });
 
-gulp.task('minify-js-gmap', function () {
+gulp.task('bundle-js-gmap', function () {
     gulp.src('public/js/gmap.js')
         .pipe(jshint({
             esnew: true
@@ -33,7 +47,7 @@ gulp.task('minify-js-gmap', function () {
         .pipe(gulp.dest('public/dist/'))
 });
 
-gulp.task('sass-edit', function () {
+gulp.task('watch-sass', function () {
     livereload.listen();
     gulp.watch('public/sass/*.sass', function () {
         gulp.src('public/sass/*.sass')
@@ -53,14 +67,8 @@ gulp.task('sass-compi', function () {
         .pipe(livereload())
 });
 
-
-gulp.task('clean', function () {
-    gulp.src('public/dist/bundle.*')
-        .pipe(clean())
-    gulp.src('public/css/*.css')
-        .pipe(clean())
+gulp.task('mini-ejs', function () {
+    gulp.src('views_ejs/**/*.ejs')
+        .pipe(miniejs())
+        .pipe(gulp.dest('views'))
 });
-
-
-gulp.task('run', ['clean', 'sass-compi', 'minify-css', 'minify-js', 'minify-js-gmap']);
-// 用法: gulp run
