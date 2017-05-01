@@ -10,21 +10,27 @@ var gulp = require('gulp'),
     minicss = require('gulp-cssmin');
 
 
-gulp.task('run', ['sass-compi', 'bundle-css', 'bundle-js', 'bundle-js-gmap', 'mini-ejs']);
-// 用法: gulp run
+// clean > sass > run
+
+gulp.task('run', ['bundle-css', 'bundle-js', 'bundle-js-gmap', 'mini-ejs']);
+
+gulp.task('sass-compi', function () {
+    gulp.src('public/sass/*.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('public/css'))
+    gulp.src('public/css/*.css')
+        .pipe(livereload())
+});
 
 gulp.task('clean', function () {
-    gulp.src(['public/dist/bundle.*', 'public/dist/bundle_gmap.*', 'public/css/*.css','views/**/*.ejs'])
+    gulp.src(['public/dist/bundle.*', 'public/dist/bundle_gmap.*', 'public/css/*.css', 'views/**/*.ejs'])
         .pipe(clean())
 });
 
 gulp.task('bundle-css', function () {
     gulp.src('public/css/*.css')
-        .pipe(minicss())
         .pipe(concat('bundle.css'))
         .pipe(gulp.dest('public/dist/'))
-
-
 });
 
 gulp.task('bundle-js', function () {
@@ -57,14 +63,6 @@ gulp.task('watch-sass', function () {
         gulp.src('public/css/*.css')
             .pipe(livereload())
     });
-});
-
-gulp.task('sass-compi', function () {
-    gulp.src('public/sass/*.sass')
-        .pipe(sass())
-        .pipe(gulp.dest('public/css'))
-    gulp.src('public/css/*.css')
-        .pipe(livereload())
 });
 
 gulp.task('mini-ejs', function () {
