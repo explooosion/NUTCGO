@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div class="title">
+        <div class="control">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+ 
+    <ul class="nav">
+        <% for(let i in navItem){ 
+            let cls='nav-item';
+            if(key == navItem[i][0].url.replace('/','')){
+                cls = 'nav-item selected';
+            } %>
+			<li><a class="<%= cls %>" href="<%= navItem[i][0].url %>"><i class="fa <%= navItem[i][0].class %>" aria-hidden="true"></i><%= navItem[i][0].name %></a></li>
+		<% } %>
+    </ul>
+</nav>

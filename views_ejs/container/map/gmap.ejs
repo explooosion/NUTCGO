@@ -1,0 +1,155 @@
+<div class="row">
+    <button id="btnMarkerTree" type="button" class="btn btn-sm btn-green">圖層</button>
+    <input id="txtMapValue" type="text" value="" placeholder="輸入教室代號或關鍵字" class="text text-lg">
+    <button type="button" class="btn btn-lg btn-green" onclick="MarkerKeySearch();">尋找</button>
+    <button type="button" class="btn btn-lg btn-green" onclick="initMap();">重置</button>
+    <button type="button" class="btn btn-lg btn-green" onclick="deleteMarkers();">清除</button>
+    <button id="btnMarkerList" type="button" class="btn btn-lg btn-green">點位管理</button>
+    <button id="btnPolygonList" type="button" class="btn btn-lg btn-green">曲面管理</button>
+    <button id="btnMarkerFavorite" type="button" class="btn btn-lg btn-green">我的最愛</button>
+</div>
+<div class="row">
+    <div id="gmap" class="map"></div>
+</div>
+
+<div id="dialogMarkerTree" title="圖層控制">
+    <div id="jstree_demo_div">
+    </div>
+</div>
+
+<div id="dialogMarkerList" title="點位管理">
+    <div id="MarkerSearch" class="SearchGroup">
+        <select id="ddlMarkerPlace" class="chosen-select ddl" data-placeholder="地點名稱">
+            <option value="0">全部</option>
+            <option value="6">弘業樓</option>
+            <option value="4">昌明樓</option>
+            <option value="5">翰英樓</option>
+            <option value="8">奇秀樓</option>
+            <option value="2">資訊館</option>
+            <option value="1">行政大樓</option>
+            <option value="3">中正大樓</option>
+            <option value="7">中商大樓</option>
+        </select>
+        <button id="btnMarkerListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerListSearch();">搜尋</button>
+        <button id="btnMarkerAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
+    </div>
+    <table id="tbMarkerList">
+        <tr>
+            <th>Name</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th colspan="2"></th>
+        </tr>
+    </table>
+</div>
+
+
+<div id="dialogPolygonList" title="曲面管理">
+    <div id="PolygonSearch" class="SearchGroup">
+        <select id="ddlPolygonPlace" class="chosen-select ddl" data-placeholder="群組名稱">
+            <option value="">全部</option>
+            <option value="建築物">建築物</option>
+            <option value="運動場所">運動場所</option>
+            <option value="其他">其他</option>
+        </select>
+        <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="PolygonListSearch();">搜尋</button>
+        <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
+    </div>
+    <table id="tbPolygonList">
+        <tr>
+            <th>Group</th>
+            <th>Name</th>
+            <th colspan="3"></th>
+        </tr>
+    </table>
+</div>
+
+<div id="dialogMarkerAdd" title="新增點位">
+    <table class="tbAdd">
+        <tr>
+            <th>點名稱</th>
+            <td>
+                <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
+                <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+            </td>
+        </tr>
+        <form id="frmMarkerAdd">
+        <tr>
+            <th>Lat</th>
+            <td><input type="text" id="txtMarkerLat" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        <tr>
+            <th>Lng</th>
+            <td><input type="text" id="txtMarkerLng" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        </form>
+    </table>
+</div>
+
+<div id="dialogPolygonAdd" title="新增曲面">
+    <form id="frmPolygonAdd">
+    <table class="tbAdd">
+        <tr>
+            <th>群組</th>
+            <td>
+                <select id="ddlPolygonPlaceAdd" class="chosen-select ddl" data-placeholder="群組名稱">
+                    <option value="">請選擇</option>
+                    <option value="建築物">建築物</option>
+                    <option value="運動場所">運動場所</option>
+                    <option value="其他">其他</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>曲面名稱</th>
+            <td>
+                <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱" value="">
+                <button id="btnPolygonDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">※.完成後請點擊「右鍵」</td>
+        </tr>
+    </table>
+        <ul id="ulPolygon"></ul>
+    </form>
+</div>
+
+<div id="dialogMarkerFavorite" title="我的最愛">
+    <div id="MarkerFavoriteSearch" class="SearchGroup">
+        <select id="ddlMarkerFavoritePlace" class="chosen-select ddl" data-placeholder="地點名稱">
+            <option value="0">全部</option>
+            <option value="6">弘業樓</option>
+            <option value="4">昌明樓</option>
+            <option value="5">翰英樓</option>
+            <option value="8">奇秀樓</option>
+            <option value="2">資訊館</option>
+            <option value="1">行政大樓</option>
+            <option value="3">中正大樓</option>
+            <option value="7">中商大樓</option>
+        </select>
+        <button id="btnMarkerFavoriteSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerFavoriteList();">搜尋</button>
+    </div>
+    <table id="tbMarkerFavoriteList">
+        <tr>
+            <th>Name</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th colspan="2"></th>
+        </tr>
+    </table>
+</div>
+
+
+<div class="winPop">
+    <div class="winPopIcon">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <div class="winPopMsg">
+        <label id="winPopMarkerID"></label>
+        <label id="winPopMsg">已加到我的最愛!</label>
+    </div>
+    <div class="winPopClose">
+        <a href="javascript:WinPopClose();" class="winPopBtn"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+</div>

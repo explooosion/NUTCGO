@@ -14,7 +14,7 @@ gulp.task('run', ['sass-compi', 'bundle-css', 'bundle-js', 'bundle-js-gmap', 'mi
 // 用法: gulp run
 
 gulp.task('clean', function () {
-    gulp.src(['public/dist/bundle.*', 'public/dist/bundle_gmap.*', 'public/css/*.css','views_ejs/**/*.ejs'])
+    gulp.src(['public/dist/bundle.*', 'public/dist/bundle_gmap.*', 'public/css/*.css','views/**/*.ejs'])
         .pipe(clean())
 });
 
