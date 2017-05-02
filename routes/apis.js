@@ -4,6 +4,8 @@ var router = express.Router();
 var sql = require('mssql');
 var config = require('../db/config.json');
 
+var crypto = require('/model/fn-crypto.js');
+
 // 使用者-登入(回傳基本資料)
 router.post('/login', function (req, res) {
 
@@ -38,20 +40,22 @@ router.post('/useradd/', function (req, res) {
                 console.log(err)
                 res.send(err);
             }
+
             //res.send(req.body.userid);
+            var crypto_pwd = crypto.getEncrypt(req.body.PassWord);
 
             var request = new sql.Request();
-            request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
+            request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), crypto_pwd).input('Email', sql.NVarChar(50), req.body.Email)
                 .query("insert into UserList ( UserName , UserID , PassWord , Email ) values ( @UserName" +
-                " , @UserID , @PassWord , @Email )",
-                function (err, recordset) {
+                    " , @UserID , @PassWord , @Email )",
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(true);
+                    });
         });
 });
 
@@ -72,15 +76,15 @@ router.post('/userupdate/', function (req, res) {
             var request = new sql.Request();
             request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
                 .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email" +
-                " where UserID = @UserID",
-                function (err, recordset) {
+                    " where UserID = @UserID",
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(true);
+                    });
         });
 });
 
@@ -118,15 +122,15 @@ router.post('/maplist/', function (req, res) {
             var request = new sql.Request();
             request.input('id', sql.NVarChar(50), req.body.id)
                 .query("select * from MarkerList where substring(MarkerName,1,1) = @id order by MarkerNa" +
-                "me",
-                function (err, recordset) {
+                    "me",
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(recordset);
+                    });
         });
 });
 
@@ -164,15 +168,15 @@ router.post('/mapadd/', function (req, res) {
             var request = new sql.Request();
             request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
                 .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
-                "me , @MarkerLat , @MarkerLng )",
-                function (err, recordset) {
+                    "me , @MarkerLat , @MarkerLng )",
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(true);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(true);
+                    });
         });
 });
 
@@ -232,15 +236,15 @@ router.post('/polygonlist/', function (req, res) {
             var request = new sql.Request();
             request.input('PolygonGroup', sql.NVarChar(50), req.body.group)
                 .query("select id,PolygonName,PolygonGroup from PolygonList where PolygonGroup=@PolygonG" +
-                "roup order by PolygonGroup , PolygonName",
-                function (err, recordset) {
+                    "roup order by PolygonGroup , PolygonName",
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(recordset);
+                    });
         });
 });
 
@@ -305,14 +309,15 @@ router.post('/polygonadd/', function (req, res) {
         var request = new sql.Request();
         request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonGroup', sql.NVarChar(50), req.body.group)
             .query("insert into PolygonList ( PolygonName , PolygonPoint , PolygonGroup ) values ( @" +
-            "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )", function (err, recordset) {
+                "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )",
+                function (err, recordset) {
 
-                if (err) {
-                    console.log(err)
-                    res.send(err);
-                }
-                res.send(true);
-            });
+                    if (err) {
+                        console.log(err)
+                        res.send(err);
+                    }
+                    res.send(true);
+                });
     });
 
     //res.send(polystr);
@@ -358,14 +363,14 @@ router.post('/mapfavorite/', function (req, res) {
             request.input('UserID', sql.NVarChar(50), req.body.UserID)
                 .input('id', sql.NVarChar(50), req.body.id)
                 .query("select A.id, A.UserID, B.MarkerName, B.MarkerLat, B.MarkerLng from UserMarkerFavorite as A left join MarkerList as B on A.MarkerName = b.MarkerName where a.UserID = @UserID " + filter + " order by B.MarkerName",
-                function (err, recordset) {
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    }
-                    res.send(recordset);
-                });
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        }
+                        res.send(recordset);
+                    });
         });
 });
 
@@ -385,39 +390,39 @@ router.post('/mapfavoriteadd/', function (req, res) {
             request.input('UserID', sql.NVarChar(50), req.body.UserID)
                 .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
                 .query("select * from UserMarkerFavorite where UserID=@UserID and MarkerName=@MarkerName",
-                function (err, recordset) {
+                    function (err, recordset) {
 
-                    if (err) {
-                        console.log(err)
-                        res.send(err);
-                    } else if (recordset.length == 0) {
+                        if (err) {
+                            console.log(err)
+                            res.send(err);
+                        } else if (recordset.length == 0) {
 
-                        sql
-                            .connect(config, function (err) {
+                            sql
+                                .connect(config, function (err) {
 
-                                if (err)
-                                    console.log(err);
+                                    if (err)
+                                        console.log(err);
 
-                                var request = new sql.Request();
-                                request.input('UserID', sql.NVarChar(50), req.body.UserID)
-                                    .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
-                                    .query("insert into UserMarkerFavorite ( UserID , MarkerName ) values ( @UserID , @MarkerName )",
-                                    function (err, recordset) {
+                                    var request = new sql.Request();
+                                    request.input('UserID', sql.NVarChar(50), req.body.UserID)
+                                        .input('MarkerName', sql.NVarChar(50), req.body.MarkerName)
+                                        .query("insert into UserMarkerFavorite ( UserID , MarkerName ) values ( @UserID , @MarkerName )",
+                                            function (err, recordset) {
 
-                                        if (err) {
-                                            console.log(err)
-                                            res.send(err);
-                                        }
-                                        res.send(true);
-                                    });
-                            });
+                                                if (err) {
+                                                    console.log(err)
+                                                    res.send(err);
+                                                }
+                                                res.send(true);
+                                            });
+                                });
 
-                    } else {
-                        res.send(false);
-                    }// end if
+                        } else {
+                            res.send(false);
+                        } // end if
 
 
-                });
+                    });
         });
 });
 
