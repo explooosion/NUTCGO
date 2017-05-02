@@ -93,9 +93,9 @@ form.a { width: 100%; margin: 0 0 15px; padding: 0; }
  form.a p.offset { position: absolute; }
   form.a p label { position: absolute; left: 0; top: 17px; width: 110px; font-weight: bold; }
   form.a p span { display: block; margin: 5px 0 0; color: #14121d; font: 0.69em/1 Verdana,sans-serif; }
-  form.a p input { width: 300px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
-  form.a p textarea { overflow: auto; width: 400px; height: 120px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
-  form.a p select { padding: 2px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
+  form.a p input { width: 300px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/(../images/bg-inputs-a.png) no-repeat; }
+  form.a p textarea { overflow: auto; width: 400px; height: 120px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/(../images/bg-inputs-a.png) no-repeat; }
+  form.a p select { padding: 2px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/(../images/bg-inputs-a.png) no-repeat; }
   form.a p img { vertical-align: middle; }
   form.a p strong { color: #000; }
   

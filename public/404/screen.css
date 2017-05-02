@@ -48,10 +48,10 @@ legend.offset { display: none; }
 /* LAYOUT
 ------------------------------------------- */
 #root { }
- #top { position: relative; border-bottom: 10px solid #15141d; background: #7eaa3e url(../images/bg-top.gif) repeat-x; }
+ #top { position: relative; border-bottom: 10px solid #15141d; background: #7eaa3e url(http://www.cssninjas.com/images/bg-top.gif) repeat-x; }
   #top div.inner { position: relative; overflow: hidden; width: 850px; margin: 0 auto; padding: 53px 0 0; }
    #logo { position: absolute; left: 1px; top: 50%; width: 256px; height: 64px; margin: -32px 0 0; }
-    #logo a { display: block; position: relative; overflow: hidden; width: 256px; height: 64px; background: url(../images/logo-b.png) no-repeat; text-indent: -10001px; cursor: pointer; }
+    #logo a { display: block; position: relative; overflow: hidden; width: 256px; height: 64px; background: url(http://www.cssninjas.com/images/logo-b.png) no-repeat; text-indent: -10001px; cursor: pointer; }
    #nav { float: right; list-style: none; margin: 0; padding: 0 0 25px; }
     #nav li { display: inline; float: left; margin: 0 0 0 10px; padding: 0 0 0 10px; border-left: 1px solid #a2bf77; font-size: 1.3em; font-weight: bold; line-height: 1; }
     #nav li.first { margin-left: 0; padding-left: 0; border-left: none; }
@@ -59,36 +59,36 @@ legend.offset { display: none; }
      #nav li a:hover,
      #nav li a:focus,
      #nav li a:active { color: #000; }
-     #nav li a.active { position: relative; margin-bottom: -25px; padding-bottom: 25px; background: url(../images/bg-nav.gif) 50% 100% no-repeat; color: #000; text-decoration: underline; }
+     #nav li a.active { position: relative; margin-bottom: -25px; padding-bottom: 25px; background: url(http://www.cssninjas.com/images/bg-nav.gif) 50% 100% no-repeat; color: #000; text-decoration: underline; }
      #nav li em { position: absolute; left: -10001px; top: -10001px; }
    #bookmarks { display: none; position: absolute; top: 15px; right: 0; float: right; list-style: none; margin: 0; padding: 0; }
-    #bookmarks li { float: left; margin: 0 0 0 10px; padding: 0 0 0 10px; background: url(../images/sep-a.gif) -1px -1px repeat-y; font: 0.9em/0.75 Verdana,sans-serif; text-transform: lowercase; }
+    #bookmarks li { float: left; margin: 0 0 0 10px; padding: 0 0 0 10px; background: url(http://www.cssninjas.com/images/sep-a.gif) -1px -1px repeat-y; font: 0.9em/0.75 Verdana,sans-serif; text-transform: lowercase; }
     #bookmarks li.first { margin-left: 0; padding-left: 0; background: none; }
      #bookmarks li a { position: relative; float: left; color: #fff; text-decoration: none; opacity: 0.5; }
      #bookmarks li a:hover,
      #bookmarks li a:focus,
      #bookmarks li a:active { opacity: 1; }
- #content { width: 100%; background: #8fb7c1 url(../images/bg-content-a.jpg) repeat-x; }
-  #content div.outer { width: 100%; background: url(../images/bg-content-b.jpg) 50% 0 no-repeat; }
+ #content { width: 100%; background: #8fb7c1 url(http://www.cssninjas.com/images/bg-content-a.jpg) repeat-x; }
+  #content div.outer { width: 100%; background: url(http://www.cssninjas.com/images/bg-content-b.jpg) 50% 0 no-repeat; }
    #content div.inner { width: 100%; padding: 0 0 25px; }
-    #header { position: relative; z-index: 10; margin: 0 0 30px; padding: 23px 0 25px; border-bottom: 1px dotted #98bcc7; background: url(../images/bg-header-a.png) repeat-x; }
+    #header { position: relative; z-index: 10; margin: 0 0 30px; padding: 23px 0 25px; border-bottom: 1px dotted #98bcc7; background: url(http://www.cssninjas.com/images/bg-header-a.png) repeat-x; }
      #header h2 { position: relative; z-index: 15; width: 850px; margin: 0 auto; color: #d9e4e8; font-size: 3em; font-weight: normal; }
      #header p.shadow { position: absolute; left: 50%; top: 22px; z-index: 10; width: 850px; margin: 0 0 0 -426px; color: #24546a; font: 2.5em Georgia,serif; }
 
     #steps { position: relative; z-index: 15; overflow: hidden; width: 850px; margin: 0 auto 20px; }
      #steps ol { float: left; list-style: none; width: 861px; margin: 0 0 0 -11px; padding: 0 0 23px; }
-      #steps ol li { position: relative; display: inline; float: left; width: 276px; margin: 0 0 0 11px; background: url(../images/steps-bg-a.png) no-repeat; color: #444; font-size: 1.1em; line-height: 1.1; }
-       #steps ol li span { display: inline; float: left; width: 238px; margin: 8px 10px; padding: 170px 0 0 18px; background: url(../images/steps-bg-c.jpg) no-repeat; }
+      #steps ol li { position: relative; display: inline; float: left; width: 276px; margin: 0 0 0 11px; background: url(http://www.cssninjas.com/images/steps-bg-a.png) no-repeat; color: #444; font-size: 1.1em; line-height: 1.1; }
+       #steps ol li span { display: inline; float: left; width: 238px; margin: 8px 10px; padding: 170px 0 0 18px; background: url(http://www.cssninjas.com/images/steps-bg-c.jpg) no-repeat; }
        #steps ol li.step-1 span { background-position: 0 0; }
        #steps ol li.step-2 span { background-position: -256px 0; }
        #steps ol li.step-3 span { background-position: -512px 0; }
         #steps ol li span em { position: absolute; left: 0; bottom: -23px; width: 276px; height: 23px; padding: 0; background: none; background-repeat: no-repeat; text-indent: -10001px; }
-        #steps ol li.step-1 span em { background-image: url(../images/steps-bg-b-a.png); }
-        #steps ol li.step-2 span em { background-image: url(../images/steps-bg-b-b.png); }
-        #steps ol li.step-3 span em { background-image: url(../images/steps-bg-b-c.png); }
+        #steps ol li.step-1 span em { background-image: url(http://www.cssninjas.com/images/steps-bg-b-a.png); }
+        #steps ol li.step-2 span em { background-image: url(http://www.cssninjas.com/images/steps-bg-b-b.png); }
+        #steps ol li.step-3 span em { background-image: url(http://www.cssninjas.com/images/steps-bg-b-c.png); }
     #wrap { overflow: hidden; width: 850px; margin: 0 auto; }
-     #wrap #main { float: left; width: 550px; margin: 0 -1px 0 0; padding: 0 19px 0 0; background: url(../images/sep-b.gif) 100% -3px repeat-y; }
-     #wrap #side { float: left; width: 240px; padding: 7px 21px 0; background: url(../images/sep-b.gif) -3px -3px repeat-y; color: #fff; }
+     #wrap #main { float: left; width: 550px; margin: 0 -1px 0 0; padding: 0 19px 0 0; background: url(http://www.cssninjas.com/images/sep-b.gif) 100% -3px repeat-y; }
+     #wrap #side { float: left; width: 240px; padding: 7px 21px 0; background: url(http://www.cssninjas.com/images/sep-b.gif) -3px -3px repeat-y; color: #fff; }
  #footer { overflow: hidden; width: 850px; margin: 0 auto; padding: 25px 0 25px; color: #fff; }
   #footer p { display: inline; float: left; margin: 0; color: #bbb; font: bold 1.2em/1.2 Verdana,sans-serif; }
   #footer p.first { float: right; margin: -1px 0 0; font-weight: normal; }
@@ -106,7 +106,7 @@ legend.offset { display: none; }
 
 /* GENERAL
 ------------------------------------------- */
-div.intro-a { margin: 0 0 15px; padding: 0 0 5px; border-bottom: 1px solid #a5c5cf; background: url(../images/ninja.png) 100% 15px no-repeat; }
+div.intro-a { margin: 0 0 15px; padding: 0 0 5px; border-bottom: 1px solid #a5c5cf; background: url(http://www.cssninjas.com/images/ninja.png) 100% 15px no-repeat; }
  div.intro-a p { padding-right: 135px; }
  div.intro-a p.first { padding-right: 160px; }
 
@@ -121,7 +121,7 @@ div.project-a:after { display: block; width: 100%; clear: both; content:""; }
   div.project-a div.info p.code { word-spacing: 5px; }
   div.project-a div.info p.code a { word-spacing: 0px; }
 
-div.testimonial-a { width: 100%; margin: 0 0 15px; padding: 0 0 16px; background: url(../images/sep-c.gif) 50% 100% no-repeat; }
+div.testimonial-a { width: 100%; margin: 0 0 15px; padding: 0 0 16px; background: url(http://www.cssninjas.com/images/sep-c.gif) 50% 100% no-repeat; }
  div.testimonial-a blockquote { margin: 0; padding: 1px 15px; border-left: 5px solid #d5ebf2; font-style: italic; }
   div.testimonial-a blockquote p { width: 100%; margin: 0; font-size: 2em; }
  div.testimonial-a p.author { margin: 0; padding: 1px 15px; border-left: 5px solid #fff; font-size: 1.8em; text-shadow: 1px 1px 2px rgba(0,0,0,0.25);}
@@ -132,7 +132,7 @@ div.testimonial-a-b { text-align: right; }
  div.testimonial-a-b p.author { border-width: 0 5px 0 0; }
 
 div.testimonial-b { margin: 0 0 15px; }
- div.testimonial-b blockquote { margin: 0 0 5px; padding: 0 0 0 65px; background: url(../images/quotie-b.png) no-repeat; font-style: italic; }
+ div.testimonial-b blockquote { margin: 0 0 5px; padding: 0 0 0 65px; background: url(http://www.cssninjas.com/images/quotie-b.png) no-repeat; font-style: italic; }
   div.testimonial-b blockquote p { margin: 0; }
  div.testimonial-b p.author { margin: 0; padding: 0 0 0 65px; font-size: 1.2em; }
   div.testimonial-b p.author a { padding: 0 3px 0 0; font-weight: bold; }
@@ -141,10 +141,10 @@ div.testimonial-b { margin: 0 0 15px; }
 
 h2.b { margin-bottom: 15px; font-size: 2.4em; line-height: 1; text-transform: uppercase; }
 h3.a { margin-bottom: 4px; }
-h3.b { padding-bottom: 8px; background: url(../images/bg-headers-a.png) 0 100% no-repeat; }
+h3.b { padding-bottom: 8px; background: url(http://www.cssninjas.com/images/bg-headers-a.png) 0 100% no-repeat; }
 
 ul.a { list-style: none; margin: 0 0 15px; padding: 0; }
- ul.a li { margin: 0 0 2px; padding: 0 0 0 25px; background: url(../images/bullet-a.gif) 8px 8px no-repeat; }
+ ul.a li { margin: 0 0 2px; padding: 0 0 0 25px; background: url(http://www.cssninjas.com/images/bullet-a.gif) 8px 8px no-repeat; }
 
 ul.logos-a { overflow: hidden; list-style: none; width: 558px; margin: 0 0 15px -8px; padding: 0; }
  ul.logos-a li { display: inline; float: left; margin: 0 0 8px 8px; }
@@ -167,30 +167,30 @@ form.a { width: 100%; margin: 0 0 15px; padding: 0; }
  form.a p.offset { position: absolute; }
   form.a p label { position: absolute; left: 0; top: 17px; width: 110px; font-weight: bold; }
   form.a p span { display: block; margin: 5px 0 0; color: #14121d; font: 0.69em/1 Verdana,sans-serif; }
-  form.a p input { -moz-box-sizing: border-box; box-sizing: border-box; width: 300px; padding: 8px 10px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
-  form.a p textarea { -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; width: 400px; height: 300px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
-  form.a p select { padding: 2px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(../images/bg-inputs-a.png) no-repeat; }
+  form.a p input { -moz-box-sizing: border-box; box-sizing: border-box; width: 300px; padding: 8px 10px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/images/bg-inputs-a.png) no-repeat; }
+  form.a p textarea { -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; width: 400px; height: 300px; padding: 2px 3px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/images/bg-inputs-a.png) no-repeat; }
+  form.a p select { padding: 2px; border: 1px solid #76a7b6; border-color: #76a7b6 #90b8c4 #90b8c4 #76a7b6; background: #fff url(http://www.cssninjas.com/images/bg-inputs-a.png) no-repeat; }
   form.a p img { vertical-align: middle; cursor: pointer; }
   form.a p strong { color: #000; }
  form.a p.submit { overflow: hidden; font-weight: bold; }
-  form.a p.submit button { position: relative; overflow: visible; padding: 0 0 0 10px; border: none; background: url(../images/button-a-left.png) no-repeat; height: 30px; font-weight: bold; white-space: nowrap; }
+  form.a p.submit button { position: relative; overflow: visible; padding: 0 0 0 10px; border: none; background: url(http://www.cssninjas.com/images/button-a-left.png) no-repeat; height: 30px; font-weight: bold; white-space: nowrap; }
   form.a p.submit button::-moz-focus-inner { margin: 0; padding: 0; border: none; }
-   form.a p.submit button span { position: relative; display: block; float: left; margin: 0; padding: 0 22px 0 10px; background: url(../images/button-a.png) 100% 0 no-repeat; color: #fff; font-size: 1em; font-weight: bold; line-height: 30px; }
+   form.a p.submit button span { position: relative; display: block; float: left; margin: 0; padding: 0 22px 0 10px; background: url(http://www.cssninjas.com/images/button-a.png) 100% 0 no-repeat; color: #fff; font-size: 1em; font-weight: bold; line-height: 30px; }
    @media screen and (-webkit-min-device-pixel-ratio:0) { form.a p.submit button span { float: none; margin-top: -1px; } }
  form.a div.double-a { overflow: hidden; width: 100%; border-top: 1px solid #a6c6cf; }
   form.a div.double-a p { float: left; margin-top: -1px; }
   form.a div.double-a p.first { display: inline; margin-right: 25px; }
 
-button.a { position: relative; overflow: visible; padding: 0 0 0 10px; border: none; background: url(../images/button-a-left.png) no-repeat; height: 30px; font-weight: bold; white-space: nowrap; }
+button.a { position: relative; overflow: visible; padding: 0 0 0 10px; border: none; background: url(http://www.cssninjas.com/images/button-a-left.png) no-repeat; height: 30px; font-weight: bold; white-space: nowrap; }
 button.a::-moz-focus-inner { margin: 0; padding: 0; border: none; }
- button.a span { position: relative; float: left; margin: 0; padding: 0 22px 0 10px; background: url(../images/button-a.png) 100% 0 no-repeat; color: #fff; font-size: 1em; font-weight: bold; line-height: 30px; }
+ button.a span { position: relative; float: left; margin: 0; padding: 0 22px 0 10px; background: url(http://www.cssninjas.com/images/button-a.png) 100% 0 no-repeat; color: #fff; font-size: 1em; font-weight: bold; line-height: 30px; }
 
-dl.faq-a { overflow: hidden; width: 100%; margin: 0 0 15px; padding: 0; background: url(../images/bracket-a.png) -10001px -10001px no-repeat; }
+dl.faq-a { overflow: hidden; width: 100%; margin: 0 0 15px; padding: 0; background: url(http://www.cssninjas.com/images/bracket-a.png) -10001px -10001px no-repeat; }
  dl.faq-a dt { position: relative; margin: -1px 0 0; padding: 10px 75px 10px 20px; border-top: 1px solid #a1c6d1; color: #205f73; font: bold 1.8em/1.4 Georgia,serif; text-indent: -16px; cursor: pointer; }
 
-  dl.faq-a dt span { position: absolute; right: 0; top: 13px; width: 50px; padding: 0 10px 0 0; background: url(../images/bullet-b.gif) 100% -10px no-repeat; color: #fff; font: 0.69em/1 Verdana,sans-serif; text-align: right; cursor: pointer; }
+  dl.faq-a dt span { position: absolute; right: 0; top: 13px; width: 50px; padding: 0 10px 0 0; background: url(http://www.cssninjas.com/images/bullet-b.gif) 100% -10px no-repeat; color: #fff; font: 0.69em/1 Verdana,sans-serif; text-align: right; cursor: pointer; }
   dl.faq-a dt span.collapse { background-position: 100% 5px; }
- dl.faq-a dd { margin: 0; padding: 10px 0 5px 85px; border: 1px solid #a1c6d1; border-width: 1px 0; background: url(../images/bracket-a.png) 20px 50% no-repeat; }
+ dl.faq-a dd { margin: 0; padding: 10px 0 5px 85px; border: 1px solid #a1c6d1; border-width: 1px 0; background: url(http://www.cssninjas.com/images/bracket-a.png) 20px 50% no-repeat; }
   dl.faq-a dd p { margin: 0 0 5px; }
 
 table.a { width: 100%; border-collapse: collapse; border-spacing: 0; }
@@ -205,7 +205,7 @@ p.action-a { font-size: 1.4em; font-style: italic; font-weight: bold; text-align
 a.veboo-a { font-weight: bold; text-transform: uppercase; }
  a.veboo-a span { padding: 0 0 0 1px; color: #fcfdc5; font-size: 0.75em; font-weight: normal; line-height: 1; vertical-align: 3px; }
 
-.separate-a { margin: 0 0 15px; padding: 0 0 16px; background: url(../images/sep-c.gif) 50% 100% no-repeat; }
+.separate-a { margin: 0 0 15px; padding: 0 0 16px; background: url(http://www.cssninjas.com/images/sep-c.gif) 50% 100% no-repeat; }
 
 /* ELEMENTS
 ------------------------------------------- */
@@ -226,44 +226,44 @@ a.veboo-a { font-weight: bold; text-transform: uppercase; }
  #calculator p.pages { position: relative; margin: 0 0 7px; padding: 0 5px; color: #000; font-weight: bold; }
 
   #calculator p.pages { font-size: 1.3em; }
-  #calculator p.pages span { position: absolute; right: 5px; top: 1px; width: 46px; height: 15px; background: url(../images/calculator-tear.png) no-repeat; text-align: center; line-height: 12px; }
- #calculator ul.slider { position: relative; list-style: none; width: 100%; height: 32px; margin: 0 0 7px; padding: 0; background: url(../images/calculator-bg.png) no-repeat; }
+  #calculator p.pages span { position: absolute; right: 5px; top: 1px; width: 46px; height: 15px; background: url(http://www.cssninjas.com/images/calculator-tear.png) no-repeat; text-align: center; line-height: 12px; }
+ #calculator ul.slider { position: relative; list-style: none; width: 100%; height: 32px; margin: 0 0 7px; padding: 0; background: url(http://www.cssninjas.com/images/calculator-bg.png) no-repeat; }
   #calculator ul.slider li { }
-   #calculator ul.slider li a { position: absolute; overflow: hidden; width: 13px; height: 13px; background: url(../images/calculator-tear.png) -10001px -10001px no-repeat; text-indent: -10001px; cursor: pointer; }
+   #calculator ul.slider li a { position: absolute; overflow: hidden; width: 13px; height: 13px; background: url(http://www.cssninjas.com/images/calculator-tear.png) -10001px -10001px no-repeat; text-indent: -10001px; cursor: pointer; }
    #calculator ul.slider li.less a { left: 9px; top: 9px; }
    #calculator ul.slider li.more a { right: 10px; top: 10px; }
   #calculator ul.slider li.drag { position: absolute; left: 24px; top: 10px; width: 191px; height: 11px; }
    #calculator ul.slider li.drag a { position: static; width: auto; height: auto; text-indent: 0; }
-    #calculator ul.slider li.drag a span { position: absolute; overflow: hidden; width: 29px; height: 11px; background: url(../images/calculator-knob.gif) no-repeat; text-indent: -10001px; cursor: w-resize; }
+    #calculator ul.slider li.drag a span { position: absolute; overflow: hidden; width: 29px; height: 11px; background: url(http://www.cssninjas.com/images/calculator-knob.gif) no-repeat; text-indent: -10001px; cursor: w-resize; }
     #calculator ul.slider li.drag a:hover span,
     #calculator ul.slider li.drag a:focus span,
     #calculator ul.slider li.drag a:active span { background-position: 0 -11px; }
  #calculator div.wrapper { margin: 0 0 7px; }
   #calculator p.total { display: inline; float: right; margin: 0 5px 0 0; font: bold 1.4em/17px Georgia,serif; }
   #calculator p.currency { display: inline; position: relative; float: left; margin: 0 0 0 5px; font: bold 1.2em/17px Georgia,serif; text-indent: -10001px; }
-   #calculator p.currency a { position: absolute; left: 0; top: 0; overflow: hidden; width: 17px; height: 17px; background: url(../images/calculator-currency.png) 0 -17px no-repeat; color: #fff; text-indent: 0; text-align: center; text-decoration: none; cursor: pointer; }
+   #calculator p.currency a { position: absolute; left: 0; top: 0; overflow: hidden; width: 17px; height: 17px; background: url(http://www.cssninjas.com/images/calculator-currency.png) 0 -17px no-repeat; color: #fff; text-indent: 0; text-align: center; text-decoration: none; cursor: pointer; }
    #calculator p.currency a.euro { left: 0; }
    #calculator p.currency a.dollar { left: 22px; }
    #calculator p.currency a.pound { left: 44px; }
    #calculator p.currency a.active { background-position: 0 0; }
  #calculator p.checkout { padding: 8px 5px 5px; border-top: 1px solid #8ec3d4; font: bold 1.1em/1 Georgia,serif; text-align: right; text-transform: lowercase; }
-  #calculator p.checkout a { padding: 0 0 0 25px; background: url(../images/calculator-checkout.gif) 0 2px no-repeat; text-decoration: none; }
+  #calculator p.checkout a { padding: 0 0 0 25px; background: url(http://www.cssninjas.com/images/calculator-checkout.gif) 0 2px no-repeat; text-decoration: none; }
    #calculator p.checkout a span { color: #000; border-bottom: 1px dotted #000; cursor: pointer; }
    #calculator p.checkout a:hover span { border: none; }
 
 #testimonials { }
- #testimonials div.wrap-outer { position: relative; width: 260px; margin: 20px -10px 10px; padding: 0 0 25px; background: url(../images/bg-postit-bottom.png) 0 100% no-repeat; color: #888; }
-  #testimonials div.wrap-inner { position: relative; top: -25px; width: 215px; min-height: 90px; margin: 0; padding: 60px 25px 0 20px; background: url(../images/bg-postit-top.png) 0 0 no-repeat; }
+ #testimonials div.wrap-outer { position: relative; width: 260px; margin: 20px -10px 10px; padding: 0 0 25px; background: url(http://www.cssninjas.com/images/bg-postit-bottom.png) 0 100% no-repeat; color: #888; }
+  #testimonials div.wrap-inner { position: relative; top: -25px; width: 215px; min-height: 90px; margin: 0; padding: 60px 25px 0 20px; background: url(http://www.cssninjas.com/images/bg-postit-top.png) 0 0 no-repeat; }
    #testimonials ul.index { position: absolute; left: 22px; top: 35px; list-style: none; margin: 0; padding: 0; }
     #testimonials ul.index li { display: inline; float: left; margin: 0 5px 0 0; }
-     #testimonials ul.index li a { overflow: hidden; float: left; width: 29px; height: 13px; background: url(../images/bg-testimonials-nav.png) no-repeat; text-indent: -10001px; }
+     #testimonials ul.index li a { overflow: hidden; float: left; width: 29px; height: 13px; background: url(http://www.cssninjas.com/images/bg-testimonials-nav.png) no-repeat; text-indent: -10001px; }
      #testimonials ul.index li.prev a { background-position: 0 0; }
      #testimonials ul.index li.prev a:hover,
      #testimonials ul.index li.prev a:focus { background-position: 0 -13px; }
      #testimonials ul.index li.next a { background-position: -29px 0; }
      #testimonials ul.index li.next a:hover,
      #testimonials ul.index li.next a:focus { background-position: -29px -13px; }
-   #testimonials blockquote { width: 100%; margin: 0; padding: 0; background: url(../images/quotie-a.png) 0 3px no-repeat; }
+   #testimonials blockquote { width: 100%; margin: 0; padding: 0; background: url(http://www.cssninjas.com/images/quotie-a.png) 0 3px no-repeat; }
    #testimonials p { margin: 0 0 5px; padding: 0 0 0 48px; font-size: 1.5em; line-height: 1.35; }
    #testimonials p.author { margin: 0; font-weight: bold; }
     #testimonials p.author a { border-bottom: 1px dotted #205f73; text-decoration: none; }
@@ -271,7 +271,7 @@ a.veboo-a { font-weight: bold; text-transform: uppercase; }
     #testimonials p.author a:focus { border-bottom-color: #000; color: #000; }
     #testimonials p.author span { display: block; font-size: 0.6em; }
     #testimonials p.more { position: absolute; left: 22px; top: 12px; margin: 0; padding: 0; }
-     #testimonials p.more a { display: block; overflow: hidden; width: 53px; height: 13px; background: url(../images/bg-testimonials-more.png) no-repeat; text-indent: -10001px; }
+     #testimonials p.more a { display: block; overflow: hidden; width: 53px; height: 13px; background: url(http://www.cssninjas.com/images/bg-testimonials-more.png) no-repeat; text-indent: -10001px; }
      #testimonials p.more a:hover { background-position: 0 -13px; }
 
 #order { }
@@ -281,35 +281,35 @@ a.veboo-a { font-weight: bold; text-transform: uppercase; }
 #ordered { }
  #ordered p { margin: 0; padding: 10px 0 10px 30px; border-top: 1px solid #aacbd6; background-position: 0 50%; background-repeat: no-repeat; font-size: 1.8em; }
  #ordered p.order { margin: 0 0 12px; padding: 10px; border: 1px dotted #d5e6eb; color: #000; font: bold 2.8em/1 Georgia,serif; text-align: center; }
-  #ordered p.order strong { padding: 0 0 0 40px; background: url(../images/order-boy.png) no-repeat;  }
- #ordered p.thanks { border: none; background-image: url(../images/icons/heart.png); }
- #ordered p.copy { border: none; background-image: url(../images/icons/email.png); }
- #ordered p.upload { background-image: url(../images/icons/picture_go.png); }
- #ordered p.payment { background-image: url(../images/icons/euro.png); }
- #ordered p.warning { background-image: url(../images/icons/exclamation.png); }
+  #ordered p.order strong { padding: 0 0 0 40px; background: url(http://www.cssninjas.com/images/order-boy.png) no-repeat;  }
+ #ordered p.thanks { border: none; background-image: url(http://www.cssninjas.com/images/icons/heart.png); }
+ #ordered p.copy { border: none; background-image: url(http://www.cssninjas.com/images/icons/email.png); }
+ #ordered p.upload { background-image: url(http://www.cssninjas.com/images/icons/picture_go.png); }
+ #ordered p.payment { background-image: url(http://www.cssninjas.com/images/icons/euro.png); }
+ #ordered p.warning { background-image: url(http://www.cssninjas.com/images/icons/exclamation.png); }
  #ordered p.print { overflow: hidden; width: 100%; margin: 15px 0; padding: 0; border: none; background: none; }
-  #ordered p.print span { display: inline; float: right; margin: 0 20px 0 0; padding: 0 0 0 25px; background: url(../images/icons/print.png) 0 50% no-repeat; }
+  #ordered p.print span { display: inline; float: right; margin: 0 20px 0 0; padding: 0 0 0 25px; background: url(http://www.cssninjas.com/images/icons/print.png) 0 50% no-repeat; }
   #ordered p.print a { border-bottom: 1px dotted #eee; color: #eee; font-weight: bold; text-decoration: none; }
   #ordered p.print a:hover,
   #ordered p.print a:focus { border-bottom: 1px dotted #fff; color: #fff; }
 
 #payment { }
- #payment p.paypal { margin: 0 0 15px; padding: 0 115px 15px 0; border-bottom: 1px solid #8eb6c3; background: url(../images/paypal.png) 96% 50% no-repeat; }
+ #payment p.paypal { margin: 0 0 15px; padding: 0 115px 15px 0; border-bottom: 1px solid #8eb6c3; background: url(http://www.cssninjas.com/images/paypal.png) 96% 50% no-repeat; }
  #payment table.a td.price { font-weight: bold; }
 
-#upload { background: url(../images/indicator-a.gif) -10001px -10001px no-repeat; }
+#upload { background: url(http://www.cssninjas.com/images/indicator-a.gif) -10001px -10001px no-repeat; }
  #upload form { margin: 0 0 15px; padding: 15px 0; border-top: 1px solid #8db6c3; border-bottom: 1px solid #afcdd6; }
   #upload form fieldset { margin: 0; padding: 0; }
    #upload form p.info { margin: -10px 0 18px; padding: 0 0 15px; border-bottom: 1px solid #a1c5d1; color: #14121d; font: 0.9em/1 Verdana,sans-serif; }
    #upload form p.submit { margin: 0; }
-   #upload form p.wait { display: none; margin: 5px 0 0; padding: 2px 0 4px 25px; background: url(../images/indicator-a.gif) 0 50% no-repeat; color: #14121d; font: 0.9em/1 Verdana,sans-serif; }
+   #upload form p.wait { display: none; margin: 5px 0 0; padding: 2px 0 4px 25px; background: url(http://www.cssninjas.com/images/indicator-a.gif) 0 50% no-repeat; color: #14121d; font: 0.9em/1 Verdana,sans-serif; }
    #upload form ul.queue { list-style: none; margin: 0 0 15px; padding: 0; }
-    #upload form ul.queue li { display: none; padding: 1px 0 2px 25px; background: url(../images/icon-plus.gif) 0 50% no-repeat; font-size: 1.1em; }
+    #upload form ul.queue li { display: none; padding: 1px 0 2px 25px; background: url(http://www.cssninjas.com/images/icon-plus.gif) 0 50% no-repeat; font-size: 1.1em; }
     #upload form ul.queue li.empty { display: block; padding: 0; background: none; }
      #upload form ul.queue li span { font: 0.82em/1 Verdana,sans-serif; }
  #upload h3 { margin: 0; }
  #upload ul.uploaded { list-style: none; margin: 0; padding: 0; }
-  #upload ul.uploaded li { padding: 1px 0 2px 25px; background: url(../images/icon-dot.gif) 0 50% no-repeat; font-size: 1.1em; }
+  #upload ul.uploaded li { padding: 1px 0 2px 25px; background: url(http://www.cssninjas.com/images/icon-dot.gif) 0 50% no-repeat; font-size: 1.1em; }
   #upload ul.uploaded li.empty { display: block; padding: 0; background: none; }
    #upload ul.uploaded li span { font: 0.82em/1 Verdana,sans-serif; }
 
@@ -331,7 +331,7 @@ a.veboo-a { font-weight: bold; text-transform: uppercase; }
   #compare table.a tbody tr.prices td.service { color: #000; font-size: 2em; }
   #compare table.a tbody tr.prices td.ninjas { font-size: 2.4em; }
   #compare table.a tbody td.ninjas { background: #fbf9e5; }
-  #compare table.a span { display: block; overflow: hidden; width: 16px; height: 16px; margin: 0 auto; background: url(../images/icons/compare.gif) no-repeat; text-indent: -10001px; }
+  #compare table.a span { display: block; overflow: hidden; width: 16px; height: 16px; margin: 0 auto; background: url(http://www.cssninjas.com/images/icons/compare.gif) no-repeat; text-indent: -10001px; }
   #compare table.a span.no { background-position: 0 -16px; }
   #compare table.a span.maybe { background-position: 0 -32px; }
   #compare table.a tfoot td { padding-left: 10px; color: #fff; font-size: 1.1em; text-transform: none; text-align: left; }
@@ -340,7 +340,7 @@ a.veboo-a { font-weight: bold; text-transform: uppercase; }
  #e404 #root { height: 100%; margin: 0; padding: 0; }
   #e404 #content { height: 100%; margin: 0; padding: 0; }
    #e404 #content div.outer { overflow: hidden; height: 100%; margin: 0; padding: 0; }
-    #e404 #error { width: 500px; min-height: 135px; margin: 100px auto 0; padding: 105px 0 110px 285px; background: url(../images/shinobi.png) no-repeat; color: #fff; }
+    #e404 #error { width: 500px; min-height: 135px; margin: 100px auto 0; padding: 105px 0 110px 285px; background: url(http://www.cssninjas.com/images/shinobi.png) no-repeat; color: #fff; }
      #e404 #error h1 { margin: 0 0 5px -2px; }
 
 
