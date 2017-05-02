@@ -166,7 +166,7 @@ function LoginClose() {
 
 
 function recaptchaCallback() {
-    $('#btnSignSubmit').removeAttr('disabled');
+    $('#btnSignSubmit').removeAttr('disabled').removeClass('btn-disabled');
 }
 
 

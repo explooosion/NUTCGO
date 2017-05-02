@@ -166,28 +166,28 @@ body {
     text-align: center;
 }
 
-.footer .room-line{
+.footer .room-line {
     color: #666;
     font-size: 10px;
 }
 
 .footer .footer-title {
     color: #888;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
- 
-.footer .room-list{
+
+.footer .room-list {
     margin: 0 0 5px 0;
     padding: 0;
 }
 
-.footer .room-list a{
+.footer .room-list a {
     margin: 0 4px;
     color: #888;
     text-decoration: none;
 }
 
-.footer .room-list a:hover{
+.footer .room-list a:hover {
     color: #666;
 }
 
@@ -274,6 +274,14 @@ body {
 
 .btn-dark:active {
     background: #32383E;
+}
+
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:active {
+    color: #666;
+    background: #888;
+    cursor: not-allowed;
 }
 
 .text {
