@@ -4,7 +4,7 @@ var router = express.Router();
 var sql = require('mssql');
 var config = require('../db/config.json');
 
-var crypto = require('/model/fn-crypto.js');
+var crypto = require("model/fn-crypto.js");
 
 // 使用者-登入(回傳基本資料)
 router.post('/login', function (req, res) {

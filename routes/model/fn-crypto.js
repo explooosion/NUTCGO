@@ -1,6 +1,10 @@
+var exports = module.exports = {};
+
+
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'robby570';
+
 
 exports.getEncrypt = function (text) {
     var cipher = crypto.createCipher(algorithm, password)
@@ -14,5 +18,3 @@ exports.getDecrypt = function (text) {
     dec += decipher.final('utf8');
     return dec;
 };
-
-module.exports = "crypto";
