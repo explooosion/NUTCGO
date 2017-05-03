@@ -8,7 +8,7 @@ $(window).ready(function () {
     // Check Login
     CheckLogin();
 
-    // nav control color - close
+    // height control color - close
     $('.navbar .control').hover(function () {
         $('.navbar .line').css('background', '#FFF');
     }, function () {
@@ -90,8 +90,8 @@ $(window).resize(function () {
 
 
 function initialize() {
-    var h = $(window).height();
-    $('.navbar').height(h);
+    //var h = $(window).height();
+    //$('.navbar').height(h);
 }
 
 function CheckLogin() {
