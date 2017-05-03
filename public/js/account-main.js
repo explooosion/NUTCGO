@@ -33,7 +33,7 @@ $('#account-group #btnAccountSubmit').click(function () {
         var email = $('#account-group #txtEmail').val();
 
         $.ajax({
-            url: 'http://210.242.86.107/api/userupdate/',
+            url: 'http://robby570.tw/api/userupdate/',
             type: 'POST',
             data: {
                 'UserID': userid,

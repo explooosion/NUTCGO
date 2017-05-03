@@ -20,7 +20,7 @@
             var email = $('#txtEmail').val();
 
             $.ajax({
-                url: 'http://210.242.86.107/api/useradd/',
+                url: 'http://robby570.tw/api/useradd/',
                 type: 'POST',
                 data: {
                     'UserID': userid,

@@ -130,7 +130,7 @@ function LoginIn() {
     }
 
     $.ajax({
-        url: 'http://210.242.86.107/api/login/',
+        url: 'http://robby570.tw/api/login/',
         type: 'POST',
         data: {
             'userid': userid,

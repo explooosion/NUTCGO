@@ -328,7 +328,7 @@ function MarkerList() {
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://210.242.86.107/api/maplist/',
+        url: 'http://robby570.tw/api/maplist/',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -362,7 +362,7 @@ function MarkerListSearch() {
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://210.242.86.107/api/maplist/',
+        url: 'http://robby570.tw/api/maplist/',
         type: 'POST',
         data: {
             'id': ddlid
@@ -397,7 +397,7 @@ function MarkerKeySearch(value) {
         return;
     }
     $.ajax({
-        url: 'http://210.242.86.107/api/map/' + key,
+        url: 'http://robby570.tw/api/map/' + key,
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -434,7 +434,7 @@ function MarkerDelete(id) {
         return;
     }
     $.ajax({
-        url: 'http://210.242.86.107/api/mapdel/',
+        url: 'http://robby570.tw/api/mapdel/',
         type: 'POST',
         data: {
             'id': id
@@ -469,7 +469,7 @@ function MarkerSave() {
     var comfirm = confirm("確定是否保存?");
 
     $.ajax({
-        url: 'http://210.242.86.107/api/map/' + name,
+        url: 'http://robby570.tw/api/map/' + name,
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -485,7 +485,7 @@ function MarkerSave() {
 
                 if (comfirm == true) {
                     $.ajax({
-                        url: 'http://210.242.86.107/api/mapadd/',
+                        url: 'http://robby570.tw/api/mapadd/',
                         type: 'POST',
                         data: {
                             'name': name,
@@ -517,7 +517,7 @@ function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
     $.ajax({
-        url: 'http://210.242.86.107/api/polygonlist/',
+        url: 'http://robby570.tw/api/polygonlist/',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -546,7 +546,7 @@ function PolygonListSearch() {
     $('#tbPolygonList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://210.242.86.107/api/polygonlist/',
+        url: 'http://robby570.tw/api/polygonlist/',
         type: 'POST',
         data: {
             'group': ddlGrp
@@ -570,7 +570,7 @@ function PolygonListSearch() {
 function PolygonKeySearch(value) {
     console.log(value);
     $.ajax({
-        url: 'http://210.242.86.107/api/polygonpoint/' + value,
+        url: 'http://robby570.tw/api/polygonpoint/' + value,
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -634,7 +634,7 @@ function PolygonSave() {
 
     if (comfirm == true) {
         $.ajax({
-            url: 'http://210.242.86.107/api/polygonadd/',
+            url: 'http://robby570.tw/api/polygonadd/',
             type: 'POST',
             data: {
                 'name': name,
@@ -670,7 +670,7 @@ function PolygonDelete(id) {
         return;
     }
     $.ajax({
-        url: 'http://210.242.86.107/api/polygondel/',
+        url: 'http://robby570.tw/api/polygondel/',
         type: 'POST',
         data: {
             'id': id
@@ -698,7 +698,7 @@ function MarkerFavoriteList() {
     $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://210.242.86.107/api/mapfavorite/',
+        url: 'http://robby570.tw/api/mapfavorite/',
         type: 'POST',
         data: {
             'UserID': LoginData["UserID"],
@@ -732,7 +732,7 @@ function MarkerFavoriteDelete(id) {
         return;
     }
     $.ajax({
-        url: 'http://210.242.86.107/api/mapfavoritedel/',
+        url: 'http://robby570.tw/api/mapfavoritedel/',
         type: 'POST',
         data: {
             'id': id
@@ -761,7 +761,7 @@ function MarkerSaveFavorite(name) {
     } else {
 
         $.ajax({
-            url: 'http://210.242.86.107/api/mapfavoriteadd/',
+            url: 'http://robby570.tw/api/mapfavoriteadd/',
             type: 'POST',
             data: {
                 'UserID': LoginData["UserID"],
