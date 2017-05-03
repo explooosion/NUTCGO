@@ -171,7 +171,7 @@ function recaptchaCallback() {
 
 
 
-
+/*
 console.log("%c", "padding:180px 340px 200px 300px;line-height:300px;background:url('http://cdn.robby570.tw/img/look3small.jpg') no-repeat;");
 console.log('ヽ(#`Д´)ﾉ 肥宅哩喜咧跨三小? ');
-
+*/
