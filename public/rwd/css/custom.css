@@ -1,0 +1,51 @@
+/* can not be extend */
+
+.btn {
+    height: 35px;
+    width: 70px;
+    outline: none;
+    color: #FFF;
+    border-radius: 0;
+    /*border-radius: 3px;*/
+    border: 0;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    outline: none;
+    color: #FFF;
+}
+
+.btn-green {
+    background: #1ABC9C;
+}
+
+.btn-green:hover {
+    background: #17A88B;
+}
+
+.btn-green:active {
+    background: #159A7F;
+    box-shadow: 0 0 10px #289354 inset;
+}
+
+.btn-dark {
+    background: #3D454D;
+}
+
+.btn-dark:hover {
+    background: #383F45;
+}
+
+.btn-dark:active {
+    background: #32383E;
+}
+
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:active {
+    color: #666;
+    background: #888;
+    cursor: not-allowed;
+}

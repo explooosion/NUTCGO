@@ -1,0 +1,100 @@
+/* guide */
+
+#guide .row .col h1 {
+    margin: 0 0 10px 4%;
+    padding: 0;
+}
+
+#guide .row .col p {
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin: 20px 0 30px 4%;
+}
+
+
+/* home */
+
+#home .row .col {
+    height: 400px;
+    margin-bottom: 20px;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+#home .row .col[data-type='map'] {
+    background-image: url('http://cdn.robby570.tw/img/home_map.jpg');
+}
+
+#home .row .col[data-type='build'] {
+    background-image: url('http://cdn.robby570.tw/img/home_build.jpg');
+}
+
+#home .row .col[data-type='art'] {
+    background-image: url('http://cdn.robby570.tw/img/home_art.jpg');
+}
+
+#home .row .col[data-type='admin'] {
+    background-image: url('http://cdn.robby570.tw/img/home_admin.jpg');
+}
+
+#home .row .col[data-type='traffic'] {
+    background-image: url('http://cdn.robby570.tw/img/home_traffic.jpg');
+}
+
+#home .row .col[data-type='sport'] {
+    background-image: url('http://cdn.robby570.tw/img/home_sport.jpg');
+}
+
+@media(max-width:768px) {
+    #home .row .col {
+        margin: 20px 0;
+        background-size: auto 100% !important;
+    }
+}
+
+
+/* shade */
+
+#home .row .col .shade-img {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 28%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .5);
+    transition: all .2s;
+    text-align: center;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.shade-toggle {
+    height: 80% !important;
+}
+
+@media(max-width:1200px) and (min-width:768px) {
+    #home .row .col .shade-img {
+        padding-top: 15%;
+    }
+}
+
+@media(max-width:768px) {
+    #home .row .col .shade-img {
+        padding-top: 20%;
+    }
+}
+
+#home .row .col .shade-img span {
+    color: #666;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.shade-msg {
+    display: none;
+    padding: 0 30px;
+    color: #666;
+    font-size: 30px;
+}

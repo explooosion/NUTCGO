@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NUTCGO - 校園導覽系統 (RWD)</title>
+
+    <!-- CSS font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <link href="css/site.css?v=20170504" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/build.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="navcon">
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+            </div>
+            <ul class="sidebar-nav">
+                <li>
+                    <a class="selected" href="#"><i class="fa fa-home"></i>首頁</a>
+                </li>
+                <li id="nav-login" class="nav-show">
+                    <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-home"></i>登入</a>
+                </li>
+                <li id="nav-signup" class="nav-show">
+                    <a href="#"><i class="fa fa-home"></i>註冊</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-map-marker"></i>地圖定位</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-building"></i>建物資訊</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-picture-o"></i>藝術雕像</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-university"></i>行政單位</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-car"></i>交通規劃</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-futbol-o"></i>運動休憩</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user"></i>會員中心</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <!-- Header -->
+            <div class="header navbar navbar-default">
+                <div class="navcon hide">
+                    <div class="nav-line"></div>
+                    <div class="nav-line"></div>
+                    <div class="nav-line"></div>
+                </div>
+                <div class="header-title">
+                    <a class="logo" href="index.html">
+                        校園導覽系
+                    </a>
+                </div>
+                <div class="header-login">
+                    <button type="button" class="btn btn-green" data-toggle="modal" data-target="#login-modal">登入</button>
+                    <button type="button" class="btn btn-green">登出</button>
+                    <button type="button" class="btn btn-green">註冊</button>
+                </div>
+            </div>
+
+            <div id="guide" class="container-fluid">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <h1>台中科技大學校園導覽系統</h1>
+                        <p>對校園還不熟悉嗎？本系統提供校園各大景點以及便捷的地圖定位系統，讓您不在本校迷路。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Build -->
+            <div id="build" class="container-fluid">
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b1">
+                            <div class="build-panel">
+                                <h2>弘業樓</h2>
+                                <span>↓</span>
+                                <p>弘業樓位於本校大門口右側，一共有八樓，一樓為體育館場地，部分大型集會於此區進行，二、三樓層為教師研究室，其餘為教室。流管系系辦可以在二樓找到。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b2">
+                            <div class="build-panel">
+                                <h2>昌明樓</h2>
+                                <span>↓</span>
+                                <p>昌明樓位於本校中庭正後方，一樓左側為進修學院，一樓右側為教官室及校安中心、生輔組、衛保組、健康中心。室內設計系、多媒體設計系、商業設計系系辦，分別在三樓、四樓、五樓。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b3">
+                            <div class="build-panel">
+                                <h2>翰英樓</h2>
+                                <span>↓</span>
+                                <p>翰英樓位於操場旁，司令台後方，大部分教室為普通教室，其餘有教授休息室、專業教室及軍械室。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b4">
+                            <div class="build-panel">
+                                <h2>奇秀樓</h2>
+                                <span>↓</span>
+                                <p>奇秀樓位於體育館後方，操場旁，一樓為體育室，地下一樓為撞球教室，二樓為教授研究室，三、四樓為軍護專業教室。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b5">
+                            <div class="build-panel">
+                                <h2>資訊館</h2>
+                                <span>↓</span>
+                                <p>資訊館位於本校大門口左側，行政大樓後方，有電腦教室、音樂教室、視聽教室、多媒體教室 。資管系系辦在4樓、資工系系辦位於五樓，九樓有桌球室及韻律教室。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b6">
+                            <div class="build-panel">
+                                <h2>中正大樓</h2>
+                                <span>↓</span>
+                                <p>中正大樓位於本校大門口左側，資訊館右側，包含通識中心、語言中心、國際會議廳，一樓為閱覽室。國貿系系辦位於此棟七樓，應英系、應日系、應中系系辦分別在五樓、六樓、九樓。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b7">
+                            <div class="build-panel">
+                                <h2>中商大樓</h2>
+                                <span>↓</span>
+                                <p>中商大樓位於中華路旁，翰英樓後方，一樓為圖書館，二、三樓有會議廳。會資系、應用統計系、保險金融管理系、企管系、財政稅務系系辦分別位於四樓、五樓、七樓、八樓、九樓。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b8">
+                            <div class="build-panel">
+                                <h2>行政大樓</h2>
+                                <span>↓</span>
+                                <p>行政大樓位於大門左側，二樓有校長室、秘書室，3樓有主計室、總機室。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="build-img" data-src="b9">
+                            <div class="build-panel">
+                                <h2>學生活動中心</h2>
+                                <span>↓</span>
+                                <p>學生活動中心位於中政大樓左側，昌明樓右側，一樓是校務會議的所在地，二樓為職涯及諮商輔導中心，三樓為學生會會辦。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Home -->
+            <div id="home" class="container-fluid">
+                <div class="row">
+                    <div class="col col-lg-4" data-type="map">
+                        <div class="shade-img">
+                            <span>地圖定位</span>
+                            <p class="shade-msg">整合GoogleMap之<br>地圖定位系統</p>
+                        </div>
+                    </div>
+                    <div class="col col-lg-4" data-type="build">
+                        <div class="shade-img">
+                            <span>建物資訊</span>
+                            <p class="shade-msg">提供校園區內<br>建物簡介</p>
+                        </div>
+                    </div>
+                    <div class="col col-lg-4" data-type="art">
+                        <div class="shade-img">
+                            <span>藝術雕像</span>
+                            <p class="shade-msg">趕快一起欣賞<br>美麗的校園吧！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-4" data-type="admin">
+                        <div class="shade-img">
+                            <span>行政單位</span>
+                            <p class="shade-msg">找老師？</p>
+                        </div>
+                    </div>
+                    <div class="col col-lg-4" data-type="traffic">
+                        <div class="shade-img">
+                            <span>交通規劃</span>
+                            <p class="shade-msg">找本校？</p>
+                        </div>
+                    </div>
+                    <div class="col col-lg-4" data-type="sport">
+                        <div class="shade-img">
+                            <span>運動休憩</span>
+                            <p class="shade-msg">找球場？</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Footer -->
+            <div id="footer" class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <!-- footer column 1 start -->
+                        <div class="col-md-4">
+                            <!-- row start -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-info" href="http://www.nutc.edu.tw/bin/home.php" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>台中科技大學</h4>
+                                    <p>學校網站入口</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+                            <!-- row start -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-danger" href="http://nd.nutc.edu.tw/bin/home.php" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-laptop" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>進修部</h4>
+                                    <p>台中科大進修部網站</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+                        </div>
+                        <!-- footer column 1 end -->
+                        <!-- footer column 2 start -->
+                        <div class="col-md-4">
+                            <!-- row start -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-danger" href="https://sso.nutc.edu.tw/ePortal/" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>ePortal</h4>
+                                    <p>使用者入口</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+                            <!-- row start -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-info" href="http://lib.nutc.edu.tw/bin/home.php" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-book" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>圖書館</h4>
+                                    <p>提供專業的圖書資源</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+                        </div>
+                        <!-- footer column 2 end -->
+                        <!-- footer column 3 start -->
+                        <div class="col-md-4">
+                            <!-- row starting  -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-info" href="http://aca.nutc.edu.tw/files/11-1003-4596.php" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-file-pdf-o" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>行事曆</h4>
+                                    <p>快點看看還有什麼事情吧</p>
+
+                                </div>
+                            </div>
+                            <!-- row ended -->
+                            <!-- row starting  -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a class="bg-circle bg-danger" href="http://www.nutc.edu.tw/files/11-1000-3586.php" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>入學管道</h4>
+                                    <p>本校升學管道說明</p>
+                                </div>
+                            </div>
+                            <!-- row ended -->
+                        </div>
+                        <!-- footer column 3 end -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <hr>
+                            <p>COPYRIGHT &copy; 2017 NUTCGO</p>
+                            <p>ALL RIGHT RESERVED</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- // Page Content -->
+
+    </div>
+    <!-- // Wrapper -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>系統登入</h1><br>
+                <form>
+                    <input type="text" name="user" placeholder="Username">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" name="login" class="login loginmodal-submit btn-green" value="登入">
+                </form>
+
+                <div class="login-help">
+                    <a href="#">註冊</a> - <a href="#">忘記密碼</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/build.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $(".navcon").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $(".navcon").toggleClass("hide");
+        });
+
+        $(window).load(function () {
+            w = $(this).width();
+            if (w > 768) {
+                $("#wrapper").toggleClass("toggled");
+                $(".nav-show").toggleClass("hide");
+            } else {
+                $(".navcon").toggleClass("hide");
+            }
+
+        });
+
+        $('#nav-login').click(function () {
+            $("#wrapper").toggleClass("toggled");
+            $(".navcon").toggleClass("hide");
+        });
+    </script>
+
+</body>
+
+</html>
