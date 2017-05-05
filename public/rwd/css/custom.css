@@ -17,17 +17,20 @@
     color: #FFF;
 }
 
-.btn-green {
-    background: #1ABC9C;
+.btn-green,
+.bg-green {
+    background: #1ABC9C !important;
 }
 
-.btn-green:hover {
-    background: #17A88B;
+.btn-green:hover,
+.bg-green:hover {
+    background: #17A88B !important;
 }
 
-.btn-green:active {
-    background: #159A7F;
-    box-shadow: 0 0 10px #289354 inset;
+.btn-green:active,
+.bg-green:active {
+    background: #159A7F !important;
+    box-shadow: 0 0 10px #289354 inset !important;
 }
 
 .btn-dark {
@@ -48,4 +51,8 @@
     color: #666;
     background: #888;
     cursor: not-allowed;
+}
+
+.color-white {
+    color: #fff !important;
 }
