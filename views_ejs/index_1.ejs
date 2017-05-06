@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-TW">
+
+<head>
+	<title>NUTCGO - 校園導覽系統</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="http://cdn.robby570.tw/img/favicon_16x16.ico" type="image/ico">
+
+	<!-- Default CSS -->
+	<link rel="stylesheet" href="/dist/site.css">
+	<link rel="stylesheet" href="/dist/bundle.css">
+ 
+	<!-- CSS font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+	<!-- JS Plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
+	<script src="dist/cookies.js"></script>
+	
+	<!-- JS jstree -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+	
+	<!-- JS google map -->
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSMUQO4J80V843k7ZrDzoKVPO25-HAR0M"></script>
+
+	<!-- JS chosen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js"></script>
+
+	<!-- JS JSImgSlider-->
+    <link href="http://cdn.robby570.tw/js/jsImgSlider/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.robby570.tw/js/jsImgSlider/themes/2/js-image-slider.js" type="text/javascript"></script>
+
+	<!-- JS layzload -->
+	<script src="http://cdn.robby570.tw/js/jslazyload/jquery.lazyload.js"></script>
+
+	<!-- js google recaptcha -->
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<%- include('./components/login') -%>
+
+		<%- include('./components/navbar') -%>	
+		<div class="container">
+			<%- include('./components/head') -%>				
+			<div class="content">
+				<%- include('./container/'+ key +'/app') -%>
+			</div>
+			<%- include('./components/footer') -%>
+		</div>
+		<div class="gotop"></div>
+	</div>
+
+	<!-- Default JS -->
+	<script src="dist/bundle.js"></script>
+	
+</body>
+
+</html>

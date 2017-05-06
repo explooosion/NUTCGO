@@ -1,0 +1,70 @@
+@import 'base.scss';
+#home {
+    .row {
+        .col {
+            height: 400px;
+            margin-bottom: 20px;
+            padding: 0;
+            border-style: solid;
+            border-color: #fff;
+            border-width: 0 10px 0;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+            @include mobile {
+                margin: 20px 0;
+                background-size: auto 100% !important;
+            }
+            &[data-type="map"] {
+                background-image: url('http://cdn.robby570.tw/img/home_map.jpg');
+            }
+            &[data-type='building'] {
+                background-image: url('http://cdn.robby570.tw/img/home_build.jpg');
+            }
+            &[data-type='art'] {
+                background-image: url('http://cdn.robby570.tw/img/home_art.jpg');
+            }
+            &[data-type='admin'] {
+                background-image: url('http://cdn.robby570.tw/img/home_admin.jpg');
+            }
+            &[data-type='traffic'] {
+                background-image: url('http://cdn.robby570.tw/img/home_traffic.jpg');
+            }
+            &[data-type='sport'] {
+                background-image: url('http://cdn.robby570.tw/img/home_sport.jpg');
+            }
+            .shade-img {
+                position: relative;
+                margin: 0 auto;
+                padding-top: 28%;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, .5);
+                transition: all .2s;
+                text-align: center;
+                opacity: 1;
+                cursor: pointer;
+                @include tablet {
+                    padding-top: 15%;
+                }
+                @include mobile {
+                    padding-top: 20%;
+                }
+                span {
+                    color: #666;
+                    font-size: 36px;
+                    font-weight: bold;
+                }
+                .shade-msg {
+                    display: none;
+                    padding: 0 30px;
+                    color: #666;
+                    font-size: 30px;
+                }
+            }
+            .shade-toggle {
+                height: 80% !important;
+            }
+        }
+    }
+}

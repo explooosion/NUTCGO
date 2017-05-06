@@ -1,0 +1,281 @@
+@import 'base';
+@import 'component';
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    &.toggled {
+        padding-left: 250px;
+        #sidebar-wrapper {
+            width: 250px;
+        }
+        #page-content-wrapper {
+            position: absolute;
+            margin-right: -250px;
+        }
+    }
+    @include mobile-min {
+        padding-left: 0;
+        &.toggled {
+            padding-left: 250px;
+            #page-content-wrapper {
+                position: relative;
+                margin-right: 0;
+            }
+            #sidebar-wrapper {
+                width: 250px;
+            }
+        }
+    }
+    #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+        @include mobile-min {
+            position: relative;
+        }
+        .header {
+            .navcon {
+                @extend .navcon;
+                float: left;
+                margin-right: 40px;
+                margin-top: 5px;
+            }
+        }
+    }
+    #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 0;
+        height: 100%;
+        margin-left: -250px;
+        overflow-x: hidden;
+        background: #3D454D;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        @include mobile-min {
+            width: 0;
+        }
+        /* Sidebar Styles */
+        .sidebar-nav {
+            position: absolute;
+            top: 65px;
+            width: 250px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                text-indent: 10px;
+                line-height: 40px;
+            }
+            a {
+                display: block;
+                padding: 4px 8px;
+                margin: 0;
+                text-decoration: none;
+                color: #B1B3B6;
+                &:hover {
+                    text-decoration: none;
+                    background: #383F45;
+                }
+                &:active,
+                &:focus,
+                &.selected {
+                    text-decoration: none;
+                    background: #383F45;
+                }
+                i {
+                    display: inline-block;
+                    width: 40px;
+                    font-size: 16px;
+                }
+            }
+        }
+        /* navcon for left menu */
+        .navcon {
+            @extend .navcon;
+            margin: 20px 0 0 20px;
+            .nav-line {
+                background: #ccc;
+            }
+        }
+    }
+}
+
+
+/* ***************************************** */
+
+
+/* container */
+
+.header {
+    padding: 15px 20px 20px;
+    height: 65px;
+    background: #FAFAFA;
+    border-bottom: 1.5px solid #DADADA;
+    .header-title {
+        .logo {
+            display: inline-block;
+            width: 270px;
+            color: #666;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 30px;
+            text-decoration: none;
+            background: url('http://cdn.robby570.tw/img/Home-icon.png') no-repeat;
+            background-size: 140px 40px;
+            &::before {
+                content: '';
+                padding-right: 160px;
+            }
+            @include mobile {
+                width: 170px;
+                color: transparent;
+                margin-left: 30px;
+            }
+        }
+    }
+    .header-login {
+        position: absolute;
+        right: 40px;
+        top: 15px;
+        button {
+            margin-left: 5px;
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+}
+
+
+/* login modal */
+
+.loginmodal-container {
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    h1 {
+        text-align: center;
+        font-size: 1.8em;
+    }
+    input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    input[type=text],
+    input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    input[type=text]:hover,
+    input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .loginmodal {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        height: 36px;
+        padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+  user-select: none; */
+    }
+    .loginmodal-submit {
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        padding: 17px 0px;
+        font-size: 20px;
+        &:hover {
+            border: 0px;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity ease 0.5s;
+        &:hover {
+            color: #444;
+        }
+    }
+    .login-help {
+        font-size: 18px;
+    }
+}
+
+
+/* footer */
+
+#footer {
+    margin-top: 100px;
+    padding-top: 40px;
+    background: #EDEDED;
+    border-top: 1.5px solid #DADADA;
+    hr {
+        border: none;
+        height: 2px;
+        /* Set the hr color */
+        color: #DADADA;
+        /* old IE */
+        background-color: #DADADA;
+        /* Modern Browsers */
+    }
+    .bg-circle {
+        transition: all .2s;
+    }
+    .row {
+        &:last-child {
+            padding-bottom: 10px;
+        }
+        p {
+            color: #666;
+        }
+        @include mobile {
+            text-align: center;
+        }
+    }
+}

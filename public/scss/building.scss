@@ -1,0 +1,113 @@
+ @import 'base';
+ #building {
+     .row {
+         margin: 30px 0;
+         @include tablet {
+             margin: 0;
+         }
+         .col {
+             @include tablet {
+                 margin-bottom: 20px;
+             }
+             .building-title {
+                 display: block;
+                 margin-top: 60px;
+                 color: #444;
+                 font-size: 26px;
+                 font-weight: bold;
+                 @include tablet {
+                     margin-top: 0px;
+                 }
+             }
+             .building-detail {
+                 text-align: left;
+                 margin-top: 30px;
+                 color: #444;
+                 font-size: 18px;
+                 @include tablet {
+                     margin: 0 auto 20px;
+                     width: 70%;
+                 }
+                 @include mobile {
+                     display: none;
+                 }
+             }
+             .building-img {
+                 position: relative;
+                 height: 400px;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-position: center top;
+                 @include mobile {
+                     height: 300px;
+                 }
+                 &[data-src="b1"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/弘業樓.jpg');
+                 }
+                 &[data-src="b2"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/昌明樓.jpg');
+                 }
+                 &[data-src="b3"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/翰英樓.jpg');
+                 }
+                 &[data-src="b4"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/奇秀樓.jpg');
+                 }
+                 &[data-src="b5"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/資訊館.jpg');
+                 }
+                 &[data-src="b6"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/中正大樓.jpg');
+                 }
+                 &[data-src="b7"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/中商大樓.jpg');
+                 }
+                 &[data-src="b8"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/行政大樓.jpg');
+                 }
+                 &[data-src="b9"] {
+                     background-image: url('http://cdn.robby570.tw/img/building/學生活動中心.jpg');
+                 }
+                 .building-panel-toggle {
+                     height: 80% !important;
+                     @include mobile {
+                         height: 85% !important;
+                     }
+                 }
+                 .building-panel {
+                     position: absolute;
+                     height: 0%;
+                     width: 100%;
+                     background: rgba(255, 255, 255, .6);
+                     text-align: center;
+                     overflow: hidden;
+                     transition: all .4s;
+                     h2 {
+                         position: relative;
+                         display: block;
+                         margin-top: 8%;
+                         margin-bottom: 0;
+                         font-weight: normal;
+                         @include mobile {
+                             font-size: 20px;
+                         }
+                     }
+                     span {
+                         font-size: 20px;
+                     }
+                     p {
+                         margin: 5px auto;
+                         width: 70%;
+                         letter-spacing: 1px;
+                         text-align: justify;
+                         font-size: 18px;
+                         line-height: 24px;
+                         @include mobile {
+                             font-size: 14px;
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }

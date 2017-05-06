@@ -1,0 +1,36 @@
+/* Size */
+
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+$mobile: "(max-width: 768px)";
+$mobile-min: "(min-width: 768px)";
+@mixin tablet {
+    @media #{$tablet} {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media #{$desktop} {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media #{$mobile} {
+        @content;
+    }
+}
+
+@mixin mobile-min {
+    @media #{$mobile-min} {
+        @content;
+    }
+}
+
+$green: #1ABC9C;
+$green-hv: #17A88B;
+$green-ac: #159A7F;
+$dark: #3D454D;
+$dark-hv: #383F45;
+$dark-ac: #32383E;

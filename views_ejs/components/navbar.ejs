@@ -1,19 +1,39 @@
-<nav class="navbar">
-    <div class="title">
-        <div class="control">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
+<div id="sidebar-wrapper">
+    <div class="navcon">
+        <div class="nav-line"></div>
+        <div class="nav-line"></div>
+        <div class="nav-line"></div>
     </div>
- 
-    <ul class="nav">
-        <% for(let i in navItem){ 
-            let cls='nav-item';
-            if(key == navItem[i][0].url.replace('/','')){
-                cls = 'nav-item selected';
-            } %>
-			<li><a class="<%= cls %>" href="<%= navItem[i][0].url %>"><i class="fa <%= navItem[i][0].class %>" aria-hidden="true"></i><%= navItem[i][0].name %></a></li>
-		<% } %>
+    <ul class="sidebar-nav">
+        <li>
+            <a class="selected" href="/home"><i class="fa fa-home"></i>首頁</a>
+        </li>
+        <li id="nav-login" class="nav-show">
+            <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-home"></i>登入</a>
+        </li>
+        <li id="nav-signup" class="nav-show">
+            <a href="signup"><i class="fa fa-home"></i>註冊</a>
+        </li>
+        <li>
+            <a href="/map"><i class="fa fa-map-marker"></i>地圖定位</a>
+        </li>
+        <li>
+            <a href="/building"><i class="fa fa-building"></i>建物資訊</a>
+        </li>
+        <li>
+            <a href="/art"><i class="fa fa-picture-o"></i>藝術雕像</a>
+        </li>
+        <li>
+            <a href="/admin"><i class="fa fa-university"></i>行政單位</a>
+        </li>
+        <li>
+            <a href="/traffic"><i class="fa fa-car"></i>交通規劃</a>
+        </li>
+        <li>
+            <a href="/sport"><i class="fa fa-futbol-o"></i>運動休憩</a>
+        </li>
+        <li>
+            <a href="/account"><i class="fa fa-user"></i>會員中心</a>
+        </li>
     </ul>
-</nav>
+</div>

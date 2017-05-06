@@ -1,0 +1,65 @@
+@import 'base';
+
+/* can not be modify */
+
+
+/* Bootstrap */
+
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0;
+}
+
+
+/* Control */
+
+.btn {
+    height: 35px;
+    width: 70px;
+    outline: none;
+    color: #FFF;
+    border-radius: 0;
+    border: 0;
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        color: #FFF;
+    }
+}
+
+.btn-green,
+.bg-green {
+    background: $green !important;
+    &:hover {
+        background: $green-hv !important;
+    }
+    &:active {
+        background: $green-ac !important;
+        box-shadow: 0 0 10px #289354 inset !important;
+    }
+}
+
+.btn-dark {
+    background: $dark;
+    &:hover {
+        background: $dark-hv;
+    }
+    &:active {
+        background: $dark-ac;
+    }
+}
+
+.btn-disabled {
+    color: #666;
+    background: #888;
+    cursor: not-allowed;
+    &:hover,
+    &:active {
+        @extend .btn-disabled;
+    }
+}
+
+.color-white {
+    color: #fff !important;
+}

@@ -1,0 +1,30 @@
+@import 'base';
+#traffic {
+    .row {
+        .col {
+            #ifmSchool {
+                height: 70vh;
+                width: 100%;
+            }
+            .panel {
+                margin-bottom: 40px;
+                @include mobile {
+                    margin-bottom: 20px;
+                }
+                .panel-heading {
+                    cursor: pointer;
+                    h4 {
+                        margin: 5px 0;
+                    }
+                }
+                .panel-body {
+                    font-size: 16px;
+                    ul {
+                        margin: 10px 20px;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}

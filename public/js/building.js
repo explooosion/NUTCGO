@@ -1,7 +1,7 @@
 $(function () {
 
-    $('#build .build-img').hover(function () {
-        $(this).children().toggleClass('build-panel-toggle');
+    $('#building .building-img').hover(function () {
+        $(this).children().toggleClass('building-panel-toggle');
     });
 
 
@@ -10,7 +10,7 @@ $(function () {
         var width = $(this).width();
         console.log(width);
         if (width <= 768) {
-            $('#build .build-img').children().toggleClass('build-panel-toggle');
+            $('#building .building-img').children().toggleClass('building-panel-toggle');
         }
 
 
@@ -61,13 +61,13 @@ $(function () {
 
 function buildScrollView(id, ismove) {
 
-    var target = $(".build-img[data-src='" + id + "']").children();
+    var target = $(".building-img[data-src='" + id + "']").children();
 
     if (ismove) {
-        target.removeClass('build-panel-toggle');
+        target.removeClass('building-panel-toggle');
     } else {
-        if (!target.hasClass('build-panel-toggle')) {
-            target.toggleClass('build-panel-toggle');
+        if (!target.hasClass('building-panel-toggle')) {
+            target.toggleClass('building-panel-toggle');
         }
     }
 }

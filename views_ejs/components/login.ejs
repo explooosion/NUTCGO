@@ -1,17 +1,17 @@
-<div class="login-modal">
-    <div class="login-form">
-        <a href="javascript: LoginClose();"><img class="login-close" src="http://cdn.robby570.tw/img/close.png" width="40" /></a>
-        <div class="login-row">
-            <h2>系統登入</h2>
-        </div>
-        <div class="login-row">
-            <input id="txtUserId" type="text" placeholder="帳號"  />
-        </div>
-        <div class="login-row">
-            <input id="txtPWD" type="password" placeholder="密碼"  />
-        </div>
-        <div class="login-row">
-            <button id="btnLogin" type="button" tabindex="3" onclick="LoginIn();">登入</button>
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>系統登入</h1><br>
+            <form>
+                <input type="text" name="user" placeholder="Username">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit btn-green" value="登入">
+            </form>
+
+            <div class="login-help">
+                <a href="#">註冊</a> - <a href="#">忘記密碼</a>
+            </div>
         </div>
     </div>
 </div>

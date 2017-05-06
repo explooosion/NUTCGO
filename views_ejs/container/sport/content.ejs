@@ -1,45 +1,75 @@
-<div id="sliderFrame" class="sport-content">
-    <div id="slider">
-        <a><img src="http://cdn.robby570.tw/img/sport/操場.jpg" alt="操場" /></a>
-        <a><img src="http://cdn.robby570.tw/img/sport/籃球場.jpg" alt="籃球場" /></a>
-        <a><img src="http://cdn.robby570.tw/img/sport/網球場.jpg" alt="網球場" /></a>
-        <a><img src="http://cdn.robby570.tw/img/sport/排球場.jpg" alt="排球場" /></a>
-        <a><img src="http://cdn.robby570.tw/img/sport/壘球場.jpg" alt="壘球場" /></a>
-        <a><img src="http://cdn.robby570.tw/img/sport/羽球場.jpg" alt="羽球場" /></a>    
-    </div>
+<!-- Sport -->
+<div id="sport" class="container-fluid">
+    <div class="container">
+        <h2>校園運動場</h2>
+        <div id="sport-carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#sport-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#sport-carousel" data-slide-to="1"></li>
+                <li data-target="#sport-carousel" data-slide-to="2"></li>
+                <li data-target="#sport-carousel" data-slide-to="3"></li>
+                <li data-target="#sport-carousel" data-slide-to="4"></li>
+                <li data-target="#sport-carousel" data-slide-to="5"></li>
+            </ol>
 
-    <div id="thumbs">
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/操場.jpg" /></div>
-            <div class="thumb-content"><p>操場</p>這是操場,位於昌明樓左側、弘業樓右側。</div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/籃球場.jpg" /></div>
-            <div class="thumb-content"><p>籃球場</p>這是籃球場,位於昌明樓正後方。</div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/網球場.jpg" /></div>
-            <div class="thumb-content"><p>網球場</p>網球場,在操場中間。</div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/排球場.jpg" /></div>
-            <div class="thumb-content"><p>排球場</p>排球場位於翰英樓前方、司令台兩側。</div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/壘球場.jpg" /></div>
-            <div class="thumb-content"><p>壘球場</p>壘球場在操場旁，奇秀樓和體育館中間。</div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="thumb">
-            <div class="frame"><img src="http://cdn.robby570.tw/img/sport/羽球場.jpg" /></div>
-            <div class="thumb-content"><p>羽球場</p>羽球場在體育館1樓。</div>
-            <div style="clear:both;"></div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="http://cdn.robby570.tw/img/sport/操場.jpg" alt="操場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>操場</h3>
+                        <p>操場位於昌明樓左側、弘業樓右側。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://cdn.robby570.tw/img/sport/籃球場.jpg" alt="籃球場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>籃球場</h3>
+                        <p>籃球場位於昌明樓正後方。</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="http://cdn.robby570.tw/img/sport/網球場.jpg" alt="網球場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>網球場</h3>
+                        <p>網球場在操場中間。</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="http://cdn.robby570.tw/img/sport/排球場.jpg" alt="排球場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>排球場</h3>
+                        <p>排球場位於翰英樓前方、司令台兩側。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://cdn.robby570.tw/img/sport/壘球場.jpg" alt="壘球場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>壘球場</h3>
+                        <p>壘球場在操場旁，奇秀樓和體育館中間。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://cdn.robby570.tw/img/sport/羽球場.jpg" alt="羽球場" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>羽球場</h3>
+                        <p>羽球場在體育館1樓。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#sport-carousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#sport-carousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
-
-    <div style="clear:both;height:0;"></div>
 </div>

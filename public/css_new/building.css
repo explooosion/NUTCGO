@@ -1,20 +1,20 @@
-#build .row {
+#building .row {
     margin: 30px 0;
 }
 
 @media(max-width:1200px) {
-    #build .row {
+    #building .row {
         margin: 0;
     }
 }
 
 @media(max-width:1200px) {
-    #build .row .col {
+    #building .row .col {
         margin-bottom: 20px;
     }
 }
 
-#build .row .col .build-title {
+#building .row .col .building-title {
     display: block;
     margin-top: 60px;
     color: #444;
@@ -23,12 +23,12 @@
 }
 
 @media(max-width:1200px) {
-    #build .row .col .build-title {
+    #building .row .col .building-title {
         margin-top: 0px;
     }
 }
 
-#build .row .col .build-detail {
+#building .row .col .building-detail {
     text-align: left;
     margin-top: 30px;
     color: #444;
@@ -36,19 +36,19 @@
 }
 
 @media(max-width:1200px) {
-    #build .row .col .build-detail {
+    #building .row .col .building-detail {
         margin: 0 auto 20px;
         width: 70%;
     }
 }
 
 @media(max-width:768px) {
-    #build .row .col .build-detail {
+    #building .row .col .building-detail {
         display: none;
     }
 }
 
-#build .row .col .build-img {
+#building .row .col .building-img {
     position: relative;
     height: 400px;
     background-repeat: no-repeat;
@@ -57,48 +57,48 @@
 }
 
 @media(max-width:768px) {
-    #build .row .col .build-img {
+    #building .row .col .building-img {
         height: 300px;
     }
 }
 
-#build .row .col .build-img[data-src="b1"] {
+#building .row .col .building-img[data-src="b1"] {
     background-image: url('http://cdn.robby570.tw/img/building/弘業樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b2"] {
+#building .row .col .building-img[data-src="b2"] {
     background-image: url('http://cdn.robby570.tw/img/building/昌明樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b3"] {
+#building .row .col .building-img[data-src="b3"] {
     background-image: url('http://cdn.robby570.tw/img/building/翰英樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b4"] {
+#building .row .col .building-img[data-src="b4"] {
     background-image: url('http://cdn.robby570.tw/img/building/奇秀樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b5"] {
+#building .row .col .building-img[data-src="b5"] {
     background-image: url('http://cdn.robby570.tw/img/building/資訊館.jpg');
 }
 
-#build .row .col .build-img[data-src="b6"] {
+#building .row .col .building-img[data-src="b6"] {
     background-image: url('http://cdn.robby570.tw/img/building/中正大樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b7"] {
+#building .row .col .building-img[data-src="b7"] {
     background-image: url('http://cdn.robby570.tw/img/building/中商大樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b8"] {
+#building .row .col .building-img[data-src="b8"] {
     background-image: url('http://cdn.robby570.tw/img/building/行政大樓.jpg');
 }
 
-#build .row .col .build-img[data-src="b9"] {
+#building .row .col .building-img[data-src="b9"] {
     background-image: url('http://cdn.robby570.tw/img/building/學生活動中心.jpg');
 }
 
-#build .row .col .build-img .build-panel {
+#building .row .col .building-img .building-panel {
     position: absolute;
     height: 0%;
     width: 100%;
@@ -108,17 +108,17 @@
     transition: all .4s;
 }
 
-.build-panel-toggle {
+.building-panel-toggle {
     height: 80% !important;
 }
 
 @media(max-width:768px) {
-    .build-panel-toggle {
+    .building-panel-toggle {
         height: 85% !important;
     }
 }
 
-#build .row .col .build-img .build-panel h2 {
+#building .row .col .building-img .building-panel h2 {
     position: relative;
     display: block;
     margin-top: 8%;
@@ -127,16 +127,16 @@
 }
 
 @media(max-width:768px) {
-    #build .row .col .build-img .build-panel h2 {
+    #building .row .col .building-img .building-panel h2 {
         font-size: 20px;
     }
 }
 
-#build .row .col .build-img .build-panel span {
+#building .row .col .building-img .building-panel span {
     font-size: 20px;
 }
 
-#build .row .col .build-img .build-panel p {
+#building .row .col .building-img .building-panel p {
     margin: 5px auto;
     width: 70%;
     letter-spacing: 1px;
@@ -146,7 +146,7 @@
 }
 
 @media(max-width:768px) {
-    #build .row .col .build-img .build-panel p {
+    #building .row .col .building-img .building-panel p {
         font-size: 14px;
     }
 }
