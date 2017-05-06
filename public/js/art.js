@@ -1,23 +1,22 @@
 $('#art .col[data-art]').click(function () {
     var _src = $(this).css('background-image')
-        .replace('.jpg', '_說明.jpg').replace(')', '')
-        .replace('(', '')
+        .replace('.jpg', '_說明.jpg')
+        .replace(')', '').replace('(', '')
         .replace('url', '')
-        .replace('"', '')
-        .replace('"', '');
+        .replace('"', '').replace('"', '');
 
-    console.log(_src);
+    // console.log(_src);
     var _title = $(this).children().text() + ' － 標示牌簡介';
-
 
     $('#artModal .modal-title').html(_title);
 
     var artModalimg = $('#artModalimg');
-    artModalimg.toggleClass('artModalimg-toggle').next().show();
     artModalimg
+        .next().show()
         .attr('src', _src)
         .load(function () {
-            $(this).show().next().hide();
+            $(this).next().hide();
+            $(this).show();
         });
 });
 

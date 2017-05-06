@@ -36,11 +36,9 @@
         }
         .modal-body {
             text-align: center;
+            padding-top: 0;
             #artModalimg {
                 width: 100%;
-            }
-            .artModalimg-toggle {
-                display: none;
             }
             .img-loading {
                 margin: 0 auto;
