@@ -1,6 +1,7 @@
 # node.js
 node_modules/
 npm-debug.log
+public/css/
 public/dist/bundle.js
 public/dist/bundle_gmap.js
 public/dist/bundle.css

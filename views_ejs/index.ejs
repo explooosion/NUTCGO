@@ -10,8 +10,7 @@
 
     <!-- CSS Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <link rel="stylesheet"  href="css/bootstrap.min.css" >
-
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
     <!-- Custom CSS -->
     <link rel="stylesheet"  href="css/custom.css" >
 
@@ -52,8 +51,8 @@
     </div>
 
     <!-- JS Pluging -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="js/home.js"></script>
     <script src="js/building.js"></script>
     <script src="js/art.js"></script>
@@ -70,9 +69,8 @@
             if (w < 768) {
                 $("#wrapper").toggleClass("toggled");
                 $(".navcon").toggleClass("hide");   
-            } else {
-                $(".nav-show").toggleClass("hide");
-            }
+                $('.sidebar-nav li').removeClass('hide');
+            } 
 
         });
 
