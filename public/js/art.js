@@ -7,9 +7,17 @@ $('#art .col[data-art]').click(function () {
         .replace('"', '');
 
     console.log(_src);
-    var _title = $(this).children().html();
+    var _title = $(this).children().text() + ' － 標示牌簡介';
+
 
     $('#artModal .modal-title').html(_title);
-    $('#artModalImg').attr('src', _src);
 
+    var artModalimg = $('#artModalimg');
+    artModalimg.toggleClass('artModalimg-toggle').next().show();
+    artModalimg
+        .attr('src', _src)
+        .load(function () {
+            $(this).show().next().hide();
+        });
 });
+

@@ -8,11 +8,10 @@ $(function () {
     $(window).load(function () {
 
         var width = $(this).width();
-        console.log(width);
+
         if (width <= 768) {
             $('#building .building-img').children().toggleClass('building-panel-toggle');
         }
-
 
         $(this).scroll(function () {
             //console.log($(this).width());

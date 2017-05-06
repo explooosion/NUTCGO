@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 
 
-gulp.task('sass', function () {
+gulp.task('wa-sass', function () {
     gulp.watch('public/scss/*.scss', function () {
         gulp.src('public/scss/*.scss')
             .pipe(sass({
@@ -17,10 +17,28 @@ gulp.task('sass', function () {
     });
 });
 
+gulp.task('wa-ejs', function () {
+    gulp.watch('views_ejs/**/*.ejs', function () {
+        gulp.src('views_ejs/**/*.ejs')
+            .pipe(miniejs())
+            .pipe(gulp.dest('views'))
+    });
+});
+
+gulp.task('sass', function () {
+    gulp.src('public/scss/*.scss')
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+        // .pipe(sass())
+        .pipe(gulp.dest('public/css'))
+});
+
 gulp.task('mini-ejs', function () {
     gulp.src('views_ejs/**/*.ejs')
         .pipe(miniejs())
         .pipe(gulp.dest('views'))
 });
 
-gulp.task('run', ['sass', 'mini-ejs']);
+
+gulp.task('watch', ['wa-sass', 'wa-ejs']);
