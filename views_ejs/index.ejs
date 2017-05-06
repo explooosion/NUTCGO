@@ -44,9 +44,16 @@
         <div id="page-content-wrapper">
 
             <%- include('./components/head') -%>
-            <%- include('./components/guide') -%>
+            
+            <% if(key!='map'){ %>
+                <%- include('./components/guide') -%>
+            <% } %>
+
             <%- include('./container/'+ key +'/app') -%>
-            <%- include('./components/footer') -%>
+           
+            <% if(key!='map'){ %>
+                <%- include('./components/footer') -%>
+            <% } %>
 
         </div>
 

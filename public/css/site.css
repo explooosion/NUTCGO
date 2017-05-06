@@ -70,7 +70,7 @@ body {
   #wrapper.toggled {
     padding-left: 250px; }
     #wrapper.toggled #sidebar-wrapper {
-      width: 250px; }
+      width: 260px; }
     #wrapper.toggled #page-content-wrapper {
       position: absolute;
       margin-right: -250px; }
@@ -83,7 +83,7 @@ body {
           position: relative;
           margin-right: 0; }
         #wrapper.toggled #sidebar-wrapper {
-          width: 250px; } }
+          width: 260px; } }
   #wrapper #page-content-wrapper {
     width: 100%;
     position: absolute; }
@@ -174,9 +174,10 @@ body {
     left: 250px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -260px;
     overflow-x: hidden;
     background: #E5E8EF;
+    border-right: 10px solid #fff;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
@@ -217,7 +218,7 @@ body {
     #wrapper #sidebar-wrapper .sidebar-nav {
       position: absolute;
       top: 120px;
-      width: 250px;
+      width: 260px;
       margin: 0;
       padding: 0;
       list-style: none; }
