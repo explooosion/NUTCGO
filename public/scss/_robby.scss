@@ -1,0 +1,77 @@
+/* transform */
+
+@mixin transition($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transition-property($property...) {
+    -moz-transition-property: $property;
+    -o-transition-property: $property;
+    -webkit-transition-property: $property;
+    transition-property: $property;
+}
+
+@mixin transition-duration($duration...) {
+    -moz-transition-property: $duration;
+    -o-transition-property: $duration;
+    -webkit-transition-property: $duration;
+    transition-property: $duration;
+}
+
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function: $timing;
+    -o-transition-timing-function: $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function: $timing;
+}
+
+@mixin transition-delay($delay...) {
+    -moz-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay: $delay;
+}
+
+
+/* Size */
+
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+$mobile: "(max-width: 768px)";
+$mobile-min: "(min-width: 768px)";
+@mixin tablet {
+    @media #{$tablet} {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media #{$desktop} {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media #{$mobile} {
+        @content;
+    }
+}
+
+@mixin mobile-min {
+    @media #{$mobile-min} {
+        @content;
+    }
+}
+
+$green: #41CAC0;
+$green-hv: #3CBBB2;
+$green-ac: #38AFA6;
+$dark: #3D454D;
+$dark-hv: #383F45;
+$dark-ac: #32383E;
+$gray:#E5E8EF;
+$gray-hv: #D5D7DE;
+$gray-ac: #D5D7DE;

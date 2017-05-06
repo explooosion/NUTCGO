@@ -1,0 +1,11 @@
+@import '_robby';
+#map {
+    #gmap {
+        width: 100%;
+        height: calc(100vh - 150px);
+        background: #E5E3DF;
+    }
+    .map-loading {
+        position: fixed;
+    }
+}

@@ -1,9 +1,8 @@
-@import 'base';
+@import '_robby';
 
 /* can not be modify */
-
-
-/* Bootstrap */
+ 
+/* Nav */
 
 .navbar {
     margin-bottom: 0px;
@@ -33,6 +32,7 @@
     background: $green !important;
     &:hover {
         background: $green-hv !important;
+        @include transition(background .2s);
     }
     &:active {
         background: $green-ac !important;
@@ -43,6 +43,7 @@
 .btn-dark {
     background: $dark;
     &:hover {
+        @include transition(background .2s);
         background: $dark-hv;
     }
     &:active {
@@ -62,4 +63,15 @@
 
 .color-white {
     color: #fff !important;
+}
+
+
+/* Modal */
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            border: 1px solid transparent;
+        }
+    }
 }

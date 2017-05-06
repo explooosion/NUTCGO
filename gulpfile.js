@@ -4,15 +4,13 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     miniejs = require('gulp-minify-ejs')
 
-
-
 gulp.task('wa-sass', function () {
     gulp.watch('public/scss/*.scss', function () {
         gulp.src('public/scss/*.scss')
-            .pipe(sass({
-                outputStyle: 'compressed'
-            }))
-            // .pipe(sass())
+            // .pipe(sass({
+            //     outputStyle: 'compressed'
+            // }))
+             .pipe(sass())
             .pipe(gulp.dest('public/css'))
     });
 });

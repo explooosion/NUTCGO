@@ -1,10 +1,21 @@
-#guide .row .col {
-    h1 {
-        padding: 0;
+@import '_robby';
+#guide {
+    padding-top: 100px;
+}
+
+#guide .row {
+    padding: 0 20px 30px;
+    @include mobile {
+        text-align: center;
     }
-    p {
-        letter-spacing: 1px;
-        font-size: 18px;
-        margin: 20px 0 30px 0;
+    .col {
+        h1 {
+            padding: 0;
+        }
+        p {
+            letter-spacing: 1px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
     }
 }

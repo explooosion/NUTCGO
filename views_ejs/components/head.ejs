@@ -1,17 +1,28 @@
-<div class="header navbar navbar-default">
-    <div class="navcon hide">
+<div class="header header-toggled">
+    <div class="navcon">
         <div class="nav-line"></div>
         <div class="nav-line"></div>
         <div class="nav-line"></div>
     </div>
     <div class="header-title">
-        <a class="logo" href="/">
-            校園導覽
-        </a>
+            <a href="/">
+                <img src="http://cdn.robby570.tw/img/Home-icon.png" alt="" height="40px" atl="NUTCGO" title="NUTCGO">
+                <span class="logo"><%= title %></span>
+            </a>
     </div>
+    <div class="header-search">
+        <form action="#" class="pull-right position">
+            <div class="input-append">
+                <input type="text" class="sr-input" placeholder="找教室嗎？">
+                <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <!--
     <div class="header-login">
         <button type="button" class="btn btn-green" data-toggle="modal" data-target="#login-modal">登入</button>
         <button type="button" class="btn btn-green">登出</button>
         <button type="button" class="btn btn-green">註冊</button>
     </div>
+    -->
 </div>

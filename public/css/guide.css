@@ -1,1 +1,16 @@
-#guide .row .col h1{padding:0}#guide .row .col p{letter-spacing:1px;font-size:18px;margin:20px 0 30px 0}
+/* transform */
+/* Size */
+#guide {
+  padding-top: 100px; }
+
+#guide .row {
+  padding: 0 20px 30px; }
+  @media (max-width: 768px) {
+    #guide .row {
+      text-align: center; } }
+  #guide .row .col h1 {
+    padding: 0; }
+  #guide .row .col p {
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-top: 20px; }

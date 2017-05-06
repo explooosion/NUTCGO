@@ -1,23 +1,70 @@
-<!-- Admin -->
-<div id="admin" class="container-fluid">
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#admin1">中正大樓</a></li>
-        <li><a data-toggle="tab" href="#admin2">行政大樓</a></li>
-        <li><a data-toggle="tab" href="#admin3">中商大樓</a></li>
-    </ul>
 
-    <div class="tab-content">
-        <div id="admin1" class="tab-pane fade in active">
-            <h3>中正大樓</h3>
-            <p>Some content.</p>
+<!-- Art -->
+<div id="admin" class="container-fluid">
+
+    <%- include('model') -%>
+ 
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col col-lg-4" data-admin="admin1-1">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>教務處</h3>
+            </div>
         </div>
-        <div id="admin2" class="tab-pane fade">
-            <h3>行政大樓</h3>
-            <p>Some content in menu 1.</p>
+        <div class="col col-lg-4" data-admin="admin1-2">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>通識教育中心</h3>
+            </div>
         </div>
-        <div id="admin3" class="tab-pane fade">
-            <h3>中商大樓</h3>
-            <p>Some content in menu 2.</p>
+        <div class="col col-lg-4" data-admin="admin1-3">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>學生事務組</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-4" data-admin="admin1-4">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>OK超商</h3>
+            </div>
+        </div>
+        <div class="col col-lg-4" data-admin="admin1-5">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>圖書館閱覽室</h3>
+            </div>
+        </div>
+        <div class="col col-lg-4" data-admin="admin1-6">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>校長室</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-4" data-admin="admin1-7">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>副校長室</h3>
+            </div>
+        </div>
+        <div class="col col-lg-4" data-admin="admin1-8">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>主計室</h3>
+            </div>
+        </div>
+        <div class="col col-lg-4" data-admin="admin1-9">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>秘書室</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-4" data-admin="admin1-10">
+            <div class="admin-brand" data-toggle="modal" data-target="#adminModal">
+                <h3><i class="fa fa-hand-o-right" aria-hidden="true"></i>圖書館</h3>
+            </div>
+        </div>
+        <div class="col col-lg-4" data-admin="unknow">
+        </div>
+        <div class="col col-lg-4" data-admin="unknow">
         </div>
     </div>
 </div>

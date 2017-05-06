@@ -1,3 +1,4 @@
+
 $('#art .col[data-art]').click(function () {
     var _src = $(this).css('background-image')
         .replace('.jpg', '_說明.jpg')
@@ -11,12 +12,11 @@ $('#art .col[data-art]').click(function () {
     $('#artModal .modal-title').html(_title);
 
     var artModalimg = $('#artModalimg');
-    artModalimg
-        .next().show()
-        .attr('src', _src)
+    artModalimg.hide().next().show();
+    artModalimg.attr('src', _src)
         .load(function () {
             $(this).next().hide();
-            $(this).show();
+            $(this).fadeIn();
         });
 });
 
