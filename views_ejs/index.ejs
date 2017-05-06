@@ -34,7 +34,7 @@
 <body>
 
     <!-- Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
 
         <%- include('./components/navbar') -%>	
         <%- include('./components/login') -%>
@@ -67,11 +67,11 @@
 
         $(window).load(function () {
             w = $(this).width();
-            if (w > 768) {
+            if (w < 768) {
                 $("#wrapper").toggleClass("toggled");
-                $(".nav-show").toggleClass("hide");
+                $(".navcon").toggleClass("hide");   
             } else {
-                $(".navcon").toggleClass("hide");
+                $(".nav-show").toggleClass("hide");
             }
 
         });
