@@ -9,6 +9,6 @@ $(window).on('resize', async function () {
 
 
 $(window).ready(function () {
-    MarkerKeySearch();
+    MarkerList();
 });
 
