@@ -1,151 +1,194 @@
-@import '_robby';
-#map {
-    position: relative;
-    padding: 80px 0 0;
-    #gmap {
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: #E5E3DF;
-    }
-    .layer {
-        z-index: 99;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        position: absolute;
-        left: 10px;
-        top: 310px;
-        padding: 20px 0 20px 20px;
-        width: 250px;
-        height: 50%;
-        background: rgba(255, 255, 255, .9);
-        &.layer-toggle {
-            // close menu
+    @import '_robby';
+    #map {
+        position: relative;
+        padding: 80px 0 0;
+        #gmap {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: #E5E3DF;
         }
-    }
-    .layer-control {
-        position: absolute;
-        left: 253px;
-        top: 310px;
-        width: 20px;
-        height: 30px;
-        background: rgba(255, 255, 255, .8);
-        box-shadow: 1px 1px 2px 0 #ccc;
-        cursor: pointer;
-        .icon-triangle {
-            position: relative;
-        }
-        .icon-triangle-left {
-            margin-left: 1px;
-            margin-top: 5px;
-        }
-        .icon-triangle-right {
-            margin-left: 3px;
-            margin-top: 5px;
-        }
-        &:hover {
-            left: 260px;
-            background: rgba(255, 255, 255, 1);
-        }
-        &.layer-control-toggle {
-            // close menu
-        }
-    }
-    .map-tab {
-        display: none;
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        height: calc(100vh - 80px);
-        background: rgba(215, 222, 222, .8);
-        @include mobile-min {
-            width: 450px;
-            display: inline-block;
-        }
-        .tab-search {
-            display: inline-block;
-            margin: 30px 0 10px;
-            .sr-input {
-                float: left;
-                padding: 0 10px;
-                height: 40px;
-                width: 230px;
-                color: #8a8a8a;
-                border: medium none;
-                border-radius: 4px 0 0 4px;
-                box-shadow: none;
-            }
-            .sr-btn {
-                padding: 10px 20px;
-                height: 40px;
-                color: #fff;
-                margin-right: 8px;
+        .layer {
+            z-index: 99;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            left: 10px;
+            top: 310px;
+            padding: 20px 0 20px 20px;
+            width: 250px;
+            height: 50%;
+            background: rgba(255, 255, 255, .9);
+            &.layer-toggle {
+                // close menu
             }
         }
-        .nav-tabs {
-            background: #fff;
-            li {
-                width: calc(100% / 4);
-                text-align: center;
-                &.active a {
-                    border: none !important;
-                    color: $green;
-                    background: #eee;
-                }
-                a {
-                    margin-right: 0;
+        .layer-control {
+            position: absolute;
+            left: 253px;
+            top: 310px;
+            width: 20px;
+            height: 30px;
+            background: rgba(255, 255, 255, .8);
+            box-shadow: 1px 1px 2px 0 #ccc;
+            cursor: pointer;
+            .icon-triangle {
+                position: relative;
+            }
+            .icon-triangle-left {
+                margin-left: 1px;
+                margin-top: 5px;
+            }
+            .icon-triangle-right {
+                margin-left: 3px;
+                margin-top: 5px;
+            }
+            &:hover {
+                left: 260px;
+                background: rgba(255, 255, 255, 1);
+            }
+            &.layer-control-toggle {
+                // close menu
+            }
+        }
+        .map-tab {
+            display: none;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            height: calc(100vh - 80px);
+            background: rgba(215, 222, 222, .8);
+            @include mobile-min {
+                width: 450px;
+                display: inline-block;
+            }
+            .tab-search {
+                display: inline-block;
+                margin: 30px 0 10px;
+                .sr-input {
+                    float: left;
+                    padding: 0 10px;
+                    height: 40px;
+                    width: 230px;
                     color: #8a8a8a;
-                    border: none;
-                    cursor: pointer;
-                    &:hover,
-                    &:active {
+                    border: medium none;
+                    border-radius: 4px 0 0 4px;
+                    box-shadow: none;
+                }
+                .sr-btn {
+                    padding: 10px 20px;
+                    height: 40px;
+                    color: #fff;
+                    margin-right: 8px;
+                }
+            }
+            .nav-tabs {
+                background: #fff;
+                li {
+                    width: calc(100% / 4);
+                    text-align: center;
+                    &.active a {
+                        border: none !important;
+                        color: $green;
                         background: #eee;
+                    }
+                    a {
+                        margin-right: 0;
+                        color: #8a8a8a;
+                        border: none;
+                        cursor: pointer;
+                        &:hover,
+                        &:active {
+                            background: #eee;
+                        }
+                    }
+                }
+            }
+            .tab-content {
+                padding: 5px 15px;
+                background: #fff;
+                .ddl {
+                    padding-bottom: 3px;
+                    height: 28px;
+                }
+                .list-box {
+                    overflow-y: scroll;
+                    display: block;
+                    height: calc( 100vh - 280px);
+                }
+                .btn {
+                    width: 120px;
+                }
+            }
+        }
+        .map-tab-mobile {
+            @include mobile {
+                display: inline-block;
+            }
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: #fff;
+            .nav {
+                >* {
+                    width: calc(100% / 4);
+                }
+                li {
+                    display: inline-block;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    a {
+                        display: inline-block;
                     }
                 }
             }
         }
-        .tab-content {
-            padding: 5px 15px;
-            background: #fff;
-            .ddl {
-                padding-bottom: 3px;
-                height: 28px;
+        /* winpop */
+        .winPop {
+            width: 225px;
+            height: 28px;
+            position: fixed;
+            margin: 0;
+            padding: 4px 12px;
+            left: 40%;
+            top: -40px;
+            background: #3D454D;
+            opacity: 0;
+            .winPopIcon {
+                float: left;
+                color: #DA4E42;
             }
-            .list-box {
-                overflow-y: scroll;
-                display: block;
-                height: calc( 100vh - 280px);
+            .winPopMsg {
+                float: left;
+                color: #FFF;
+                margin-left: 10px;
             }
-            .btn {
-                width: 120px;
-            }
-        }
-    }
-    .map-tab-mobile {
-        @include mobile {
-            display: inline-block;
-        }
-        display: none;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 40px;
-        border: 1px solid #ddd;
-        background: #fff;
-        .nav {
-            >* {
-                width: calc(100% / 4);
-            }
-            li {
-                display: inline-block;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                a {
-                    display: inline-block;
+            .winPopClose {
+                .winPopBtn {
+                    height: 20px;
+                    width: 20px;
+                    float: left;
+                    border: 2px solid #FFF;
+                    border-radius: 100%;
+                    margin-left: 14px;
+                    margin-top: 2px;
+                    position: relative;
+                    i {
+                        position: absolute;
+                        left: 3.5px;
+                        top: 2px;
+                        color: #FFF;
+                        transition: .15s;
+                        &:hover {
+                            transform: rotate(30deg);
+                        }
+                    }
                 }
             }
         }
     }
-}
