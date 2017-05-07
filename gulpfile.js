@@ -14,11 +14,15 @@ var gulp = require('gulp'),
 gulp.task('wa-sass', function () {
     gulp.watch('public/scss/*.scss', function () {
         gulp.src('public/scss/*.scss')
-            // .pipe(sass({
-            //     outputStyle: 'compressed'
-            // }))
-            .pipe(sass())
-            .pipe(gulp.dest('public/css'))
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+        .pipe(gulp.dest('public/css'))
+
+    gulp.src('public/css/*.css')
+        .pipe(concat('bundle.css'))
+        .pipe(minicss())
+        .pipe(gulp.dest('public/dist'))
     });
 });
 

@@ -13,9 +13,6 @@
           </div>
 
           <div class="modal-body">
-              <div class="row text-center">
-                <h3>會員須知</h3>
-              </div>
               <div class="container-fluid">
                   <p>非常歡迎您光臨 「台中科技大學校園導覽系統」 (以下簡稱本網站)，為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
                       <br><br> 一、隱私權保護政策的適用範圍 隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。 
@@ -39,21 +36,25 @@
         <div id="form" class="tab-pane fade"> 
           <form>
             <div class="modal-header">
-              <button type="button" class="close" data-toggle="tab" href="#clause">&times;</button>
+              <i class="fa fa-undo" aria-hidden="true" data-toggle="tab" href="#clause"></i>
               <h4 class="modal-title">申請註冊</h4>
             </div>
 
             <div class="modal-body">
-                <div class="row text-center">
-                  <h3>會員註冊</h3>
-                </div>
-                <div class="container-fluid">
-                    <h1>Hello NUTCGO</h1>
+                <div class="signupmodal-container container-fluid">
+                    <div class="row text-center">
+                        <input id="txtUId"  type="text" placeholder="帳號">
+                        <input id="txtPwd" type="password"  placeholder="密碼">
+                        <input id="txtUserName" type="text" placeholder="姓名">
+                        <input id="txtEmail" type="email"  placeholder="信箱">
+                        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Le-mx8UAAAAAJ-b51vwTTAgWnaY02ntoH_NoJX4"></div>
+                    </div>
                 </div>     
             </div>
             <div class="modal-footer text-center">
               <div class="row text-center">
                 <button type="button" class="btn btn-lg btn-green" onclick="signup();">送出</button>
+                <button type="reset" class="btn btn-lg btn-dark">清除</button>
               </div>
             </div>
           </form>
