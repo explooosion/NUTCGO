@@ -67,6 +67,11 @@
         .tab-content {
             padding: 15px;
             background: #fff;
+            .list-box {
+                overflow-y: scroll;
+                display: block;
+                height: calc( 100vh - 280px);
+            }
         }
     }
     .map-tab-mobile {

@@ -4,6 +4,8 @@
             <div class="input-append">
                 <input type="text" class="sr-input" placeholder="輸入教室代號或關鍵字">
                 <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
+                <button class="btn sr-btn" type="button"><i class="fa fa-eraser"></i></button>
+                <button class="btn sr-btn" type="button"><i class="fa fa-refresh"></i></button>
             </div>
         </form>
     </div>
@@ -15,6 +17,8 @@
     </ul>
 
     <div class="tab-content">
+
+        <!-- tab marker -->
         <div id="map-marker" class="tab-pane fade in active">
             <div id="MarkerSearch" class="SearchGroup">
             <select id="ddlMarkerPlace" class="chosen-select ddl" data-placeholder="地點名稱">
@@ -31,7 +35,67 @@
                 <button id="btnMarkerListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerListSearch();">搜尋</button>
                 <button id="btnMarkerAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
             </div>
-            <table id="tbMarkerList">
+            <div class="list-box">
+                <table id="tbMarkerList">
+                    <tr>
+                        <th>Name</th>
+                        <th>Lat</th>
+                        <th>Lng</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- tab polygon -->
+        <div id="map-polygon" class="tab-pane fade">
+            <div id="PolygonSearch" class="SearchGroup">
+            <select id="ddlPolygonPlace" class="chosen-select ddl" data-placeholder="群組名稱">
+                <option value="">全部</option>
+                <option value="建築物">建築物</option>
+                <option value="運動場所">運動場所</option>
+                <option value="其他">其他</option>
+            </select>
+            <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="PolygonListSearch();">搜尋</button>
+            <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
+            </div>
+            <div class="list-box">
+                <table id="tbPolygonList">
+                    <tr>
+                        <th>Group</th>
+                        <th>Name</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- tab layer -->
+        <div id="map-layer" class="tab-pane fade">
+            <div id="jstree_demo_div"></div>
+        </div>
+
+
+        <!-- tab favorite -->
+        <div id="map-favorite" class="tab-pane fade">
+            <div id="MarkerFavoriteSearch" class="SearchGroup">
+                <select id="ddlMarkerFavoritePlace" class="chosen-select ddl" data-placeholder="地點名稱">
+                    <option value="0">全部</option>
+                    <option value="6">弘業樓</option>
+                    <option value="4">昌明樓</option>
+                    <option value="5">翰英樓</option>
+                    <option value="8">奇秀樓</option>
+                    <option value="2">資訊館</option>
+                    <option value="1">行政大樓</option>
+                    <option value="3">中正大樓</option>
+                    <option value="7">中商大樓</option>
+                </select>
+                <button id="btnMarkerFavoriteSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerFavoriteList();">搜尋</button>
+            </div>
+           <div class="list-box">
+            <table id="tbMarkerFavoriteList">
                 <tr>
                     <th>Name</th>
                     <th>Lat</th>
@@ -39,15 +103,82 @@
                     <th colspan="2"></th>
                 </tr>
             </table>
+           </div>
         </div>
-        <div id="map-polygon" class="tab-pane fade">
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div id="map-layer" class="tab-pane fade">
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        </div>
-        <div id="map-favorite" class="tab-pane fade">
-        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- dialog -->
+<div id="dialogMarkerAdd" title="新增點位">
+    <table class="tbAdd">
+        <tr>
+            <th>點名稱</th>
+            <td>
+                <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
+                <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+            </td>
+        </tr>
+        <form id="frmMarkerAdd">
+        <tr>
+            <th>Lat</th>
+            <td><input type="text" id="txtMarkerLat" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        <tr>
+            <th>Lng</th>
+            <td><input type="text" id="txtMarkerLng" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+        </tr>
+        </form>
+    </table>
+</div>
+
+
+
+
+<div id="dialogPolygonAdd" title="新增曲面">
+    <form id="frmPolygonAdd">
+    <table class="tbAdd">
+        <tr>
+            <th>群組</th>
+            <td>
+                <select id="ddlPolygonPlaceAdd" class="chosen-select ddl" data-placeholder="群組名稱">
+                    <option value="">請選擇</option>
+                    <option value="建築物">建築物</option>
+                    <option value="運動場所">運動場所</option>
+                    <option value="其他">其他</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>曲面名稱</th>
+            <td>
+                <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱" value="">
+                <button id="btnPolygonDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">※.完成後請點擊「右鍵」</td>
+        </tr>
+    </table>
+        <ul id="ulPolygon"></ul>
+    </form>
+</div>
+
+
+
+
+<div class="winPop">
+    <div class="winPopIcon">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <div class="winPopMsg">
+        <label id="winPopMarkerID"></label>
+        <label id="winPopMsg">已加到我的最愛!</label>
+    </div>
+    <div class="winPopClose">
+        <a href="javascript:WinPopClose();" class="winPopBtn"><i class="fa fa-times" aria-hidden="true"></i></a>
     </div>
 </div>

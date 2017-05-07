@@ -58,6 +58,10 @@
     #map .map-tab .tab-content {
       padding: 15px;
       background: #fff; }
+      #map .map-tab .tab-content .list-box {
+        overflow-y: scroll;
+        display: block;
+        height: calc( 100vh - 280px); }
   #map .map-tab-mobile {
     display: none;
     position: fixed;
