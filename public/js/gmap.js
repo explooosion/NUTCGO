@@ -1,13 +1,13 @@
-var map;
-var markers = []; // save all marker
-var polygons = []; // save all polygon
-var polygontmparr = []; // draw polygon tmp result
+// var map;
+// var markers = []; // save all marker
+// var polygons = []; // save all polygon
+// var polygontmparr = []; // draw polygon tmp result
 var dialog;
 
-google
-    .maps
-    .event
-    .addDomListener(window, 'load', initialize);
+// google
+//     .maps
+//     .event
+//     .addDomListener(window, 'load', initialize);
 
 $('.chosen-select').chosen();
 
@@ -322,7 +322,7 @@ $(function () {
 });
 
 // 點位-清單列表
-function MarkerList() {
+async function MarkerList() {
 
     // default table title
     $('#tbMarkerList tr:nth-child(n+2)').remove();
@@ -513,7 +513,7 @@ function MarkerSave() {
 }
 
 // 曲面-清單列表
-function PolygonList() {
+async function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
     $.ajax({
@@ -690,7 +690,7 @@ function PolygonDelete(id) {
 }
 
 // 點位-我的最愛清單列表
-function MarkerFavoriteList() {
+async function MarkerFavoriteList() {
 
     var ddlid = $('#ddlMarkerFavoritePlace').val();
 
@@ -794,7 +794,12 @@ function WinPopClose() {
     $('.winPop').animate({ 'top': '-40px', 'opacity': 0 });
 }
 
+
+
 /* google map api , do not edit */
+
+/* already move to gmap.core
+
 function initialize() {
     initMap();
 }

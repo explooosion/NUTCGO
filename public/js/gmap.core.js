@@ -15,14 +15,14 @@ function initialize() {
 
 function initMap() {
     var defaultMarker = {
-        lat: 24.1504536,
-        lng: 120.6820641
+        lat: 24.1502536,
+        lng: 120.6840641
     };
 
     map = new google
         .maps
         .Map(document.getElementById('gmap'), {
-            zoom: 17,
+            zoom: 18,
             center: defaultMarker,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             disableDoubleClickZoom: true
@@ -67,6 +67,11 @@ function addMarker(location, name) {
         console.log(name);
         infowindow.open(map, marker);
     }
+
+    // zoom map to this marker
+    map.setZoom(19);
+    map.panTo(marker.position);
+
 
     // click event
     google

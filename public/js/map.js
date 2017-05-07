@@ -8,3 +8,5 @@ $(window).on('resize', async function () {
 }).trigger('load')
 
 MarkerList();
+MarkerFavoriteList();
+PolygonListSearch();
