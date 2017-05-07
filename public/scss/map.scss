@@ -8,18 +8,19 @@
         background: #E5E3DF;
     }
     .map-tab {
-        display: inline-block;
+        display: none;
         position: fixed;
         right: 0;
         bottom: 0;
-        width: 500px;
         height: calc(100vh - 80px);
         background: rgba(215, 222, 222, .8);
         @include tablet {
             width: 300px;
+            display: inline-block;
         }
-        @include mobile {
-            display: none;
+        @include mobile-min {
+            width: 500px;
+            display: inline-block;
         }
         .tab-search {
             display: inline-block;

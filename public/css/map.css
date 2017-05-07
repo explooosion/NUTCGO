@@ -8,19 +8,20 @@
     height: calc(100vh - 80px);
     background: #E5E3DF; }
   #map .map-tab {
-    display: inline-block;
+    display: none;
     position: fixed;
     right: 0;
     bottom: 0;
-    width: 500px;
     height: calc(100vh - 80px);
     background: rgba(215, 222, 222, 0.8); }
     @media (min-width: 768px) and (max-width: 1023px) {
       #map .map-tab {
-        width: 300px; } }
-    @media (max-width: 768px) {
+        width: 300px;
+        display: inline-block; } }
+    @media (min-width: 768px) {
       #map .map-tab {
-        display: none; } }
+        width: 500px;
+        display: inline-block; } }
     #map .map-tab .tab-search {
       display: inline-block;
       margin: 10px 0; }

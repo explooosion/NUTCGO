@@ -104,12 +104,12 @@ function Logout() {
 function CheckLogin() {
 
     LoginData = JSON.parse(GetCookie('account'));
-    console.log('cookie:',LoginData);
-
+    console.log('cookie:', LoginData);
     if (!LoginData) {
     } else {
         // alreay login
-        $('#lbUserName').text('Hello, ' + LoginData["UserName"]);
+        $('#spusername').html(LoginData["UserName"]);
+        $('#spemail').html(LoginData["Email"]);
     }
 }
 
