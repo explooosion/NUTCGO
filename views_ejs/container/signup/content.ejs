@@ -1,48 +1,72 @@
-<form action="#" method="post">
-<div class="sign">
-    <div class="sign-group">
-        <h3>註冊會員</h3>
-        <table class="tablesign">
-            <tr>
-                <th>帳號</th>
-                <td><input id="txtUId" type="text" class="text text-lg" require></td>
-            </tr>
-            <tr>
-                <th>密碼</th>
-                <td><input id="txtPwd" type="password" class="text text-lg" require></td>
-            </tr>
-            <tr>
-                <th>姓名</th>
-                <td><input id="txtUserName" type="text" class="text text-lg" require></td>
-            </tr>
-            <tr>
-                <th>信箱</th>
-                <td><input id="txtEmail" type="email" class="text text-lg" require></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Le-mx8UAAAAAJ-b51vwTTAgWnaY02ntoH_NoJX4"></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <button type="button" id="btnSignSubmit" class="btn btn-lg btn-green btn-disabled" disabled>確定</button>
-                    <button type="reset" id="btnSignReset" class="btn btn-lg btn-green">清除</button> 
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="sign-clause">
-        <h3>隱私權政策</h3>
-        <div class="clause">
-            <p>非常歡迎您光臨 「台中科技大學校園導覽系統」 (以下簡稱本網站)，為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
-                <br><br> 一、隱私權保護政策的適用範圍 隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。 
-                <br><br>二、資料的蒐集與使用方式 為了在本網站上提供您最佳的互動性服務，可能會請您提供相關個人的資料，其範圍如下：於使用會員系統或定位服務時，伺服器會自行記錄相關行徑，包括您使用連線設備的去識別性的IP位址、使用時間，做為我們增進網站服務的參考依據。於使用檢舉系統時，伺服器會自行記錄相關行徑，包括您提交檢舉時使用之臉書帳號ID、檢舉時間，做為系統自動判斷發文下架之依據。以上之記錄皆為內部應用，決不對外公布。除非取得您的同意或其他法令之特別規定，本網站絕不會將您的個人資料揭露予第三人或使用於蒐集目的以外之其他用途。 
-                <br><br>三、資料之保護 本網站主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的個人資料採用嚴格的保護措施。 
-                <br><br>四、網站對外的相關連結 本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。 
-                <br><br>五、隱私權保護政策之修正 本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。
-            </p>
+<!-- Modal -->
+  <div class="modal fade" id="signup-modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div  class="modal-content tab-content">
+
+        <!-- tab for clause -->
+        <div id="clause" class="tab-pane fade in active"> 
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">隱私權政策</h4>
+          </div>
+
+          <div class="modal-body">
+              <div class="row text-center">
+                <h3>會員須知</h3>
+              </div>
+              <div class="container-fluid">
+                  <p>非常歡迎您光臨 「台中科技大學校園導覽系統」 (以下簡稱本網站)，為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+                      <br><br> 一、隱私權保護政策的適用範圍 隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。 
+                      <br><br>二、資料的蒐集與使用方式 為了在本網站上提供您最佳的互動性服務，可能會請您提供相關個人的資料，其範圍如下：於使用會員系統或定位服務時，伺服器會自行記錄相關行徑，包括您使用連線設備的去識別性的IP位址、使用時間，做為我們增進網站服務的參考依據。於使用檢舉系統時，伺服器會自行記錄相關行徑，包括您提交檢舉時使用之臉書帳號ID、檢舉時間，做為系統自動判斷發文下架之依據。以上之記錄皆為內部應用，決不對外公布。除非取得您的同意或其他法令之特別規定，本網站絕不會將您的個人資料揭露予第三人或使用於蒐集目的以外之其他用途。 
+                      <br><br>三、資料之保護 本網站主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的個人資料採用嚴格的保護措施。 
+                      <br><br>四、網站對外的相關連結 本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。 
+                      <br><br>五、隱私權保護政策之修正 本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。
+                  </p>
+              </div>     
+          </div>
+          <div class="modal-footer text-center">
+            <div class="row text-center">
+              <button type="button" class="btn btn-lg btn-green" data-toggle="tab" href="#form">我接受</button>
+            </div>
+          </div>
         </div>
+        <!-- /*tab for clause -->
+
+
+        <!-- tab for form -->
+        <div id="form" class="tab-pane fade"> 
+          <form>
+            <div class="modal-header">
+              <button type="button" class="close" data-toggle="tab" href="#clause">&times;</button>
+              <h4 class="modal-title">申請註冊</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row text-center">
+                  <h3>會員註冊</h3>
+                </div>
+                <div class="container-fluid">
+                    <h1>Hello NUTCGO</h1>
+                </div>     
+            </div>
+            <div class="modal-footer text-center">
+              <div class="row text-center">
+                <button type="button" class="btn btn-lg btn-green" onclick="signup();">送出</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /*tab for form -->
+
+      </div>
+      <!-- /*modal-content -->
+      
     </div>
-</div>
-</form>
+  </div>
+
+
+<!--
+  data-dismiss="modal" 
+-->

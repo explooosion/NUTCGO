@@ -87,11 +87,6 @@ function addMarker(location, name) {
         infowindow.open(map, marker);
     }
 
-    // zoom map to this marker
-    map.setZoom(19);
-    map.panTo(marker.position);
-
-
     // click event
     google
         .maps
@@ -138,4 +133,12 @@ function deleteMarkers() {
     $('#txtMapValue').val('');
     markers = [];
     polygons = [];
+}
+
+function zoomMarkers(zoom, marker) {
+
+    // zoom map to this marker
+    map.setZoom(zoom);
+    //map.panTo(marker.position);
+    map.panTo(marker);
 }

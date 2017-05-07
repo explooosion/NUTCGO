@@ -34,7 +34,7 @@
                     alert('ajax發生錯誤');
                 },
                 success: function (response) {
-                    console.log('ajax-ok');
+                    console.log('//console.log('ajax-ok');');
                     if (response == true) {
                         alert('註冊成功,請重新登入');
                         Logout();

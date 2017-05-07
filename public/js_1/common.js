@@ -144,7 +144,7 @@ function LoginIn() {
             alert('ajax發生錯誤');
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             if (typeof response["UserName"] == 'undefined') {
                 alert('帳號或密碼錯誤!');
             } else {

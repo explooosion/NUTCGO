@@ -333,11 +333,11 @@ function MarkerList() {
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
-            //
+            ///
             console.log('ajax error');
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -373,7 +373,7 @@ function MarkerListSearch() {
             //
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -405,7 +405,7 @@ function MarkerKeySearch(value) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
 
             if (response == '') {
@@ -445,7 +445,7 @@ function MarkerDelete(id) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
             alert('點位已經刪除');
             MarkerList();
@@ -476,7 +476,7 @@ function MarkerSave() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
 
             if (response != '') {
@@ -498,7 +498,7 @@ function MarkerSave() {
 
                         },
                         success: function (response) {
-                            console.log('ajax-ok');
+                            console.log('//console.log('ajax-ok');');
                             console.log(response);
                             alert('點位新增成功');
                             dialogMarkerAdd.dialog("close");
@@ -524,7 +524,7 @@ function PolygonList() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -556,7 +556,7 @@ function PolygonListSearch() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -578,7 +578,7 @@ function PolygonKeySearch(value) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
 
             // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
@@ -647,7 +647,7 @@ function PolygonSave() {
 
             },
             success: function (response) {
-                console.log('ajax-ok');
+                console.log('//console.log('ajax-ok');');
                 console.log(response);
                 alert('曲面新增成功');
                 dialogPolygonAdd.dialog("close");
@@ -681,7 +681,7 @@ function PolygonDelete(id) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
             alert('點位已經刪除');
             PolygonList();
@@ -709,7 +709,7 @@ function MarkerFavoriteList() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
 
             for (var i in response) {
                 $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -742,7 +742,7 @@ function MarkerFavoriteDelete(id) {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            console.log('//console.log('ajax-ok');');
             console.log(response);
             alert('點位已經刪除');
             MarkerFavoriteList();
@@ -772,7 +772,7 @@ function MarkerSaveFavorite(name) {
                 console.log(xhr);
             },
             success: function (response) {
-                console.log('ajax-ok');
+                console.log('//console.log('ajax-ok');');
                 console.log(response);
                 if (response) {
                     $('.winPop').animate({'top': 0, 'opacity': 1});

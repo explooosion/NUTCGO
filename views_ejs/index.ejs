@@ -13,19 +13,6 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
 
     <!-- Custom CSS -->
-    
-    <!--
-    <link rel="stylesheet"  href="css/site.css" >
-    <link rel="stylesheet"  href="css/custom.css" >
-    <link rel="stylesheet"  href="css/guide.css">
-    <link rel="stylesheet"  href="css/home.css" >
-    <link rel="stylesheet"  href="css/building.css" >
-    <link rel="stylesheet"  href="css/traffic.css" >
-    <link rel="stylesheet"  href="css/art.css" >
-    <link rel="stylesheet"  href="css/admin.css" >
-    <link rel="stylesheet"  href="css/map.css" >
-    -->
-    
     <link rel="stylesheet"  href="dist/evi.css?v=<%= Date.now() %>" >
     <link rel="stylesheet"  href="dist/bundle.css?v=<%= Date.now() %>" >
     <link rel="stylesheet"  href="dist/table.css?v=<%= Date.now() %>" >
@@ -51,16 +38,8 @@
 	<!-- js google recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
-	<!-- JS chosen -->
-    <!--
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js"></script>
-    -->
     <!-- JS layzload -->
 	<!--<script src="http://cdn.robby570.tw/js/jslazyload/jquery.lazyload.js"></script>-->
-
-
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -94,24 +73,10 @@
                 <%- include('./components/footer') -%>
             <% } %>
 
+            <%- include('./container/signup/app') -%>
         </div>
 
     </div>
-
-    <!--
-    <script src="js/cookies.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/home.js"></script>
-    <script src="js/building.js"></script>
-    <script src="js/art.js"></script>
-    <script src="js/admin.js"></script>
-    -->
-    
-    <!--
-    <script src="js/gmap.core.js"></script>
-    <script src="js/gmap.js"></script>
-    <script src="js/map.js"></script>
-    -->
     
     <script src="dist/bundle.js?v=<%= Date.now() %>"></script>
     <% if(key=='map'){ %>

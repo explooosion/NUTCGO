@@ -47,7 +47,7 @@ $('#account-group #btnAccountSubmit').click(function () {
                 alert('ajax發生錯誤');
             },
             success: function (response) {
-                console.log('ajax-ok');
+                console.log('//console.log('ajax-ok');');
                 if (response == true) {
                     alert('更新成功,請重新登入');
                     Logout();

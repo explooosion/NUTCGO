@@ -329,11 +329,15 @@ function MarkerList() {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             for (var i in response) {
-                $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+                $('#tbMarkerList').append('<tr>' +
+                    '<td>' + response[i].MarkerName + '</td>' +
+                    '<td>' + response[i].MarkerLat + '</td>' +
+                    '<td>' + response[i].MarkerLng + '</td>' +
+                    '<td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td>' +
+                    '<td><a href="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
         }
@@ -365,7 +369,7 @@ function MarkerListSearch() {
             //
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             for (var i in response) {
                 $('#tbMarkerList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -397,7 +401,7 @@ function MarkerKeySearch(value) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
 
             if (response == '') {
@@ -409,7 +413,7 @@ function MarkerKeySearch(value) {
                 lng: response.MarkerLng
             };
             addMarker(marker, key);
-            map.panTo(marker);
+            zoomMarkers(19, marker);
         }
     });
 }
@@ -437,7 +441,7 @@ function MarkerDelete(id) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             alert('點位已經刪除');
             MarkerList();
@@ -468,7 +472,7 @@ function MarkerSave() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
 
             if (response != '') {
@@ -489,7 +493,7 @@ function MarkerSave() {
                             console.log(xhr);
                         },
                         success: function (response) {
-                            console.log('ajax-ok');
+                            //
                             alert('點位新增成功');
                             dialogMarkerAdd.dialog("close");
                         }
@@ -515,7 +519,7 @@ function PolygonList() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                     'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
@@ -546,7 +550,7 @@ function PolygonListSearch() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -568,9 +572,8 @@ function PolygonKeySearch(value) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
-
-
+            //
+            
             // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
             // 120.68343311548233)';
@@ -591,7 +594,7 @@ function PolygonKeySearch(value) {
                 }
                 addPolygon(polyList);
             }
-            map.panTo(polyList[0]);
+            zoomMarkers(19,polyList[0]);
         }
     });
 }
@@ -637,7 +640,7 @@ function PolygonSave() {
 
             },
             success: function (response) {
-                console.log('ajax-ok');
+                //
 
                 alert('曲面新增成功');
                 dialogPolygonAdd.dialog("close");
@@ -671,7 +674,7 @@ function PolygonDelete(id) {
 
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             alert('點位已經刪除');
             PolygonList();
@@ -699,7 +702,7 @@ function MarkerFavoriteList() {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             for (var i in response) {
                 $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
@@ -732,7 +735,7 @@ function MarkerFavoriteDelete(id) {
             console.log(xhr);
         },
         success: function (response) {
-            console.log('ajax-ok');
+            //
 
             alert('點位已經刪除');
             MarkerFavoriteList();
@@ -762,7 +765,7 @@ function MarkerSaveFavorite(name) {
                 console.log(xhr);
             },
             success: function (response) {
-                console.log('ajax-ok');
+                //
 
                 if (response) {
                     $('.winPop').animate({ 'top': 0, 'opacity': 1 });
