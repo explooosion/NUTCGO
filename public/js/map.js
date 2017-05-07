@@ -6,6 +6,9 @@ $(window).on('resize', async function () {
     }
 
 }).trigger('load')
- 
 
- 
+
+$(window).ready(function () {
+    MarkerKeySearch();
+});
+
