@@ -1,14 +1,5 @@
 @import '_robby';
-@import 'component';
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-* {
-    font-family: 'Noto Sans TC', sans-serif;
-}
-
-body {
-    overflow-x: hidden;
-}
-
+@import '_component';
 
 /* Toggle Styles */
 

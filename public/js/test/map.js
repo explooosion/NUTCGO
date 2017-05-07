@@ -1,13 +1,9 @@
-
-//$('.chosen-select').chosen();
-
 $(window).on('resize',  function () {
 
     $("#wrapper").removeClass("toggled");
     $('.header').removeClass('header-toggled');
-    //initMap();
 
-}).trigger('load')
+}).trigger('load');
 
 
 $(window).ready(function () {

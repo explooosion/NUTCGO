@@ -5,7 +5,7 @@ $(window).ready(function () {
     CheckLogin();
 });
 
-$(window).on('resize', async function () {
+$(window).on('resize',  function () {
 
     if ($(window).width() <= 768) {
         $("#wrapper").removeClass("toggled");
