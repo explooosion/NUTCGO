@@ -39,8 +39,19 @@ $('.nav-dipose').click(function () {
     if (_w <= 768) {
         PanelControl();
     }
+
+    /* reset modal tab to default */
+
+    $('#signup .tab-pane').each(function () {
+        $(this).removeClass('in').removeClass('active');
+        if ($(this).attr('id') == 'clause') {
+            $(this).addClass('in').addClass('active');
+        }
+    });
+
+
 });
- 
+
 
 
 // 面板開關
