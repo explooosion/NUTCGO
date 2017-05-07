@@ -5,7 +5,7 @@ $(window).ready(function () {
     CheckLogin();
 });
 
-$(window).on('resize',  function () {
+$(window).on('resize', function () {
 
     if ($(window).width() <= 768) {
         $("#wrapper").removeClass("toggled");
@@ -34,12 +34,13 @@ $(".navcon").click(function (e) {
 
 
 // navcon logon close when nav open
-$('#nav-login').click(function () {
+$('.nav-dipose').click(function () {
     var _w = $(window).width();
     if (_w <= 768) {
         PanelControl();
     }
 });
+ 
 
 
 // 面板開關
@@ -82,7 +83,7 @@ function LoginIn() {
             alert('ajax發生錯誤');
         },
         success: function (response) {
-            
+
             if (typeof response["UserName"] == 'undefined') {
                 alert('帳號或密碼錯誤!');
             } else {
