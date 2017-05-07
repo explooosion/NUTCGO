@@ -1,3 +1,9 @@
+var LoginData;
+
+$(window).ready(function () {
+    // Check Login
+    CheckLogin();
+});
 
 $(window).on('resize', async function () {
 
@@ -17,6 +23,7 @@ $(window).on('resize', async function () {
     });
 
 }).trigger('load')
+
 
 // navcon click
 $(".navcon").click(function (e) {
@@ -50,3 +57,85 @@ function HeaderHide(prevOfSet, nextOfSet) {
     }
     return nextOfSet;
 }
+
+
+// 登入
+function LoginIn() {
+
+    var userid = $('#txtUserId').val();
+    var passwd = $('#txtPWD').val();
+    if (userid == "" || passwd == "") {
+        alert('帳號密碼請勿留白!');
+        return;
+    }
+
+    $.ajax({
+        url: 'http://robby570.tw/api/login/',
+        type: 'POST',
+        data: {
+            'userid': userid,
+            'passwd': passwd
+        },
+        error: function (xhr) {
+            console.log('ajax-error');
+            console.log(xhr);
+            alert('ajax發生錯誤');
+        },
+        success: function (response) {
+            console.log('ajax-ok');
+            if (typeof response["UserName"] == 'undefined') {
+                alert('帳號或密碼錯誤!');
+            } else {
+                console.log(response);
+                SaveCookie(response);
+                location.href = "/";
+            }
+        }
+    });
+
+}
+
+function Logout() {
+    DelCookie('account');
+    location.href = "/";
+}
+
+
+function CheckLogin() {
+
+    LoginData = JSON.parse(GetCookie('account'));
+    console.log(LoginData);
+
+    if (!LoginData) {
+    } else {
+        // alreay login
+        $('#lbUserName').text('Hello, ' + LoginData["UserName"]);
+    }
+}
+
+// 驗證
+function recaptchaCallback() {
+    $('#btnSignSubmit').removeAttr('disabled').removeClass('btn-disabled');
+}
+
+/*
+console.log("%c", "padding:180px 340px 200px 300px;line-height:300px;background:url('http://cdn.robby570.tw/img/look3small.jpg') no-repeat;");
+console.log('ヽ(#`Д´)ﾉ 肥宅哩喜咧跨三小? ');
+*/
+
+
+// 置頂
+$(window).scroll(function () {
+    var scrollVal = $(this).scrollTop();
+    if (scrollVal > 100) {
+        $('.gotop').fadeIn();
+    } else {
+        $('.gotop').fadeOut();
+    }
+});
+
+$('.gotop').click(function () {
+    $("html, body").animate({
+        scrollTop: 0
+    }, 'slow');
+});
