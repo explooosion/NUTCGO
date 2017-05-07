@@ -148,17 +148,11 @@ talbe th {
 }
 
 .SearchGroup .btn-search {
-    height: 28px;
     margin-left: 5px;
-    padding: 3px 0;
-    font-size: 14px;
 }
 
 .SearchGroup .btn-add {
-    height: 28px;
     margin-right: 5px;
-    padding: 3px 0;
-    font-size: 14px;
     float: right;
 }
 

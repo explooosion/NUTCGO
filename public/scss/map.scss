@@ -13,7 +13,7 @@
         overflow-x: hidden;
         position: absolute;
         left: 10px;
-        top: 250px;
+        top: 310px;
         padding: 20px 0 20px 20px;
         width: 250px;
         height: 50%;
@@ -25,7 +25,7 @@
     .layer-control {
         position: absolute;
         left: 253px;
-        top: 250px;
+        top: 310px;
         width: 20px;
         height: 30px;
         background: rgba(255, 255, 255, .8);
@@ -57,12 +57,8 @@
         bottom: 0;
         height: calc(100vh - 80px);
         background: rgba(215, 222, 222, .8);
-        @include tablet {
-            width: 300px;
-            display: inline-block;
-        }
         @include mobile-min {
-            width: 500px;
+            width: 450px;
             display: inline-block;
         }
         .tab-search {
@@ -118,6 +114,9 @@
                 overflow-y: scroll;
                 display: block;
                 height: calc( 100vh - 280px);
+            }
+            .btn {
+                width: 120px;
             }
         }
     }
