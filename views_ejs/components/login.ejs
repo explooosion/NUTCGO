@@ -4,13 +4,13 @@
         <div class="loginmodal-container">
             <h1>系統登入</h1><br>
             <form>
-                <input type="text" name="user" placeholder="Username">
-                <input type="password" name="pass" placeholder="Password">
-                <input type="submit" name="login" class="login loginmodal-submit btn-green" value="登入">
+                <input id="txtUserId" type="text" name="user" placeholder="Username">
+                <input id="txtPWD" type="password" name="pass" placeholder="Password">
+                <input id="btnLogin" type="submit" name="login" class="login loginmodal-submit btn-green" value="登入" onclick="LoginIn();">
             </form>
 
             <div class="login-help">
-                <a href="#">註冊</a> - <a href="#">忘記密碼</a>
+                <a href="/signup">註冊</a> - <a href="#">忘記密碼</a>
             </div>
         </div>
     </div>
