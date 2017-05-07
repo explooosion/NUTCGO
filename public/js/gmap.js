@@ -2,6 +2,14 @@ var dialog;
 
 $(function () {
 
+    function WinPopOpen() {
+        $('.winPop').animate({ 'top': 0, 'opacity': 1 });
+    }
+
+    function WinPopClose() {
+        $('.winPop').animate({ 'top': '-40px', 'opacity': 0 });
+    }
+
     dialogMarkerAdd = $("#dialogMarkerAdd").dialog({
         autoOpen: false,
         height: 300,
@@ -573,7 +581,7 @@ function PolygonKeySearch(value) {
         },
         success: function (response) {
             //
-            
+
             // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
             // 120.68343311548233)';
@@ -594,7 +602,7 @@ function PolygonKeySearch(value) {
                 }
                 addPolygon(polyList);
             }
-            zoomMarkers(19,polyList[0]);
+            zoomMarkers(19, polyList[0]);
         }
     });
 }
@@ -768,8 +776,8 @@ function MarkerSaveFavorite(name) {
                 //
 
                 if (response) {
-                    $('.winPop').animate({ 'top': 0, 'opacity': 1 });
 
+                    WinPopOpen();
                     MarkerFavoriteList();
                     setTimeout(WinPopClose, 2000);
                 } else {
@@ -783,9 +791,7 @@ function MarkerSaveFavorite(name) {
 
 }
 
-function WinPopClose() {
-    $('.winPop').animate({ 'top': '-40px', 'opacity': 0 });
-}
+
 
 
 

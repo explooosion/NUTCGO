@@ -150,6 +150,7 @@
         }
         /* winpop */
         .winPop {
+            z-index: 99999999;
             width: 225px;
             height: 28px;
             position: fixed;
