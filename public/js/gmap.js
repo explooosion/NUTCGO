@@ -322,7 +322,7 @@ $(function () {
 });
 
 // 點位-清單列表
-async function MarkerList() {
+function MarkerList() {
 
     // default table title
     $('#tbMarkerList tr:nth-child(n+2)').remove();
@@ -513,7 +513,7 @@ function MarkerSave() {
 }
 
 // 曲面-清單列表
-async function PolygonList() {
+function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
     $.ajax({
@@ -690,7 +690,7 @@ function PolygonDelete(id) {
 }
 
 // 點位-我的最愛清單列表
-async function MarkerFavoriteList() {
+function MarkerFavoriteList() {
 
     var ddlid = $('#ddlMarkerFavoritePlace').val();
 
