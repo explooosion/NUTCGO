@@ -7,20 +7,20 @@ $(function () {
 
     $(window).load(function () {
 
-        var width = $(this).width();
+        var width = $(window).width();
 
         if (width <= 768) {
             $('#building .building-img').children().toggleClass('building-panel-toggle');
         }
 
-        $(this).scroll(function () {
+        $(window).scroll(function () {
             //console.log($(this).width());
             // 暫時先拿掉 mobile performance 差
-            if ($(this).width() > 0) {
+            if ($(window).width() > 0) {
                 return;
             } else {
 
-                var ntop = $(this).scrollTop();
+                var ntop = $(window).scrollTop();
                 if (ntop > 100 && ntop < 350) {
                     buildScrollView('b1', false);
                 }

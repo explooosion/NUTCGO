@@ -9,8 +9,6 @@ var dialog;
 //     .event
 //     .addDomListener(window, 'load', initialize);
 
-$('.chosen-select').chosen();
-
 $(function () {
 
     dialogMarkerAdd = $("#dialogMarkerAdd").dialog({

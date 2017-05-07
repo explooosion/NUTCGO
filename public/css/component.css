@@ -48,3 +48,26 @@
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+/* 圖形 */
+.icon-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0px 10px 15px 10px;
+  border-color: transparent transparent #3D454D transparent; }
+  .icon-triangle.icon-triangle-right {
+    border-width: 10px 0px 10px 15px;
+    border-color: transparent transparent transparent #3D454D; }
+    .icon-triangle.icon-triangle-right:hover {
+      border-color: transparent transparent transparent #383F45; }
+  .icon-triangle.icon-triangle-left {
+    border-width: 10px 15px 10px 0px;
+    border-color: transparent #3D454D transparent transparent; }
+    .icon-triangle.icon-triangle-left:hover {
+      border-color: transparent #383F45 transparent transparent; }
+  .icon-triangle.icon-triangle-bottom {
+    border-width: 15px 10px 0px 10px;
+    border-color: #3D454D transparent transparent transparent; }
+    .icon-triangle.icon-triangle-bottom:hover {
+      border-color: #383F45 transparent transparent transparent; }

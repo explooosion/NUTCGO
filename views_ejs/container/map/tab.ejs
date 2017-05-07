@@ -9,10 +9,10 @@
             </div>
         </form>
     </div>
+
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#map-marker" onclick="MarkerList();">點位管理</a></li>
         <li><a data-toggle="tab" href="#map-polygon" onclick="PolygonList();">曲面管理</a></li>
-        <li><a data-toggle="tab" href="#map-layer">圖層</a></li>
         <li><a data-toggle="tab" href="#map-favorite" onclick="MarkerFavoriteList();">我的最愛</a></li>
     </ul>
 
@@ -21,17 +21,17 @@
         <!-- tab marker -->
         <div id="map-marker" class="tab-pane fade in active">
             <div id="MarkerSearch" class="SearchGroup">
-            <select id="ddlMarkerPlace" class="chosen-select ddl" data-placeholder="地點名稱">
-                <option value="0">全部</option>
-                <option value="6">弘業樓</option>
-                <option value="4">昌明樓</option>
-                <option value="5">翰英樓</option>
-                <option value="8">奇秀樓</option>
-                <option value="2">資訊館</option>
-                <option value="1">行政大樓</option>
-                <option value="3">中正大樓</option>
-                <option value="7">中商大樓</option>
-            </select>
+                <select id="ddlMarkerPlace" class="ddl" data-placeholder="地點名稱">
+                    <option value="0">全部</option>
+                    <option value="6">弘業樓</option>
+                    <option value="4">昌明樓</option>
+                    <option value="5">翰英樓</option>
+                    <option value="8">奇秀樓</option>
+                    <option value="2">資訊館</option>
+                    <option value="1">行政大樓</option>
+                    <option value="3">中正大樓</option>
+                    <option value="7">中商大樓</option>
+                </select>
                 <button id="btnMarkerListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerListSearch();">搜尋</button>
                 <button id="btnMarkerAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
             </div>
@@ -46,19 +46,19 @@
                 </table>
             </div>
         </div>
-
+        <!-- end tab marker -->
 
         <!-- tab polygon -->
         <div id="map-polygon" class="tab-pane fade">
             <div id="PolygonSearch" class="SearchGroup">
-            <select id="ddlPolygonPlace" class="chosen-select ddl" data-placeholder="群組名稱">
-                <option value="">全部</option>
-                <option value="建築物">建築物</option>
-                <option value="運動場所">運動場所</option>
-                <option value="其他">其他</option>
-            </select>
-            <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="PolygonListSearch();">搜尋</button>
-            <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
+                <select id="ddlPolygonPlace" class="ddl" data-placeholder="群組名稱">
+                    <option value="">全部</option>
+                    <option value="建築物">建築物</option>
+                    <option value="運動場所">運動場所</option>
+                    <option value="其他">其他</option>
+                </select>
+                <button id="btnPolygonListSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="PolygonListSearch();">搜尋</button>
+                <button id="btnPolygonAdd" type="button" class="btn btn-sm btn-green btn-add">新增</button>
             </div>
             <div class="list-box">
                 <table id="tbPolygonList">
@@ -70,18 +70,12 @@
                 </table>
             </div>
         </div>
-
-
-        <!-- tab layer -->
-        <div id="map-layer" class="tab-pane fade">
-            <div id="jstree_demo_div"></div>
-        </div>
-
+        <!-- end tab polygon -->
 
         <!-- tab favorite -->
         <div id="map-favorite" class="tab-pane fade">
             <div id="MarkerFavoriteSearch" class="SearchGroup">
-                <select id="ddlMarkerFavoritePlace" class="chosen-select ddl" data-placeholder="地點名稱">
+                <select id="ddlMarkerFavoritePlace" class="ddl" data-placeholder="地點名稱">
                     <option value="0">全部</option>
                     <option value="6">弘業樓</option>
                     <option value="4">昌明樓</option>
@@ -94,17 +88,19 @@
                 </select>
                 <button id="btnMarkerFavoriteSearch" type="button" class="btn btn-sm btn-green btn-search" onclick="MarkerFavoriteList();">搜尋</button>
             </div>
-           <div class="list-box">
-            <table id="tbMarkerFavoriteList">
-                <tr>
-                    <th>Name</th>
-                    <th>Lat</th>
-                    <th>Lng</th>
-                    <th colspan="2"></th>
-                </tr>
-            </table>
-           </div>
+            <div class="list-box">
+                <table id="tbMarkerFavoriteList">
+                    <tr>
+                        <th>Name</th>
+                        <th>Lat</th>
+                        <th>Lng</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </table>
+            </div>
         </div>
+        <!-- end tab favorite -->
+
     </div>
 </div>
 
@@ -144,7 +140,7 @@
         <tr>
             <th>群組</th>
             <td>
-                <select id="ddlPolygonPlaceAdd" class="chosen-select ddl" data-placeholder="群組名稱">
+                <select id="ddlPolygonPlaceAdd" class="ddl" data-placeholder="群組名稱">
                     <option value="">請選擇</option>
                     <option value="建築物">建築物</option>
                     <option value="運動場所">運動場所</option>

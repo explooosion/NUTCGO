@@ -7,7 +7,7 @@ $(window).ready(function () {
 
 $(window).on('resize', async function () {
 
-    if ($(this).width() < 768) {
+    if ($(window).width() <= 768) {
         $("#wrapper").removeClass("toggled");
         $('.header').removeClass('header-toggled');
     } else {
@@ -15,10 +15,10 @@ $(window).on('resize', async function () {
         $('.header').addClass('header-toggled');
     }
 
-    var prevOfSet = $(this).scrollTop();
-    $(this).scroll(function () {
+    var prevOfSet = $(window).scrollTop();
+    $(window).scroll(function () {
 
-        prevOfSet = HeaderHide(prevOfSet, $(this).scrollTop());
+        prevOfSet = HeaderHide(prevOfSet, $(window).scrollTop());
 
     });
 

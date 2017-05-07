@@ -8,7 +8,7 @@ $(function () {
 
 
     $(window).on('resize', function () {
-        if ($(this).width() < 768) {
+        if ($(window).width() < 768) {
             $('.shade-img span').siblings().fadeIn();
         } else {
             $('.shade-img span').fadeIn().siblings().hide();

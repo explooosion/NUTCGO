@@ -52,6 +52,29 @@
   100% {
     transform: rotate(360deg); } }
 
+/* 圖形 */
+.icon-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0px 10px 15px 10px;
+  border-color: transparent transparent #3D454D transparent; }
+  .icon-triangle.icon-triangle-right {
+    border-width: 10px 0px 10px 15px;
+    border-color: transparent transparent transparent #3D454D; }
+    .icon-triangle.icon-triangle-right:hover {
+      border-color: transparent transparent transparent #383F45; }
+  .icon-triangle.icon-triangle-left {
+    border-width: 10px 15px 10px 0px;
+    border-color: transparent #3D454D transparent transparent; }
+    .icon-triangle.icon-triangle-left:hover {
+      border-color: transparent #383F45 transparent transparent; }
+  .icon-triangle.icon-triangle-bottom {
+    border-width: 15px 10px 0px 10px;
+    border-color: #3D454D transparent transparent transparent; }
+    .icon-triangle.icon-triangle-bottom:hover {
+      border-color: #383F45 transparent transparent transparent; }
+
 * {
   font-family: 'Noto Sans TC', sans-serif; }
 
@@ -60,6 +83,7 @@ body {
 
 /* Toggle Styles */
 #wrapper {
+  display: block;
   position: relative;
   padding-left: 0;
   -moz-transition: all 0.5s ease;
@@ -70,7 +94,7 @@ body {
   #wrapper.toggled {
     padding-left: 250px; }
     #wrapper.toggled #sidebar-wrapper {
-      width: 260px; }
+      width: 250px; }
     #wrapper.toggled #page-content-wrapper {
       position: absolute;
       margin-right: -250px; }
@@ -83,7 +107,7 @@ body {
           position: relative;
           margin-right: 0; }
         #wrapper.toggled #sidebar-wrapper {
-          width: 260px; } }
+          width: 250px; } }
   #wrapper #page-content-wrapper {
     width: 100%;
     position: absolute; }
@@ -174,10 +198,9 @@ body {
     left: 250px;
     width: 0;
     height: 100%;
-    margin-left: -260px;
+    margin-left: -250px;
     overflow-x: hidden;
     background: #E5E8EF;
-    border-right: 10px solid #fff;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
@@ -218,7 +241,7 @@ body {
     #wrapper #sidebar-wrapper .sidebar-nav {
       position: absolute;
       top: 120px;
-      width: 260px;
+      width: 250px;
       margin: 0;
       padding: 0;
       list-style: none; }

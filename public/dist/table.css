@@ -1,13 +1,3 @@
-#map-group .row button,
-#map-group .row input {
-    margin: 0 4px;
-}
-
-.map {
-    width: 100%;
-    height: calc(100vh - 150px);
-}
-
 #txtMapValue {
     font-size: 14px;
 }

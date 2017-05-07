@@ -25,7 +25,26 @@ function initMap() {
             zoom: 18,
             center: defaultMarker,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            disableDoubleClickZoom: true
+            disableDoubleClickZoom: true,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            scaleControl: true,
+            streetViewControl: true,
+            streetViewControlOptions: {
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            // fullscreenControl: true,
+            // fullscreenControlOptions: {
+            //     position: google.maps.ControlPosition.LEFT_TOP
+            // },
+
         });
 
 }

@@ -13,13 +13,14 @@ body {
 /* Toggle Styles */
 
 #wrapper {
+    display: block;
     position: relative;
     padding-left: 0;
     @include transition(all .5s ease);
     &.toggled {
         padding-left: 250px;
         #sidebar-wrapper {
-            width: 260px;
+            width: 250px;
         }
         #page-content-wrapper {
             position: absolute;
@@ -36,7 +37,7 @@ body {
                 margin-right: 0;
             }
             #sidebar-wrapper {
-                width: 260px;
+                width: 250px;
             }
         }
     }
@@ -136,10 +137,9 @@ body {
         left: 250px;
         width: 0;
         height: 100%;
-        margin-left: -260px;
+        margin-left: -250px;
         overflow-x: hidden;
         background: $gray;
-        border-right: 10px solid #fff;
         @include transition(all .5s ease);
         @include mobile-min {
             width: 0;
@@ -184,7 +184,7 @@ body {
         .sidebar-nav {
             position: absolute;
             top: 120px;
-            width: 260px;
+            width: 250px;
             margin: 0;
             padding: 0;
             list-style: none;
