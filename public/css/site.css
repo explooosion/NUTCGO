@@ -258,7 +258,7 @@ body {
   .loginmodal-container h1 {
     text-align: center;
     font-size: 1.8em; }
-  .loginmodal-container input[type=submit] {
+  .loginmodal-container input[type=botton] {
     width: 100%;
     display: block;
     margin-bottom: 10px;
