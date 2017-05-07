@@ -101,7 +101,9 @@ function CheckLogin() {
     $('#btnFrmSignUp').hide();
 
     LoginData = JSON.parse(GetCookie('account'));
-    //console.log(LoginData);
+
+    console.log(LoginData,'cookie');
+
     if (!LoginData) {
         //還沒登入
         $('#btnFrmLogIn').show(); // 登入按鈕

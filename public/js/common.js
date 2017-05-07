@@ -104,7 +104,7 @@ function Logout() {
 function CheckLogin() {
 
     LoginData = JSON.parse(GetCookie('account'));
-    console.log(LoginData);
+    console.log('cookie:',LoginData);
 
     if (!LoginData) {
     } else {
