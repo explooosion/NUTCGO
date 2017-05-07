@@ -1,0 +1,102 @@
+[
+    {
+        "id": 25,
+        "PolygonName": "停車場",
+        "PolygonGroup": "其他"
+    },
+    {
+        "id": 26,
+        "PolygonName": "停車場",
+        "PolygonGroup": "其他"
+    },
+    {
+        "id": 27,
+        "PolygonName": "警衛室",
+        "PolygonGroup": "其他"
+    },
+    {
+        "id": 9,
+        "PolygonName": "女生宿舍",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 5,
+        "PolygonName": "中正大樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 16,
+        "PolygonName": "中技大樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 13,
+        "PolygonName": "中商大樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 11,
+        "PolygonName": "弘業樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 30,
+        "PolygonName": "行政大樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 12,
+        "PolygonName": "男生宿舍",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 15,
+        "PolygonName": "奇秀樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 7,
+        "PolygonName": "昌明樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 31,
+        "PolygonName": "資訊大樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 3,
+        "PolygonName": "學生活動中心",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 17,
+        "PolygonName": "翰英樓",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 14,
+        "PolygonName": "體育館",
+        "PolygonGroup": "建築物"
+    },
+    {
+        "id": 24,
+        "PolygonName": "羽球場",
+        "PolygonGroup": "運動場所"
+    },
+    {
+        "id": 1022,
+        "PolygonName": "網球場",
+        "PolygonGroup": "運動場所"
+    },
+    {
+        "id": 1023,
+        "PolygonName": "操場",
+        "PolygonGroup": "運動場所"
+    },
+    {
+        "id": 1024,
+        "PolygonName": "籃球場",
+        "PolygonGroup": "運動場所"
+    }
+]

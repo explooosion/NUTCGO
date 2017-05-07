@@ -1,3 +1,7 @@
+th{
+    text-align: center !important;
+}
+
 #txtMapValue {
     font-size: 14px;
 }
@@ -20,6 +24,7 @@
     text-align: left;
     line-height: 25px;
     padding: 12px 0;
+    text-align: center;
 }
 
 #tbMarkerList {
@@ -38,7 +43,7 @@
 }
 
 #tbMarkerList tr td {
-    height: 32px;
+    height: 40px;
     color: #444;
 }
 
@@ -77,7 +82,7 @@
 }
 
 #tbPolygonList tr td {
-    height: 32px;
+    height: 40px;
     color: #444;
 }
 
@@ -111,7 +116,7 @@
 }
 
 #tbMarkerFavoriteList tr:nth-child(n+2) td {
-    height: 32px;
+    height: 40px;
     color: #444;
 }
 

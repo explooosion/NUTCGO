@@ -1,13 +1,4 @@
-// var map;
-// var markers = []; // save all marker
-// var polygons = []; // save all polygon
-// var polygontmparr = []; // draw polygon tmp result
 var dialog;
-
-// google
-//     .maps
-//     .event
-//     .addDomListener(window, 'load', initialize);
 
 $(function () {
 
@@ -326,13 +317,16 @@ function MarkerList() {
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        url: 'http://robby570.tw/api/maplist/',
+        //url: 'http://robby570.tw/api/maplist/',
+        url: '/fake/markerlist.json',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
             console.log(xhr);
             //
             console.log('ajax error');
+
+
         },
         success: function (response) {
             console.log('ajax-ok');
@@ -404,7 +398,7 @@ function MarkerKeySearch(value) {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
 
             if (response == '') {
                 alert('查無此點');
@@ -444,7 +438,7 @@ function MarkerDelete(id) {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
             alert('點位已經刪除');
             MarkerList();
         }
@@ -475,7 +469,7 @@ function MarkerSave() {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
 
             if (response != '') {
                 alert('點位已存在');
@@ -493,11 +487,9 @@ function MarkerSave() {
                         error: function (xhr) {
                             console.log('ajax-error');
                             console.log(xhr);
-
                         },
                         success: function (response) {
                             console.log('ajax-ok');
-                            console.log(response);
                             alert('點位新增成功');
                             dialogMarkerAdd.dialog("close");
                         }
@@ -515,7 +507,8 @@ function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
     $.ajax({
-        url: 'http://robby570.tw/api/polygonlist/',
+        //url: 'http://robby570.tw/api/polygonlist/',
+        url: '/fake/polygonlist.json',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -523,7 +516,6 @@ function PolygonList() {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                     'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
@@ -555,7 +547,7 @@ function PolygonListSearch() {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
             for (var i in response) {
                 $('#tbPolygonList').append('<tr><td>' + response[i].PolygonGroup + '</td><td>' + response[i].PolygonName + '</td><td><a href="javascript:PolygonKeySearch(' + response[i].id + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
                     'f="javascript:PolygonDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
@@ -577,7 +569,7 @@ function PolygonKeySearch(value) {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
 
             // var p = 'LINESTRING (24.14991574823603 120.68296909332275, 24.149524154520151
             // 120.68275451660156, 24.14930877746491 120.68321585655212, 24.149803165165615
@@ -646,7 +638,7 @@ function PolygonSave() {
             },
             success: function (response) {
                 console.log('ajax-ok');
-                console.log(response);
+
                 alert('曲面新增成功');
                 dialogPolygonAdd.dialog("close");
                 PolygonList(); // rebind data
@@ -680,7 +672,7 @@ function PolygonDelete(id) {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
             alert('點位已經刪除');
             PolygonList();
         }
@@ -741,7 +733,7 @@ function MarkerFavoriteDelete(id) {
         },
         success: function (response) {
             console.log('ajax-ok');
-            console.log(response);
+
             alert('點位已經刪除');
             MarkerFavoriteList();
         }
@@ -771,7 +763,7 @@ function MarkerSaveFavorite(name) {
             },
             success: function (response) {
                 console.log('ajax-ok');
-                console.log(response);
+
                 if (response) {
                     $('.winPop').animate({ 'top': 0, 'opacity': 1 });
 

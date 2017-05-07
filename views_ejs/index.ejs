@@ -11,6 +11,7 @@
     <!-- CSS Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
+
     <!-- Custom CSS -->
     <link rel="stylesheet"  href="css/custom.css?v=<%= Date.now() %>" >
 
@@ -23,6 +24,50 @@
     <link rel="stylesheet"  href="css/admin.css" >
     <link rel="stylesheet"  href="css/map.css" >
     <link rel="stylesheet"  href="dist/table.css" >
+
+    <!-- JS jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+
+    <!-- JS bootstrap -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+    <!-- JS jquery-ui -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+   	<!-- JS google map -->
+    <!-- JS jstree -->
+    <% if(key=='map'){ %>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSMUQO4J80V843k7ZrDzoKVPO25-HAR0M"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <% } %>
+
+	<!-- js google recaptcha -->
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
+	<!-- JS chosen -->
+    <!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js"></script>
+    -->
+    <!-- JS layzload -->
+	<!--<script src="http://cdn.robby570.tw/js/jslazyload/jquery.lazyload.js"></script>-->
+
+    <script src="dist/cookies.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/building.js"></script>
+    <script src="js/art.js"></script>
+    <script src="js/admin.js"></script>
+
+    <% if(key=='map'){ %>
+        <script src="js/gmap.core.js"></script>
+        <script src="js/gmap.js"></script>
+        <script src="js/map.js"></script>
+    <% } %>
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,48 +104,6 @@
 
     </div>
 
-    <!-- JS jquery -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
-
-    <!-- JS jquery-ui -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <!-- JS bootstrap -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-   	<!-- JS google map -->
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSMUQO4J80V843k7ZrDzoKVPO25-HAR0M"></script>
-
-	<!-- js google recaptcha -->
-	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
-	
-	<!-- JS jstree -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-
-	<!-- JS chosen -->
-    <!--
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js"></script>
-    -->
-    <!-- JS layzload -->
-	<script src="http://cdn.robby570.tw/js/jslazyload/jquery.lazyload.js"></script>
-
-    <script src="dist/cookies.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/home.js"></script>
-    <script src="js/building.js"></script>
-    <script src="js/art.js"></script>
-    <script src="js/admin.js"></script>
-
-    <% if(key=='map'){ %>
-        <script src="js/gmap.core.js"></script>
-        <script src="js/gmap.js"></script>
-        <script src="js/map.js"></script>
-    <% } %>
-
-    
 </body>
 
 </html>

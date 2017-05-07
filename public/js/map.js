@@ -5,13 +5,14 @@ $(window).on('resize', async function () {
 
     $("#wrapper").removeClass("toggled");
     $('.header').removeClass('header-toggled');
-    initMap();
+    //initMap();
 
 }).trigger('load')
 
 
 $(window).ready(function () {
-    //MarkerList();
+    
+    MarkerList();
 
     $('.layer-control').click(function () {
 
