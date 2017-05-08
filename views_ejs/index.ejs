@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="http://cdn.robby570.tw/img/favicon_16x16.ico" type="image/ico">
-    <title>NUTCGO - <%= title %></title>
+    <title>NUTCGO - <%= nav.name %></title>
 
     <!-- CSS Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
@@ -29,7 +29,7 @@
 
    	<!-- JS google map -->
     <!-- JS jstree -->
-    <% if(key=='map'){ %>
+    <% if(nav.id=='map'){ %>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSMUQO4J80V843k7ZrDzoKVPO25-HAR0M"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
@@ -63,13 +63,13 @@
 
             <%- include('./components/head') -%>
             
-            <% if(key!='map'){ %>
+            <% if(nav.id!='map'){ %>
                 <%- include('./components/guide') -%>
             <% } %>
 
-            <%- include('./container/'+ key +'/app') -%>
+            <%- include('./container/'+ nav.id +'/app') -%>
            
-            <% if(key!='map'){ %>
+            <% if(nav.id!='map'){ %>
                 <%- include('./components/footer') -%>
             <% } %>
 
@@ -79,7 +79,7 @@
     </div>
     
     <script src="http://cdn.robby570.tw/dist/bundle.js?v=<%= Date.now() %>"></script>
-    <% if(key=='map'){ %>
+    <% if(nav.id=='map'){ %>
     <script src="http://cdn.robby570.tw/dist/bundle.gmap.js?v=<%= Date.now() %>"></script>
     <% } %>
 

@@ -13,12 +13,17 @@
         <li>
             <a class="selected" href="/"><i class="fa fa-home"></i>首頁</a>
         </li>
+
+
+        <% if(!session.isLogin){ %>
         <li id="nav-login" class="nav-dipose">
             <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-home"></i>登入</a>
         </li>
         <li id="nav-signup" class="nav-dipose">
             <a href="#" data-toggle="modal" data-target="#signup-modal"><i class="fa fa-sign-in"></i>註冊</a>
         </li>
+        <% } %>
+
         <li>
             <a href="/map"><i class="fa fa-map-marker"></i>地圖定位</a>
         </li>
@@ -37,8 +42,11 @@
         <li>
             <a href="/sport"><i class="fa fa-futbol-o"></i>運動休憩</a>
         </li>
+
+        <% if(session.isLogin){ %>
         <li>
             <a href="/account"><i class="fa fa-user"></i>會員中心</a>
         </li>
+        <% } %>
     </ul>
 </div>
