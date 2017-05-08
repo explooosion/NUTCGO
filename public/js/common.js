@@ -109,7 +109,7 @@ function LoginIn() {
 
 function Logout() {
     DelCookie('account');
-    location.href = "/";
+    window.location.href = '/logout';
 }
 
 
