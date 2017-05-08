@@ -1,0 +1,105 @@
+ @import '_robby';
+ #sport {
+     .row {
+         margin: 30px 0;
+         @include tablet {
+             margin: 0;
+         }
+         .col {
+             @include tablet {
+                 margin-bottom: 20px;
+             }
+             .sport-title {
+                 display: block;
+                 margin-top: 60px;
+                 color: #444;
+                 font-size: 26px;
+                 font-weight: bold;
+                 @include tablet {
+                     margin-top: 0px;
+                 }
+             }
+             .sport-detail {
+                 text-align: left;
+                 margin-top: 30px;
+                 color: #444;
+                 font-size: 18px;
+                 @include tablet {
+                     margin: 0 auto 20px;
+                     width: 70%;
+                 }
+                 @include mobile {
+                     display: none;
+                 }
+             }
+             .sport-img {
+                 position: relative;
+                 height: 400px;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-position: center top;
+                 background-color: #D6D6D6;
+                 @include mobile {
+                     height: 300px;
+                 }
+                 &[data-src="s1"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/操場.jpg');
+                 }
+                 &[data-src="s2"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/籃球場.jpg');
+                 }
+                 &[data-src="s3"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/網球場.jpg');
+                 }
+                 &[data-src="s4"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/排球場.jpg');
+                 }
+                 &[data-src="s5"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/壘球場.jpg');
+                 }
+                 &[data-src="s6"] {
+                     background-image: url('http://cdn.robby570.tw/img/sport/羽球場.jpg');
+                 }
+                 .sport-panel-toggle {
+                     height: 80% !important;
+                     @include mobile {
+                         height: 85% !important;
+                     }
+                 }
+                 .sport-panel {
+                     position: absolute;
+                     height: 0%;
+                     width: 100%;
+                     background: rgba(255, 255, 255, .6);
+                     text-align: center;
+                     overflow: hidden;
+                     transition: all .4s;
+                     h2 {
+                         position: relative;
+                         display: block;
+                         margin-top: 8%;
+                         margin-bottom: 0;
+                         font-weight: normal;
+                         @include mobile {
+                             font-size: 20px;
+                         }
+                     }
+                     span {
+                         font-size: 20px;
+                     }
+                     p {
+                         margin: 5px auto;
+                         width: 70%;
+                         letter-spacing: 1px;
+                         text-align: justify;
+                         font-size: 18px;
+                         line-height: 24px;
+                         @include mobile {
+                             font-size: 14px;
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }

@@ -1,24 +1,20 @@
+<%- include('model') -%>
 
-<!-- Art -->
-<div id="art" class="container-fluid">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#art1">園藝</a></li>
+    <li><a data-toggle="tab" href="#art2">雕塑</a></li>
+    <li><a data-toggle="tab" href="#art3">石雕</a></li>
+</ul>
 
-    <%- include('model') -%>
-
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#art1">園藝</a></li>
-        <li><a data-toggle="tab" href="#art2">雕塑</a></li>
-        <li><a data-toggle="tab" href="#art3">石雕</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div id="art1" class="tab-pane fade in active">
-            <%- include('art1') -%>
-        </div>
-        <div id="art2" class="tab-pane fade">
-            <%- include('art2') -%>
-        </div>
-        <div id="art3" class="tab-pane fade">
-            <%- include('art3') -%>
-        </div>
+<div class="tab-content">
+    <div id="art1" class="tab-pane fade in active">
+        <%- include('art1') -%>
+    </div>
+    <div id="art2" class="tab-pane fade">
+        <%- include('art2') -%>
+    </div>
+    <div id="art3" class="tab-pane fade">
+        <%- include('art3') -%>
     </div>
 </div>
+
