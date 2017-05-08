@@ -56,9 +56,9 @@
 }
 
 .btn-disabled {
-    color: #666;
-    background: #888;
-    cursor: not-allowed;
+    color: #666  !important;;
+    background: #888  !important;;
+    cursor: not-allowed  !important;;
     &:hover,
     &:active {
         @extend .btn-disabled;

@@ -1,8 +1,14 @@
+
+// 驗證
+function recaptchaCallback() {
+    $('#btnSignSubmit').removeAttr('disabled').toggleClass('btn-disabled');
+}
+
 function signup() {
 
     var chkVal = true;
 
-    $('.tablesign input').each(function () {
+    $('.signupmodal-container input').each(function () {
         if ($(this).val() == '') {
             chkVal = false;
         }

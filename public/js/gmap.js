@@ -348,6 +348,7 @@ function MarkerList() {
                     '<td><a href="javascript:MarkerDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
 
             }
+
         }
     });
 

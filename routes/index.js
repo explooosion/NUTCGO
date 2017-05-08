@@ -11,29 +11,31 @@ var obj = {
   id: 1016
 };
 
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  // req.session.UserData = obj;
-  // req.session.IsLogin = true;
+  //  req.session.UserData = obj;
+  //  req.session.IsLogin = true;
 
   res.render('index', {
     nav: storage.Nav.home,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/home', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.home,
-    session: req.home
+    session: req.home,
   });
 });
 
 router.get('/map', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.map,
-    session: req.session
+    session: req.session,
   });
 });
 
@@ -41,42 +43,42 @@ router.get('/map', function (req, res, next) {
 router.get('/building', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.building,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/art', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.art,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/admin', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.admin,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/traffic', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.traffic,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/sport', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.sport,
-    session: req.session
+    session: req.session,
   });
 });
 
 router.get('/account', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.account,
-    session: req.session
+    session: req.session,
   });
 });
 

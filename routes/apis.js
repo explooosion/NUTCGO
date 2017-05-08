@@ -17,7 +17,8 @@ router.post('/login', function (req, res) {
                 console.log(err);
 
             var request = new sql.Request();
-            request.input('UserID', sql.VarChar(50), req.body.userid).input('PassWord', sql.VarChar(50), req.body.passwd)
+            request.input('UserID', sql.VarChar(50), req.body.userid)
+                .input('PassWord', sql.VarChar(50), req.body.passwd)
                 .query('select * from UserList where UserID = @UserID AND PassWord = @PassWord', function (err, recordset) {
 
                     if (err) {
@@ -50,7 +51,10 @@ router.post('/useradd/', function (req, res) {
             }
 
             var request = new sql.Request();
-            request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input(req.body.PassWord, sql.NVarChar(50), crypto_pwd).input('Email', sql.NVarChar(50), req.body.Email)
+            request.input('UserName', sql.NVarChar(50), req.body.UserName)
+                .input('UserID', sql.NVarChar(50), req.body.UserID)
+                .input('PassWord', sql.NVarChar(50), req.body.PassWord)
+                .input('Email', sql.NVarChar(50), req.body.Email)
                 .query("insert into UserList ( UserName , UserID , PassWord , Email ) values ( @UserName" +
                 " , @UserID , @PassWord , @Email )",
                 function (err, recordset) {
@@ -79,7 +83,10 @@ router.post('/userupdate/', function (req, res) {
             //res.send(req.body.userid);
 
             var request = new sql.Request();
-            request.input('UserName', sql.NVarChar(50), req.body.UserName).input('UserID', sql.NVarChar(50), req.body.UserID).input('PassWord', sql.NVarChar(50), req.body.PassWord).input('Email', sql.NVarChar(50), req.body.Email)
+            request.input('UserName', sql.NVarChar(50), req.body.UserName)
+                .input('UserID', sql.NVarChar(50), req.body.UserID)
+                .input('PassWord', sql.NVarChar(50), req.body.PassWord)
+                .input('Email', sql.NVarChar(50), req.body.Email)
                 .query("update UserList set UserName = @UserName , PassWord = @PassWord , Email = @Email" +
                 " where UserID = @UserID",
                 function (err, recordset) {
@@ -171,7 +178,9 @@ router.post('/mapadd/', function (req, res) {
                 console.log(err);
 
             var request = new sql.Request();
-            request.input('MarkerName', sql.NVarChar(50), req.body.name).input('MarkerLat', sql.NVarChar(50), req.body.lat).input('MarkerLng', sql.NVarChar(50), req.body.lng)
+            request.input('MarkerName', sql.NVarChar(50), req.body.name)
+                .input('MarkerLat', sql.NVarChar(50), req.body.lat)
+                .input('MarkerLng', sql.NVarChar(50), req.body.lng)
                 .query("insert into MarkerList ( MarkerName , MarkerLat , MarkerLng ) values ( @MarkerNa" +
                 "me , @MarkerLat , @MarkerLng )",
                 function (err, recordset) {
@@ -312,7 +321,8 @@ router.post('/polygonadd/', function (req, res) {
             console.log(err);
 
         var request = new sql.Request();
-        request.input('PolygonName', sql.NVarChar(50), req.body.name).input('PolygonGroup', sql.NVarChar(50), req.body.group)
+        request.input('PolygonName', sql.NVarChar(50), req.body.name)
+            .input('PolygonGroup', sql.NVarChar(50), req.body.group)
             .query("insert into PolygonList ( PolygonName , PolygonPoint , PolygonGroup ) values ( @" +
             "PolygonName , geometry::STGeomFromText( '" + polystr + "' ,0 ) , @PolygonGroup )",
             function (err, recordset) {

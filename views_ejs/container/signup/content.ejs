@@ -43,17 +43,17 @@
             <div class="modal-body">
                 <div class="signupmodal-container container-fluid">
                     <div class="row text-center">
-                        <input id="txtUId"  type="text" placeholder="帳號">
-                        <input id="txtPwd" type="password"  placeholder="密碼">
-                        <input id="txtUserName" type="text" placeholder="姓名">
-                        <input id="txtEmail" type="email"  placeholder="信箱">
+                        <input id="txtUId"  type="text" placeholder="帳號" require>
+                        <input id="txtPwd" type="password"  placeholder="密碼" require>
+                        <input id="txtUserName" type="text" placeholder="姓名" require>
+                        <input id="txtEmail" type="email"  placeholder="信箱" require>
                         <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Le-mx8UAAAAAJ-b51vwTTAgWnaY02ntoH_NoJX4"></div>
                     </div>
                 </div>     
             </div>
             <div class="modal-footer text-center">
               <div class="row text-center">
-                <button type="button" class="btn btn-lg btn-green" onclick="signup();">送出</button>
+                <button id="btnSignSubmit" type="button" class="btn btn-lg btn-green btn-disabled" onclick="signup();" disabled>送出</button>
                 <button type="reset" class="btn btn-lg btn-dark">清除</button>
               </div>
             </div>

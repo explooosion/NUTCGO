@@ -12,11 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/evi.css?v=<%= Date.now() %>" >
-    <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/bundle.css?v=<%= Date.now() %>" >
-    <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/table.css?v=<%= Date.now() %>" >
+    <!-- Custom CSS --> 
+    <% var debug = true; %>   
 
+    <% if( debug ) { %>
+            <link rel="stylesheet"  href="/dist/evi.css?v=<%= Date.now() %>" >
+            <link rel="stylesheet"  href="/dist/bundle.css?v=<%= Date.now() %>" >
+            <link rel="stylesheet"  href="/dist/table.css?v=<%= Date.now() %>" >
+    <% }else{ %> 
+            <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/evi.css?v=<%= Date.now() %>" >
+            <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/bundle.css?v=<%= Date.now() %>" >
+            <link rel="stylesheet"  href="http://cdn.robby570.tw/dist/table.css?v=<%= Date.now() %>" >
+    <% } %>
     <!-- JS jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
 
@@ -78,10 +85,23 @@
 
     </div>
     
-    <script src="http://cdn.robby570.tw/dist/bundle.js?v=<%= Date.now() %>"></script>
-    <% if(nav.id=='map'){ %>
-    <script src="http://cdn.robby570.tw/dist/bundle.gmap.js?v=<%= Date.now() %>"></script>
+    
+
+    <% if( debug ) {%>
+            <script src="/dist/bundle.js?v=<%= Date.now() %>"></script>
+            <% if(nav.id=='map'){ %>
+                <script src="/dist/bundle.gmap.js?v=<%= Date.now() %>"></script>
+            <% } %>
+    <% }else{ %> 
+            <script src="http://cdn.robby570.tw/dist/bundle.js?v=<%= Date.now() %>"></script>
+            <% if(nav.id=='map'){ %>
+                <script src="http://cdn.robby570.tw/dist/bundle.gmap.js?v=<%= Date.now() %>"></script>
+            <% } %>
     <% } %>
+
+
+
+
 
 </body>
 

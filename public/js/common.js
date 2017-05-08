@@ -125,10 +125,6 @@ function CheckLogin() {
     }
 }
 
-// 驗證
-function recaptchaCallback() {
-    $('#btnSignSubmit').removeAttr('disabled').removeClass('btn-disabled');
-}
 
 /*
 console.log("%c", "padding:180px 340px 200px 300px;line-height:300px;background:url('http://cdn.robby570.tw/img/look3small.jpg') no-repeat;");
