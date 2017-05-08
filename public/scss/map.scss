@@ -58,7 +58,7 @@
             height: calc(100vh - 80px);
             background: rgba(215, 222, 222, .8);
             @include mobile-min {
-                width: 450px;
+                width: 500px;
                 display: inline-block;
             }
             .tab-search {

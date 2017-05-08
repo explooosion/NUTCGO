@@ -13,7 +13,7 @@
     </div>
     <ul class="sidebar-nav">
         <li>
-            <a class="selected" href="/"><i class="fa fa-home"></i>首頁</a>
+            <a <% if( nav.id == 'home') { %> class="selected"  <% } %>  href="/"><i class="fa fa-home"></i>首頁</a>
         </li>
 
 
@@ -27,27 +27,27 @@
         <% } %>
 
         <li>
-            <a href="/map"><i class="fa fa-map-marker"></i>地圖定位</a>
+            <a <% if( nav.id == 'map') { %> class="selected"  <% } %>   href="/map"><i class="fa fa-map-marker"></i>地圖定位</a>
         </li>
         <li>
-            <a href="/building"><i class="fa fa-building"></i>建物資訊</a>
+            <a <% if( nav.id == 'building') { %> class="selected"  <% } %>   href="/building"><i class="fa fa-building"></i>建物資訊</a>
         </li>
         <li>
-            <a href="/art"><i class="fa fa-picture-o"></i>藝術雕像</a>
+            <a <% if( nav.id == 'art') { %> class="selected"  <% } %>   href="/art"><i class="fa fa-picture-o"></i>藝術雕像</a>
         </li>
         <li>
-            <a href="/admin"><i class="fa fa-university"></i>行政單位</a>
+            <a <% if( nav.id == 'amin') { %> class="selected"  <% } %>   href="/admin"><i class="fa fa-university"></i>行政單位</a>
         </li>
         <li>
-            <a href="/traffic"><i class="fa fa-car"></i>交通規劃</a>
+            <a <% if( nav.id == 'traffic') { %> class="selected"  <% } %>   href="/traffic"><i class="fa fa-car"></i>交通規劃</a>
         </li>
         <li>
-            <a href="/sport"><i class="fa fa-futbol-o"></i>運動休憩</a>
+            <a <% if( nav.id == 'sport') { %> class="selected"  <% } %>   href="/sport"><i class="fa fa-futbol-o"></i>運動休憩</a>
         </li>
 
         <% if(session.IsLogin){ %>
         <li>
-            <a href="/account"><i class="fa fa-user"></i>會員中心</a>
+            <a <% if( nav.id == 'account') { %> class="selected"  <% } %>   href="/account"><i class="fa fa-user"></i>會員中心</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-sign-out" onclick="Logout();"></i>登出</a>
