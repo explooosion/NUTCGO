@@ -29,6 +29,16 @@ $(window).on('resize', function () {
 $(".navcon").click(function (e) {
     e.preventDefault();
     PanelControl();
+
+    // body scroll locked when nav open in mobile mode
+    var width = $(window).width();
+    var sw_width = $('#sidebar-wrapper').width();
+    if (sw_width == 0 && width <= 768) {
+        $('body').css('overflow', 'hidden');
+    } else {
+        $('body').css('overflow-y', 'scroll');
+    }
+
 });
 
 
@@ -126,13 +136,15 @@ function CheckLogin() {
 }
 
 
-/*
+
+
 console.log("%c", "padding:180px 340px 200px 300px;line-height:300px;background:url('http://cdn.robby570.tw/img/look3small.jpg') no-repeat;");
 console.log('ヽ(#`Д´)ﾉ 肥宅哩喜咧跨三小? ');
-*/
+
 
 
 // 置頂
+/*
 $(window).scroll(function () {
     var scrollVal = $(this).scrollTop();
     if (scrollVal > 100) {
@@ -147,3 +159,4 @@ $('.gotop').click(function () {
         scrollTop: 0
     }, 'slow');
 });
+*/
