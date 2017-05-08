@@ -4,8 +4,7 @@ var session = require('express-session');
 var router = express.Router();
 var sql = require('mssql');
 var config = require('../db/config.json');
-
-var UserData = require('./modal/UserDataClass');
+ 
 var storage = require('./modal/storage');
 
 // 使用者-登入(回傳基本資料)
@@ -25,11 +24,7 @@ router.post('/login', function (req, res) {
                         console.log(err)
                         res.send(err);
                     }
-
-                    if (recordset[0]["UserName"] != 'undefined') {
-                        console.log(recordset[0]);
-                        res.session.isLogin = true;
-                    }
+ 
                     res.send(recordset[0]);
                 });
         });
