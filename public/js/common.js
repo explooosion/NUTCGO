@@ -95,10 +95,10 @@ function LoginIn() {
         },
         success: function (response) {
 
-            if (typeof response["UserName"] == 'undefined') {
+            //console.log(response);
+            if (response == '') {
                 alert('帳號或密碼錯誤!');
             } else {
-                console.log(response);
                 SaveCookie(response);
                 location.href = "/";
             }

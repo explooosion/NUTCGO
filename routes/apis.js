@@ -4,7 +4,7 @@ var session = require('express-session');
 var router = express.Router();
 var sql = require('mssql');
 var config = require('../db/config.json');
- 
+
 var storage = require('./modal/storage');
 
 // 使用者-登入(回傳基本資料)
@@ -24,8 +24,14 @@ router.post('/login', function (req, res) {
                         console.log(err)
                         res.send(err);
                     }
- 
-                    res.send(recordset[0]);
+                    if (recordset.length > 0) {
+                        req.session.IsLogin = true;
+                        req.session.UserData = recordset[0];
+                    } else {
+                        req.session.IsLogin = false;
+                        delete req.session.UserData;
+                    }
+                    res.send(req.session.UserData);
                 });
         });
 });

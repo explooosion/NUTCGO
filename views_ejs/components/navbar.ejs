@@ -4,9 +4,8 @@
             <img width="64" hieght="60" src="https://fakeimg.pl/64x64/" atl="You" title="You">
         </a>
         <div class="user-info">
-            <span class="user-name" id="spusername">Robby</span>
-            <span class="user-email" id="spemail">ta7382@gmail.com</span>
-
+            <span class="user-name" id="spusername"><%= session.UserData.UserName  %></span>
+            <span class="user-email" id="spemail"><%= session.UserData.Email %></span>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -15,7 +14,7 @@
         </li>
 
 
-        <% if(!session.isLogin){ %>
+        <% if(!session.IsLogin){ %>
         <li id="nav-login" class="nav-dipose">
             <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-home"></i>登入</a>
         </li>
@@ -43,7 +42,7 @@
             <a href="/sport"><i class="fa fa-futbol-o"></i>運動休憩</a>
         </li>
 
-        <% if(session.isLogin){ %>
+        <% if(session.IsLogin){ %>
         <li>
             <a href="/account"><i class="fa fa-user"></i>會員中心</a>
         </li>

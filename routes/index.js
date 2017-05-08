@@ -5,6 +5,17 @@ var storage = require('./modal/storage');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+
+  var obj = {
+    Email: "handsome@gmail.com",
+    PassWord: "udontn",
+    UserID: "handsome",
+    UserName: "帥哥",
+    id: 1016
+  };
+
+  req.session.UserData = obj;
+
   res.render('index', {
     nav: storage.Nav.home,
     session: req.session
