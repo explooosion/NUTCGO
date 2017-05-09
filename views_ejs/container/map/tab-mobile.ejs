@@ -1,8 +1,8 @@
 <div class="map-tab-mobile">
         <ul class="nav">
-            <li class="active"><a class="layer"  title="圖層">圖層</a></li>
-            <li><a href="#"></a class="mang-point" title="點位管理">點位管理</li>
-            <li><a href="#"></a class="mang-poly" title="曲面管理">曲面管理</li>
-            <li><a href="#"></a class="favorite" title="我的最愛">我的最愛</li>
+            <li><a href="#" class="map-layer" title="圖層" onclick="layerHandler($('.layer-control').hasClass('layer-control-toggle'), $('.layer-control'));return false;"><i class="fa fa-clone" aria-hidden="true"></i>圖層</a></li>
+            <li><a href="#" class="map-point" title="點位管理" onclick="alertWindow(true,'功能尚未開放'); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i>點位管理</a></li>
+            <li><a href="#" class="map-poly" title="曲面管理" onclick="alertWindow(true,'功能尚未開放'); return false;"><i class="fa fa-plus-square-o" aria-hidden="true"></i>曲面管理</a></li>
+            <li><a href="#" class="map-favorite" title="我的最愛" onclick="alertWindow(true,'功能尚未開放'); return false;"><i class="fa fa-heart-o" aria-hidden="true"></i>我的最愛</a></li>
         </ul>
 </div>

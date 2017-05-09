@@ -4,18 +4,20 @@
 }
 
 #guide .row {
-    padding: 0 20px 30px;
+    padding: 0 20px 10px;
     @include mobile {
         text-align: center;
     }
     .col {
         h1 {
             padding: 0;
+            margin: 0;
+            font-size: 26px;
         }
         p {
             letter-spacing: 1px;
             font-size: 18px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
     }
 }

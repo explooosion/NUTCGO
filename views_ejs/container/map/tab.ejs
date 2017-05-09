@@ -112,17 +112,17 @@
                     <th>點名稱</th>
                     <td>
                         <input type="text" id="txtMarkerName" class="text text-sm" placeholder="教室代號">
-                        <button id="btnMarkerDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+                        <button id="btnMarkerDraw" type="button" class="btn btn-sm btn-green">繪製</button>
                     </td>
                 </tr>
                 <form id="frmMarkerAdd">
                 <tr>
                     <th>Lat</th>
-                    <td><input type="text" id="txtMarkerLat" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+                    <td><input type="text" id="txtMarkerLat" class="text text-sm text-rdonly" placeholder="自動帶入" readonly></td>
                 </tr>
                 <tr>
                     <th>Lng</th>
-                    <td><input type="text" id="txtMarkerLng" class="text text-lg text-rdonly" placeholder="自動帶入" readonly></td>
+                    <td><input type="text" id="txtMarkerLng" class="text text-sm text-rdonly" placeholder="自動帶入" readonly></td>
                 </tr>
                 </form>
             </table>
@@ -149,7 +149,7 @@
                     <th>曲面名稱</th>
                     <td>
                         <input type="text" id="txtPolygonName" class="text text-sm" placeholder="建物名稱" value="">
-                        <button id="btnPolygonDraw" type="button" class="btn btn-lg btn-green">繪製</button>
+                        <button id="btnPolygonDraw" type="button" class="btn btn-sm btn-green">繪製</button>
                     </td>
                 </tr>
                 <tr>
@@ -159,23 +159,6 @@
                 <ul id="ulPolygon"></ul>
             </form>
         </div>
-
-
-
-        <!-- Add favorite msg -->
-        <div class="winPop">
-            <div class="winPopIcon">
-                <i class="fa fa-heart" aria-hidden="true"></i>
-            </div>
-            <div class="winPopMsg">
-                <label id="winPopMarkerID"></label>
-                <label id="winPopMsg">已加到我的最愛!</label>
-            </div>
-            <div class="winPopClose">
-                <a href="javascript:WinPopClose();" class="winPopBtn"><i class="fa fa-times" aria-hidden="true"></i></a>
-            </div>
-        </div>
-
 
 
     </div>

@@ -137,26 +137,28 @@ function CheckLogin() {
 
 
 
+function alertWindow(isopen, msg) {
+
+    var _alert = $('#alertWindow');
+
+    if (_alert.css('top') != '-40px') {
+        return;
+    }
+    if (isopen) {
+        setTimeout(function () {
+            alertWindow(false);
+        }, 3000);
+
+        $('#alertWindow span').text(msg);
+        _alert.animate({ 'top': 0, 'opacity': 1 });
+
+    } else {
+        _alert.animate({ 'top': '-40px', 'opacity': 0 });
+    }
+}
+
+
+
 
 console.log("%c", "padding:180px 340px 200px 300px;line-height:300px;background:url('http://cdn.robby570.tw/img/look3small.jpg') no-repeat;");
 console.log('ヽ(#`Д´)ﾉ 肥宅哩喜咧跨三小? ');
-
-
-
-// 置頂
-/*
-$(window).scroll(function () {
-    var scrollVal = $(this).scrollTop();
-    if (scrollVal > 100) {
-        $('.gotop').fadeIn();
-    } else {
-        $('.gotop').fadeOut();
-    }
-});
-
-$('.gotop').click(function () {
-    $("html, body").animate({
-        scrollTop: 0
-    }, 'slow');
-});
-*/

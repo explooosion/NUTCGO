@@ -8,8 +8,8 @@
 	<link rel="icon" href="http://cdn.robby570.tw/img/favicon_16x16.ico" type="image/ico">
     <title>NUTCGO - <%= nav.name %></title>
 
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
     <!-- CSS Plugin -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
 
@@ -89,7 +89,14 @@
 
         </div>
 
+        <!-- Add favorite  -->
+        <div id="alertWindow" class="alert alert-info alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong>提示：</strong><span></span>
+        </div>
+
     </div>
+    
     
     
     <% if( debug ) {%>

@@ -2,13 +2,6 @@ var dialog;
 
 $(function () {
 
-    function WinPopOpen() {
-        $('.winPop').animate({ 'top': 0, 'opacity': 1 });
-    }
-
-    function WinPopClose() {
-        $('.winPop').animate({ 'top': '-40px', 'opacity': 0 });
-    }
 
     dialogMarkerAdd = $("#dialogMarkerAdd").dialog({
         autoOpen: false,
@@ -694,32 +687,39 @@ function PolygonDelete(id) {
 // 點位-我的最愛清單列表
 function MarkerFavoriteList() {
 
-    var ddlid = $('#ddlMarkerFavoritePlace').val();
+    LoginData = JSON.parse(GetCookie('account'));
+    if (!LoginData) {
+        alert('請先登入!');
+        Login();
+    } else {
 
-    // default table title
-    $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
+        var ddlid = $('#ddlMarkerFavoritePlace').val();
 
-    $.ajax({
-        url: 'http://robby570.tw/api/mapfavorite/',
-        type: 'POST',
-        data: {
-            'UserID': LoginData["UserID"],
-            'id': ddlid
-        },
-        error: function (xhr) {
-            console.log('ajax-error');
-            console.log(xhr);
-        },
-        success: function (response) {
-            //
+        // default table title
+        $('#tbMarkerFavoriteList tr:nth-child(n+2)').remove();
 
-            for (var i in response) {
-                $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
-                    'f="javascript:MarkerFavoriteDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+        $.ajax({
+            url: 'http://robby570.tw/api/mapfavorite/',
+            type: 'POST',
+            data: {
+                'UserID': LoginData["UserID"],
+                'id': ddlid
+            },
+            error: function (xhr) {
+                console.log('ajax-error');
+                console.log(xhr);
+            },
+            success: function (response) {
+                //
 
+                for (var i in response) {
+                    $('#tbMarkerFavoriteList').append('<tr><td>' + response[i].MarkerName + '</td><td>' + response[i].MarkerLat + '</td><td>' + response[i].MarkerLng + '</td><td><a href="javascript:MarkerKeySearch(' + response[i].MarkerName + ');"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></td><td><a hre' +
+                        'f="javascript:MarkerFavoriteDelete(' + response[i].id + ');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td></tr>');
+
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 // 點位-我的最愛指定刪除
@@ -778,9 +778,8 @@ function MarkerSaveFavorite(name) {
 
                 if (response) {
 
-                    WinPopOpen();
+                    alertWindow(true, name+' 已加入至我的最愛。');
                     MarkerFavoriteList();
-                    setTimeout(WinPopClose, 2000);
                 } else {
                     alert('我的最愛已有!');
                 }
