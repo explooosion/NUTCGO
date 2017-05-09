@@ -16,10 +16,10 @@ var obj = {
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    /*
+    
     req.session.UserData = obj;
     req.session.IsLogin = true;
-    */
+    
     
   res.render('index', {
     nav: storage.Nav.home,
