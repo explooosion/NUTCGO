@@ -1,30 +1,35 @@
-<form action="#" method="post">
-<div class="account">
-    <div class="account-group">
-        <h3>會員中心</h3>
-        <table class="tableaccount">
-            <tr>
-                <th>帳號</th>
-                <td><label id="txtUserId"></label></td>
-            </tr>
-            <tr>
-                <th>密碼</th>
-                <td><input id="txtPwd" type="password" class="text text-lg"></td>
-            </tr>
-            <tr>
-                <th>姓名</th>
-                <td><input id="txtUserName" type="text" class="text text-lg"></td>
-            </tr>
-            <tr>
-                <th>信箱</th>
-                <td><input id="txtEmail" type="text" class="text text-lg"></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <button type="button" id="btnAccountSubmit" class="btn btn-lg btn-green">更新</button>
-                </td>
-            </tr>
-        </table>
+<!-- Modal -->
+<div id="account-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">會員資料</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="accountmodal-container container-fluid">
+                        <div class="row text-center">
+                            <input id="txtUserId"  type="text" class="text-disabled" placeholder="帳號" readonly value="<%= session.UserData.UserID %>" >
+                            <input id="txtPwd" type="password"  placeholder="密碼" require >
+                            <input id="txtUserName" type="text" placeholder="姓名" require value="<%= session.UserData.UserName %>">
+                            <input id="txtEmail" type="email"  placeholder="信箱" require value="<%= session.UserData.Email %>">
+                            <div class="g-recaptcha" data-callback="recaptchaAccountCallback" data-sitekey="6Le-mx8UAAAAAJ-b51vwTTAgWnaY02ntoH_NoJX4"></div>
+                        </div>
+                    </div>     
+                </div>
+
+                <div class="modal-footer text-center">
+                <div class="row text-center">
+                    <button id="btnAccountSubmit" type="button" class="btn btn-lg btn-green btn-disabled" onclick="accountUpdate();" disabled>更新</button>
+                    <button type="reset" class="btn btn-lg btn-dark">清除</button>
+                </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- /*Modal content-->
     </div>
 </div>
-</form>

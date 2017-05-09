@@ -8,6 +8,7 @@
 	<link rel="icon" href="http://cdn.robby570.tw/img/favicon_16x16.ico" type="image/ico">
     <title>NUTCGO - <%= nav.name %></title>
 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
     <!-- CSS Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'/>
@@ -63,7 +64,13 @@
     <div id="wrapper" class="toggled">
 
         <%- include('./components/navbar') -%>	
-        <%- include('./components/login') -%>
+
+        <% if( session.IsLogin ) { %>
+            <%- include('./container/account/app') -%>
+        <% }else{ %>
+            <%- include('./container/signup/app') -%>
+            <%- include('./components/login') -%>
+        <% }%>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -80,15 +87,11 @@
                 <%- include('./components/footer') -%>
             <% } %>
 
-            <%- include('./container/signup/app') -%>
-
-            <!--<div class="gotop"></div>-->
         </div>
 
     </div>
     
     
-
     <% if( debug ) {%>
             <script src="/dist/bundle.js?v=<%= Date.now() %>"></script>
             <% if(nav.id=='map'){ %>
@@ -100,10 +103,6 @@
                 <script src="http://cdn.robby570.tw/dist/bundle.gmap.js?v=<%= Date.now() %>"></script>
             <% } %>
     <% } %>
-
-
-
-
 
 </body>
 

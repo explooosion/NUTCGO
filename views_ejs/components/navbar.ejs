@@ -45,10 +45,9 @@
             <a <% if( nav.id == 'traffic') { %> class="selected"  <% } %>   href="/traffic"><i class="fa fa-car"></i>交通規劃</a>
         </li>
 
-
         <% if(session.IsLogin){ %>
         <li>
-            <a <% if( nav.id == 'account') { %> class="selected"  <% } %>   href="/account"><i class="fa fa-user"></i>會員中心</a>
+            <a href="#" data-toggle="modal" data-target="#account-modal"><i class="fa fa-user"></i>會員中心</a>
         </li>
         <li>
             <a href="#" onclick="Logout();"><i class="fa fa-sign-out"></i>登出</a>

@@ -7,7 +7,7 @@ var obj = {
   Email: "handsome@gmail.com",
   PassWord: "udontn",
   UserID: "handsome",
-  UserName: "帥哥",
+  UserName: "張OO",
   id: 1016
 };
 
@@ -16,9 +16,11 @@ var obj = {
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  //  req.session.UserData = obj;
-  //  req.session.IsLogin = true;
-
+    /*
+    req.session.UserData = obj;
+    req.session.IsLogin = true;
+    */
+    
   res.render('index', {
     nav: storage.Nav.home,
     session: req.session,
@@ -71,13 +73,6 @@ router.get('/traffic', function (req, res, next) {
 router.get('/sport', function (req, res, next) {
   res.render('index', {
     nav: storage.Nav.sport,
-    session: req.session,
-  });
-});
-
-router.get('/account', function (req, res, next) {
-  res.render('index', {
-    nav: storage.Nav.account,
     session: req.session,
   });
 });

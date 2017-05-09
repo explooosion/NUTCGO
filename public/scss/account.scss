@@ -1,0 +1,57 @@
+@import '_robby.scss';
+#account {
+    .modal-header {
+        i {
+            float: right;
+            margin-right: 5px;
+            font-size: 20px;
+            color: #000;
+            opacity: .2;
+            cursor: pointer;
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
+    .modal-body {
+        text-align: center;
+        .accountmodal-container {
+            margin: 0 auto;
+            background: #fff;
+            input[type=text],
+            input[type=password],
+            input[type=email] {
+                margin: 0 auto;
+                height: 44px;
+                font-size: 16px;
+                width: 90%;
+                margin-bottom: 10px;
+                -webkit-appearance: none;
+                background: #fff;
+                border: 1px solid #d9d9d9;
+                border-top: 1px solid #c0c0c0;
+                /* border-radius: 2px; */
+                padding: 0 8px;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            input[type=text]:hover,
+            input[type=password]:hover {
+                border: 1px solid #b9b9b9;
+                border-top: 1px solid #a0a0a0;
+                -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+            .g-recaptcha>div {
+                width: 100% !important;
+            }
+        }
+    }
+    .modal-footer {
+        button {
+            width: 40%;
+            margin: 5px;
+        }
+    }
+}

@@ -1,7 +1,8 @@
 @import '_robby';
 
 /* can not be modify */
- 
+
+
 /* Nav */
 
 .navbar {
@@ -27,7 +28,7 @@
     }
 }
 
-.btn-lg{
+.btn-lg {
     // width: 120px;
 }
 
@@ -56,13 +57,19 @@
 }
 
 .btn-disabled {
-    color: #666  !important;;
-    background: #888  !important;;
-    cursor: not-allowed  !important;;
+    color: #666 !important;
+    background: #888 !important;
+    cursor: not-allowed !important;
     &:hover,
     &:active {
         @extend .btn-disabled;
     }
+}
+
+.text-disabled {
+    color: #aaa !important;
+    background: #eee !important;
+    cursor: not-allowed !important;
 }
 
 .color-white {

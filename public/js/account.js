@@ -1,14 +1,26 @@
+// var uinfo = JSON.parse(GetCookie('account'));
+// var dirpath = window.location.pathname;
+// if (uinfo === null && dirpath == '/account') {
+//     alert('請重新登入');
+//     location.href = "./";
+// } else if (dirpath == '/account') {
+//     $('#account-group .tableaccount #txtUserId').text(uinfo['UserID']);
+//     $('#account-group #txtPwd').val(uinfo['PassWord']);
+//     $('#account-group #txtUserName').val(uinfo['UserName']);
+//     $('#account-group #txtEmail').val(uinfo['Email']);
+// }
 
 // 驗證
-function recaptchaSignupCallback() {
-    $('#btnSignSubmit').removeAttr('disabled').toggleClass('btn-disabled');
+function recaptchaAccountCallback() {
+    $('#btnAccountSubmit').removeAttr('disabled').toggleClass('btn-disabled');
 }
 
-function signup() {
+
+function accountUpdate() {
 
     var chkVal = true;
 
-    $('.signupmodal-container input').each(function () {
+    $('.accountmodal-container input').each(function () {
         if ($(this).val() == '') {
             chkVal = false;
         }
@@ -19,13 +31,13 @@ function signup() {
         return false;
     } else {
 
-        var userid = $('#txtUId').val();
+        var userid = $('#txtUserId').text();
         var userpwd = $('#txtPwd').val();
         var username = $('#txtUserName').val();
         var email = $('#txtEmail').val();
 
         $.ajax({
-            url: 'http://robby570.tw/api/useradd/',
+            url: 'http://robby570.tw/api/userupdate/',
             type: 'POST',
             data: {
                 'UserID': userid,
@@ -39,16 +51,15 @@ function signup() {
                 alert('ajax發生錯誤');
             },
             success: function (response) {
-
                 if (response == true) {
-                    alert('註冊成功,請重新登入');
+                    alert('更新成功,請重新登入！');
                     Logout();
                 } else {
-                    alert('註冊失敗');
-                    return true;
+                    alert('更新失敗');
                 }
             }
         });
 
     }
-}
+
+};
