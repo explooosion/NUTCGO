@@ -87,7 +87,7 @@ function LoginIn() {
     var userid = $('#txtUserId').val();
     var passwd = $('#txtPWD').val();
     if (userid == "" || passwd == "") {
-        alert('帳號密碼請勿留白!');
+        alertWindow(true, '帳號密碼請勿留白!');
         return;
     }
 
@@ -107,7 +107,7 @@ function LoginIn() {
 
             //console.log(response);
             if (response == '') {
-                alert('帳號或密碼錯誤!');
+                alertWindow(true, '帳號或密碼錯誤!');
             } else {
                 SaveCookie(response);
                 location.href = "/";
@@ -136,26 +136,31 @@ function CheckLogin() {
 }
 
 
-
+var objAlert = null;
 function alertWindow(isopen, msg) {
 
-    var _alert = $('#alertWindow');
-
-    if (_alert.css('top') != '-40px') {
+    if (objAlert != null) {
         return;
-    }
-    if (isopen) {
-        setTimeout(function () {
-            alertWindow(false);
-        }, 3000);
-
-        $('#alertWindow span').text(msg);
-        _alert.animate({ 'top': 0, 'opacity': 1 });
-
     } else {
-        _alert.animate({ 'top': '-40px', 'opacity': 0 });
+
+        var _alert = $('#alertWindow');
+
+        if (isopen) {
+            objAlert = setTimeout(function () {
+                objAlert = null;
+                alertWindow(false);
+            }, 2000);
+
+            $('#alertWindow span').text(msg);
+            _alert.animate({ 'top': 0, 'opacity': 1 });
+
+        } else {
+            _alert.animate({ 'top': '-40px', 'opacity': 0 });
+        }
     }
 }
+
+
 
 
 

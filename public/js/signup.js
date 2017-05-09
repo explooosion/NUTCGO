@@ -15,7 +15,7 @@ function signup() {
     });
 
     if (!chkVal) {
-        alert('請輸入完整資料');
+        alertWindow(true, '請輸入完整資料');
         return false;
     } else {
 
@@ -36,15 +36,15 @@ function signup() {
             error: function (xhr) {
                 console.log('ajax-error');
                 console.log(xhr);
-                alert('ajax發生錯誤');
+                alertWindow(true, 'ajax發生錯誤');
             },
             success: function (response) {
 
                 if (response == true) {
-                    alert('註冊成功,請重新登入');
+                    alertWindow(true, '註冊成功,請重新登入');
                     Logout();
                 } else {
-                    alert('註冊失敗');
+                    alertWindow(true, '註冊失敗');
                     return true;
                 }
             }

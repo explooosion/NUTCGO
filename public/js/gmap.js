@@ -212,7 +212,7 @@ $(function () {
 
         LoginData = JSON.parse(GetCookie('account'));
         if (!LoginData) {
-            alert('請先登入!');
+            alertWindow(true, '請先登入!');
             Login();
             return;
         }
@@ -318,8 +318,8 @@ function MarkerList() {
     $('#tbMarkerList tr:nth-child(n+2)').remove();
 
     $.ajax({
-        //url: 'http://robby570.tw/api/maplist/',
-        url: '/fake/markerlist.json',
+        url: 'http://robby570.tw/api/maplist/',
+        //url: '/fake/markerlist.json',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -385,13 +385,18 @@ function MarkerListSearch() {
 
 // 點位-單一定位
 function MarkerKeySearch(value) {
+
     var key = value;
+
     if (typeof (key) == "undefined") {
         key = $('#txtMapValue').val();
+        if (key == '') {
+            key = $('#txtMobileMapValue').val();
+        }
     }
 
     if (key == '') {
-        alert('請確認輸入之關鍵字');
+        alertWindow(true, '請確認輸入之關鍵字');
         return;
     }
     $.ajax({
@@ -407,7 +412,7 @@ function MarkerKeySearch(value) {
 
 
             if (response == '') {
-                alert('查無此點');
+                alertWindow(true, '查無此點');
                 return;
             }
             var marker = {
@@ -423,7 +428,7 @@ function MarkerKeySearch(value) {
 // 點位-指定刪除
 function MarkerDelete(id) {
     if (typeof (id) == "undefined") {
-        alert('查無此筆');
+        alertWindow(true, '查無此筆');
         return;
     }
 
@@ -445,7 +450,7 @@ function MarkerDelete(id) {
         success: function (response) {
             //
 
-            alert('點位已經刪除');
+            alertWindow(true, '點位已經刪除');
             MarkerList();
         }
     });
@@ -460,7 +465,7 @@ function MarkerSave() {
     var lng = $('#txtMarkerLng').val();
 
     if (name == '' || lat == '' || lng == '') {
-        alert('請確認欄位是否完整');
+        alertWindow(true, '請確認欄位是否完整');
         return;
     }
 
@@ -478,7 +483,7 @@ function MarkerSave() {
 
 
             if (response != '') {
-                alert('點位已存在');
+                alertWindow(true, '點位已存在');
             } else {
 
                 if (comfirm == true) {
@@ -496,7 +501,7 @@ function MarkerSave() {
                         },
                         success: function (response) {
                             //
-                            alert('點位新增成功');
+                            alertWindow(true, '點位新增成功');
                             dialogMarkerAdd.dialog("close");
                         }
                     });
@@ -513,8 +518,8 @@ function PolygonList() {
     // default table title
     $('#tbPolygonList tr:nth-child(n+2)').remove();
     $.ajax({
-        //url: 'http://robby570.tw/api/polygonlist/',
-        url: '/fake/polygonlist.json',
+        url: 'http://robby570.tw/api/polygonlist/',
+        //url: '/fake/polygonlist.json',
         type: 'GET',
         error: function (xhr) {
             console.log('ajax-error');
@@ -606,7 +611,7 @@ function PolygonSave() {
 
     var ddlgroup = $('#ddlPolygonPlaceAdd').val();
     if (ddlgroup == '') {
-        alert('請選擇群組');
+        alertWindow(true, '請選擇群組');
         return;
     }
 
@@ -614,7 +619,7 @@ function PolygonSave() {
     var poly = [];
 
     if (name == '' || polygontmparr.length == 0) {
-        alert('請確認欄位是否完整');
+        alertWindow(true, '請確認欄位是否完整');
         return;
     }
 
@@ -644,7 +649,7 @@ function PolygonSave() {
             success: function (response) {
                 //
 
-                alert('曲面新增成功');
+                alertWindow(true, '曲面新增成功');
                 dialogPolygonAdd.dialog("close");
                 PolygonList(); // rebind data
             }
@@ -656,7 +661,7 @@ function PolygonSave() {
 function PolygonDelete(id) {
 
     if (typeof (id) == "undefined") {
-        alert('查無此筆');
+        alertWindow(true, '查無此筆');
         return;
     }
 
@@ -678,7 +683,7 @@ function PolygonDelete(id) {
         success: function (response) {
             //
 
-            alert('點位已經刪除');
+            alertWindow(true, '點位已經刪除');
             PolygonList();
         }
     });
@@ -689,7 +694,7 @@ function MarkerFavoriteList() {
 
     LoginData = JSON.parse(GetCookie('account'));
     if (!LoginData) {
-        alert('請先登入!');
+        alertWindow(true, '請先登入!');
         Login();
     } else {
 
@@ -725,7 +730,7 @@ function MarkerFavoriteList() {
 // 點位-我的最愛指定刪除
 function MarkerFavoriteDelete(id) {
     if (typeof (id) == "undefined") {
-        alert('查無此筆');
+        alertWindow(true, '查無此筆');
         return;
     }
 
@@ -746,7 +751,7 @@ function MarkerFavoriteDelete(id) {
         success: function (response) {
             //
 
-            alert('點位已經刪除');
+            alertWindow(true, '點位已經刪除');
             MarkerFavoriteList();
         }
     });
@@ -758,7 +763,7 @@ function MarkerSaveFavorite(name) {
 
     LoginData = JSON.parse(GetCookie('account'));
     if (!LoginData) {
-        alert('請先登入!');
+        alertWindow(true, '請先登入!');
         Login();
     } else {
 
@@ -778,10 +783,10 @@ function MarkerSaveFavorite(name) {
 
                 if (response) {
 
-                    alertWindow(true, name+' 已加入至我的最愛。');
+                    alertWindow(true, name + ' 已加入至我的最愛。');
                     MarkerFavoriteList();
                 } else {
-                    alert('我的最愛已有!');
+                    alertWindow(true, '我的最愛已有!');
                 }
 
             }

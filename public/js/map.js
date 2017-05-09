@@ -50,7 +50,7 @@ function layerHandler(e, obj) {
                 overflow: 'hidden',
                 padding: '0 0 0 20px',
                 width: 230,
-                height: '120px'
+                height: '200px'
             });
         } else {
             $('.layer').toggleClass('layer-toggle').animate({

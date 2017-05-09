@@ -27,7 +27,7 @@ function accountUpdate() {
     });
 
     if (!chkVal) {
-        alert('請輸入完整資料');
+        alertWindow(true, '請輸入完整資料');
         return false;
     } else {
 
@@ -52,10 +52,10 @@ function accountUpdate() {
             },
             success: function (response) {
                 if (response == true) {
-                    alert('更新成功,請重新登入！');
+                    alertWindow(true, '更新成功,請重新登入！');
                     Logout();
                 } else {
-                    alert('更新失敗');
+                    alertWindow(true, '更新失敗');
                 }
             }
         });

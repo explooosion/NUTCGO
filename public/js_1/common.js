@@ -102,7 +102,7 @@ function CheckLogin() {
 
     LoginData = JSON.parse(GetCookie('account'));
 
-    console.log(LoginData,'cookie');
+    console.log(LoginData, 'cookie');
 
     if (!LoginData) {
         //還沒登入
@@ -127,7 +127,7 @@ function LoginIn() {
     var userid = $('#txtUserId').val();
     var passwd = $('#txtPWD').val();
     if (userid == "" || passwd == "") {
-        alert('帳號密碼請勿留白!');
+        alertWindow(true, '帳號密碼請勿留白!');
         return;
     }
 
@@ -144,9 +144,8 @@ function LoginIn() {
             alert('ajax發生錯誤');
         },
         success: function (response) {
-            console.log('//console.log('ajax-ok');');
             if (typeof response["UserName"] == 'undefined') {
-                alert('帳號或密碼錯誤!');
+                alertWindow(true, '帳號或密碼錯誤!');
             } else {
                 console.log(response);
                 SaveCookie(response);
