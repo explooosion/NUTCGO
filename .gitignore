@@ -1,11 +1,11 @@
 # node.js
-npm-debug.log
-node_modules/
+NUTCGO/npm-debug.log
+NUTCGO/node_modules/
 
 # public
-public/css/
-public/dist/bundle*.js
+NUTCGO/public/css/
+NUTCGO/public/dist/bundle*.js
 
 
 # ejs template
-views/
+NUTCGO/views/
