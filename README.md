@@ -19,18 +19,16 @@
 1. MSSQL
 2. GEO
 
-
- 　　
 ## Clone
 ```bash
 git clone https://github.com/explooosion/NUTCGO.git
 ```
-　
+
 ## Into Project
 ```bash
 cd NUTCGO
 ```
-　
+
 ## Install
 ```bash
 npm install
