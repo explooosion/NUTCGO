@@ -41,3 +41,7 @@ npm install
 gulp ex-all
 ```
 
+## Run
+```bash
+npm start
+```
