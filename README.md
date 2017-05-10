@@ -35,6 +35,12 @@ cd NUTCGO
 npm install
 ```
 
+## task
+```bash
+npm install -g gulp
+```
+
+
 ## Deploy
 ```
 gulp ex-all
