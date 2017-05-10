@@ -1,0 +1,43 @@
+# 2017 NUTC 專題展 - 校園導覽系統
+
+## Front-end
+1. JavaScript
+2. JQuery
+3. SASS
+4. Bootstrap
+5. Google Map API
+
+## Task Runner
+1. Gulp
+
+## Back-end
+1. Node.js
+2. Node.js Express
+3. EJS
+
+## DataBase
+1. MSSQL
+2. GEO
+
+
+ 　　
+## Clone
+```bash
+git clone https://github.com/explooosion/NUTCGO.git
+```
+　
+## Into Project
+```bash
+cd NUTCGO
+```
+　
+## Install
+```bash
+npm install
+```
+
+## Deploy
+```
+gulp ex-all
+```
+
