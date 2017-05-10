@@ -1,4 +1,5 @@
 # 2017 NUTC 專題展 - 校園導覽系統
+this is a special exhibition of NUTC in 2017 .
 
 ## Front-end
 1. JavaScript
