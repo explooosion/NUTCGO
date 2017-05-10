@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var storage = require('./modal/storage');
+var storage = require('../db/modal/storage');
 
 var obj = {
   Email: "handsome@gmail.com",
@@ -16,11 +16,11 @@ var obj = {
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    /*
-    req.session.UserData = obj;
-    req.session.IsLogin = true;
-    */
-    
+  /*
+  req.session.UserData = obj;
+  req.session.IsLogin = true;
+  */
+
   res.render('index', {
     nav: storage.Nav.home,
     session: req.session,

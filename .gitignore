@@ -1,6 +1,11 @@
 # node.js
-node_modules/
 npm-debug.log
+node_modules/
+
+# public
 public/css/
 public/dist/bundle*.js
+
+
+# ejs template
 views/

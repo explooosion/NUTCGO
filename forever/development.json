@@ -1,9 +1,0 @@
-// forever/development.json
-{
-    // Comments are supported
-    "uid": "app",
-    "append": true,
-    "watch": true,
-    "script": "../bin/www",
-    "sourceDir": "../views"
-}
