@@ -20,9 +20,9 @@ this is a special exhibition of NUTC in 2017 .
 1. Node.js
 2. Node.js Express
 3. Node.js RESTful Web API
-4. EJS
-5. npm forever
-6. npm mssql
+4. npm forever
+5. npm mssql
+6. EJS  
 
 ## DataBase
 1. MSSQL
