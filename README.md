@@ -1,10 +1,12 @@
 # 2017 NUTC 專題展 - 台中科大校園導覽系統
-this is a special exhibition of NUTC in 2017 .
+this is a special exhibition of NUTC in 2017 .  
 
-[Demo-NUTCGO](http://robby570.tw) ~2017/05/20
+[Demo-NUTCGO](http://robby570.tw) ~2017/05/20  
+
+![NUTCGO-HOME](http://i.imgur.com/h19knbR.jpg)
 
 ## PowerPoint
-[GoogleDrive](https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE)
+[GoogleDrive](https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE)  
 
 ## Front-end
 1. JavaScript
