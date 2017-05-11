@@ -57,4 +57,6 @@ npm start
 ```
 
 ## DataBase
-Restore from NUTCGO_db.bak to MSSQL
++ Restore from NUTCGO_db.bak to MSSQL
++ Remember to change db/config.json
++ Some src、href need to be chagne
