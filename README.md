@@ -50,3 +50,6 @@ gulp ex-all
 ```bash
 npm start
 ```
+
+## DataBase
+Restore from NUTCGO_db.bak to MSSQL
