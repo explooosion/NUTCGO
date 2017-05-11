@@ -1,6 +1,9 @@
 # 2017 NUTC 專題展 - 校園導覽系統
 this is a special exhibition of NUTC in 2017 .
 
+## PowerPoint
+(GoogleDrive)[https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE]
+
 ## Front-end
 1. JavaScript
 2. JQuery
