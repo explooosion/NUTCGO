@@ -2,7 +2,7 @@
 this is a special exhibition of NUTC in 2017 .
 
 ## PowerPoint
-(GoogleDrive)[https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE]
+[GoogleDrive](https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE)
 
 ## Front-end
 1. JavaScript
