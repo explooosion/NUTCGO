@@ -19,10 +19,12 @@ this is a special exhibition of NUTC in 2017 .
 ## Back-end
 1. Node.js
 2. Node.js Express
-3. Node.js RESTful Web API
-4. npm forever
-5. npm mssql
-6. EJS  
+3. Node.js RESTful Web API  
+
+## Main Package 
+1. npm forever
+2. npm mssql
+3. npm EJS  
 
 ## DataBase
 1. MSSQL
