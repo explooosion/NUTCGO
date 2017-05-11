@@ -1,4 +1,4 @@
-# 2017 NUTC 專題展 - 校園導覽系統
+# 2017 NUTC 專題展 - 台中科大校園導覽系統
 this is a special exhibition of NUTC in 2017 .
 
 [Demo-NUTCGO](http://robby570.tw) ~2017/05/20
