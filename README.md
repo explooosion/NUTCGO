@@ -9,7 +9,7 @@ this is a special exhibition of NUTC in 2017 .
 ## Front-end
 1. JavaScript
 2. JQuery
-3. SASS
+3. SCSS
 4. Bootstrap
 5. Google Map API
 
