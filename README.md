@@ -4,6 +4,7 @@ this is a special exhibition of NUTC in 2017 .
 [Demo-NUTCGO](http://robby570.tw) ~2017/05/20  
 
 ![NUTCGO-HOME](http://i.imgur.com/h19knbR.jpg)
+![NUTCGO-MAP](http://i.imgur.com/FE9XKOn.jpg)  
 
 ## PowerPoint
 [GoogleDrive](https://drive.google.com/open?id=0B1mT0V_C4ZXIVXEyUkhPQVB6aVE)  
