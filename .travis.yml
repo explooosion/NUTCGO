@@ -8,6 +8,7 @@ notifications:
         on_success: always
         on_failure: always
 install:
+    - cd NUTCGO
     - npm install
     - npm install -g gulp
     - gulp ex-all
