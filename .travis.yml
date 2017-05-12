@@ -7,3 +7,9 @@ notifications:
             - ta7382@gmail.com
         on_success: always
         on_failure: always
+install:
+    - npm install
+    - npm install -g gulp
+    - gulp ex-all
+script:
+    - npm start
