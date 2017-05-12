@@ -3,6 +3,7 @@ this is a special exhibition of NUTC in 2017 .
 
 [Demo-NUTCGO](http://robby570.tw) ~2017/05/20  
 
+![LOGO](http://i.imgur.com/xMDImna.png)
 ![NUTCGO-HOME](http://i.imgur.com/h19knbR.jpg)
 ![NUTCGO-MAP](http://i.imgur.com/FE9XKOn.jpg)  
 
