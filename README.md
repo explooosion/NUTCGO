@@ -28,7 +28,7 @@ this is a special exhibition of NUTC in 2017 .
 2. Node.js Express
 3. Node.js RESTful Web API  
 
-## Main Package 
+## Package 
 1. npm forever
 2. npm mssql
 3. npm EJS  
