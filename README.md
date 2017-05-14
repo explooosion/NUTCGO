@@ -72,3 +72,6 @@ npm start
 + Restore from NUTCGO_db.bak to MSSQL
 + Remember to change db/config.json
 + Some src、href need to be change
+
+## LICENSE
+MIT  
