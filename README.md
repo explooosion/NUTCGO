@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/explooosion/NUTCGO.svg?branch=master)](https://travis-ci.org/explooosion/NUTCGO)
 [![dependencies Status](https://david-dm.org/explooosion/NUTCGO.svg)](https://david-dm.org/)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/explooosion/NUTCGO/blob/master/LICENSE)
   
 # 2017 NUTC 專題展 - 台中科大校園導覽系統
 this is a special exhibition of NUTC in 2017 .  
