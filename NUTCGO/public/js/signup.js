@@ -25,7 +25,7 @@ function signup() {
         var email = $('#txtEmail').val();
 
         $.ajax({
-            url: 'http://robby570.tw/api/useradd/',
+            url: 'http://' + Server + '/api/useradd/',
             type: 'POST',
             data: {
                 'UserID': userid,

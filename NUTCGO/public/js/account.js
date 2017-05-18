@@ -37,7 +37,7 @@ function accountUpdate() {
         var email = $('#txtEmail').val();
 
         $.ajax({
-            url: 'http://robby570.tw/api/userupdate/',
+            url: 'http://' + Server + '/api/userupdate/',
             type: 'POST',
             data: {
                 'UserID': userid,

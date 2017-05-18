@@ -6,7 +6,7 @@ var router = express.Router();
 var sql = require('mssql');
 
 var config = require('../db/config.json');
-var storage = require('../db/modal/storage');
+var storage = require('../db/storage');
 
 // 使用者-登入(回傳基本資料)
 router.post('/login', function (req, res) {

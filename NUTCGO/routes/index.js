@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var storage = require('../db/modal/storage');
+var storage = require('../db/storage');
 
 var obj = {
   Email: "handsome@gmail.com",

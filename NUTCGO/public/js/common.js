@@ -1,5 +1,10 @@
 var LoginData;
 
+//var Server = 'Robby570.tw';
+
+// debug mode
+var Server = 'localhost';
+
 $(window).ready(function () {
     // Check Login
     CheckLogin();
@@ -92,7 +97,7 @@ function LoginIn() {
     }
 
     $.ajax({
-        url: 'http://robby570.tw/api/login/',
+        url: 'http://' + Server + '/api/login/',
         type: 'POST',
         data: {
             'userid': userid,
@@ -127,8 +132,7 @@ function CheckLogin() {
 
     LoginData = JSON.parse(GetCookie('account'));
     console.log('cookie:', LoginData);
-    if (!LoginData) {
-    } else {
+    if (!LoginData) {} else {
         // alreay login
         $('#spusername').html(LoginData["UserName"]);
         $('#spemail').html(LoginData["Email"]);
@@ -150,10 +154,16 @@ function alertWindow(isopen, msg) {
         }, 3000);
 
         $('#alertWindow span').text(msg);
-        _alert.animate({ 'top': 0, 'opacity': 1 });
+        _alert.animate({
+            'top': 0,
+            'opacity': 1
+        });
 
     } else {
-        _alert.animate({ 'top': '-40px', 'opacity': 0 });
+        _alert.animate({
+            'top': '-40px',
+            'opacity': 0
+        });
     }
 }
 
